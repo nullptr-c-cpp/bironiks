@@ -123,7 +123,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onFocus={() => setIsSearchFocused(true)}
                 onBlur={() => setTimeout(() => setIsSearchFocused(false), 200)}
-                placeholder="Поиск по каталогу (XPS, фольга, трубки, джут, пена)..."
+                placeholder="Поиск по каталогу (фольга, трубки, джут, пена)..."
                 className="w-full bg-[#131924] border border-[#2d3b50] rounded-lg pl-9 pr-4 py-2 text-xs sm:text-sm text-slate-100 placeholder-slate-400 focus:outline-none focus:border-amber-500 transition-colors"
               />
               <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
@@ -264,7 +264,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
 
           <div className="pt-3 border-t border-slate-800 space-y-2 text-xs">
             <div className="flex items-center justify-between text-slate-400">
-              <span>Телефон склада и заказов:</span>
+              <span>Телефон склад / офис:</span>
               <a href={`tel:${company.mainPhone.replace(/[^+\d]/g, '')}`} className="font-bold text-orange-400">
                 {company.mainPhone}
               </a>

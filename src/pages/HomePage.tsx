@@ -41,7 +41,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             <div className="lg:col-span-7 space-y-4">
               <div className="inline-flex items-center gap-2 bg-[#1b2433] border border-[#2b394e] rounded-md px-3 py-1 text-xs font-medium text-amber-400">
                 <MapPin className="w-3.5 h-3.5" />
-                <span>Склад в Омске • Самовывоз</span>
+                <span>Склад в Омске</span>
               </div>
 
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-100 leading-tight">
@@ -49,7 +49,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               </h1>
 
               <p className="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
-                Торговая фирма <strong>ООО «БИРОНИКС»</strong>: экструдированный пенополистирол XPS, трубная теплоизоляция, фольга для бань и саун, монтажная пена MARCON, межвенцовый джут. Все позиции в наличии на складе в Омске.
+                Торговая фирма <strong>ООО «БИРОНИКС»</strong>: Тепло- и звукоизоляция из вспененного полиэтилена, экструдированный пенополистирол, трубная теплоизоляция, фольга для бань и саун, монтажная пена MARCON, межвенцовый джут. Все позиции в наличии на складе в Омске.
               </p>
 
               {/* Action Buttons */}
@@ -104,7 +104,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               <div className="bg-[#18202d] border border-[#273449] rounded-xl p-5 space-y-3">
                 <div className="border-b border-[#243044] pb-2">
                   <h3 className="font-semibold text-slate-100 text-sm">Информация для покупателей</h3>
-                  <p className="text-xs text-slate-400">Отгрузка со склада в Омске (самовывоз)</p>
+                  <p className="text-xs text-slate-400">Отгрузка со склада в Омске</p>
                 </div>
 
                 <div className="space-y-2.5 text-xs text-slate-300">
@@ -127,7 +127,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <div className="flex items-start gap-2">
                     <Phone className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-medium text-slate-200">Телефон склада: </span>
+                      <span className="font-medium text-slate-200">Телефон: </span>
                       <a href={`tel:${company.mainPhone.replace(/[^+\d]/g, '')}`} className="text-amber-400 hover:underline">
                         {company.mainPhone}
                       </a>
@@ -136,7 +136,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 </div>
 
                 <div className="pt-3 border-t border-[#243044] flex items-center justify-between text-xs">
-                  <span className="text-slate-400">Нал, безнал (банк), QR-код</span>
+                  <span className="text-slate-400">Наличный расчет, безналичный через банк, оплата по QR-коду.</span>
                   <button
                     type="button"
                     onClick={() => onNavigate('/contacts')}
