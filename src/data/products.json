@@ -205,7 +205,7 @@
   {
     "id": "globex-pipe-insulation",
     "slug": "globex-pipe-insulation",
-    "title": "Трубная изоляция «Глобэкс» (оболочки от 15/9 до 160/20)",
+    "title": "Трубная изоляция «Глобэкс» от 15/9 до 114/9",
     "category": "thermal-sound",
     "categoryName": "Теплозвукоизоляция",
     "specClassId": "pipe_insulation",
@@ -422,7 +422,54 @@
           "note": "Отрезок 2 м"
         },
         "stockStatus": "in_stock"
-      },
+      }
+    ],
+    "applications": [
+      "Сантехника и водоснабжение",
+      "Отопление",
+      "Трассы кондиционирования",
+      "Канализация"
+    ]
+  },
+  {
+    "id": "globex-pipe-insulation",
+    "slug": "globex-pipe-insulation",
+    "title": "Трубная изоляция «Глобэкс» от 18/13 до 114/13",
+    "category": "thermal-sound",
+    "categoryName": "Теплозвукоизоляция",
+    "specClassId": "pipe_insulation",
+    "collections": [
+      "pipe-networks"
+    ],
+    "brand": "Глобэкс",
+    "rating": 4.9,
+    "reviewsCount": 29,
+    "images": [
+      "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80"
+    ],
+    "shortDesc": "Трубные оболочки серого цвета из вспененного полиэтилена (длина отрезка 2 пог. м). Диаметры от 15 мм до 160 мм, толщина стенки 9, 13, 20 мм.",
+    "fullDescriptionHtml": "<p>Трубные оболочки <strong>«Глобэкс»</strong> эффективно защищают трубы от конденсата, коррозии и промерзания в системах водоснабжения и отопления.</p><ul><li>Диапазон рабочих температур: от -60 до +90 °C.</li><li>Коэффициент теплопроводности: 0.038 Вт/(м·°C).</li><li>Фактор сопротивления диффузии пара: ≥ 3000 µ.</li><li>100% вторично перерабатываемый пищевой полиэтилен.</li></ul>",
+    "features": [
+      "Предотвращают образование конденсата и коррозию",
+      "Снижают структурный шум",
+      "Высокая гибкость и простота монтажа",
+      "Срок службы 20–25 лет"
+    ],
+    "specs": {
+      "innerDiameter": 22,
+      "wallThickness": 9,
+      "lengthPerPiece": 2,
+      "tempRange": "-60 ... +90 °C",
+      "color": "Серый (стандарт)"
+    },
+    "calcConfig": {
+      "type": "length",
+      "coveragePerUnit": 2,
+      "unitName": "пог. м",
+      "description": "Каждая трубка имеет длину 2 погонных метра"
+    },
+    "variants": [
       {
         "sku": "ГЛОБ-22-13",
         "name": "22/13 (2 пог.м)",
@@ -513,7 +560,54 @@
           "note": "Отрезок 2 м"
         },
         "stockStatus": "in_stock"
-      },
+      }
+    ],
+    "applications": [
+      "Сантехника и водоснабжение",
+      "Отопление",
+      "Трассы кондиционирования",
+      "Канализация"
+    ]
+  },
+  {
+    "id": "globex-pipe-insulation",
+    "slug": "globex-pipe-insulation",
+    "title": "Трубная изоляция «Глобэкс» от 15/20 до 160/20",
+    "category": "thermal-sound",
+    "categoryName": "Теплозвукоизоляция",
+    "specClassId": "pipe_insulation",
+    "collections": [
+      "pipe-networks"
+    ],
+    "brand": "Глобэкс",
+    "rating": 4.9,
+    "reviewsCount": 29,
+    "images": [
+      "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80"
+    ],
+    "shortDesc": "Трубные оболочки серого цвета из вспененного полиэтилена (длина отрезка 2 пог. м). Диаметры от 15 мм до 160 мм, толщина стенки 9, 13, 20 мм.",
+    "fullDescriptionHtml": "<p>Трубные оболочки <strong>«Глобэкс»</strong> эффективно защищают трубы от конденсата, коррозии и промерзания в системах водоснабжения и отопления.</p><ul><li>Диапазон рабочих температур: от -60 до +90 °C.</li><li>Коэффициент теплопроводности: 0.038 Вт/(м·°C).</li><li>Фактор сопротивления диффузии пара: ≥ 3000 µ.</li><li>100% вторично перерабатываемый пищевой полиэтилен.</li></ul>",
+    "features": [
+      "Предотвращают образование конденсата и коррозию",
+      "Снижают структурный шум",
+      "Высокая гибкость и простота монтажа",
+      "Срок службы 20–25 лет"
+    ],
+    "specs": {
+      "innerDiameter": 22,
+      "wallThickness": 9,
+      "lengthPerPiece": 2,
+      "tempRange": "-60 ... +90 °C",
+      "color": "Серый (стандарт)"
+    },
+    "calcConfig": {
+      "type": "length",
+      "coveragePerUnit": 2,
+      "unitName": "пог. м",
+      "description": "Каждая трубка имеет длину 2 погонных метра"
+    },
+    "variants": [
       {
         "sku": "ГЛОБ-22-20",
         "name": "22/20 (2 пог.м)",
