@@ -100,7 +100,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
             className="flex items-center gap-3 cursor-pointer group select-none flex-shrink-0"
           >
             <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center shadow-sm">
-              <img src="/image/logo.jpg" alt="БИРОНИКС" className="w-full h-full object-contain" />
+              <img src="/bironiks/image/logo.jpg" alt="БИРОНИКС" className="w-full h-full object-contain" />
             </div>
             <div>
               <div className="flex items-center gap-1.5">
