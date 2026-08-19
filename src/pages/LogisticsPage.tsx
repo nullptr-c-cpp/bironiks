@@ -29,7 +29,7 @@ export const LogisticsPage: React.FC<LogisticsPageProps> = ({ onNavigate }) => {
             Склад и правила самовывоза
           </h1>
           <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
-            Отгрузка всех строительных и изоляционных материалов осуществляется <strong>исключительно путем самовывоза</strong> с нашего склада в Омске.
+            Офис и склад находятся в одном месте в Омске — вам не придется ездить по разным точкам для оформления и получения материалов.
           </p>
         </div>
 
@@ -71,9 +71,11 @@ export const LogisticsPage: React.FC<LogisticsPageProps> = ({ onNavigate }) => {
           <div className="w-9 h-9 rounded-lg bg-[#122234] text-sky-400 flex items-center justify-center">
             <Box className="w-5 h-5" />
           </div>
-          <h3 className="text-sm font-semibold text-slate-100">Погрузка материалов</h3>
+          <h3 className="text-sm font-semibold text-slate-100">Погрузка и отгрузка</h3>
           <p className="text-xs text-slate-300 leading-relaxed">
-            Ручная погрузка розничных заказов и механизированная погрузка паллет вилочным погрузчиком.
+            Помощь с загрузкой: Наш персонал всегда бесплатно помогает загрузить товар в ваш автомобиль при самовывозе со склада.
+
+            Ручная отгрузка: Все заказы (как розничные, так и оптовые) аккуратно погружаются вручную нашими сотрудниками.
           </p>
         </div>
       </div>
@@ -85,23 +87,23 @@ export const LogisticsPage: React.FC<LogisticsPageProps> = ({ onNavigate }) => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
           <div className="p-4 bg-[#121824] rounded-lg border border-[#243044] space-y-1.5">
-            <div className="text-amber-400 font-semibold text-sm">Шаг 1. Оформление</div>
+            <div className="text-amber-400 font-semibold text-sm">Шаг 1. Согласование заказа</div>
             <p className="text-slate-300">
-              Сформируйте заказ на сайте или свяжитесь с сотрудником по телефону <strong className="text-white">{company.mainPhone}</strong> для согласования нужного количества.
+              Свяжитесь с менеджером по телефону <strong className="text-white">{company.mainPhone}</strong> или оставьте заявку, чтобы уточнить наличие, рассчитать стоимость и забронировать нужное количество товара.
             </p>
           </div>
 
           <div className="p-4 bg-[#121824] rounded-lg border border-[#243044] space-y-1.5">
-            <div className="text-amber-400 font-semibold text-sm">Шаг 2. Подтверждение</div>
+            <div className="text-amber-400 font-semibold text-sm">Шаг 2. Оплата</div>
             <p className="text-slate-300">
-              Сотрудник подтверждает бронь товара на складе и ориентировочное время вашего приезда.
+              Выберите удобный способ: безналичный расчет по счету (для юридических лиц) или оплата наличными/QR-код в офисе (для физических лиц).
             </p>
           </div>
 
           <div className="p-4 bg-[#121824] rounded-lg border border-[#243044] space-y-1.5">
             <div className="text-amber-400 font-semibold text-sm">Шаг 3. Получение</div>
             <p className="text-slate-300">
-              Приезжаете на склад ({company.warehouseAddress}), производите оплату (или забираете по оплаченному счету) и загружаете материал.
+              Заберите заказ самовывозом со склада ({company.warehouseAddress})сразу после оплаты или по факту предоставления платежного поручения. Также доступна доставка до вашего объекта.
             </p>
           </div>
         </div>
