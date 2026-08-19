@@ -36,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <Truck className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-semibold text-slate-100 text-xs">Склад в Омске (самовывоз)</h4>
+                <h4 className="font-semibold text-slate-100 text-xs">Склад в Омске</h4>
                 <p className="text-[11px] text-slate-400 mt-0.5">
                   ул. 20 лет РККА, д. 183Б, офис 3. Быстрая комплектация и отгрузка.
                 </p>
@@ -60,7 +60,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <Building2 className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-semibold text-slate-100 text-xs">ООО «БИРОНИКС» (ИНН 5504217210)</h4>
+                <h4 className="font-semibold text-slate-100 text-xs">ООО «БИРОНИКС»</h4>
                 <p className="text-[11px] text-slate-400 mt-0.5">
                   Прямые поставки изоляционных материалов со склада в Омске.
                 </p>
@@ -206,7 +206,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Bottom Legal & Copyright Bar */}
         <div className="mt-8 pt-4 border-t border-[#212b3b] flex flex-col md:flex-row items-center justify-between gap-2 text-[11px] text-slate-500">
           <div>
-            © {new Date().getFullYear()} {company.requisites.legalName}. Только самовывоз со склада.
+            © {new Date().getFullYear()} {company.requisites.legalName}.
           </div>
           <div className="flex items-center gap-3">
             <span>ИНН {company.requisites.inn}</span>

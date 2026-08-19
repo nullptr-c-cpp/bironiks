@@ -60,7 +60,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <div className="flex items-center gap-1.5 text-slate-300">
               <MapPin className="w-3.5 h-3.5 text-amber-400" />
-              <span className="truncate max-w-xs sm:max-w-none">г. Омск, ул. 20 лет РККА, д. 183Б, оф. 3 (склад / самовывоз)</span>
+              <span className="truncate max-w-xs sm:max-w-none">г. Омск, ул. 20 лет РККА, д. 183Б, оф. 3 (склад / офис)</span>
             </div>
             <div className="hidden md:flex items-center gap-1.5 text-slate-400">
               <span>Пн-Пт: 09:00 – 17:00, Сб: 10:00 – 14:00</span>
@@ -99,8 +99,8 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
             onClick={() => onNavigate('/')} 
             className="flex items-center gap-3 cursor-pointer group select-none flex-shrink-0"
           >
-            <div className="w-10 h-10 rounded-lg bg-amber-600 flex items-center justify-center shadow-sm">
-              <Building2 className="w-5 h-5 text-white" />
+            <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center shadow-sm">
+              <img src="/public/logo.jpg" alt="БИРОНИКС" className="w-full h-full object-contain" />
             </div>
             <div>
               <div className="flex items-center gap-1.5">
@@ -170,7 +170,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
                 {company.mainPhone}
               </a>
               <span className="text-[11px] text-slate-400">
-                Склад и отдел продаж
+                Отдел продаж
               </span>
             </div>
           </div>
