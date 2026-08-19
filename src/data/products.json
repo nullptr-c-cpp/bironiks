@@ -14,8 +14,10 @@
     "rating": 4.9,
     "reviewsCount": 38,
     "images": [
-      "https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80"
+      "bironics/image/izoplecs/izoplex-0.jpg",
+      "bironics/image/izoplecs/izoplex-1.jpg",
+      "bironics/image/izoplecs/izoplex-2.jpg",
+      "bironics/image/izoplecs/izoplex-3.jpg"
     ],
     "shortDesc": "Плиты XPS бирюзового/салатового цвета 1200×600 мм с закрыто-пористой структурой. Нулевое водопоглощение, прочность на сжатие до 350 кПа.",
     "fullDescriptionHtml": "<p>Теплоизоляционный материал <strong>Изоплекс®</strong> производится путем смешивания гранул полистирола при повышенной температуре с последующим выдавливанием из экструдера и введение озонобезопасного вспенивающего агента.</p><p>Плиты имеют нулевую капиллярность, практически нулевое водопоглощение (менее 0.2 об.%) и высокую прочность на сжатие. Коэффициент теплопроводности 0.028-0.030 Вт/(м·°C).</p>",
@@ -216,8 +218,9 @@
     "rating": 4.9,
     "reviewsCount": 29,
     "images": [
-      "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80"
+      "bironics/image/trub/trub-0.jpg",
+      "bironics/image/trub/trub-1.jpg",
+      "bironics/image/trub/trub-2.jpg"
     ],
     "shortDesc": "Трубные оболочки серого цвета из вспененного полиэтилена (длина отрезка 2 пог. м). Диаметры от 15 мм до 160 мм, толщина стенки 9, 13, 20 мм.",
     "fullDescriptionHtml": "<p>Трубные оболочки <strong>«Глобэкс»</strong> эффективно защищают трубы от конденсата, коррозии и промерзания в системах водоснабжения и отопления.</p><ul><li>Диапазон рабочих температур: от -60 до +90 °C.</li><li>Коэффициент теплопроводности: 0.038 Вт/(м·°C).</li><li>Фактор сопротивления диффузии пара: ≥ 3000 µ.</li><li>100% вторично перерабатываемый пищевой полиэтилен.</li></ul>",
@@ -445,8 +448,9 @@
     "rating": 4.9,
     "reviewsCount": 29,
     "images": [
-      "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80"
+      "bironics/image/trub/trub-0.jpg",
+      "bironics/image/trub/trub-1.jpg",
+      "bironics/image/trub/trub-2.jpg"
     ],
     "shortDesc": "Трубные оболочки серого цвета из вспененного полиэтилена (длина отрезка 2 пог. м). Диаметры от 15 мм до 160 мм, толщина стенки 9, 13, 20 мм.",
     "fullDescriptionHtml": "<p>Трубные оболочки <strong>«Глобэкс»</strong> эффективно защищают трубы от конденсата, коррозии и промерзания в системах водоснабжения и отопления.</p><ul><li>Диапазон рабочих температур: от -60 до +90 °C.</li><li>Коэффициент теплопроводности: 0.038 Вт/(м·°C).</li><li>Фактор сопротивления диффузии пара: ≥ 3000 µ.</li><li>100% вторично перерабатываемый пищевой полиэтилен.</li></ul>",
@@ -583,8 +587,9 @@
     "rating": 4.9,
     "reviewsCount": 29,
     "images": [
-      "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80"
+      "bironics/image/trub/trub-0.jpg",
+      "bironics/image/trub/trub-1.jpg",
+      "bironics/image/trub/trub-2.jpg"
     ],
     "shortDesc": "Трубные оболочки серого цвета из вспененного полиэтилена (длина отрезка 2 пог. м). Диаметры от 15 мм до 160 мм, толщина стенки 9, 13, 20 мм.",
     "fullDescriptionHtml": "<p>Трубные оболочки <strong>«Глобэкс»</strong> эффективно защищают трубы от конденсата, коррозии и промерзания в системах водоснабжения и отопления.</p><ul><li>Диапазон рабочих температур: от -60 до +90 °C.</li><li>Коэффициент теплопроводности: 0.038 Вт/(м·°C).</li><li>Фактор сопротивления диффузии пара: ≥ 3000 µ.</li><li>100% вторично перерабатываемый пищевой полиэтилен.</li></ul>",
@@ -708,7 +713,9 @@
     "rating": 4.8,
     "reviewsCount": 16,
     "images": [
-      "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80"
+      "bironics/image/scor/scor-0.jpg",
+      "bironics/image/scor/scor-1.jpg",
+      "bironics/image/scor/scor-2.jpg"
     ],
     "shortDesc": "Трубная теплоизоляция из пенопласта ПСБ-25 для труб от -180°C до +80°C с замковым соединением «шип-паз».",
     "fullDescriptionHtml": "<p>Трубная теплоизоляция «скорлупа» изготавливается из 2-х или 3-х частей длинной 1 м с боковыми замковыми соединениями «шип-паз», которые исключают мостики холода.</p><p>Плотность: 15.5 кг/м³, коэффициент теплопроводности 0.0386 Вт/(м·°C).</p>",
@@ -818,7 +825,7 @@
     "rating": 4.9,
     "reviewsCount": 21,
     "images": [
-      "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80"
+      "bironics/image/hor/hor-0.jpg"
     ],
     "shortDesc": "Огнеупорный асбокартон на основе хризотил-асбеста. Выдерживает температуры до +500°C и прямое пламя.",
     "fullDescriptionHtml": "<p>Асбокартон КАОН-1 — огнеупорный термоизолятор, выдерживающий постоянную температуру до +500 °C. Широко применяется при устройстве печей, каминов, систем дымоходов и огнезащите котельных частных домов.</p>",
@@ -890,7 +897,7 @@
   {
     "id": "jute-inter-crown",
     "slug": "jute-inter-crown",
-    "title": "Джут межвенцовый утеплитель 100% натуральный (20 пог. м)",
+    "title": "Джут межвенцовый утеплитель (20 пог. м)",
     "category": "thermal-sound",
     "categoryName": "Теплозвукоизоляция",
     "specClassId": "jute_felt",
@@ -901,14 +908,15 @@
     "rating": 5.0,
     "reviewsCount": 44,
     "images": [
-      "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1000&q=80"
+      "bironics/image/gut/gut-0.jpg",
+      "bironics/image/gut/gut-1.jpg",
+      "bironics/image/gut/gut-2.jpg"
     ],
-    "shortDesc": "100% первичный натуральный джут без примесей. Срок службы до 80 лет. Защищает брус и бревно от гниения и продувания.",
+    "shortDesc": "натуральный джут. Срок службы до 80 лет. Защищает брус и бревно от гниения и продувания.",
     "fullDescriptionHtml": "<p>Межвенцовый утеплитель из 100% натурального джута («Золотое волокно») — оптимальный выбор для тепло- и звукоизоляции деревянных зданий из бруса и оцилиндрованного бревна.</p><p>Дышащий материал с высоким содержанием лигнина препятствует образованию конденсата и гниению древесины. Срок службы около 80 лет.</p>",
     "features": [
-      "100% первичный джут без синтетики и запаха",
       "Срок службы около 80 лет",
-      "Высокая упругость и равномерная плотность",
+      "Равномерная плотность",
       "Длина рулона 20 погонных метров"
     ],
     "specs": {
@@ -1124,7 +1132,7 @@
     "rating": 4.9,
     "reviewsCount": 52,
     "images": [
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80"
+      ""
     ],
     "shortDesc": "Профессиональная полиуретановая монтажная пена с повышенным выходом от 50 до 90 литров. Температура применения от -10°C до +35°C.",
     "fullDescriptionHtml": "<p>Монтажная пена <strong>UNIKA DIY</strong> обладает высокой адгезией к строительным материалам, низким вторичным расширением и быстрым временем образования пленки (5–7 минут).</p><ul><li>Температура применения от -10°C до +35°C</li><li>Время до подрезки 40–50 минут</li><li>Отвердевший продукт можно окрашивать</li><li>Безвредна для озонового слоя</li></ul>",
@@ -1148,6 +1156,19 @@
     },
     "variants": [
       {
+        "sku": "UNIKA-PRO-65",
+        "name": "UNIKA DIY PRO 65 Всесезонная пистолетная",
+        "price": 400,
+        "mainUnit": "баллон",
+        "minOrder": {
+          "qty": 1,
+          "unit": "баллон",
+          "step": 1,
+          "note": "Под пистолет"
+        },
+        "stockStatus": "in_stock"
+      },
+      {
         "sku": "UNIKA-50",
         "name": "UNIKA DIY 50 Всесезонная бытовая",
         "price": 300,
@@ -1170,19 +1191,6 @@
           "unit": "баллон",
           "step": 1,
           "note": "Выход до 65 л"
-        },
-        "stockStatus": "in_stock"
-      },
-      {
-        "sku": "UNIKA-PRO-65",
-        "name": "UNIKA DIY PRO 65 Всесезонная пистолетная",
-        "price": 400,
-        "mainUnit": "баллон",
-        "minOrder": {
-          "qty": 1,
-          "unit": "баллон",
-          "step": 1,
-          "note": "Под пистолет"
         },
         "stockStatus": "in_stock"
       },
@@ -1233,9 +1241,9 @@
     ]
   },
   {
-    "id": "marcon-pro-foams",
-    "slug": "marcon-pro-foams",
-    "title": "Профессиональная монтажная пена MARCON PRO",
+    "id": "marcon-startup-foams",
+    "slug": "marcon-startup-foams",
+    "title": "Профессиональная монтажная пена MARCON STARTUP",
     "category": "foams-sealants",
     "categoryName": "Монтажные пены, клеи, герметики",
     "specClassId": "montage_foam",
@@ -1248,8 +1256,77 @@
     "images": [
       "https://images.unsplash.com/photo-1504307651554-6691fc9d0554?auto=format&fit=crop&w=1000&q=80"
     ],
-    "shortDesc": "Профессиональная линейка MARCON PRO 65+, 70+, STARTUP зимняя и всесезонная. Плотность 18-20 кг/м³, термостойкость от -55°C до +90°C.",
-    "fullDescriptionHtml": "<p>Пена <strong>MARCON PRO</strong> разработана для профессиональной установки окон и дверей специализированными монтажными бригадами в суровых климатических условиях Сибири.</p>",
+    "shortDesc": "Профессиональная линейка MARCON STARTUP 65+ (всесезонная и зимняя). Плотность 18-20 кг/м³, термостойкость от -55°C до +90°C.",
+    "fullDescriptionHtml": "<p>Пена <strong>MARCON STARTUP</strong> разработана для профессиональной установки окон и дверей специализированными монтажными бригадами в суровых климатических условиях Сибири.</p>",
+    "features": [
+      "Стабильная полимеризация при температурах до -20°C",
+      "Мелкоячеистая равномерная структура",
+      "Термостойкость от -55°C до +90°C",
+      "Срок хранения 18 месяцев"
+    ],
+    "specs": {
+      "yieldLiters": 65,
+      "seasonType": "Зимняя / Всесезонная",
+      "fireRating": "B2 (самозатухающая)",
+      "volumeMl": 850
+    },
+    "calcConfig": {
+      "type": "volume",
+      "coveragePerUnit": 1,
+      "unitName": "баллон",
+      "description": "Расход под пистолет для монтажных работ"
+    },
+    "variants": [
+      {
+        "sku": "MARCON-STARTUP-ALL",
+        "name": "MARCON PRO STARUP 65+ Всесезонная",
+        "price": 520,
+        "mainUnit": "баллон",
+        "minOrder": {
+          "qty": 1,
+          "unit": "баллон",
+          "step": 1,
+          "note": "Всесезонная"
+        },
+        "stockStatus": "in_stock"
+      },
+      {
+        "sku": "MARCON-STARTUP-WIN",
+        "name": "MARCON PRO STARUP 65+ Зимняя",
+        "price": 480,
+        "mainUnit": "баллон",
+        "minOrder": {
+          "qty": 1,
+          "unit": "баллон",
+          "step": 1,
+          "note": "До -20°C"
+        },
+        "stockStatus": "in_stock"
+      }
+    ],
+    "applications": [
+      "Установка светопрозрачных конструкций",
+      "Теплоизоляция дверных блоков"
+    ]
+  },
+  {
+    "id": "marcon-pro-65-w",
+    "slug": "marcon-pro-65-w",
+    "title": "Монтажная пена MARCON PRO 65+ Зимняя профессиональная",
+    "category": "foams-sealants",
+    "categoryName": "Монтажные пены, клеи, герметики",
+    "specClassId": "montage_foam",
+    "collections": [
+      "facade-roof"
+    ],
+    "brand": "MARCON",
+    "rating": 4.9,
+    "reviewsCount": 41,
+    "images": [
+      "https://images.unsplash.com/photo-1504307651554-6691fc9d0554?auto=format&fit=crop&w=1000&q=80"
+    ],
+    "shortDesc": "MARCON PRO 65+ Зимняя профессиональная. Плотность 18-20 кг/м³, термостойкость от -55°C до +90°C.",
+    "fullDescriptionHtml": "<p>Пена <strong>MARCON PRO 65+ Зимняя профессиональная</strong> разработана для профессиональной установки окон и дверей специализированными монтажными бригадами в суровых климатических условиях Сибири.</p>",
     "features": [
       "Стабильная полимеризация при температурах до -20°C",
       "Мелкоячеистая равномерная структура",
@@ -1281,33 +1358,50 @@
           "note": "Зимняя формула"
         },
         "stockStatus": "in_stock"
-      },
-      {
-        "sku": "MARCON-STARTUP-ALL",
-        "name": "MARCON PRO STARUP 65+ Всесезонная",
-        "price": 520,
-        "mainUnit": "баллон",
-        "minOrder": {
-          "qty": 1,
-          "unit": "баллон",
-          "step": 1,
-          "note": "Всесезонная"
-        },
-        "stockStatus": "in_stock"
-      },
-      {
-        "sku": "MARCON-STARTUP-WIN",
-        "name": "MARCON PRO STARUP 65+ Зимняя",
-        "price": 480,
-        "mainUnit": "баллон",
-        "minOrder": {
-          "qty": 1,
-          "unit": "баллон",
-          "step": 1,
-          "note": "До -20°C"
-        },
-        "stockStatus": "in_stock"
-      },
+      }
+    ],
+    "applications": [
+      "Установка светопрозрачных конструкций",
+      "Теплоизоляция дверных блоков"
+    ]
+  },
+  {
+    "id": "marcon-pro-700",
+    "slug": "marcon-pro-700",
+    "title": "Монтажная пена MARCON PRO+ Всесезонная 700 мл",
+    "category": "foams-sealants",
+    "categoryName": "Монтажные пены, клеи, герметики",
+    "specClassId": "montage_foam",
+    "collections": [
+      "facade-roof"
+    ],
+    "brand": "MARCON",
+    "rating": 4.9,
+    "reviewsCount": 41,
+    "images": [
+      "https://images.unsplash.com/photo-1504307651554-6691fc9d0554?auto=format&fit=crop&w=1000&q=80"
+    ],
+    "shortDesc": "MARCON PRO+ Всесезонная 700 мл. Плотность 18-20 кг/м³, термостойкость от -55°C до +90°C.",
+    "fullDescriptionHtml": "<p>Пена <strong>MARCON PRO+ Всесезонная 700 мл</strong> разработана для профессиональной установки окон и дверей специализированными монтажными бригадами в суровых климатических условиях Сибири.</p>",
+    "features": [
+      "Стабильная полимеризация при температурах до -20°C",
+      "Мелкоячеистая равномерная структура",
+      "Термостойкость от -55°C до +90°C",
+      "Срок хранения 18 месяцев"
+    ],
+    "specs": {
+      "yieldLiters": 50,
+      "seasonType": "Всесезонная",
+      "fireRating": "B2 (самозатухающая)",
+      "volumeMl": 700
+    },
+    "calcConfig": {
+      "type": "volume",
+      "coveragePerUnit": 1,
+      "unitName": "баллон",
+      "description": "Расход под пистолет для монтажных работ"
+    },
+    "variants": [
       {
         "sku": "MARCON-PRO-700",
         "name": "MARCON PRO+ Всесезонная 700 мл",
@@ -1320,7 +1414,50 @@
           "note": "700 мл"
         },
         "stockStatus": "in_stock"
-      },
+      }
+    ],
+    "applications": [
+      "Установка светопрозрачных конструкций",
+      "Теплоизоляция дверных блоков"
+    ]
+  },
+  {
+    "id": "marcon-pro-65-std",
+    "slug": "marcon-pro-65-std",
+    "title": "Монтажная пена MARCON PRO 65+ (выход 65 л+)",
+    "category": "foams-sealants",
+    "categoryName": "Монтажные пены, клеи, герметики",
+    "specClassId": "montage_foam",
+    "collections": [
+      "facade-roof"
+    ],
+    "brand": "MARCON",
+    "rating": 4.9,
+    "reviewsCount": 41,
+    "images": [
+      "https://images.unsplash.com/photo-1504307651554-6691fc9d0554?auto=format&fit=crop&w=1000&q=80"
+    ],
+    "shortDesc": "MARCON PRO 65+ (выход 65 л+). Плотность 18-20 кг/м³, термостойкость от -55°C до +90°C.",
+    "fullDescriptionHtml": "<p>Пена <strong>MARCON PRO 65+ (выход 65 л+)</strong> разработана для профессиональной установки окон и дверей специализированными монтажными бригадами в суровых климатических условиях Сибири.</p>",
+    "features": [
+      "Стабильная полимеризация при температурах до -20°C",
+      "Мелкоячеистая равномерная структура",
+      "Термостойкость от -55°C до +90°C",
+      "Срок хранения 18 месяцев"
+    ],
+    "specs": {
+      "yieldLiters": 65,
+      "seasonType": "Всесезонная",
+      "fireRating": "B2 (самозатухающая)",
+      "volumeMl": 850
+    },
+    "calcConfig": {
+      "type": "volume",
+      "coveragePerUnit": 1,
+      "unitName": "баллон",
+      "description": "Расход под пистолет для монтажных работ"
+    },
+    "variants": [
       {
         "sku": "MARCON-PRO-65-STD",
         "name": "MARCON PRO 65+ (выход 65 л+)",
@@ -1333,7 +1470,50 @@
           "note": "Выход 65+ л"
         },
         "stockStatus": "in_stock"
-      },
+      }
+    ],
+    "applications": [
+      "Установка светопрозрачных конструкций",
+      "Теплоизоляция дверных блоков"
+    ]
+  },
+  {
+    "id": "marcon-pro-70-std",
+    "slug": "marcon-pro-70-std",
+    "title": "Монтажная пена MARCON PRO 70+ (выход 70 л+)",
+    "category": "foams-sealants",
+    "categoryName": "Монтажные пены, клеи, герметики",
+    "specClassId": "montage_foam",
+    "collections": [
+      "facade-roof"
+    ],
+    "brand": "MARCON",
+    "rating": 4.9,
+    "reviewsCount": 41,
+    "images": [
+      "https://images.unsplash.com/photo-1504307651554-6691fc9d0554?auto=format&fit=crop&w=1000&q=80"
+    ],
+    "shortDesc": "MARCON PRO 70+ (выход 70 л+). Плотность 18-20 кг/м³, термостойкость от -55°C до +90°C.",
+    "fullDescriptionHtml": "<p>Пена <strong>MARCON PRO 70+ (выход 70 л+)</strong> разработана для профессиональной установки окон и дверей специализированными монтажными бригадами в суровых климатических условиях Сибири.</p>",
+    "features": [
+      "Стабильная полимеризация при температурах до -20°C",
+      "Мелкоячеистая равномерная структура",
+      "Термостойкость от -55°C до +90°C",
+      "Срок хранения 18 месяцев"
+    ],
+    "specs": {
+      "yieldLiters": 70,
+      "seasonType": "Всесезонная",
+      "fireRating": "B2 (самозатухающая)",
+      "volumeMl": 850
+    },
+    "calcConfig": {
+      "type": "volume",
+      "coveragePerUnit": 1,
+      "unitName": "баллон",
+      "description": "Расход под пистолет для монтажных работ"
+    },
+    "variants": [
       {
         "sku": "MARCON-PRO-70-STD",
         "name": "MARCON PRO 70+ (выход 70 л+)",
@@ -1424,9 +1604,9 @@
     ]
   },
   {
-    "id": "isopar-membranes",
-    "slug": "isopar-membranes",
-    "title": "Строительные гидро-, ветро- и пароизоляционные мембраны ИЗОПАР",
+    "id": "isopar-type-a-membranes",
+    "slug": "isopar-type-a-membranes",
+    "title": "Ветро-влагозащитные мембраны ИЗОПАР Тип A",
     "category": "construction-repair",
     "categoryName": "Ремонт и строительство",
     "specClassId": "roll_foil",
@@ -1437,10 +1617,10 @@
     "rating": 4.9,
     "reviewsCount": 67,
     "images": [
-      "https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=1000&q=80"
+      "bironics/image/izopar/izoparA.jpg"
     ],
-    "shortDesc": "Профессиональные строительные мембраны ИЗОПАР типов A (ветро-влагозащита), B (пароизоляция), C (гидро-паро), D (усиленная гидро-пароизоляция).",
-    "fullDescriptionHtml": "<p>Мембраны <strong>ИЗОПАР</strong> защищают утеплитель и конструкции от влаги, пара и выдувания тепла. Стойкость к ультрафиолету до 4 месяцев, рабочий диапазон от -55°C до +130°C.</p>",
+    "shortDesc": "Строительные ветро-влагозащитные мембраны ИЗОПАР Тип A (включая серии ЭКО и стандарт различного метража).",
+    "fullDescriptionHtml": "<p>Мембраны <strong>ИЗОПАР А</strong> предназначены для защиты утеплителя и внутренних элементов стен и кровли от ветра, атмосферной влаги и конденсата.</p>",
     "features": [
       "Защита утеплителя от выдувания и конденсата",
       "Увеличенный предел прочности на разрыв",
@@ -1486,96 +1666,6 @@
           "unit": "рулон",
           "step": 1,
           "note": "30 м² (13 ₽/м²)"
-        },
-        "stockStatus": "in_stock"
-      },
-      {
-        "sku": "ИЗОПАР-ЭКО-В-30",
-        "name": "ИЗОПАР ЭКО В (30 м²)",
-        "price": 350,
-        "mainUnit": "рулон",
-        "secondaryPrice": {
-          "price": 11.67,
-          "unit": "м²",
-          "label": "Цена за м²"
-        },
-        "additionalPrices": [
-          {
-            "price": 11.67,
-            "unit": "м²",
-            "label": "За 1 м²"
-          },
-          {
-            "price": 350,
-            "unit": "рулон (30м²)",
-            "label": "За 1 рулон"
-          }
-        ],
-        "minOrder": {
-          "qty": 1,
-          "unit": "рулон",
-          "step": 1,
-          "note": "30 м² (11.67 ₽/м²)"
-        },
-        "stockStatus": "in_stock"
-      },
-      {
-        "sku": "ИЗОПАР-ЭКО-С-30",
-        "name": "ИЗОПАР ЭКО С (30 м²)",
-        "price": 390,
-        "mainUnit": "рулон",
-        "secondaryPrice": {
-          "price": 13,
-          "unit": "м²",
-          "label": "Цена за м²"
-        },
-        "additionalPrices": [
-          {
-            "price": 13,
-            "unit": "м²",
-            "label": "За 1 м²"
-          },
-          {
-            "price": 390,
-            "unit": "рулон (30м²)",
-            "label": "За 1 рулон"
-          }
-        ],
-        "minOrder": {
-          "qty": 1,
-          "unit": "рулон",
-          "step": 1,
-          "note": "30 м² (13 ₽/м²)"
-        },
-        "stockStatus": "in_stock"
-      },
-      {
-        "sku": "ИЗОПАР-ЭКО-D-30",
-        "name": "ИЗОПАР ЭКО D (30 м²)",
-        "price": 700,
-        "mainUnit": "рулон",
-        "secondaryPrice": {
-          "price": 23.33,
-          "unit": "м²",
-          "label": "Цена за м²"
-        },
-        "additionalPrices": [
-          {
-            "price": 23.33,
-            "unit": "м²",
-            "label": "За 1 м²"
-          },
-          {
-            "price": 700,
-            "unit": "рулон (30м²)",
-            "label": "За 1 рулон"
-          }
-        ],
-        "minOrder": {
-          "qty": 1,
-          "unit": "рулон",
-          "step": 1,
-          "note": "30 м² (23.33 ₽/м²)"
         },
         "stockStatus": "in_stock"
       },
@@ -1668,6 +1758,80 @@
           "note": "80 м² (17.50 ₽/м²)"
         },
         "stockStatus": "in_stock"
+      }
+    ],
+    "applications": [
+      "Утепленная скатная кровля",
+      "Каркасные стены",
+      "Вентфасады",
+      "Межэтажные перекрытия"
+    ]
+  },
+  {
+    "id": "isopar-type-b-membranes",
+    "slug": "isopar-type-b-membranes",
+    "title": "Пароизоляционные мембраны ИЗОПАР Тип B",
+    "category": "construction-repair",
+    "categoryName": "Ремонт и строительство",
+    "specClassId": "roll_foil",
+    "collections": [
+      "facade-roof"
+    ],
+    "brand": "ИЗОПАР",
+    "rating": 4.9,
+    "reviewsCount": 67,
+    "images": [
+      "bironics/image/izopar/izoparB.jpg"
+    ],
+    "shortDesc": "Строительные пароизоляционные мембраны ИЗОПАР Тип B (включая серии ЭКО и стандарт различного метража).",
+    "fullDescriptionHtml": "<p>Мембраны <strong>ИЗОПАР В</strong> применяются в качестве пароизоляционного барьера для защиты утеплителя и строительных конструкций от насыщения парами воды изнутри помещения.</p>",
+    "features": [
+      "Защита утеплителя от выдувания и конденсата",
+      "Увеличенный предел прочности на разрыв",
+      "Водоупорность не менее 1000 мм вод. ст.",
+      "Ширина полотна 1.6 м"
+    ],
+    "specs": {
+      "thickness": 1,
+      "tempMax": 130,
+      "rollArea": 70
+    },
+    "calcConfig": {
+      "type": "area",
+      "coveragePerUnit": 70,
+      "unitName": "м²",
+      "description": "Рулоны фасуются по 30, 70 и 80 м²"
+    },
+    "variants": [
+      {
+        "sku": "ИЗОПАР-ЭКО-В-30",
+        "name": "ИЗОПАР ЭКО В (30 м²)",
+        "price": 350,
+        "mainUnit": "рулон",
+        "secondaryPrice": {
+          "price": 11.67,
+          "unit": "м²",
+          "label": "Цена за м²"
+        },
+        "additionalPrices": [
+          {
+            "price": 11.67,
+            "unit": "м²",
+            "label": "За 1 м²"
+          },
+          {
+            "price": 350,
+            "unit": "рулон (30м²)",
+            "label": "За 1 рулон"
+          }
+        ],
+        "minOrder": {
+          "qty": 1,
+          "unit": "рулон",
+          "step": 1,
+          "note": "30 м² (11.67 ₽/м²)"
+        },
+        "stockStatus": "in_stock"
       },
       {
         "sku": "ИЗОПАР-В-30",
@@ -1758,6 +1922,80 @@
           "note": "80 м² (13.75 ₽/м²)"
         },
         "stockStatus": "in_stock"
+      }
+    ],
+    "applications": [
+      "Утепленная скатная кровля",
+      "Каркасные стены",
+      "Вентфасады",
+      "Межэтажные перекрытия"
+    ]
+  },
+  {
+    "id": "isopar-type-c-membranes",
+    "slug": "isopar-type-c-membranes",
+    "title": "Гидро-пароизоляционные мембраны ИЗОПАР Тип C",
+    "category": "construction-repair",
+    "categoryName": "Ремонт и строительство",
+    "specClassId": "roll_foil",
+    "collections": [
+      "facade-roof"
+    ],
+    "brand": "ИЗОПАР",
+    "rating": 4.9,
+    "reviewsCount": 67,
+    "images": [
+      "https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=1000&q=80"
+    ],
+    "shortDesc": "Строительные двухслойные гидро-пароизоляционные мембраны ИЗОПАР Тип C (включая серии ЭКО и стандарт).",
+    "fullDescriptionHtml": "<p>Двухслойные мембраны <strong>ИЗОПАР С</strong> предназначены для защиты строительных конструкций от проникновения водяных паров, конденсата и капиллярной влаги.</p>",
+    "features": [
+      "Защита утеплителя от выдувания и конденсата",
+      "Увеличенный предел прочности на разрыв",
+      "Водоупорность не менее 1000 мм вод. ст.",
+      "Ширина полотна 1.6 м"
+    ],
+    "specs": {
+      "thickness": 1,
+      "tempMax": 130,
+      "rollArea": 70
+    },
+    "calcConfig": {
+      "type": "area",
+      "coveragePerUnit": 70,
+      "unitName": "м²",
+      "description": "Рулоны фасуются по 30, 70 и 80 м²"
+    },
+    "variants": [
+      {
+        "sku": "ИЗОПАР-ЭКО-С-30",
+        "name": "ИЗОПАР ЭКО С (30 м²)",
+        "price": 390,
+        "mainUnit": "рулон",
+        "secondaryPrice": {
+          "price": 13,
+          "unit": "м²",
+          "label": "Цена за м²"
+        },
+        "additionalPrices": [
+          {
+            "price": 13,
+            "unit": "м²",
+            "label": "За 1 м²"
+          },
+          {
+            "price": 390,
+            "unit": "рулон (30м²)",
+            "label": "За 1 рулон"
+          }
+        ],
+        "minOrder": {
+          "qty": 1,
+          "unit": "рулон",
+          "step": 1,
+          "note": "30 м² (13 ₽/м²)"
+        },
+        "stockStatus": "in_stock"
       },
       {
         "sku": "ИЗОПАР-С-30",
@@ -1786,6 +2024,80 @@
           "unit": "рулон",
           "step": 1,
           "note": "30 м² (16.00 ₽/м²)"
+        },
+        "stockStatus": "in_stock"
+      }
+    ],
+    "applications": [
+      "Утепленная скатная кровля",
+      "Каркасные стены",
+      "Вентфасады",
+      "Межэтажные перекрытия"
+    ]
+  },
+  {
+    "id": "isopar-type-d-membranes",
+    "slug": "isopar-type-d-membranes",
+    "title": "Усиленные гидро-пароизоляционные мембраны ИЗОПАР Тип D",
+    "category": "construction-repair",
+    "categoryName": "Ремонт и строительство",
+    "specClassId": "roll_foil",
+    "collections": [
+      "facade-roof"
+    ],
+    "brand": "ИЗОПАР",
+    "rating": 4.9,
+    "reviewsCount": 67,
+    "images": [
+      "https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=1000&q=80"
+    ],
+    "shortDesc": "Строительные высокопрочные гидро-пароизоляционные мембраны ИЗОПАР Тип D повышенной плотности.",
+    "fullDescriptionHtml": "<p>Усиленные мембраны <strong>ИЗОПАР D</strong> повышенной плотности обладают высокой прочностью и предназначены для удерживания значительных нагрузок (включая снеговую нагрузку на кровле).</p>",
+    "features": [
+      "Защита утеплителя от выдувания и конденсата",
+      "Увеличенный предел прочности на разрыв",
+      "Водоупорность не менее 1000 мм вод. ст.",
+      "Ширина полотна 1.6 м"
+    ],
+    "specs": {
+      "thickness": 1,
+      "tempMax": 130,
+      "rollArea": 70
+    },
+    "calcConfig": {
+      "type": "area",
+      "coveragePerUnit": 70,
+      "unitName": "м²",
+      "description": "Рулоны фасуются по 30, 70 и 80 м²"
+    },
+    "variants": [
+      {
+        "sku": "ИЗОПАР-ЭКО-D-30",
+        "name": "ИЗОПАР ЭКО D (30 м²)",
+        "price": 700,
+        "mainUnit": "рулон",
+        "secondaryPrice": {
+          "price": 23.33,
+          "unit": "м²",
+          "label": "Цена за м²"
+        },
+        "additionalPrices": [
+          {
+            "price": 23.33,
+            "unit": "м²",
+            "label": "За 1 м²"
+          },
+          {
+            "price": 700,
+            "unit": "рулон (30м²)",
+            "label": "За 1 рулон"
+          }
+        ],
+        "minOrder": {
+          "qty": 1,
+          "unit": "рулон",
+          "step": 1,
+          "note": "30 м² (23.33 ₽/м²)"
         },
         "stockStatus": "in_stock"
       },
@@ -1901,7 +2213,7 @@
     "rating": 5.0,
     "reviewsCount": 48,
     "images": [
-      "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80"
+      "bironics/image/globex/globex.jpg"
     ],
     "shortDesc": "Термостойкая отражающая изоляция с алюминиевой фольгой для парилок до +130°C. Сохраняет тепло в бане на 2-2.5 часа дольше.",
     "fullDescriptionHtml": "<p>Отражающая теплоизоляция марки <strong>НПП-К-ЛФ («GLOBEX ЭКСПЕРТ»)</strong> разработана для быстрого прогрева и сохранения тепла в банях и саунах. Полированная алюминиевая фольга отражает до 90% лучистого тепла обратно в парную.</p>",
@@ -1997,7 +2309,7 @@
     "rating": 4.9,
     "reviewsCount": 26,
     "images": [
-      "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80"
+      "bironics/image/globex/folga.jpg"
     ],
     "shortDesc": "Чистая алюминиевая фольга толщиной 40, 50, 80 мкр и фольга на крафт-бумаге. Температура применения до +650°C, отражение тепла до 97%.",
     "fullDescriptionHtml": "<p>Алюминиевая фольга для бань и саун создает эффект термоса, предотвращая быстрое охлаждение парилки. Не выделяет токсичных веществ при нагреве.</p>",
@@ -2095,7 +2407,7 @@
   {
     "id": "warm-floor-underlay",
     "slug": "warm-floor-underlay",
-    "title": "Подложка для системы «Теплый пол» с разметкой марки ППИ-ПЛ",
+    "title": "Подложка для системы «Теплый пол» с разметкой",
     "category": "thermal-sound",
     "categoryName": "Теплозвукоизоляция",
     "specClassId": "roll_foil",
@@ -2106,7 +2418,7 @@
     "rating": 4.9,
     "reviewsCount": 33,
     "images": [
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80"
+      "bironics/image/globex/rulfolga.jpeg"
     ],
     "shortDesc": "Отражающая подложка из вспененного полиэтилена с лавсановой металлизированной пленкой и сеткой разметки для монтажа труб и кабеля.",
     "fullDescriptionHtml": "<p>Подложка <strong>ППИ-ПЛ</strong> с печатью для изоляции систем «теплый пол». Ламинирована металлизированной лавсановой пленкой, стойкой к щелочной среде цементных стяжек.</p>",
@@ -2202,7 +2514,7 @@
     "rating": 4.8,
     "reviewsCount": 27,
     "images": [
-      "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80"
+      "bironics/image/globex/demf.jpg"
     ],
     "shortDesc": "Кромочная демпферная лента шириной 10 см из вспененного полиэтилена. Компенсирует температурные расширения стяжки и гасит ударный шум.",
     "fullDescriptionHtml": "<p>Демпферная лента применяется для изолирования стяжки от стен по всему периметру помещения. Устраняет передачу звуковых вибраций и предотвращает растрескивание стяжки.</p>",
@@ -2215,7 +2527,7 @@
     "specs": {
       "tapeWidth": 100,
       "tapeLength": 30,
-      "backingMaterial": "Тканево-полиэтиленовая (Duct Tape)",
+      "backingMaterial": "Тканево-полиэтиленовая",
       "tempMax": 90
     },
     "calcConfig": {
@@ -2368,9 +2680,9 @@
     ]
   },
   {
-    "id": "construction-tapes-all",
-    "slug": "construction-tapes-all",
-    "title": "Монтажные скотчи (алюминиевый, армированный TPL, малярный, металлизированный)",
+    "id": "construction-tape-aluminum",
+    "slug": "construction-tape-aluminum",
+    "title": "Скотч алюминиевый",
     "category": "construction-repair",
     "categoryName": "Ремонт и строительство",
     "specClassId": "tapes",
@@ -2382,15 +2694,14 @@
     "rating": 4.9,
     "reviewsCount": 45,
     "images": [
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80"
+      "bironics/image/globex/alum.jpg"
     ],
-    "shortDesc": "Профессиональные клейкие ленты для герметизации систем вентиляции, стыков пароизоляции, малярных работ и упаковки.",
-    "fullDescriptionHtml": "<p>Полный ассортимент клейких лент для строительства и монтажа: термостойкие алюминиевые скотчи, армированные стеклосеткой ленты TPL, металлизированные и бумажные малярные ленты.</p>",
+    "shortDesc": "Термостойкий алюминиевый скотч для герметизации стыков и швов в системах вентиляции, воздуховодов и изоляции бань и саун.",
+    "fullDescriptionHtml": "<p>Алюминиевая клейкая лента на основе чистой фольги с высокоадгезивным клеевым слоем. Обладает высокой термостойкостью, отражает тепло и надежно защищает от проникновения пара и влаги.</p>",
     "features": [
       "Каучуковый и акриловый клеевой слой с высокой адгезией",
       "Влагостойкость и стойкость к перепадам температур",
-      "Удаление малярной ленты без следов клея",
-      "Ширина 48 мм, 38 мм, 25 мм"
+      "Ширина 48 мм"
     ],
     "specs": {
       "tapeWidth": 48,
@@ -2443,7 +2754,50 @@
           "note": "10 м"
         },
         "stockStatus": "in_stock"
-      },
+      }
+    ],
+    "applications": [
+      "Вентиляция и кондиционирование",
+      "Изоляция бань и саун",
+      "Герметизация металлоконструкций"
+    ]
+  },
+  {
+    "id": "construction-tape-reinforced-tpl",
+    "slug": "construction-tape-reinforced-tpl",
+    "title": "Скотч армированный",
+    "category": "construction-repair",
+    "categoryName": "Ремонт и строительство",
+    "specClassId": "tapes",
+    "collections": [
+      "pipe-networks"
+    ],
+    "brand": "БИРОНИКС",
+    "rating": 4.9,
+    "reviewsCount": 45,
+    "images": [
+      "bironics/image/globex/arm.jpg"
+    ],
+    "shortDesc": "Высокопрочный армированный скотч TPL для гидроизоляции, сантехнических, ремонтных и упаковочных работ.",
+    "fullDescriptionHtml": "<p>Сантехнический армированный скотч TPL на полиэтиленовой основе, усиленный тканевым волокном. Обладает высокой прочностью на разрыв, 100% водонепроницаемостью и высокой адгезией к любым поверхностям.</p>",
+    "features": [
+      "Каучуковый и акриловый клеевой слой с высокой адгезией",
+      "Влагостойкость и стойкость к перепадам температур",
+      "Ширина 48 мм"
+    ],
+    "specs": {
+      "tapeWidth": 48,
+      "tapeLength": 50,
+      "backingMaterial": "Полиэтилен, армированный тканевым волокном",
+      "tempMax": 90
+    },
+    "calcConfig": {
+      "type": "length",
+      "coveragePerUnit": 50,
+      "unitName": "рулон",
+      "description": "Расход ленты по длине стыков и швов"
+    },
+    "variants": [
       {
         "sku": "СКОТЧ-АРМ-50",
         "name": "Скотч армированный TPL 48 мм × 50 м",
@@ -2482,7 +2836,50 @@
           "note": "10 м"
         },
         "stockStatus": "in_stock"
-      },
+      }
+    ],
+    "applications": [
+      "Сантехнические и гидроизоляционные работы",
+      "Ремонт труб и шлангов",
+      "Упаковка тяжелых грузов"
+    ]
+  },
+  {
+    "id": "construction-tape-metallized",
+    "slug": "construction-tape-metallized",
+    "title": "Скотч металлизированный БИРОНИКС",
+    "category": "construction-repair",
+    "categoryName": "Ремонт и строительство",
+    "specClassId": "tapes",
+    "collections": [
+      "sauna-bath"
+    ],
+    "brand": "БИРОНИКС",
+    "rating": 4.9,
+    "reviewsCount": 45,
+    "images": [
+      "bironics/image/globex/met.jpg"
+    ],
+    "shortDesc": "Металлизированная клейкая лента для проклейки стыков пароизоляции, изоляционных материалов и теплоотражающих экранов.",
+    "fullDescriptionHtml": "<p>Металлизированный скотч на полипропиленовой основе с напылением. Отличается износостойкостью, высокой прочностью на растяжение и стойкостью к влаге.</p>",
+    "features": [
+      "Каучуковый и акриловый клеевой слой с высокой адгезией",
+      "Влагостойкость и стойкость к перепадам температур",
+      "Ширина 48 мм"
+    ],
+    "specs": {
+      "tapeWidth": 48,
+      "tapeLength": 50,
+      "backingMaterial": "Металлизированный полипропилен (ПП)",
+      "tempMax": 90
+    },
+    "calcConfig": {
+      "type": "length",
+      "coveragePerUnit": 50,
+      "unitName": "рулон",
+      "description": "Расход ленты по длине стыков и швов"
+    },
+    "variants": [
       {
         "sku": "СКОТЧ-МЕТ-50",
         "name": "Скотч металлизированный 48 мм × 50 м",
@@ -2508,7 +2905,48 @@
           "note": "25 м"
         },
         "stockStatus": "in_stock"
-      },
+      }
+    ],
+    "applications": [
+      "Стыковка пароизоляции",
+      "Монтаж теплоизоляционных материалов",
+      "Упаковка и герметизация"
+    ]
+  },
+  {
+    "id": "construction-tape-masking",
+    "slug": "construction-tape-masking",
+    "title": "Скотч малярный БИРОНИКС",
+    "category": "construction-repair",
+    "categoryName": "Ремонт и строительство",
+    "specClassId": "tapes",
+    "collections": [],
+    "brand": "БИРОНИКС",
+    "rating": 4.9,
+    "reviewsCount": 45,
+    "images": [
+      "bironics/image/globex/mal.jpg"
+    ],
+    "shortDesc": "Бумажная малярная лента (крепп) для защиты поверхностей при покраске, штукатурных и отделочных работах.",
+    "fullDescriptionHtml": "<p>Бумажный малярный скотч обеспечивает четкие и ровные границы при окрашивании. Предотвращает затекание краски и легко удаляется, не оставляя следов клея на поверхности.</p>",
+    "features": [
+      "Каучуковый и акриловый клеевой слой с высокой адгезией",
+      "Удаление малярной ленты без следов клея",
+      "Ширина 48 мм, 38 мм, 25 мм"
+    ],
+    "specs": {
+      "tapeWidth": 48,
+      "tapeLength": 50,
+      "backingMaterial": "Крепированная бумага",
+      "tempMax": 60
+    },
+    "calcConfig": {
+      "type": "length",
+      "coveragePerUnit": 50,
+      "unitName": "рулон",
+      "description": "Расход ленты по длине стыков и швов"
+    },
+    "variants": [
       {
         "sku": "СКОТЧ-МАЛ-48-50",
         "name": "Скотч малярный 48 мм × 50 м",
@@ -2573,7 +3011,48 @@
           "note": "25 м"
         },
         "stockStatus": "in_stock"
-      },
+      }
+    ],
+    "applications": [
+      "Малярные работы",
+      "Защита поверхностей при ремонте",
+      "Маркировка и разметка"
+    ]
+  },
+  {
+    "id": "construction-tape-double-sided-pp",
+    "slug": "construction-tape-double-sided-pp",
+    "title": "Двусторонний скотч на ПП основе БИРОНИКС",
+    "category": "construction-repair",
+    "categoryName": "Ремонт и строительство",
+    "specClassId": "tapes",
+    "collections": [],
+    "brand": "БИРОНИКС",
+    "rating": 4.9,
+    "reviewsCount": 45,
+    "images": [
+      "bironics/image/globex/pp.jpg"
+    ],
+    "shortDesc": "Двусторонняя клейкая лента на полипропиленовой основе для монтажа напольных покрытий, пароизоляционных мембран и легких элементов.",
+    "fullDescriptionHtml": "<p>Двусторонний ПП скотч обеспечивает надежную фиксацию гладких поверхностей. Подходит для укладки линолеума, ковролина и герметичной нахлестной фиксации пароизоляционных пленок.</p>",
+    "features": [
+      "Каучуковый и акриловый клеевой слой с высокой адгезией",
+      "Влагостойкость и стойкость к перепадам температур",
+      "Ширина 48 мм"
+    ],
+    "specs": {
+      "tapeWidth": 48,
+      "tapeLength": 50,
+      "backingMaterial": "Полипропилен (ПП)",
+      "tempMax": 80
+    },
+    "calcConfig": {
+      "type": "length",
+      "coveragePerUnit": 50,
+      "unitName": "рулон",
+      "description": "Расход ленты по длине стыков и швов"
+    },
+    "variants": [
       {
         "sku": "СКОТЧ-ДВУХ-48-50",
         "name": "Двусторонний скотч на ПП основе 48 мм × 50 м",
@@ -2599,7 +3078,48 @@
           "note": "25 м"
         },
         "stockStatus": "in_stock"
-      },
+      }
+    ],
+    "applications": [
+      "Стыковка пароизоляции",
+      "Укладка линолеума и ковролина",
+      "Монтаж легких декоративных элементов"
+    ]
+  },
+  {
+    "id": "construction-tape-double-sided-foamed",
+    "slug": "construction-tape-double-sided-foamed",
+    "title": "Двусторонний скотч на вспененной основе БИРОНИКС",
+    "category": "construction-repair",
+    "categoryName": "Ремонт и строительство",
+    "specClassId": "tapes",
+    "collections": [],
+    "brand": "БИРОНИКС",
+    "rating": 4.9,
+    "reviewsCount": 45,
+    "images": [
+      "bironics/image/globex/fspen.jpg"
+    ],
+    "shortDesc": "Двусторонняя лента на вспененной основе для монтажа зеркал, молдингов, кабель-каналов и шероховатых поверхностей.",
+    "fullDescriptionHtml": "<p>Двусторонний вспененный скотч компенсирует неровности соединяемых поверхностей и обеспечивает высокую прочность фиксации при монтаже предметов интерьера, зеркал, крючков и пластиковых профилей.</p>",
+    "features": [
+      "Каучуковый и акриловый клеевой слой с высокой адгезией",
+      "Компенсация неровностей поверхности",
+      "Ширина 48 мм"
+    ],
+    "specs": {
+      "tapeWidth": 48,
+      "tapeLength": 10,
+      "backingMaterial": "Вспененный полиэтилен (ПЭ)",
+      "tempMax": 80
+    },
+    "calcConfig": {
+      "type": "length",
+      "coveragePerUnit": 10,
+      "unitName": "рулон",
+      "description": "Расход ленты по длине стыков и швов"
+    },
+    "variants": [
       {
         "sku": "СКОТЧ-ДВУХ-ВСП-48",
         "name": "Двусторонний на вспененной основе 48 мм × 10 м",
@@ -2615,9 +3135,9 @@
       }
     ],
     "applications": [
-      "Стыковка пароизоляции",
-      "Вентиляция и кондиционирование",
-      "Малярные работы"
+      "Монтаж зеркал и молдингов",
+      "Крепление кабель-каналов и планок",
+      "Монтаж на шероховатые и неровные поверхности"
     ]
   },
   {
@@ -2632,7 +3152,7 @@
     "rating": 4.8,
     "reviewsCount": 24,
     "images": [
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80"
+      "bironics/image/globex/str.jpg"
     ],
     "shortDesc": "Ручная упаковочная стретч-пленка шириной 500 мм. Варианты: первичка 17/20 мкр и вторичка по выгодным оптовым ценам.",
     "fullDescriptionHtml": "<p>Прочная стретч-пленка для паллетирования и защиты грузов при транспортировке и складском хранении.</p>",
@@ -2715,12 +3235,12 @@
     ]
   },
   {
-    "id": "work-gloves-safety",
-    "slug": "work-gloves-safety",
-    "title": "Перчатки рабочие защитные (ХБ с ПВХ, латексный облив, полушерсть, нейлон)",
+    "id": "work-gloves-latex-coated",
+    "slug": "work-gloves-latex-coated",
+    "title": "Перчатки рабочие с латексным обливом БИРОНИКС",
     "category": "consumables-safety",
     "categoryName": "Расходные материалы и перчатки",
-    "specClassId": "tapes",
+    "specClassId": "gloves",
     "collections": [],
     "brand": "БИРОНИКС",
     "rating": 4.9,
@@ -2728,19 +3248,17 @@
     "images": [
       "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80"
     ],
-    "shortDesc": "Защитные трикотажные рабочие перчатки для строительных, погрузочных и монтажных работ. Оптовые цены от 10 рублей за пару.",
-    "fullDescriptionHtml": "<p>Широкий выбор рабочих перчаток: с одинарным и двойным латексным обливом для скользких материалов, хлопчатобумажные перчатки 10 и 7.5 класса с точечным ПВХ напылением, нейлоновые и теплые полушерстяные перчатки.</p>",
+    "shortDesc": "Защитные трикотажные перчатки 13 класса с латексным покрытием для работы со скользкими, гладкими и влажными поверхностями.",
+    "fullDescriptionHtml": "<p>Перчатки с латексным обливом обеспечивают максимальное сцепление со скользкими предметами, защищают ладони от механических повреждений, влаги и загрязнений.</p>",
     "features": [
-      "Высокая плотность вязки 7.5 и 10 класс",
-      "Надежная защита от грязи, порезов и механических повреждений",
-      "Антискользящее ПВХ и латексное покрытие",
-      "Упаковки по 300 и 500 пар"
+      "Плотная бесшовная вязка 13 класса",
+      "Износостойкое одинарное и двойное латексное покрытие",
+      "Отличный захват скользких и влажных предметов"
     ],
     "specs": {
-      "tapeWidth": 100,
-      "tapeLength": 1,
-      "backingMaterial": "Тканево-полиэтиленовая (Duct Tape)",
-      "tempMax": 50
+      "knitClass": 13,
+      "baseMaterial": "Полиэстер / Хлопок",
+      "coating": "Латекс"
     },
     "calcConfig": {
       "type": "none",
@@ -2774,20 +3292,47 @@
           "note": "Одинарный латекс"
         },
         "stockStatus": "in_stock"
-      },
-      {
-        "sku": "ПЕРЧ-ПОЛУШЕРСТЬ",
-        "name": "Перчатки 7,5 класс (6 нитей) Полушерстяные",
-        "price": 30,
-        "mainUnit": "пара",
-        "minOrder": {
-          "qty": 10,
-          "unit": "пар",
-          "step": 10,
-          "note": "Утепленные"
-        },
-        "stockStatus": "in_stock"
-      },
+      }
+    ],
+    "applications": [
+      "Складские и погрузочные работы",
+      "Работа со стеклом и листовым металлом",
+      "Строительные работы"
+    ]
+  },
+  {
+    "id": "work-gloves-cotton-pvc",
+    "slug": "work-gloves-cotton-pvc",
+    "title": "Перчатки рабочие ХБ с ПВХ напылением БИРОНИКС",
+    "category": "consumables-safety",
+    "categoryName": "Расходные материалы и перчатки",
+    "specClassId": "gloves",
+    "collections": [],
+    "brand": "БИРОНИКС",
+    "rating": 4.9,
+    "reviewsCount": 58,
+    "images": [
+      "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80"
+    ],
+    "shortDesc": "Классические трикотажные хлопчатобумажные перчатки с точечным ПВХ покрытием для защиты рук при общестроительных и погрузочных работах.",
+    "fullDescriptionHtml": "<p>Хлопчатобумажные перчатки 7.5 и 10 класса вязки с антискользящим ПВХ напылением. Обеспечивают естественную вентиляцию кожи рук и надежный захват инструмента.</p>",
+    "features": [
+      "Высокая плотность вязки 7.5 и 10 класса",
+      "Точечное ПВХ напыление для защиты от скольжения",
+      "Дышащая хлопковая основа"
+    ],
+    "specs": {
+      "knitClass": "7.5 / 10",
+      "baseMaterial": "Хлопок с добавлением полиэстера",
+      "coating": "ПВХ точечное"
+    },
+    "calcConfig": {
+      "type": "none",
+      "coveragePerUnit": 1,
+      "unitName": "пара",
+      "description": "Поштучный и оптовый заказ парами"
+    },
+    "variants": [
       {
         "sku": "ПЕРЧ-7.5-ПВХ",
         "name": "Перчатки 7,5 класс (6 нитей) ПВХ 65 г",
@@ -2798,19 +3343,6 @@
           "unit": "пар",
           "step": 10,
           "note": "Плотные 6 нитей"
-        },
-        "stockStatus": "in_stock"
-      },
-      {
-        "sku": "ПЕРЧ-НЕЙЛОН",
-        "name": "Перчатки нейлоновые бесшовные",
-        "price": 15,
-        "mainUnit": "пара",
-        "minOrder": {
-          "qty": 10,
-          "unit": "пар",
-          "step": 10,
-          "note": "100% нейлон"
         },
         "stockStatus": "in_stock"
       },
@@ -2852,7 +3384,47 @@
           "note": "4 нити с ПВХ"
         },
         "stockStatus": "in_stock"
-      },
+      }
+    ],
+    "applications": [
+      "Общестроительные и монтажные работы",
+      "Склад и погрузка",
+      "Автосервис и сельское хозяйство"
+    ]
+  },
+  {
+    "id": "work-gloves-cotton-plain",
+    "slug": "work-gloves-cotton-plain",
+    "title": "Перчатки рабочие ХБ без ПВХ БИРОНИКС",
+    "category": "consumables-safety",
+    "categoryName": "Расходные материалы и перчатки",
+    "specClassId": "gloves",
+    "collections": [],
+    "brand": "БИРОНИКС",
+    "rating": 4.9,
+    "reviewsCount": 58,
+    "images": [
+      "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80"
+    ],
+    "shortDesc": "Базовые трикотажные хлопчатобумажные перчатки 10 класса без нанесения ПВХ для защиты от грязи, пыли и легких механических воздействий.",
+    "fullDescriptionHtml": "<p>Легкие и дышащие ХБ перчатки без ПВХ напыления. Идеально подходят для вспомогательных, сборочных и сельскохозяйственных работ, где не требуется антискользящий протектор.</p>",
+    "features": [
+      "Плотность вязки 10 класс (4 нити)",
+      "100% воздухопроницаемость",
+      "Защита от грязи и мелких ссадин"
+    ],
+    "specs": {
+      "knitClass": 10,
+      "baseMaterial": "Хлопок",
+      "coating": "Отсутствует"
+    },
+    "calcConfig": {
+      "type": "none",
+      "coveragePerUnit": 1,
+      "unitName": "пара",
+      "description": "Поштучный и оптовый заказ парами"
+    },
+    "variants": [
       {
         "sku": "ПЕРЧ-10-4Н-БЕЗ",
         "name": "Перчатки 10 класс (4 нити) ХБ графит без ПВХ",
@@ -2868,9 +3440,115 @@
       }
     ],
     "applications": [
-      "Строительно-монтажные работы",
-      "Склад и погрузка",
-      "Точные работы"
+      "Сборочные и сортировочные работы",
+      "Садовые и хозяйственные работы",
+      "Защита рук под основные перчатки"
+    ]
+  },
+  {
+    "id": "work-gloves-nylon",
+    "slug": "work-gloves-nylon",
+    "title": "Перчатки рабочие нейлоновые бесшовные БИРОНИКС",
+    "category": "consumables-safety",
+    "categoryName": "Расходные материалы и перчатки",
+    "specClassId": "gloves",
+    "collections": [],
+    "brand": "БИРОНИКС",
+    "rating": 4.9,
+    "reviewsCount": 58,
+    "images": [
+      "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80"
+    ],
+    "shortDesc": "Тонкие и высокочувствительные нейлоновые перчатки для точных монтажных, радиоэлектронных и сборочных операций.",
+    "fullDescriptionHtml": "<p>Бесшовные перчатки из 100% нейлона обеспечивают максимальную чувствительность пальцев, не оставляют ворса и плотно облегают кисть.</p>",
+    "features": [
+      "100% нейлоновая бесшовная нить",
+      "Высокая чувствительность пальцев",
+      "Безворсовая структура"
+    ],
+    "specs": {
+      "knitClass": 13,
+      "baseMaterial": "Нейлон 100%",
+      "coating": "Отсутствует"
+    },
+    "calcConfig": {
+      "type": "none",
+      "coveragePerUnit": 1,
+      "unitName": "пара",
+      "description": "Поштучный и оптовый заказ парами"
+    },
+    "variants": [
+      {
+        "sku": "ПЕРЧ-НЕЙЛОН",
+        "name": "Перчатки нейлоновые бесшовные",
+        "price": 15,
+        "mainUnit": "пара",
+        "minOrder": {
+          "qty": 10,
+          "unit": "пар",
+          "step": 10,
+          "note": "100% нейлон"
+        },
+        "stockStatus": "in_stock"
+      }
+    ],
+    "applications": [
+      "Точные сборочные и монтажные работы",
+      "Работа с микроэлектроникой и оптикой",
+      "Малярные и отделочные работы"
+    ]
+  },
+  {
+    "id": "work-gloves-wool-blend",
+    "slug": "work-gloves-wool-blend",
+    "title": "Перчатки рабочие полушерстяные утепленные БИРОНИКС",
+    "category": "consumables-safety",
+    "categoryName": "Расходные материалы и перчатки",
+    "specClassId": "gloves",
+    "collections": [],
+    "brand": "БИРОНИКС",
+    "rating": 4.9,
+    "reviewsCount": 58,
+    "images": [
+      "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80"
+    ],
+    "shortDesc": "Утепленные трикотажные полушерстяные перчатки 7.5 класса для защиты рук при работах в условиях пониженных температур.",
+    "fullDescriptionHtml": "<p>Плотные полушерстяные перчатки вязки 7.5 класс (6 нитей) созданы для сохранения тепла рук при outdoor-работах в неотапливаемых помещениях и в холодное время года.</p>",
+    "features": [
+      "Плотная вязка 7.5 класс в 6 нитей",
+      "Повышенная теплоизоляция за счет добавления шерсти",
+      "Эластичная манжета для защиты от продувания"
+    ],
+    "specs": {
+      "knitClass": 7.5,
+      "baseMaterial": "Полушерсть (шерсть / акрил)",
+      "coating": "Отсутствует"
+    },
+    "calcConfig": {
+      "type": "none",
+      "coveragePerUnit": 1,
+      "unitName": "пара",
+      "description": "Поштучный и оптовый заказ парами"
+    },
+    "variants": [
+      {
+        "sku": "ПЕРЧ-ПОЛУШЕРСТЬ",
+        "name": "Перчатки 7,5 класс (6 нитей) Полушерстяные",
+        "price": 30,
+        "mainUnit": "пара",
+        "minOrder": {
+          "qty": 10,
+          "unit": "пар",
+          "step": 10,
+          "note": "Утепленные"
+        },
+        "stockStatus": "in_stock"
+      }
+    ],
+    "applications": [
+      "Работа на открытом воздухе в холодный период",
+      "Неотапливаемые склады и цеха",
+      "Строительство в зимний период"
     ]
   },
   {
@@ -2968,7 +3646,7 @@
     "rating": 5.0,
     "reviewsCount": 42,
     "images": [
-      "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80"
+      "bironics/image/globex/salt.jpg"
     ],
     "shortDesc": "Высокочистая таблетированная соль для регенерации ионообменных смол в системах умягчения воды коттеджей, квартир и промышленных установок.",
     "fullDescriptionHtml": "<p>Таблетированная соль <strong>«Мозырьсоль Экстра» (25 кг)</strong> равномерно растворяется без образования осадка в солевом баке умягчителя.</p>",
@@ -3065,12 +3743,12 @@
     ]
   },
   {
-    "id": "marcon-sealants-glues",
-    "slug": "marcon-sealants-glues",
-    "title": "Клеи-герметики MARCON («Жидкие гвозди», силикон санитарный, очиститель)",
+    "id": "marcon-liquid-nails",
+    "slug": "marcon-liquid-nails",
+    "title": "Клей строительный «Жидкие гвозди» MARCON",
     "category": "foams-sealants",
     "categoryName": "Монтажные пены, клеи, герметики",
-    "specClassId": "montage_foam",
+    "specClassId": "adhesives",
     "collections": [],
     "brand": "MARCON",
     "rating": 4.9,
@@ -3078,18 +3756,17 @@
     "images": [
       "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80"
     ],
-    "shortDesc": "Строительный акриловый клей «Жидкие гвозди», влагостойкий санитарный силикон 280 мл и аэрозольные очистители незастывшей пены.",
-    "fullDescriptionHtml": "<p>Универсальные монтажные клеи и санитарные герметики <strong>MARCON</strong> с противогрибковыми добавками для внутренних и наружных работ.</p>",
+    "shortDesc": "Универсальный строительный акриловый клей «Жидкие гвозди» для прочного монтажа плинтусов, стеновых панелей и декоративных элементов.",
+    "fullDescriptionHtml": "<p>Универсальный монтажный клей <strong>MARCON</strong> на акриловой основе. Обеспечивает быструю и прочную фиксацию тяжелых строительных конструкций без использования механического крепежа.</p>",
     "features": [
       "Отличная адгезия к дереву, бетону, плитке, ПВХ и металлу",
-      "Усиленная защита от плесени и грибка",
-      "Очиститель эффективно смывает пену с пистолетов и поверхностей"
+      "Высокая прочность первичного схватывания",
+      "Безопасен для внутренних работ"
     ],
     "specs": {
-      "yieldLiters": 1,
-      "seasonType": "Всесезонная (-15°C до +30°C)",
-      "fireRating": "B3 (стандарт)",
-      "volumeMl": 280
+      "base": "Акрил",
+      "volumeMl": 280,
+      "applicationTemp": "от +5°C до +30°C"
     },
     "calcConfig": {
       "type": "none",
@@ -3110,7 +3787,47 @@
           "note": "Монтажный клей"
         },
         "stockStatus": "in_stock"
-      },
+      }
+    ],
+    "applications": [
+      "Установка плинтусов и стеновых панелей",
+      "Монтаж декоративных элементов и молдингов",
+      "Приклеивание дерева, ДСП, ПВХ и керамики"
+    ]
+  },
+  {
+    "id": "marcon-sanitary-silicone",
+    "slug": "marcon-sanitary-silicone",
+    "title": "Герметик силиконовый санитарный MARCON 280 мл",
+    "category": "foams-sealants",
+    "categoryName": "Монтажные пены, клеи, герметики",
+    "specClassId": "sealants",
+    "collections": [],
+    "brand": "MARCON",
+    "rating": 4.9,
+    "reviewsCount": 23,
+    "images": [
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80"
+    ],
+    "shortDesc": "Влагостойкий санитарный силиконовый герметик с фунгицидными добавками для помещений с высокой влажностью.",
+    "fullDescriptionHtml": "<p>Санитарный силиконовый герметик <strong>MARCON</strong> с противогрибковыми добавками. Создан для долговечной герметизации швов в ванных комнатах, душевых кабинах и кухнях.</p>",
+    "features": [
+      "Усиленная защита от плесени и грибка",
+      "100% водостойкость и эластичность",
+      "Отличная адгезия к плитке, стеклу, санфаянсу и эмали"
+    ],
+    "specs": {
+      "base": "Силикон (санитарный)",
+      "volumeMl": 280,
+      "waterResistance": "Высокая"
+    },
+    "calcConfig": {
+      "type": "none",
+      "coveragePerUnit": 1,
+      "unitName": "туба",
+      "description": "Поштучная отгрузка"
+    },
+    "variants": [
       {
         "sku": "МАРК-СИЛИКОН-САН",
         "name": "Герметик силиконовый санитарный MARCON 280 мл",
@@ -3121,6 +3838,59 @@
           "unit": "туба",
           "step": 1,
           "note": "280 мл"
+        },
+        "stockStatus": "in_stock"
+      }
+    ],
+    "applications": [
+      "Герметизация ванн, раковин и душевых кабин",
+      "Уплотнение стыков керамической плитки",
+      "Работы во влажных помещениях и на кухне"
+    ]
+  },
+  {
+    "id": "foam-cleaners",
+    "slug": "foam-cleaners",
+    "title": "Очистители незастывшей монтажной пены (MARCON / UNIKA)",
+    "category": "foams-sealants",
+    "categoryName": "Монтажные пены, клеи, герметики",
+    "specClassId": "foam_cleaner",
+    "collections": [],
+    "brand": "MARCON",
+    "rating": 4.9,
+    "reviewsCount": 23,
+    "images": [
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80"
+    ],
+    "shortDesc": "Аэрозольные универсальные очистители для эффективного удаления остатков свежей монтажной пены и промывки пистолетов.",
+    "fullDescriptionHtml": "<p>Универсальные аэрозольные очистители незастывшей полиуретановой пены. Быстро растворяют свежие следы пены с рабочих поверхностей, одежды, оконных рам и внутренних узлов монтажных пистолетов.</p>",
+    "features": [
+      "Эффективно смывает свежую пену с пистолетов и поверхностей",
+      "Оснащен адаптером для пистолета и распылительным клапаном",
+      "Быстрое действие без повреждения большинства рабочих покрытий"
+    ],
+    "specs": {
+      "form": "Аэрозоль",
+      "volumeMl": "450 / 500",
+      "purpose": "Удаление свежей пены и промывка инструментов"
+    },
+    "calcConfig": {
+      "type": "none",
+      "coveragePerUnit": 1,
+      "unitName": "баллон",
+      "description": "Поштучная отгрузка"
+    },
+    "variants": [
+      {
+        "sku": "ОЧИСТ-MARCON-500",
+        "name": "Очиститель монтажной пены MARCON универ. 500 мл",
+        "price": 180,
+        "mainUnit": "баллон",
+        "minOrder": {
+          "qty": 1,
+          "unit": "баллон",
+          "step": 1,
+          "note": "500 мл"
         },
         "stockStatus": "in_stock"
       },
@@ -3136,25 +3906,12 @@
           "note": "450 мл"
         },
         "stockStatus": "in_stock"
-      },
-      {
-        "sku": "ОЧИСТ-MARCON-500",
-        "name": "Очиститель монтажной пены MARCON универ. 500 мл",
-        "price": 180,
-        "mainUnit": "баллон",
-        "minOrder": {
-          "qty": 1,
-          "unit": "баллон",
-          "step": 1,
-          "note": "500 мл"
-        },
-        "stockStatus": "in_stock"
       }
     ],
     "applications": [
-      "Установка плинтусов и панелей",
-      "Герметизация ванн и душевых",
-      "Промывка монтажных пистолетов"
+      "Промывка пистолетов для монтажной пены",
+      "Очистка клапанов баллонов",
+      "Удаление брызг незастывшей пены с окон, дверей и одежды"
     ]
   },
   {
