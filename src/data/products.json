@@ -234,7 +234,7 @@
       "innerDiameter": 22,
       "wallThickness": 9,
       "lengthPerPiece": 2,
-      "tempRange": "-60 ... +90 °C",
+      "tempRange": "-60 ... +90°C",
       "color": "Серый (стандарт)"
     },
     "calcConfig": {
