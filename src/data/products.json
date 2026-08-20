@@ -1132,7 +1132,7 @@
     "rating": 4.9,
     "reviewsCount": 52,
     "images": [
-      ""
+      "/bironiks/image/foam/unikaDIY.jpg"
     ],
     "shortDesc": "Профессиональная полиуретановая монтажная пена с повышенным выходом от 50 до 90 литров. Температура применения от -10°C до +35°C.",
     "fullDescriptionHtml": "<p>Монтажная пена <strong>UNIKA DIY</strong> обладает высокой адгезией к строительным материалам, низким вторичным расширением и быстрым временем образования пленки (5–7 минут).</p><ul><li>Температура применения от -10°C до +35°C</li><li>Время до подрезки 40–50 минут</li><li>Отвердевший продукт можно окрашивать</li><li>Безвредна для озонового слоя</li></ul>",
@@ -1254,7 +1254,7 @@
     "rating": 4.9,
     "reviewsCount": 41,
     "images": [
-      "https:/images.unsplash.com/photo-1504307651554-6691fc9d0554?auto=format&fit=crop&w=1000&q=80"
+      "/bironiks/image/foam/startup.jpg"
     ],
     "shortDesc": "Профессиональная линейка MARCON STARTUP 65+ (всесезонная и зимняя). Плотность 18-20 кг/м³, термостойкость от -55°C до +90°C.",
     "fullDescriptionHtml": "<p>Пена <strong>MARCON STARTUP</strong> разработана для профессиональной установки окон и дверей специализированными монтажными бригадами в суровых климатических условиях Сибири.</p>",
@@ -1323,7 +1323,7 @@
     "rating": 4.9,
     "reviewsCount": 41,
     "images": [
-      "https:/images.unsplash.com/photo-1504307651554-6691fc9d0554?auto=format&fit=crop&w=1000&q=80"
+      "/bironiks/image/foam/marcon-0.jpg"
     ],
     "shortDesc": "MARCON PRO 65+ Зимняя профессиональная. Плотность 18-20 кг/м³, термостойкость от -55°C до +90°C.",
     "fullDescriptionHtml": "<p>Пена <strong>MARCON PRO 65+ Зимняя профессиональная</strong> разработана для профессиональной установки окон и дверей специализированными монтажными бригадами в суровых климатических условиях Сибири.</p>",
@@ -1379,7 +1379,7 @@
     "rating": 4.9,
     "reviewsCount": 41,
     "images": [
-      "https:/images.unsplash.com/photo-1504307651554-6691fc9d0554?auto=format&fit=crop&w=1000&q=80"
+      "/bironiks/image/foam/marcon-1.jpg"
     ],
     "shortDesc": "MARCON PRO+ Всесезонная 700 мл. Плотность 18-20 кг/м³, термостойкость от -55°C до +90°C.",
     "fullDescriptionHtml": "<p>Пена <strong>MARCON PRO+ Всесезонная 700 мл</strong> разработана для профессиональной установки окон и дверей специализированными монтажными бригадами в суровых климатических условиях Сибири.</p>",
@@ -1435,7 +1435,7 @@
     "rating": 4.9,
     "reviewsCount": 41,
     "images": [
-      "https:/images.unsplash.com/photo-1504307651554-6691fc9d0554?auto=format&fit=crop&w=1000&q=80"
+      "/bironiks/image/foam/marcon-2.jpg"
     ],
     "shortDesc": "MARCON PRO 65+ (выход 65 л+). Плотность 18-20 кг/м³, термостойкость от -55°C до +90°C.",
     "fullDescriptionHtml": "<p>Пена <strong>MARCON PRO 65+ (выход 65 л+)</strong> разработана для профессиональной установки окон и дверей специализированными монтажными бригадами в суровых климатических условиях Сибири.</p>",
@@ -1491,7 +1491,7 @@
     "rating": 4.9,
     "reviewsCount": 41,
     "images": [
-      "https:/images.unsplash.com/photo-1504307651554-6691fc9d0554?auto=format&fit=crop&w=1000&q=80"
+      "/bironiks/image/foam/marcon-3.jpg"
     ],
     "shortDesc": "MARCON PRO 70+ (выход 70 л+). Плотность 18-20 кг/м³, термостойкость от -55°C до +90°C.",
     "fullDescriptionHtml": "<p>Пена <strong>MARCON PRO 70+ (выход 70 л+)</strong> разработана для профессиональной установки окон и дверей специализированными монтажными бригадами в суровых климатических условиях Сибири.</p>",
@@ -1548,7 +1548,8 @@
     "rating": 5.0,
     "reviewsCount": 35,
     "images": [
-      "https:/images.unsplash.com/photo-1504307651554-6691fc9d0554?auto=format&fit=crop&w=1000&q=80"
+      "/bironiks/image/foam/marcon-4.jpg",
+      "/bironiks/image/foam/marcon-5.jpg"
     ],
     "shortDesc": "Полиуретановый аэрозольный клей для фиксации плит утеплителя (XPS/минплита) и кладки газобетонных блоков без мостиков холода.",
     "fullDescriptionHtml": "<p><strong>MARCON МАСТЕРПЛИТ</strong> и <strong>МАСТЕРБЛОК</strong> полностью заменяют сухие смеси и растворы при утеплении фасадов и кладке газобетона. Время коррекции до 5 минут, фиксация за 2 часа.</p>",
@@ -1617,7 +1618,8 @@
     "rating": 4.9,
     "reviewsCount": 67,
     "images": [
-      "/bironiks/image/izopar/izoparA.jpg"
+      "/bironiks/image/izopar/izoparA.jpg",
+      "/bironiks/image/izopar/globexA.jpg"
     ],
     "shortDesc": "Строительные ветро-влагозащитные мембраны ИЗОПАР Тип A (включая серии ЭКО и стандарт различного метража).",
     "fullDescriptionHtml": "<p>Мембраны <strong>ИЗОПАР А</strong> предназначены для защиты утеплителя и внутренних элементов стен и кровли от ветра, атмосферной влаги и конденсата.</p>",
@@ -1781,7 +1783,8 @@
     "rating": 4.9,
     "reviewsCount": 67,
     "images": [
-      "/bironiks/image/izopar/izoparB.jpg"
+      "/bironiks/image/izopar/izoparB.jpg",
+      "/bironiks/image/izopar/globexB.jpg"
     ],
     "shortDesc": "Строительные пароизоляционные мембраны ИЗОПАР Тип B (включая серии ЭКО и стандарт различного метража).",
     "fullDescriptionHtml": "<p>Мембраны <strong>ИЗОПАР В</strong> применяются в качестве пароизоляционного барьера для защиты утеплителя и строительных конструкций от насыщения парами воды изнутри помещения.</p>",
@@ -1945,7 +1948,8 @@
     "rating": 4.9,
     "reviewsCount": 67,
     "images": [
-      "https:/images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=1000&q=80"
+      "/bironiks/image/izopar/izoparC.jpg",
+      "/bironiks/image/izopar/globexC.jpg"
     ],
     "shortDesc": "Строительные двухслойные гидро-пароизоляционные мембраны ИЗОПАР Тип C (включая серии ЭКО и стандарт).",
     "fullDescriptionHtml": "<p>Двухслойные мембраны <strong>ИЗОПАР С</strong> предназначены для защиты строительных конструкций от проникновения водяных паров, конденсата и капиллярной влаги.</p>",
@@ -2049,7 +2053,8 @@
     "rating": 4.9,
     "reviewsCount": 67,
     "images": [
-      "https:/images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=1000&q=80"
+      "/bironiks/image/izopar/izoparD.jpg",
+      "/bironiks/image/izopar/globexD.jpg"
     ],
     "shortDesc": "Строительные высокопрочные гидро-пароизоляционные мембраны ИЗОПАР Тип D повышенной плотности.",
     "fullDescriptionHtml": "<p>Усиленные мембраны <strong>ИЗОПАР D</strong> повышенной плотности обладают высокой прочностью и предназначены для удерживания значительных нагрузок (включая снеговую нагрузку на кровле).</p>",
@@ -2418,7 +2423,7 @@
     "rating": 4.9,
     "reviewsCount": 33,
     "images": [
-      "/bironiks/image/globex/rulfolga.jpeg"
+      "/bironiks/image/globex/rulpol.jpeg"
     ],
     "shortDesc": "Отражающая подложка из вспененного полиэтилена с лавсановой металлизированной пленкой и сеткой разметки для монтажа труб и кабеля.",
     "fullDescriptionHtml": "<p>Подложка <strong>ППИ-ПЛ</strong> с печатью для изоляции систем «теплый пол». Ламинирована металлизированной лавсановой пленкой, стойкой к щелочной среде цементных стяжек.</p>",
@@ -2597,7 +2602,7 @@
     "rating": 4.9,
     "reviewsCount": 39,
     "images": [
-      "https:/images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1000&q=80"
+      "/bironiks/image/globex/geotex.jpg"
     ],
     "shortDesc": "Иглопробивное полотно плотностью 75, 100, 150, 200 г/м² (рулон 40 м²). Разделение слоев, защита от сорняков, дренаж и устройство садовых дорожек.",
     "fullDescriptionHtml": "<p><strong>ГеоТекстиль+</strong> стабилизирует нижний слой грунта, предотвращает смешивание щебня с песком и грунтом, обеспечивает отвод воды и защиту от прорастания сорняков.</p>",
@@ -3237,7 +3242,7 @@
   {
     "id": "work-gloves-latex-coated",
     "slug": "work-gloves-latex-coated",
-    "title": "Перчатки рабочие с латексным обливом БИРОНИКС",
+    "title": "Перчатки рабочие с латексным обливом",
     "category": "consumables-safety",
     "categoryName": "Расходные материалы и перчатки",
     "specClassId": "gloves",
@@ -3246,7 +3251,9 @@
     "rating": 4.9,
     "reviewsCount": 58,
     "images": [
-      "https:/images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80"
+      "/bironiks/image/globex/lat-2-r.jpg",
+      "/bironiks/image/globex/lat-2-g.jpg",
+      "/bironiks/image/globex/lat-1-y.jpg"
     ],
     "shortDesc": "Защитные трикотажные перчатки 13 класса с латексным покрытием для работы со скользкими, гладкими и влажными поверхностями.",
     "fullDescriptionHtml": "<p>Перчатки с латексным обливом обеспечивают максимальное сцепление со скользкими предметами, защищают ладони от механических повреждений, влаги и загрязнений.</p>",
@@ -3269,7 +3276,20 @@
     "variants": [
       {
         "sku": "ПЕРЧ-ЛАТ-2",
-        "name": "Перчатки с двойным латексным обливом (13 класс)",
+        "name": "Перчатки с двойным латексным обливом Зеленые",
+        "price": 22,
+        "mainUnit": "пара",
+        "minOrder": {
+          "qty": 10,
+          "unit": "пар",
+          "step": 10,
+          "note": "Двойной латекс"
+        },
+        "stockStatus": "in_stock"
+      },
+      {
+        "sku": "ПЕРЧ-ЛАТ-2",
+        "name": "Перчатки с двойным латексным обливом Атлант",
         "price": 22,
         "mainUnit": "пара",
         "minOrder": {
@@ -3282,7 +3302,7 @@
       },
       {
         "sku": "ПЕРЧ-ЛАТ-1",
-        "name": "Перчатки с одним латексным обливом (13 класс)",
+        "name": "Перчатки с одним латексным обливом Желтые",
         "price": 18,
         "mainUnit": "пара",
         "minOrder": {
@@ -3312,7 +3332,10 @@
     "rating": 4.9,
     "reviewsCount": 58,
     "images": [
-      "https:/images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80"
+      "/bironiks/image/globex/per-0.jpg",
+      "/bironiks/image/globex/per-1.jpg",
+      "/bironiks/image/globex/per-2.jpg",
+      "/bironiks/image/globex/per-3.jpg"
     ],
     "shortDesc": "Классические трикотажные хлопчатобумажные перчатки с точечным ПВХ покрытием для защиты рук при общестроительных и погрузочных работах.",
     "fullDescriptionHtml": "<p>Хлопчатобумажные перчатки 7.5 и 10 класса вязки с антискользящим ПВХ напылением. Обеспечивают естественную вентиляцию кожи рук и надежный захват инструмента.</p>",
@@ -3404,7 +3427,7 @@
     "rating": 4.9,
     "reviewsCount": 58,
     "images": [
-      "https:/images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80"
+      "/bironiks/image/globex/perc-0.jpg"
     ],
     "shortDesc": "Базовые трикотажные хлопчатобумажные перчатки 10 класса без нанесения ПВХ для защиты от грязи, пыли и легких механических воздействий.",
     "fullDescriptionHtml": "<p>Легкие и дышащие ХБ перчатки без ПВХ напыления. Идеально подходят для вспомогательных, сборочных и сельскохозяйственных работ, где не требуется антискользящий протектор.</p>",
@@ -3457,7 +3480,7 @@
     "rating": 4.9,
     "reviewsCount": 58,
     "images": [
-      "https:/images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80"
+      "/bironiks/image/globex/perc-1.jpg"
     ],
     "shortDesc": "Тонкие и высокочувствительные нейлоновые перчатки для точных монтажных, радиоэлектронных и сборочных операций.",
     "fullDescriptionHtml": "<p>Бесшовные перчатки из 100% нейлона обеспечивают максимальную чувствительность пальцев, не оставляют ворса и плотно облегают кисть.</p>",
@@ -3510,7 +3533,7 @@
     "rating": 4.9,
     "reviewsCount": 58,
     "images": [
-      "https:/images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80"
+      "/bironiks/image/globex/per-3.jpg"
     ],
     "shortDesc": "Утепленные трикотажные полушерстяные перчатки 7.5 класса для защиты рук при работах в условиях пониженных температур.",
     "fullDescriptionHtml": "<p>Плотные полушерстяные перчатки вязки 7.5 класс (6 нитей) созданы для сохранения тепла рук при outdoor-работах в неотапливаемых помещениях и в холодное время года.</p>",
@@ -3565,7 +3588,7 @@
     "rating": 5.0,
     "reviewsCount": 19,
     "images": [
-      "https:/images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80"
+      "/bironiks/image/globex/shumiz.jpg"
     ],
     "shortDesc": "Вибродемпфирующая прокладка из полимерного композита под плавающую стяжку межэтажных перекрытий. Индекс снижения ударного шума ΔLn,w до 23 дБ.",
     "fullDescriptionHtml": "<p>Звукоизоляционный материал <strong>НПП-К («GLOBEX Эксперт»)</strong> соответствует требованиям СП 51.13330.2011 «Защита от шума».</p>",
@@ -3591,7 +3614,7 @@
       {
         "sku": "НПП-К5-30",
         "name": "НПП-К 5 мм (1000 мм × 30 м, 30 м²)",
-        "price": 2040,
+        "price": 1800,
         "mainUnit": "рулон",
         "minOrder": {
           "qty": 1,
@@ -3602,9 +3625,22 @@
         "stockStatus": "in_stock"
       },
       {
+        "sku": "НПП-К6-65",
+        "name": "НПП-К 6 мм (1300 мм × 50 м, 65 м²)",
+        "price": 4225,
+        "mainUnit": "рулон",
+        "minOrder": {
+          "qty": 1,
+          "unit": "рулон",
+          "step": 1,
+          "note": "65 м²"
+        },
+        "stockStatus": "in_stock"
+      },
+      {
         "sku": "НПП-К8-50",
         "name": "НПП-К 8 мм (1300 мм × 50 м, 65 м²)",
-        "price": 6500,
+        "price": 6175,
         "mainUnit": "рулон",
         "minOrder": {
           "qty": 1,
@@ -3617,7 +3653,7 @@
       {
         "sku": "НПП-К10-30",
         "name": "НПП-К 10 мм (1300 мм × 30 м, 39 м²)",
-        "price": 4875,
+        "price": 4485,
         "mainUnit": "рулон",
         "minOrder": {
           "qty": 1,
@@ -3700,7 +3736,7 @@
     "rating": 4.9,
     "reviewsCount": 31,
     "images": [
-      "https:/images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80"
+      "/bironiks/image/globex/eco.jpg"
     ],
     "shortDesc": "Рулонная звуко- и теплоизоляция на основе сшитого полиэтилена под обои. Устраняет промерзание холодных стен и снижает шум.",
     "fullDescriptionHtml": "<p><strong>EcoHeat</strong> наклеивается на стены стык в стык обычным клеем для тяжелых обоев. Толщина 4-5 мм заменяет по теплосохранению полкирпича (12.5 см) кладки.</p>",
@@ -3754,7 +3790,7 @@
     "rating": 4.9,
     "reviewsCount": 23,
     "images": [
-      "https:/images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80"
+      "/bironiks/image/foam/gv-0.jpg"
     ],
     "shortDesc": "Универсальный строительный акриловый клей «Жидкие гвозди» для прочного монтажа плинтусов, стеновых панелей и декоративных элементов.",
     "fullDescriptionHtml": "<p>Универсальный монтажный клей <strong>MARCON</strong> на акриловой основе. Обеспечивает быструю и прочную фиксацию тяжелых строительных конструкций без использования механического крепежа.</p>",
@@ -3807,7 +3843,7 @@
     "rating": 4.9,
     "reviewsCount": 23,
     "images": [
-      "https:/images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80"
+      "/bironiks/image/foam/ger.jpg"
     ],
     "shortDesc": "Влагостойкий санитарный силиконовый герметик с фунгицидными добавками для помещений с высокой влажностью.",
     "fullDescriptionHtml": "<p>Санитарный силиконовый герметик <strong>MARCON</strong> с противогрибковыми добавками. Создан для долговечной герметизации швов в ванных комнатах, душевых кабинах и кухнях.</p>",
@@ -3860,7 +3896,8 @@
     "rating": 4.9,
     "reviewsCount": 23,
     "images": [
-      "https:/images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80"
+      "/bironiks/image/foam/oth-0.jpg",
+      "/bironiks/image/foam/oth-1.jpg"
     ],
     "shortDesc": "Аэрозольные универсальные очистители для эффективного удаления остатков свежей монтажной пены и промывки пистолетов.",
     "fullDescriptionHtml": "<p>Универсальные аэрозольные очистители незастывшей полиуретановой пены. Быстро растворяют свежие следы пены с рабочих поверхностей, одежды, оконных рам и внутренних узлов монтажных пистолетов.</p>",
@@ -3926,7 +3963,7 @@
     "rating": 4.9,
     "reviewsCount": 18,
     "images": [
-      "https:/images.unsplash.com/photo-1504307651554-6691fc9d0554?auto=format&fit=crop&w=1000&q=80"
+      "/bironiks/image/foam/gaz.jpg"
     ],
     "shortDesc": "Цанговый газовый баллончик 220 г для портативных газовых горелок, резаков и походных плиток.",
     "fullDescriptionHtml": "<p>Универсальная высокоочищенная газовая смесь (масса 220 г) со стандартным цанговым соединением для строительных горелок и розжига.</p>",
@@ -3979,7 +4016,7 @@
     "rating": 4.8,
     "reviewsCount": 15,
     "images": [
-      "https:/images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80"
+      "/bironiks/image/globex/mesh.jpg"
     ],
     "shortDesc": "Усиленный зеленый полипропиленовый мешок размером 55×95 см для фасовки и вывоза тяжелого строительного мусора.",
     "fullDescriptionHtml": "<p>Прочные мешки из плетеного полипропилена выдерживают высокую нагрузку, острые края битого кирпича и бетона.</p>",
