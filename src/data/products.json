@@ -14,10 +14,10 @@
     "rating": 4.9,
     "reviewsCount": 38,
     "images": [
-      "/bironiks/image/izoplex-0.jpg",
-      "/bironiks/image/izoplex-1.jpg",
-      "/bironiks/image/izoplex-2.jpg",
-      "/bironiks/image/izoplex-3.jpg"
+      "/bironiks/image/izoplex/izoplex-0.jpg",
+      "/bironiks/image/izoplex/izoplex-1.jpg",
+      "/bironiks/image/izoplex/izoplex-2.jpg",
+      "/bironiks/image/izoplex/izoplex-3.jpg"
     ],
     "shortDesc": "Плиты XPS бирюзового/салатового цвета 1200×600 мм с закрыто-пористой структурой. Нулевое водопоглощение, прочность на сжатие до 350 кПа.",
     "fullDescriptionHtml": "<p>Теплоизоляционный материал <strong>Изоплекс®</strong> производится путем смешивания гранул полистирола при повышенной температуре с последующим выдавливанием из экструдера и введение озонобезопасного вспенивающего агента.</p><p>Плиты имеют нулевую капиллярность, практически нулевое водопоглощение (менее 0.2 об.%) и высокую прочность на сжатие. Коэффициент теплопроводности 0.028-0.030 Вт/(м·°C).</p>",
@@ -2423,7 +2423,7 @@
     "rating": 4.9,
     "reviewsCount": 33,
     "images": [
-      "/bironiks/image/globex/rulpol.jpeg"
+      "/bironiks/image/globex/rulpol.jpg"
     ],
     "shortDesc": "Отражающая подложка из вспененного полиэтилена с лавсановой металлизированной пленкой и сеткой разметки для монтажа труб и кабеля.",
     "fullDescriptionHtml": "<p>Подложка <strong>ППИ-ПЛ</strong> с печатью для изоляции систем «теплый пол». Ламинирована металлизированной лавсановой пленкой, стойкой к щелочной среде цементных стяжек.</p>",
