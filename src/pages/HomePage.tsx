@@ -136,7 +136,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 </div>
 
                 <div className="pt-3 border-t border-[#243044] flex items-center justify-between text-xs">
-                  <span className="text-slate-400">Наличный расчет, безналичный через банк, оплата по QR-коду.</span>
+                  <span className="text-slate-400">Наличный и безналичный расчёт, оплата по QR-коду.</span>
                   <button
                     type="button"
                     onClick={() => onNavigate('/contacts')}

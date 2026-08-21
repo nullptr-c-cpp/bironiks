@@ -50,7 +50,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <div>
                 <h4 className="font-semibold text-slate-100 text-xs">Способы оплаты</h4>
                 <p className="text-[11px] text-slate-400 mt-0.5">
-                  Наличный расчет, безналичный через банк, оплата по QR-коду.
+                  Наличный и безналичный расчёт, оплата по QR-коду.
                 </p>
               </div>
             </div>

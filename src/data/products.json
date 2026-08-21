@@ -56,7 +56,7 @@
           "note": "В упаковке 20 плит. Возможна покупка поштучно и упаковками."
         },
         "stockStatus": "in_stock",
-        "stockText": "В наличии на складе в Омске",
+        "stockText": "В наличии",
         "secondaryPrice": {
           "price": 144,
           "unit": "м²",
