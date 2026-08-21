@@ -79,6 +79,11 @@
       "icon": "Flame",
       "shortDesc": "Газовые баллоны цанговые универсальные 220 г для горелок и туристических плит.",
       "productCount": 1
+    },
+    {
+      "id": "trub-izol",
+      "slug": "trub-izol",
+      "name": "Трубная изоляция"
     }
   ],
   "collections": [

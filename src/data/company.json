@@ -56,6 +56,9 @@
       "оплата по QR-коду"
     ]
   },
-  "yandexMapCoords": [54.9575, 73.4358],
+  "yandexMapCoords": [
+    54.9575,
+    73.4358
+  ],
   "yandexMapUrl": "https://yandex.ru/maps/?text=Омск%2C%20ул.%2020%20лет%20РККА%2C%20д.%20183Б"
 }

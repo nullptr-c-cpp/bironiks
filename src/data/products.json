@@ -205,11 +205,11 @@
     ]
   },
   {
-    "id": "globex-pipe-insulation",
-    "slug": "globex-pipe-insulation",
-    "title": "Трубная изоляция «Глобэкс» от 15/9 до 114/9",
-    "category": "thermal-sound",
-    "categoryName": "Теплозвукоизоляция",
+    "id": "globex-pipe-insulation-9",
+    "slug": "globex-pipe-insulation-9",
+    "title": "Трубная изоляция «Глобэкс» толщина стенки 9 мм",
+    "category": "trub-izol",
+    "categoryName": "Трубная изоляция",
     "specClassId": "pipe_insulation",
     "collections": [
       "pipe-networks"
@@ -222,7 +222,7 @@
       "/bironiks/image/trub/trub-1.jpg",
       "/bironiks/image/trub/trub-2.jpg"
     ],
-    "shortDesc": "Трубные оболочки серого цвета из вспененного полиэтилена (длина отрезка 2 пог. м). Диаметры от 15 мм до 160 мм, толщина стенки 9, 13, 20 мм.",
+    "shortDesc": "Трубные оболочки серого цвета из вспененного полиэтилена (длина отрезка 2 пог. м). Диаметры от 15 мм до 114 мм, толщина стенки 9 мм.",
     "fullDescriptionHtml": "<p>Трубные оболочки <strong>«Глобэкс»</strong> эффективно защищают трубы от конденсата, коррозии и промерзания в системах водоснабжения и отопления.</p><ul><li>Диапазон рабочих температур: от -60 до +90 °C.</li><li>Коэффициент теплопроводности: 0.038 Вт/(м·°C).</li><li>Фактор сопротивления диффузии пара: ≥ 3000 µ.</li><li>100% вторично перерабатываемый пищевой полиэтилен.</li></ul>",
     "features": [
       "Предотвращают образование конденсата и коррозию",
@@ -435,11 +435,11 @@
     ]
   },
   {
-    "id": "globex-pipe-insulation",
-    "slug": "globex-pipe-insulation",
-    "title": "Трубная изоляция «Глобэкс» от 18/13 до 114/13",
-    "category": "thermal-sound",
-    "categoryName": "Теплозвукоизоляция",
+    "id": "globex-pipe-insulation-13",
+    "slug": "globex-pipe-insulation-13",
+    "title": "Трубная изоляция «Глобэкс» толщина стенки 13 мм",
+    "category": "trub-izol",
+    "categoryName": "Трубная изоляция",
     "specClassId": "pipe_insulation",
     "collections": [
       "pipe-networks"
@@ -452,7 +452,7 @@
       "/bironiks/image/trub/trub-1.jpg",
       "/bironiks/image/trub/trub-2.jpg"
     ],
-    "shortDesc": "Трубные оболочки серого цвета из вспененного полиэтилена (длина отрезка 2 пог. м). Диаметры от 15 мм до 160 мм, толщина стенки 9, 13, 20 мм.",
+    "shortDesc": "Трубные оболочки серого цвета из вспененного полиэтилена (длина отрезка 2 пог. м). Диаметры от 15 мм до 114 мм, толщина стенки 13 мм.",
     "fullDescriptionHtml": "<p>Трубные оболочки <strong>«Глобэкс»</strong> эффективно защищают трубы от конденсата, коррозии и промерзания в системах водоснабжения и отопления.</p><ul><li>Диапазон рабочих температур: от -60 до +90 °C.</li><li>Коэффициент теплопроводности: 0.038 Вт/(м·°C).</li><li>Фактор сопротивления диффузии пара: ≥ 3000 µ.</li><li>100% вторично перерабатываемый пищевой полиэтилен.</li></ul>",
     "features": [
       "Предотвращают образование конденсата и коррозию",
@@ -574,11 +574,11 @@
     ]
   },
   {
-    "id": "globex-pipe-insulation",
-    "slug": "globex-pipe-insulation",
-    "title": "Трубная изоляция «Глобэкс» от 15/20 до 160/20",
-    "category": "thermal-sound",
-    "categoryName": "Теплозвукоизоляция",
+    "id": "globex-pipe-insulation-20",
+    "slug": "globex-pipe-insulation-20",
+    "title": "Трубная изоляция «Глобэкс» толщина стенки 20 мм",
+    "category": "trub-izol",
+    "categoryName": "Трубная изоляция",
     "specClassId": "pipe_insulation",
     "collections": [
       "pipe-networks"
@@ -591,7 +591,7 @@
       "/bironiks/image/trub/trub-1.jpg",
       "/bironiks/image/trub/trub-2.jpg"
     ],
-    "shortDesc": "Трубные оболочки серого цвета из вспененного полиэтилена (длина отрезка 2 пог. м). Диаметры от 15 мм до 160 мм, толщина стенки 9, 13, 20 мм.",
+    "shortDesc": "Трубные оболочки серого цвета из вспененного полиэтилена (длина отрезка 2 пог. м). Диаметры от 15 мм до 160 мм, толщина стенки 20 мм.",
     "fullDescriptionHtml": "<p>Трубные оболочки <strong>«Глобэкс»</strong> эффективно защищают трубы от конденсата, коррозии и промерзания в системах водоснабжения и отопления.</p><ul><li>Диапазон рабочих температур: от -60 до +90 °C.</li><li>Коэффициент теплопроводности: 0.038 Вт/(м·°C).</li><li>Фактор сопротивления диффузии пара: ≥ 3000 µ.</li><li>100% вторично перерабатываемый пищевой полиэтилен.</li></ul>",
     "features": [
       "Предотвращают образование конденсата и коррозию",
@@ -905,7 +905,7 @@
       "wooden-houses"
     ],
     "brand": "Золотое волокно",
-    "rating": 5.0,
+    "rating": 5,
     "reviewsCount": 44,
     "images": [
       "/bironiks/image/gut/gut-0.jpg",
@@ -1545,7 +1545,7 @@
       "facade-roof"
     ],
     "brand": "MARCON",
-    "rating": 5.0,
+    "rating": 5,
     "reviewsCount": 35,
     "images": [
       "/bironiks/image/foam/marcon-4.jpg",
@@ -2215,7 +2215,7 @@
       "sauna-bath"
     ],
     "brand": "GLOBEX",
-    "rating": 5.0,
+    "rating": 5,
     "reviewsCount": 48,
     "images": [
       "/bironiks/image/globex/globex.jpg"
@@ -3585,7 +3585,7 @@
       "foundations-floors"
     ],
     "brand": "GLOBEX",
-    "rating": 5.0,
+    "rating": 5,
     "reviewsCount": 19,
     "images": [
       "/bironiks/image/globex/shumiz.jpg"
@@ -3679,7 +3679,7 @@
     "specClassId": "roll_foil",
     "collections": [],
     "brand": "Мозырьсоль",
-    "rating": 5.0,
+    "rating": 5,
     "reviewsCount": 42,
     "images": [
       "/bironiks/image/globex/salt.jpg"
