@@ -168,14 +168,13 @@ const managerPhone = company.managerPhone || company.mainPhone;
 
   <Header />
 
-  <!-- Адаптивный отступ сверху: на мобильных pt-24 sm:pt-36 -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-36 pb-20 sm:pb-24 w-full flex-1">
     <slot />
   </main>
 
   <Footer />
 
-  <!-- ПЛАВАЮЩИЙ ТРИГГЕР ЛИСТА ЗАЯВКИ (Адаптирован под экран смартфона) -->
+  <!-- ПЛАВАЮЩИЙ ТРИГГЕР ЛИСТА ЗАЯВКИ -->
   <div id="order-sheet-trigger" class="fixed bottom-5 right-4 sm:bottom-8 sm:right-8 z-40 hidden animate-float-pulse">
     <button 
       id="order-sheet-btn-element"
@@ -193,7 +192,7 @@ const managerPhone = company.managerPhone || company.mainPhone;
     </button>
   </div>
 
-  <!-- МОДАЛЬНОЕ ОКНО ЛИСТА ЗАКАЗА (С безопасным мобильным скроллом) -->
+  <!-- МОДАЛЬНОЕ ОКНО ЛИСТА ЗАКАЗА -->
   <div id="order-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6 transition-all duration-300">
     <div class="bg-white dark:bg-[#181a1f] border border-zinc-200 dark:border-white/[0.1] rounded-3xl max-w-3xl w-full p-5 sm:p-10 space-y-4 sm:space-y-6 shadow-2xl max-h-[92vh] flex flex-col justify-between overflow-y-auto">
       
@@ -297,10 +296,10 @@ const managerPhone = company.managerPhone || company.mainPhone;
     <div id="print-content"></div>
   </div>
 
-  <!-- Toast (Адаптирован под низ мобильного экрана) -->
-  <div id="copy-toast" class="fixed bottom-5 inset-x-4 sm:inset-x-auto sm:left-8 sm:bottom-8 z-50 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300 px-4 py-2.5 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-xs font-mono font-medium shadow-2xl flex items-center justify-center sm:justify-start gap-2 text-center">
-    <span class="w-2 h-2 rounded-full bg-[#3dd68c] shrink-0"></span>
-    <span id="copy-toast-text" class="truncate">Скопировано в буфер</span>
+  <!-- Toast (Отображается только на десктопе sm:flex, отключен для мобильных) -->
+  <div id="copy-toast" class="hidden sm:flex fixed bottom-8 left-8 z-50 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300 px-4 py-2.5 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-xs font-mono font-medium shadow-2xl items-center gap-2">
+    <span class="w-2 h-2 rounded-full bg-[#3dd68c]"></span>
+    <span id="copy-toast-text">Скопировано в буфер</span>
   </div>
 
   <script is:inline define:vars={{ salesEmail: company.emailSales, phoneNum: managerPhone, companyName: company.name, companyAddress: company.warehouseAddress, productsCatalog: database.products }}>
@@ -339,6 +338,8 @@ const managerPhone = company.managerPhone || company.mainPhone;
         window.orderSheet.push({ ...item, qty: qtyToAdd });
       }
       saveSheet();
+      
+      // Показываем тост только на десктопе
       showToast(`В заявке: ${item.title} (${qtyToAdd} шт.)`);
 
       const triggerBtn = document.getElementById('order-sheet-btn-element');
@@ -554,8 +555,10 @@ const managerPhone = company.managerPhone || company.mainPhone;
       }
     });
 
-    // 5. TOAST
+    // 5. TOAST (Только для десктопа: >= 768px)
     function showToast(msg) {
+      if (window.innerWidth < 768) return;
+
       const toast = document.getElementById('copy-toast');
       const toastText = document.getElementById('copy-toast-text');
       if (toast && toastText) {
@@ -567,7 +570,7 @@ const managerPhone = company.managerPhone || company.mainPhone;
       }
     }
 
-    // 6. ПЕРЕХВАТ ЗВОНКОВ
+    // 6. ПЕРЕХВАТ ЗВОНКОВ И КОПИРОВАНИЯ
     document.addEventListener('click', async (e) => {
       const telLink = e.target.closest('a[href^="tel:"]');
       if (telLink) {
