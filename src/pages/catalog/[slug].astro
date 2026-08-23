@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import database from '../../data/database.json';
 import company from '../../data/company.json';
+import { getUrl } from '../../utils/paths';
 
 export async function getStaticPaths() {
   return database.products.map(product => ({
@@ -93,13 +94,13 @@ const breadcrumbsSchema = {
 
     <!-- ХЛЕБНЫЕ КРОШКИ С ЧЕТКОЙ АДРЕСАЦИЕЙ -->
     <nav class="flex flex-wrap items-center gap-2 text-xs font-mono text-zinc-400">
-      <a href="/" class="hover:text-zinc-900 dark:hover:text-white transition">Главная</a>
+      <a href={getUrl()} class="hover:text-zinc-900 dark:hover:text-white transition">Главная</a>
       <span>/</span>
-      <a href="/catalog" class="hover:text-zinc-900 dark:hover:text-white transition">Каталог</a>
+      <a href={getUrl("/catalog")} class="hover:text-zinc-900 dark:hover:text-white transition">Каталог</a>
       {primaryCategory && (
         <>
           <span>/</span>
-          <a href={`/catalog?category=${primaryCategory.id}`} class="hover:text-zinc-900 dark:hover:text-white transition">
+          <a href={getUrl(`/catalog?category=${primaryCategory.id}`)} class="hover:text-zinc-900 dark:hover:text-white transition">
             {primaryCategory.title}
           </a>
         </>
@@ -152,7 +153,7 @@ const breadcrumbsSchema = {
             <div class="space-y-2">
               {product.certificates.map(cert => (
                 <a 
-                  href={cert.url} 
+                  href={getUrl(cert.url)}
                   target="_blank" 
                   class="flex items-center justify-between p-3.5 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] text-xs font-mono text-zinc-700 dark:text-zinc-300 hover:border-[#3dd68c]/40 hover:text-zinc-900 dark:hover:text-white transition group"
                 >
@@ -186,7 +187,7 @@ const breadcrumbsSchema = {
             <div class="flex flex-wrap gap-2">
               {productCollections.map(c => (
                 <a 
-                  href={`/collections/${c.slug}`} 
+                  href={getUrl(`/collections/${c.slug}`)} 
                   class="text-[11px] font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-3 py-1 rounded-full bg-[#3dd68c]/15 border border-[#3dd68c]/30 hover:bg-[#3dd68c] hover:text-[#111215] transition"
                 >
                   Подборка: {c.title}
@@ -339,7 +340,7 @@ const breadcrumbsSchema = {
               Другие материалы из этой подборки
             </h2>
           </div>
-          <a href="/catalog" class="text-xs font-mono font-bold text-[#0d9488] dark:text-[#3dd68c] hover:underline">
+          <a href={getUrl("/catalog")} class="text-xs font-mono font-bold text-[#0d9488] dark:text-[#3dd68c] hover:underline">
             Весь каталог →
           </a>
         </div>
@@ -349,7 +350,7 @@ const breadcrumbsSchema = {
             const defaultVar = relProd.variants[0];
             const priceEntries = Object.entries(defaultVar?.prices || {});
             const fullTitle = `${relProd.title} — ${defaultVar.title}`;
-            const directUrl = `/catalog/${relProd.slug}?variant=${encodeURIComponent(defaultVar.sku)}`;
+            const directUrl = getUrl(`/catalog/${relProd.slug}?variant=${encodeURIComponent(defaultVar.sku)}`);
 
             return (
               <div class="rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-5 flex flex-col justify-between hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 group">

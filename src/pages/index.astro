@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import company from '../data/company.json';
 import database from '../data/database.json';
+import { getUrl } from '../utils/paths';
 
 const { collections, products, articles } = database;
 const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
@@ -31,7 +32,7 @@ const featuredProducts = products.slice(0, 2);
       </p>
 
       <div class="flex flex-wrap items-center gap-4">
-        <a href="/catalog" class="px-8 py-4 rounded-2xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-[#e3e6ed] dark:text-[#111215] dark:hover:bg-white text-sm font-bold transition-all duration-300 shadow-xl shadow-black/5 dark:shadow-black/20 hover:-translate-y-0.5">
+        <a href={getUrl('/catalog')} class="px-8 py-4 rounded-2xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-[#e3e6ed] dark:text-[#111215] dark:hover:bg-white text-sm font-bold transition-all duration-300 shadow-xl shadow-black/5 dark:shadow-black/20 hover:-translate-y-0.5">
           Перейти в каталог товаров
         </a>
         <button type="button" onclick="downloadFullCatalogPdf()" class="px-8 py-4 rounded-2xl bg-white dark:bg-[#181a1f] text-zinc-800 dark:text-zinc-200 hover:text-zinc-900 dark:hover:text-white text-sm font-semibold border border-zinc-200 dark:border-white/[0.08] hover:border-zinc-300 dark:hover:border-white/[0.2] transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-2">
@@ -69,7 +70,7 @@ const featuredProducts = products.slice(0, 2);
             Самовывоз, отгрузка и варианты оплаты
           </h2>
         </div>
-        <a href="/contacts" class="px-5 py-2.5 rounded-xl bg-zinc-900 dark:bg-white/[0.06] text-white dark:text-zinc-200 text-xs font-mono font-bold hover:bg-[#3dd68c] hover:text-[#111215] dark:hover:bg-[#3dd68c] dark:hover:text-[#111215] transition self-start sm:self-auto">
+        <a href={getUrl('/contacts')} class="px-5 py-2.5 rounded-xl bg-zinc-900 dark:bg-white/[0.06] text-white dark:text-zinc-200 text-xs font-mono font-bold hover:bg-[#3dd68c] hover:text-[#111215] dark:hover:bg-[#3dd68c] dark:hover:text-[#111215] transition self-start sm:self-auto">
           Контакты и схема проезда →
         </a>
       </div>
@@ -120,7 +121,7 @@ const featuredProducts = products.slice(0, 2);
           </h2>
         </div>
         <a 
-          href="/catalog" 
+          href={getUrl('/catalog')}
           class="px-5 py-2.5 rounded-xl bg-zinc-900 dark:bg-white/[0.06] text-white dark:text-zinc-200 border border-zinc-700 dark:border-white/[0.1] text-xs font-mono font-bold hover:bg-[#3dd68c] hover:text-[#111215] dark:hover:bg-[#3dd68c] dark:hover:text-[#111215] transition-all shadow-sm self-start sm:self-auto"
         >
           Весь каталог продукции →
@@ -149,7 +150,7 @@ const featuredProducts = products.slice(0, 2);
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {collections.map(col => (
-              <a href={`/collections/${col.slug}`} class="relative rounded-2xl overflow-hidden bg-zinc-50 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.06] p-6 flex flex-col justify-between group/card hover:border-[#3dd68c]/40 transition-all duration-300">
+              <a href={getUrl(`/collections/${col.slug}`)} class="relative rounded-2xl overflow-hidden bg-zinc-50 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.06] p-6 flex flex-col justify-between group/card hover:border-[#3dd68c]/40 transition-all duration-300">
                 {col.coverImage && (
                   <div class="h-32 -mx-6 -mt-6 mb-4 overflow-hidden relative">
                     <img src={col.coverImage} alt={col.title} class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-700" />
@@ -195,7 +196,7 @@ const featuredProducts = products.slice(0, 2);
               </div>
             </div>
 
-            <a href="/contacts" class="block w-full py-3.5 text-center rounded-2xl bg-zinc-100 hover:bg-zinc-200 dark:bg-white/[0.04] dark:hover:bg-white/[0.08] text-zinc-800 dark:text-zinc-200 text-xs font-mono font-semibold transition">
+            <a href={getUrl('/contacts')} class="block w-full py-3.5 text-center rounded-2xl bg-zinc-100 hover:bg-zinc-200 dark:bg-white/[0.04] dark:hover:bg-white/[0.08] text-zinc-800 dark:text-zinc-200 text-xs font-mono font-semibold transition">
               Схема проезда и контакты →
             </a>
           </div>
@@ -226,7 +227,7 @@ const featuredProducts = products.slice(0, 2);
             const defaultVariant = product.variants[0];
             const fullTitle = `${product.title} — ${defaultVariant.title}`;
             const priceEntries = Object.entries(defaultVariant?.prices || {});
-            const directUrl = `/catalog/${product.slug}?variant=${encodeURIComponent(defaultVariant.sku)}`;
+            const directUrl = getUrl(`/catalog/${product.slug}?variant=${encodeURIComponent(defaultVariant.sku)}`);
             
             return (
               <div class="rounded-3xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.06] p-6 sm:p-8 flex flex-col justify-between space-y-6 group hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:shadow-xl transition-all duration-300">

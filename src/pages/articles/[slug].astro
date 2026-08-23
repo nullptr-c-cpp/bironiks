@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import database from '../../data/database.json';
+import { getUrl } from '../../utils/paths';
 
 export async function getStaticPaths() {
   return database.articles.map(art => ({
@@ -28,9 +29,9 @@ const videoEmbedUrl = article.media?.type === 'video' ? getYoutubeEmbed(article.
   <article class="max-w-4xl mx-auto space-y-12">
     
     <nav class="flex items-center gap-2 text-xs font-mono text-zinc-400">
-      <a href="/" class="hover:text-zinc-900 dark:hover:text-white">Главная</a>
+      <a href={getUrl()} class="hover:text-zinc-900 dark:hover:text-white">Главная</a>
       <span>/</span>
-      <a href="/articles" class="hover:text-zinc-900 dark:hover:text-white">Статьи</a>
+      <a href={getUrl("/articles")} class="hover:text-zinc-900 dark:hover:text-white">Статьи</a>
       <span>/</span>
       <span class="text-zinc-800 dark:text-zinc-200 truncate">{article.title}</span>
     </nav>
@@ -106,7 +107,7 @@ const videoEmbedUrl = article.media?.type === 'video' ? getYoutubeEmbed(article.
             const defaultVar = p.variants[0];
             const price = Object.entries(defaultVar.prices)[0];
             const fullTitle = `${p.title} — ${defaultVar.title}`;
-            const directUrl = `/catalog/${p.slug}?variant=${encodeURIComponent(defaultVar.sku)}`;
+            const directUrl = getUrl(`/catalog/${p.slug}?variant=${encodeURIComponent(defaultVar.sku)}`);
 
             return (
               <div class="rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-5 flex flex-col justify-between hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">

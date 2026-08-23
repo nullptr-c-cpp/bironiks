@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import database from '../../data/database.json';
+import { getUrl } from '../../utils/paths';
 
 export async function getStaticPaths() {
   return database.collections.map(col => ({
@@ -38,9 +39,9 @@ const variantCards = matchingProducts.flatMap(p => {
   <div class="space-y-12">
 
     <nav class="flex items-center gap-2 text-xs font-mono text-zinc-400">
-      <a href="/" class="hover:text-zinc-900 dark:hover:text-white">Главная</a>
+      <a href={getUrl()} class="hover:text-zinc-900 dark:hover:text-white">Главная</a>
       <span>/</span>
-      <a href="/collections" class="hover:text-zinc-900 dark:hover:text-white">Подборки</a>
+      <a href={getUrl('/collections')} class="hover:text-zinc-900 dark:hover:text-white">Подборки</a>
       <span>/</span>
       <span class="text-zinc-800 dark:text-zinc-200">{collection.title}</span>
     </nav>
@@ -81,7 +82,7 @@ const variantCards = matchingProducts.flatMap(p => {
             
             <div class="space-y-4">
               {item.parentProduct.coverImage && (
-                <a href={item.directUrl} class="block h-44 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-black/40 relative">
+                <a href={getUrl(item.directUrl)} class="block h-44 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-black/40 relative">
                   <img src={item.parentProduct.coverImage} alt={item.fullTitle} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <span class="absolute top-3 right-3 text-[10px] font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-2.5 py-1 rounded-full bg-white/90 dark:bg-[#181a1f]/90 backdrop-blur-md border border-[#3dd68c]/30">
                     В наличии
@@ -91,7 +92,7 @@ const variantCards = matchingProducts.flatMap(p => {
 
               <div>
                 <h3 class="text-base font-bold text-zinc-900 dark:text-[#f0f2f5] group-hover:text-[#0d9488] dark:group-hover:text-[#3dd68c] transition-colors leading-snug">
-                  <a href={item.directUrl}>{item.fullTitle}</a>
+                  <a href={getUrl(item.directUrl)}>{item.fullTitle}</a>
                 </h3>
               </div>
 

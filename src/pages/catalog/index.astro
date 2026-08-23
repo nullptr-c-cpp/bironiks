@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import database from '../../data/database.json';
+import { getUrl } from '../../utils/paths';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const { products, categories } = database;
@@ -146,7 +147,7 @@ const allVariantCards = products.flatMap(p => {
               >
                 <div class="space-y-3.5">
                   {item.parentProduct.coverImage && (
-                    <a href={item.directUrl} class="block h-48 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-black/40 relative">
+                    <a href={getUrl(item.directUrl)} class="block h-48 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-black/40 relative">
                       <img src={item.parentProduct.coverImage} alt={item.fullTitle} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       <span class="absolute top-3 right-3 text-[10px] font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-2.5 py-1 rounded-full bg-white/90 dark:bg-[#181a1f]/90 backdrop-blur-md border border-[#3dd68c]/30">
                         В наличии
@@ -156,7 +157,7 @@ const allVariantCards = products.flatMap(p => {
 
                   <div>
                     <h3 class="text-base font-bold text-zinc-900 dark:text-[#f0f2f5] group-hover:text-[#0d9488] dark:group-hover:text-[#3dd68c] transition-colors leading-snug">
-                      <a href={item.directUrl}>{item.fullTitle}</a>
+                      <a href={getUrl(item.directUrl)}>{item.fullTitle}</a>
                     </h3>
                   </div>
 

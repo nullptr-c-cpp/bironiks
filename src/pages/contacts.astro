@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import company from '../data/company.json';
+import { getUrl } from '../utils/paths';
 
 const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
 
@@ -33,7 +34,7 @@ const contactsBreadcrumbsSchema = {
     
     <!-- ХЛЕБНЫЕ КРОШКИ -->
     <nav class="flex items-center gap-2 text-xs font-mono text-zinc-400">
-      <a href="/" class="hover:text-zinc-900 dark:hover:text-white transition">Главная</a>
+      <a href={getUrl()} class="hover:text-zinc-900 dark:hover:text-white transition">Главная</a>
       <span>/</span>
       <span class="text-zinc-800 dark:text-zinc-200 font-semibold">Контакты и база отгрузки</span>
     </nav>
