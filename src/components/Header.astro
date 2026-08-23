@@ -1,5 +1,6 @@
 ---
 import company from '../data/company.json';
+import { getUrl } from '../utils/paths';
 
 const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
 const managerPhone = company.managerPhone || company.mainPhone;
