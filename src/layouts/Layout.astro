@@ -10,7 +10,7 @@ interface Props {
   image?: string;
   type?: 'website' | 'article' | 'product';
   canonical?: string;
-  schema?: Record<string, any>;
+  schema?: Record<string, any> | Array<Record<string, any>>;
 }
 
 const { 
@@ -25,7 +25,6 @@ const {
 const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site || 'https://bironiks.ru').href;
 const ogImageURL = new URL(image, Astro.site || 'https://bironiks.ru').href;
 
-// Базовая микроразметка Schema.org для локального бизнеса в Омске
 const baseLocalBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "WholesaleStore",
@@ -52,24 +51,10 @@ const baseLocalBusinessSchema = {
     "@type": "GeoCoordinates",
     "latitude": company.yandexMapCoords[0],
     "longitude": company.yandexMapCoords[1]
-  },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
-      "closes": "17:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-      "opens": "10:00",
-      "closes": "14:00"
-    }
-  ]
+  }
 };
 
-const finalSchema = schema || baseLocalBusinessSchema;
+const finalSchema = schema ? (Array.isArray(schema) ? schema : [schema]) : [baseLocalBusinessSchema];
 const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
 const managerPhone = company.managerPhone || company.mainPhone;
 ---
@@ -80,19 +65,18 @@ const managerPhone = company.managerPhone || company.mainPhone;
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <!-- Основные SEO мета-теги -->
   <title>{title}</title>
   <meta name="description" content={description} />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href={canonicalURL} />
 
-  <!-- Гео-привязка для регионального ранжирования (Омск) -->
+  <!-- Гео-привязка -->
   <meta name="geo.region" content="RU-OMS" />
   <meta name="geo.placename" content="Омск" />
   <meta name="geo.position" content={`${company.yandexMapCoords[0]};${company.yandexMapCoords[1]}`} />
   <meta name="ICBM" content={`${company.yandexMapCoords[0]}, ${company.yandexMapCoords[1]}`} />
 
-  <!-- Open Graph / VK / Telegram -->
+  <!-- Open Graph -->
   <meta property="og:locale" content="ru_RU" />
   <meta property="og:site_name" content={company.brand} />
   <meta property="og:type" content={type} />
@@ -108,7 +92,9 @@ const managerPhone = company.managerPhone || company.mainPhone;
   <meta name="twitter:image" content={ogImageURL} />
 
   <!-- Schema.org JSON-LD -->
-  <script type="application/ld+json" set:html={JSON.stringify(finalSchema)} />
+  {finalSchema.map(s => (
+    <script type="application/ld+json" set:html={JSON.stringify(s)} />
+  ))}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -265,7 +251,7 @@ const managerPhone = company.managerPhone || company.mainPhone;
 
           <a 
             href={`tel:${formatPhone(managerPhone)}`} 
-            data-copy={managerPhone}
+            data-no-toast="true"
             class="w-full py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-zinc-900 text-xs font-bold text-center transition flex items-center justify-center gap-2"
           >
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -579,14 +565,15 @@ const managerPhone = company.managerPhone || company.mainPhone;
       }
     }
 
-    // 6. УНИВЕРСАЛЬНЫЙ АВТОМАТИЧЕСКИЙ ПЕРЕХВАТ ЗВОНКОВ + КОПИРОВАНИЕ
+    // 6. ПЕРЕХВАТ ЗВОНКОВ (БЕЗ ВСХОДЯЩИХ ВСПЛЫВАЮЩИХ ОКОН ПРИ data-no-toast)
     document.addEventListener('click', async (e) => {
-      // Перехват любого клика по tel: ссылке (в контактах, товарах, шапке, модалке и т.д.)
       const telLink = e.target.closest('a[href^="tel:"]');
       if (telLink) {
         const rawHref = telLink.getAttribute('href') || '';
         const phone = telLink.getAttribute('data-copy') || rawHref.replace('tel:', '');
-        if (phone) {
+        const isNoToast = telLink.getAttribute('data-no-toast') === 'true';
+
+        if (phone && !isNoToast) {
           try {
             await navigator.clipboard.writeText(phone);
             showToast(`Номер скопирован: ${phone}`);
@@ -596,11 +583,11 @@ const managerPhone = company.managerPhone || company.mainPhone;
         }
       }
 
-      // Обычное копирование [data-copy]
       const copyTarget = e.target.closest('[data-copy]');
       if (copyTarget && !telLink) {
+        const isNoToast = copyTarget.getAttribute('data-no-toast') === 'true';
         const text = copyTarget.getAttribute('data-copy');
-        if (text) {
+        if (text && !isNoToast) {
           try {
             await navigator.clipboard.writeText(text);
             showToast(`Скопировано: ${text}`);

@@ -23,7 +23,7 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
 const defaultVariant = product.variants[0];
 const firstPrice = defaultVariant ? Object.values(defaultVariant.prices)[0] : null;
 
-// Product Schema.org для карточки товара
+// Product Schema.org
 const productSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
@@ -48,18 +48,50 @@ const productSchema = {
     }
   }
 };
+
+// Breadcrumbs Schema.org
+const breadcrumbsSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://bironiks.ru/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Каталог",
+      "item": "https://bironiks.ru/catalog"
+    },
+    ...(primaryCategory ? [{
+      "@type": "ListItem",
+      "position": 3,
+      "name": primaryCategory.title,
+      "item": `https://bironiks.ru/catalog?category=${primaryCategory.id}`
+    }] : []),
+    {
+      "@type": "ListItem",
+      "position": primaryCategory ? 4 : 3,
+      "name": product.title,
+      "item": `https://bironiks.ru/catalog/${product.slug}`
+    }
+  ]
+};
 ---
 
 <Layout 
-  title={`${product.title} — ${defaultVariant.title} купить в Омске | БИРОНИКС`} 
-  description={`${product.description} Купить в розницу и оптом со склада на ул. 20 лет РККА в Омске. Цены от ${firstPrice || 'по согласованию'} ₽.`}
+  title={`${product.title} — ${defaultVariant.title} | Каталог ${primaryCategory ? primaryCategory.title : 'товаров'} | БИРОНИКС Омск`} 
+  description={`${product.description} Продажа со склада на ул. 20 лет РККА в Омске. Цены от ${firstPrice || 'по согласованию'} ₽.`}
   image={product.coverImage}
   type="product"
-  schema={productSchema}
+  schema={[productSchema, breadcrumbsSchema]}
 >
   <div class="space-y-16 lg:space-y-24">
 
-    <!-- ХЛЕБНЫЕ КРОШКИ -->
+    <!-- ХЛЕБНЫЕ КРОШКИ С ЧЕТКОЙ АДРЕСАЦИЕЙ -->
     <nav class="flex flex-wrap items-center gap-2 text-xs font-mono text-zinc-400">
       <a href="/" class="hover:text-zinc-900 dark:hover:text-white transition">Главная</a>
       <span>/</span>
@@ -191,7 +223,7 @@ const productSchema = {
           </div>
         </div>
 
-        <!-- СТОИМОСТЬ И ЗАКАЗ -->
+        <!-- СТОИМОСТЬ И КНОПКИ ЗАКАЗА -->
         <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] space-y-6 shadow-sm">
           
           <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 pb-6 border-b border-zinc-100 dark:border-white/[0.06]">
@@ -243,15 +275,34 @@ const productSchema = {
               <span>Добавить в лист заявки</span>
             </button>
 
-            <!-- Кнопка звонка: автоматически копирует номер и открывает окно набора -->
-            <a 
-              href={`tel:${formatPhone(company.mainPhone)}`}
-              data-copy={company.mainPhone}
-              class="py-4 px-5 rounded-2xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white/[0.06] dark:hover:bg-white dark:text-zinc-200 dark:hover:text-zinc-950 text-xs font-mono font-bold transition text-center shrink-0 border border-zinc-700 dark:border-white/[0.08]"
-              title="Нажмите для звонка и автокопирования номера"
-            >
-              Заказать по телефону
-            </a>
+            <!-- ИНЛАЙН-РАСКРЫТИЕ НОМЕРА ТЕЛЕФОНА БЕЗ ВСХОДЯЩИХ ОКОН -->
+            <div class="relative shrink-0" id="call-btn-container">
+              <!-- Исходная кнопка -->
+              <button 
+                type="button"
+                id="reveal-phone-btn"
+                class="w-full sm:w-auto py-4 px-5 rounded-2xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white/[0.06] dark:hover:bg-white dark:text-zinc-200 dark:hover:text-zinc-950 text-xs font-mono font-bold transition text-center border border-zinc-700 dark:border-white/[0.08]"
+              >
+                Заказать по телефону
+              </button>
+
+              <!-- Раскрытое состояние (появляется на месте без всплывающих окон) -->
+              <div 
+                id="revealed-phone-block" 
+                class="hidden flex-col sm:flex-row items-center gap-2 py-2 px-3 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 border border-[#3dd68c]"
+              >
+                <a 
+                  href={`tel:${formatPhone(company.mainPhone)}`}
+                  data-no-toast="true"
+                  class="text-xs font-mono font-bold hover:underline px-2 py-1 flex items-center gap-1.5"
+                >
+                  <svg class="w-3.5 h-3.5 text-[#3dd68c] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span>{company.mainPhone}</span>
+                </a>
+              </div>
+            </div>
 
           </div>
 
@@ -482,6 +533,17 @@ const productSchema = {
             unit: unit
           }, selectedQuantity);
         }
+      });
+    }
+
+    // ИНЛАЙН-РАСКРЫТИЕ НОМЕРА ТЕЛЕФОНА БЕЗ ВСХОДЯЩИХ ОКОН
+    const revealBtn = document.getElementById('reveal-phone-btn');
+    const revealedBlock = document.getElementById('revealed-phone-block');
+    if (revealBtn && revealedBlock) {
+      revealBtn.addEventListener('click', () => {
+        revealBtn.classList.add('hidden');
+        revealedBlock.classList.remove('hidden');
+        revealedBlock.classList.add('flex');
       });
     }
 
