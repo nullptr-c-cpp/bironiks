@@ -1,6 +1,0 @@
-{
-  "name": "БИРОНИКС — Изоляционные материалы",
-  "description": "Каталог строительных и изоляционных материалов торговой компании ООО «БИРОНИКС». Наличие на складе в Омске, самовывоз, расчет материалов.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

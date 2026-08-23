@@ -1,0 +1,162 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import database from '../../data/database.json';
+
+export async function getStaticPaths() {
+  return database.articles.map(art => ({
+    params: { slug: art.slug },
+    props: { article: art }
+  }));
+}
+
+const { article } = Astro.props;
+
+// Находим товары, прикрепленные к данной статье
+const linkedProducts = database.products.filter(p => article.linkedProductIds?.includes(p.id));
+
+// Преобразование YouTube-ссылки в embed
+const getYoutubeEmbed = (url: string) => {
+  if (!url) return null;
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+  return match ? `https://www.youtube.com/embed/${match[1]}` : null;
+};
+
+const videoEmbedUrl = article.media?.type === 'video' ? getYoutubeEmbed(article.media.url) : null;
+---
+
+<Layout title={`${article.title} — БИРОНИКС`} description={article.summary}>
+  <article class="max-w-4xl mx-auto space-y-12">
+    
+    <nav class="flex items-center gap-2 text-xs font-mono text-zinc-400">
+      <a href="/" class="hover:text-zinc-900 dark:hover:text-white">Главная</a>
+      <span>/</span>
+      <a href="/articles" class="hover:text-zinc-900 dark:hover:text-white">Статьи</a>
+      <span>/</span>
+      <span class="text-zinc-800 dark:text-zinc-200 truncate">{article.title}</span>
+    </nav>
+
+    <!-- Заголовок статьи -->
+    <div class="space-y-4">
+      <div class="flex items-center gap-3 text-xs font-mono">
+        <span class="px-3 py-1 rounded-full bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] font-bold border border-[#3dd68c]/30">
+          {article.category}
+        </span>
+        <span class="text-zinc-400">{article.date}</span>
+        <span class="text-zinc-400">• {article.readTimeMin} мин чтения</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] leading-tight">
+        {article.title}
+      </h1>
+
+      <p class="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
+        {article.summary}
+      </p>
+    </div>
+
+    <!-- Медиа в шапке (Видео или Изображение) -->
+    {article.media && (
+      <div class="rounded-3xl overflow-hidden bg-zinc-100 dark:bg-black/40 border border-zinc-200 dark:border-white/[0.08]">
+        {videoEmbedUrl ? (
+          <div class="aspect-video w-full">
+            <iframe 
+              src={videoEmbedUrl} 
+              title={article.title} 
+              class="w-full h-full border-0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen
+            ></iframe>
+          </div>
+        ) : (
+          <img src={article.media.url} alt={article.title} class="w-full h-auto max-h-[500px] object-cover" />
+        )}
+      </div>
+    )}
+
+    <!-- HTML-контент статьи -->
+    <div class="prose dark:prose-invert max-w-none text-zinc-800 dark:text-zinc-300 leading-relaxed space-y-6 text-base sm:text-lg">
+      <Fragment set:html={article.contentHtml} />
+    </div>
+
+    <!-- Теги -->
+    {article.tags && article.tags.length > 0 && (
+      <div class="pt-6 border-t border-zinc-200 dark:border-white/[0.06] flex flex-wrap gap-2">
+        {article.tags.map(tag => (
+          <span class="text-xs font-mono px-3 py-1.5 rounded-xl bg-zinc-100 dark:bg-white/[0.04] text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-white/[0.06]">
+            #{tag}
+          </span>
+        ))}
+      </div>
+    )}
+
+    <!-- БЛОК: ТОВАРЫ ИЗ СТАТЬИ С ФОТОГРАФИЯМИ И ПЕРЕХОДОМ -->
+    {linkedProducts.length > 0 && (
+      <div class="pt-12 border-t border-zinc-200 dark:border-white/[0.06] space-y-6">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">
+            Спецификация к руководству
+          </span>
+          <h2 class="text-2xl font-extrabold text-zinc-900 dark:text-[#f0f2f5] mt-1">
+            Материалы из этой статьи
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {linkedProducts.map(p => {
+            const defaultVar = p.variants[0];
+            const price = Object.entries(defaultVar.prices)[0];
+            const fullTitle = `${p.title} — ${defaultVar.title}`;
+            const directUrl = `/catalog/${p.slug}?variant=${encodeURIComponent(defaultVar.sku)}`;
+
+            return (
+              <div class="rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-5 flex flex-col justify-between hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
+                
+                <div class="space-y-4">
+                  {p.coverImage && (
+                    <a href={directUrl} class="block h-44 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-black/40 relative">
+                      <img src={p.coverImage} alt={fullTitle} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <span class="absolute top-3 right-3 text-[10px] font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-2.5 py-1 rounded-full bg-white/90 dark:bg-[#181a1f]/90 backdrop-blur-md border border-[#3dd68c]/30">
+                        В наличии
+                      </span>
+                    </a>
+                  )}
+
+                  <div>
+                    <h3 class="text-base font-bold text-zinc-900 dark:text-[#f0f2f5] group-hover:text-[#0d9488] dark:group-hover:text-[#3dd68c] transition-colors leading-snug">
+                      <a href={directUrl}>{fullTitle}</a>
+                    </h3>
+                    <p class="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2 mt-1.5 leading-relaxed">
+                      {p.description}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="pt-4 mt-4 border-t border-zinc-100 dark:border-white/[0.04] flex items-center justify-between">
+                  <span class="text-sm font-extrabold font-mono text-zinc-900 dark:text-[#f0f2f5]">
+                    {price ? `${price[1]} ₽ / ${price[0]}` : 'По согласованию'}
+                  </span>
+
+                  <div class="flex items-center gap-2">
+                    <button 
+                      type="button"
+                      onclick={`addToOrderSheet({ id: '${p.id}-${defaultVar.sku}', title: '${fullTitle.replace(/'/g, "\\'")}', price: ${price ? price[1] : 0}, unit: '${price ? price[0] : 'шт'}' })`}
+                      class="px-3.5 py-2 rounded-xl bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] hover:bg-[#3dd68c] hover:text-[#111215] text-xs font-bold border border-[#3dd68c]/30 transition"
+                      title="Добавить в лист заявки"
+                    >
+                      + В заявку
+                    </button>
+                    <a href={directUrl} class="p-2 rounded-xl bg-zinc-100 hover:bg-zinc-200 dark:bg-white/[0.06] dark:hover:bg-white/[0.1] text-xs font-bold text-zinc-700 dark:text-zinc-300 transition">
+                      →
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    )}
+
+  </article>
+</Layout>

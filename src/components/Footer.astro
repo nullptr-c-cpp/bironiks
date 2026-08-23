@@ -1,0 +1,30 @@
+---
+import company from '../data/company.json';
+---
+
+<footer class="border-t border-zinc-200 dark:border-white/[0.06] bg-white dark:bg-[#0d0e11] py-14">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8 text-xs font-mono text-zinc-500">
+    <div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+      <span class="text-zinc-900 dark:text-zinc-200 font-bold tracking-tight font-sans text-sm">{company.brand}</span>
+      <span class="hidden sm:inline">—</span>
+      <span>{company.requisites.shortName}</span>
+    </div>
+
+    <!-- Копируемые реквизиты -->
+    <div class="flex flex-wrap justify-center gap-4">
+      <button data-copy={company.requisites.inn} class="hover:text-zinc-900 dark:hover:text-white transition">
+        ИНН: <span class="font-bold underline decoration-dotted">{company.requisites.inn}</span>
+      </button>
+      <button data-copy={company.requisites.checkingAccount} class="hover:text-zinc-900 dark:hover:text-white transition">
+        Р/С: <span class="font-bold underline decoration-dotted">{company.requisites.checkingAccount}</span>
+      </button>
+      <button data-copy={company.warehouseAddress} class="hover:text-zinc-900 dark:hover:text-white transition">
+        Склад: <span class="font-bold underline decoration-dotted">{company.warehouseAddress.split(',')[2]}</span>
+      </button>
+    </div>
+
+    <div>
+      © {new Date().getFullYear()} Все права защищены.
+    </div>
+  </div>
+</footer>

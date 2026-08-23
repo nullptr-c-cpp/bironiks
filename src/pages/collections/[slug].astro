@@ -1,0 +1,134 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import database from '../../data/database.json';
+
+export async function getStaticPaths() {
+  return database.collections.map(col => ({
+    params: { slug: col.slug },
+    props: { collection: col }
+  }));
+}
+
+const { collection } = Astro.props;
+
+// Находим товары, относящиеся к этой подборке
+const matchingProducts = database.products.filter(p => p.collectionIds?.includes(collection.id));
+
+const variantCards = matchingProducts.flatMap(p => {
+  return p.variants.map(v => {
+    const fullTitle = `${p.title} — ${v.title}`;
+    const firstPriceEntry = Object.entries(v.prices)[0];
+    return {
+      id: `${p.id}-${v.sku}`,
+      fullTitle,
+      parentProduct: p,
+      variant: v,
+      firstPrice: firstPriceEntry ? firstPriceEntry[1] : null,
+      firstUnit: firstPriceEntry ? firstPriceEntry[0] : 'шт',
+      directUrl: `/catalog/${p.slug}?variant=${encodeURIComponent(v.sku)}`
+    };
+  });
+});
+---
+
+<Layout 
+  title={`${collection.seo?.metaTitle || collection.title} — БИРОНИКС`} 
+  description={collection.seo?.metaDescription || collection.description}
+>
+  <div class="space-y-12">
+
+    <nav class="flex items-center gap-2 text-xs font-mono text-zinc-400">
+      <a href="/" class="hover:text-zinc-900 dark:hover:text-white">Главная</a>
+      <span>/</span>
+      <a href="/collections" class="hover:text-zinc-900 dark:hover:text-white">Подборки</a>
+      <span>/</span>
+      <span class="text-zinc-800 dark:text-zinc-200">{collection.title}</span>
+    </nav>
+
+    <!-- Баннер подборки -->
+    <div class="rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-8 sm:p-12 relative overflow-hidden">
+      {collection.coverImage && (
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+          <img src={collection.coverImage} alt={collection.title} class="w-full h-full object-cover" />
+        </div>
+      )}
+
+      <div class="relative z-10 max-w-3xl space-y-4">
+        <span class="text-xs font-mono font-bold text-[#0d9488] dark:text-[#3dd68c] px-3 py-1 rounded-full bg-[#3dd68c]/10 border border-[#3dd68c]/20">
+          {collection.badge || 'ОТРАСЛЕВОЕ РЕШЕНИЕ'}
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5]">
+          {collection.title}
+        </h1>
+        <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          {collection.description}
+        </p>
+      </div>
+    </div>
+
+    <!-- Список материалов подборки -->
+    <div class="space-y-6">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xl font-bold text-zinc-900 dark:text-[#f0f2f5]">
+          Рекомендуемые материалы ({variantCards.length})
+        </h2>
+        <span class="text-xs font-mono text-zinc-400">В наличии на складе</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {variantCards.map(item => (
+          <div class="rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-6 flex flex-col justify-between hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:-translate-y-1.5 transition-all duration-300 group">
+            
+            <div class="space-y-4">
+              {item.parentProduct.coverImage && (
+                <a href={item.directUrl} class="block h-44 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-black/40 relative">
+                  <img src={item.parentProduct.coverImage} alt={item.fullTitle} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <span class="absolute top-3 right-3 text-[10px] font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-2.5 py-1 rounded-full bg-white/90 dark:bg-[#181a1f]/90 backdrop-blur-md border border-[#3dd68c]/30">
+                    В наличии
+                  </span>
+                </a>
+              )}
+
+              <div>
+                <h3 class="text-base font-bold text-zinc-900 dark:text-[#f0f2f5] group-hover:text-[#0d9488] dark:group-hover:text-[#3dd68c] transition-colors leading-snug">
+                  <a href={item.directUrl}>{item.fullTitle}</a>
+                </h3>
+              </div>
+
+              <div class="flex flex-wrap gap-1.5">
+                {Object.entries(item.variant.attributes).slice(0, 2).map(([key, val]) => (
+                  <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.04] text-zinc-600 dark:text-zinc-400">
+                    {key}: {val}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div class="pt-6 mt-4 border-t border-zinc-200 dark:border-white/[0.06] flex items-center justify-between">
+              <div class="font-mono">
+                {item.firstPrice ? (
+                  <div>
+                    <span class="text-[10px] text-zinc-500 block uppercase">за {item.firstUnit}</span>
+                    <span class="text-xl font-extrabold text-zinc-900 dark:text-[#f0f2f5]">{item.firstPrice} ₽</span>
+                  </div>
+                ) : (
+                  <span class="text-xs font-bold text-zinc-400">По согласованию</span>
+                )}
+              </div>
+
+              <button 
+                type="button"
+                onclick={`addToOrderSheet({ id: '${item.id}', title: '${item.fullTitle.replace(/'/g, "\\'")}', price: ${item.firstPrice || 0}, unit: '${item.firstUnit}' })`}
+                class="px-4 py-2 rounded-xl bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] hover:bg-[#3dd68c] hover:text-[#111215] text-xs font-bold border border-[#3dd68c]/30 transition"
+              >
+                + В заявку
+              </button>
+            </div>
+
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</Layout>

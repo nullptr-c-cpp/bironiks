@@ -1,0 +1,226 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import database from '../../data/database.json';
+
+const { products, categories } = database;
+
+// Склейка названий и генерация данных для поиска
+const allVariantCards = products.flatMap(p => {
+  return p.variants.map(v => {
+    const fullTitle = `${p.title} — ${v.title}`;
+    const attrValues = Object.entries(v.attributes).map(([k, val]) => `${k} ${val}`).join(' ');
+    const searchableText = `${fullTitle} ${attrValues}`.toLowerCase();
+    const firstPriceEntry = Object.entries(v.prices)[0];
+
+    return {
+      id: `${p.id}-${v.sku}`,
+      fullTitle,
+      parentProduct: p,
+      variant: v,
+      firstPrice: firstPriceEntry ? firstPriceEntry[1] : null,
+      firstUnit: firstPriceEntry ? firstPriceEntry[0] : 'шт',
+      categoryIds: p.categoryIds || [],
+      searchableText,
+      directUrl: `/catalog/${p.slug}?variant=${encodeURIComponent(v.sku)}`
+    };
+  });
+});
+---
+
+<Layout title="Каталог продукции — БИРОНИКС">
+  <div class="space-y-10">
+    
+    <!-- Заголовок и пояснение о заказе -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div>
+        <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Складская номенклатура</span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mt-1">
+          Каталог продукции
+        </h1>
+        <p class="text-xs sm:text-sm font-mono text-zinc-500 dark:text-zinc-400 mt-2">
+          Заказ и расчет доставки осуществляются по согласованию с менеджером по телефону.
+        </p>
+      </div>
+      <div id="catalog-counter" class="text-xs font-mono text-zinc-500">
+        Показано: {allVariantCards.length} позиций
+      </div>
+    </div>
+
+    <!-- Поиск и фильтры -->
+    <div class="p-6 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] space-y-5 shadow-sm">
+      
+      <div class="relative">
+        <input 
+          type="text" 
+          id="catalog-search" 
+          placeholder="Поиск по названию, толщине, размерам..."
+          class="w-full pl-5 pr-10 py-3 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.06] text-sm text-zinc-900 dark:text-[#f0f2f5] placeholder-zinc-400 focus:outline-none focus:border-[#3dd68c] transition"
+        />
+        <button id="search-clear" class="absolute inset-y-0 right-0 pr-4 flex items-center text-zinc-400 hover:text-zinc-600 dark:hover:text-white hidden">
+          ✕
+        </button>
+      </div>
+
+      <div class="flex flex-wrap gap-2 pt-1" id="category-filters">
+        <button 
+          type="button" 
+          data-category="all"
+          class="filter-chip active px-4 py-2 rounded-xl text-xs font-mono font-bold transition bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]"
+        >
+          Все категории ({allVariantCards.length})
+        </button>
+
+        {categories.map(cat => {
+          const count = allVariantCards.filter(item => item.categoryIds.includes(cat.id)).length;
+          return (
+            <button 
+              type="button" 
+              data-category={cat.id}
+              class="filter-chip px-4 py-2 rounded-xl text-xs font-mono font-semibold transition bg-zinc-100 dark:bg-white/[0.04] text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-white/[0.06] hover:border-zinc-300 dark:hover:border-white/[0.2]"
+            >
+              {cat.title} ({count})
+            </button>
+          );
+        })}
+      </div>
+
+    </div>
+
+    <!-- Сетка карточек со склеенным заголовком и плашкой «В наличии» -->
+    <div id="catalog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {allVariantCards.map(item => {
+        return (
+          <div 
+            class="catalog-item rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-6 flex flex-col justify-between hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 group"
+            data-search={item.searchableText}
+            data-categories={item.categoryIds.join(',')}
+          >
+            <div class="space-y-4">
+              {item.parentProduct.coverImage && (
+                <a href={item.directUrl} class="block h-48 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-black/40 relative">
+                  <img src={item.parentProduct.coverImage} alt={item.fullTitle} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <span class="absolute top-3 right-3 text-[10px] font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-2.5 py-1 rounded-full bg-white/90 dark:bg-[#181a1f]/90 backdrop-blur-md border border-[#3dd68c]/30">
+                    В наличии
+                  </span>
+                </a>
+              )}
+
+              <div>
+                <h3 class="text-base font-bold text-zinc-900 dark:text-[#f0f2f5] group-hover:text-[#0d9488] dark:group-hover:text-[#3dd68c] transition-colors leading-snug">
+                  <a href={item.directUrl}>{item.fullTitle}</a>
+                </h3>
+              </div>
+
+              <!-- Характеристики варианта -->
+              <div class="flex flex-wrap gap-1.5">
+                {Object.entries(item.variant.attributes).map(([key, val]) => (
+                  <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.04] text-zinc-600 dark:text-zinc-400">
+                    {key}: {val}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Цена и добавление в заявку -->
+            <div class="pt-6 mt-4 border-t border-zinc-200 dark:border-white/[0.06] flex items-center justify-between">
+              <div class="font-mono">
+                {item.firstPrice ? (
+                  <div>
+                    <span class="text-[10px] text-zinc-500 block uppercase">за {item.firstUnit}</span>
+                    <span class="text-xl font-extrabold text-zinc-900 dark:text-[#f0f2f5]">{item.firstPrice} ₽</span>
+                  </div>
+                ) : (
+                  <span class="text-xs font-bold text-zinc-400">По согласованию</span>
+                )}
+              </div>
+
+              <div class="flex items-center gap-2">
+                <button 
+                  type="button"
+                  onclick={`addToOrderSheet({ id: '${item.id}', title: '${item.fullTitle.replace(/'/g, "\\'")}', price: ${item.firstPrice || 0}, unit: '${item.firstUnit}' })`}
+                  class="px-3.5 py-2 rounded-xl bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] hover:bg-[#3dd68c] hover:text-[#111215] text-xs font-bold border border-[#3dd68c]/30 transition"
+                  title="Добавить в лист заявки для звонка"
+                >
+                  + В заявку
+                </button>
+                <a href={item.directUrl} class="p-2 rounded-xl bg-zinc-100 hover:bg-zinc-200 dark:bg-white/[0.06] dark:hover:bg-white/[0.1] text-xs font-bold text-zinc-700 dark:text-zinc-300 transition">
+                  →
+                </a>
+              </div>
+            </div>
+
+          </div>
+        );
+      })}
+    </div>
+
+    <div id="no-results" class="hidden text-center py-20 border border-dashed border-zinc-200 dark:border-white/[0.08] rounded-3xl p-8">
+      <div class="text-base font-bold text-zinc-900 dark:text-[#f0f2f5]">Ничего не найдено</div>
+      <p class="text-xs font-mono text-zinc-400 mt-1 max-w-sm mx-auto">
+        Попробуйте изменить поисковый запрос или выбрать другую категорию.
+      </p>
+    </div>
+
+  </div>
+
+  <script is:inline>
+    const searchInput = document.getElementById('catalog-search');
+    const clearBtn = document.getElementById('search-clear');
+    const filterChips = document.querySelectorAll('.filter-chip');
+    const items = document.querySelectorAll('.catalog-item');
+    const counterEl = document.getElementById('catalog-counter');
+    const noResultsEl = document.getElementById('no-results');
+
+    let activeCategory = 'all';
+    let searchQuery = '';
+
+    function applyFilters() {
+      let visibleCount = 0;
+      items.forEach(item => {
+        const itemCategories = (item.getAttribute('data-categories') || '').split(',');
+        const itemText = item.getAttribute('data-search') || '';
+
+        const matchesCat = activeCategory === 'all' || itemCategories.includes(activeCategory);
+        const matchesSearch = !searchQuery || itemText.includes(searchQuery);
+
+        if (matchesCat && matchesSearch) {
+          item.style.display = 'flex';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      if (counterEl) counterEl.textContent = `Показано: ${visibleCount} позиций`;
+      if (noResultsEl) noResultsEl.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value.trim().toLowerCase();
+        if (clearBtn) clearBtn.style.display = searchQuery ? 'flex' : 'none';
+        applyFilters();
+      });
+    }
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        searchQuery = '';
+        clearBtn.style.display = 'none';
+        applyFilters();
+      });
+    }
+
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        filterChips.forEach(c => {
+          c.className = 'filter-chip px-4 py-2 rounded-xl text-xs font-mono font-semibold transition bg-zinc-100 dark:bg-white/[0.04] text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-white/[0.06] hover:border-zinc-300 dark:hover:border-white/[0.2]';
+        });
+        chip.className = 'filter-chip active px-4 py-2 rounded-xl text-xs font-mono font-bold transition bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]';
+        activeCategory = chip.getAttribute('data-category') || 'all';
+        applyFilters();
+      });
+    });
+  </script>
+</Layout>

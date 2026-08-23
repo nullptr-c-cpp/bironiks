@@ -1,0 +1,219 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import database from '../../data/database.json';
+
+export async function getStaticPaths() {
+  return database.products.map(product => ({
+    params: { slug: product.slug },
+    props: { product }
+  }));
+}
+
+const { product } = Astro.props;
+---
+
+<Layout title={`${product.title} — Характеристики и варианты | БИРОНИКС`} description={product.description}>
+  <div class="space-y-12">
+
+    <!-- Хлебные крошки -->
+    <nav class="flex items-center gap-2 text-xs font-mono text-zinc-400">
+      <a href="/" class="hover:text-zinc-900 dark:hover:text-white">Главная</a>
+      <span>/</span>
+      <a href="/catalog" class="hover:text-zinc-900 dark:hover:text-white">Каталог</a>
+      <span>/</span>
+      <span class="text-zinc-800 dark:text-zinc-200">{product.title}</span>
+    </nav>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+
+      <!-- Галерея и сертификаты (5 колонок) -->
+      <div class="lg:col-span-5 space-y-4">
+        {product.coverImage && (
+          <div class="rounded-3xl overflow-hidden bg-zinc-100 dark:bg-[#181a1f] border border-zinc-200 dark:border-white/[0.08] aspect-square relative">
+            <img id="main-product-image" src={product.coverImage} alt={product.title} class="w-full h-full object-cover" />
+            <span class="absolute top-4 right-4 text-xs font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-3 py-1 rounded-full bg-white/90 dark:bg-[#181a1f]/90 backdrop-blur-md border border-[#3dd68c]/30 shadow-sm">
+              В наличии
+            </span>
+          </div>
+        )}
+
+        {product.certificates && product.certificates.length > 0 && (
+          <div class="p-6 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200 dark:border-white/[0.08] space-y-3">
+            <div class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">
+              Документация и сертификаты
+            </div>
+            <div class="space-y-2">
+              {product.certificates.map(cert => (
+                <a href={cert.url} target="_blank" class="flex items-center justify-between p-3 rounded-xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] text-xs font-mono text-zinc-700 dark:text-zinc-300 hover:border-[#3dd68c]/40 transition group">
+                  <span class="truncate">{cert.name}</span>
+                  <span class="text-zinc-400 group-hover:text-[#3dd68c]">PDF ↗</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      <!-- Контентная и интерактивная часть (7 колонок) -->
+      <div class="lg:col-span-7 space-y-8">
+        
+        <div>
+          <h1 id="product-page-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5]">
+            {product.title}
+          </h1>
+          <p class="text-xs font-mono text-zinc-400 mt-2">
+            Заказ оформляется по звонку. Доставка рассчитывается индивидуально.
+          </p>
+        </div>
+
+        <!-- Переключатель вариантов -->
+        <div class="space-y-3">
+          <label class="text-xs font-mono uppercase tracking-widest text-zinc-500">
+            Выберите типоразмер / намотку:
+          </label>
+          <div id="variant-selector" class="flex flex-wrap gap-2.5">
+            {product.variants.map((v, i) => (
+              <button 
+                type="button"
+                data-index={i}
+                data-sku={v.sku}
+                class="variant-btn px-4 py-2.5 rounded-xl border text-xs font-mono font-semibold transition-all duration-200 bg-white dark:bg-[#181a1f] border-zinc-200 dark:border-white/[0.08] text-zinc-700 dark:text-zinc-300 hover:border-[#3dd68c]"
+              >
+                {v.title}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <!-- Блок цен и добавления в заявку -->
+        <div class="p-6 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200 dark:border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-zinc-500 block">Стоимость:</span>
+            <div id="display-prices" class="flex flex-wrap items-baseline gap-4 mt-1">
+              <!-- Заполняется реактивно -->
+            </div>
+          </div>
+
+          <button id="add-to-sheet-detail-btn" type="button" class="px-6 py-3.5 rounded-xl bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] hover:bg-[#3dd68c] hover:text-[#111215] text-xs font-bold border border-[#3dd68c]/30 transition shadow-sm">
+            + Добавить в лист заявки
+          </button>
+        </div>
+
+        <!-- Описание -->
+        <div class="space-y-3">
+          <h2 class="text-base font-bold text-zinc-900 dark:text-[#f0f2f5]">Описание</h2>
+          <p id="display-description" class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            <!-- Заполняется реактивно -->
+          </p>
+        </div>
+
+        <!-- Характеристики -->
+        <div class="space-y-4">
+          <h2 class="text-base font-bold text-zinc-900 dark:text-[#f0f2f5]">Технические характеристики</h2>
+          <div id="display-specs" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
+            <!-- Заполняется реактивно -->
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script is:inline define:vars={{ productData: product }}>
+    const variants = productData.variants;
+    const baseAttrs = productData.base_attributes || {};
+    const baseDesc = productData.description || '';
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const requestedSku = urlParams.get('variant');
+    let activeIndex = variants.findIndex(v => v.sku === requestedSku);
+    if (activeIndex === -1) activeIndex = 0;
+
+    let currentSelectedVariant = variants[activeIndex];
+
+    function renderVariant(index) {
+      const v = variants[index];
+      if (!v) return;
+      currentSelectedVariant = v;
+
+      // 1. Кнопки вариантов
+      document.querySelectorAll('.variant-btn').forEach((btn, i) => {
+        if (i === index) {
+          btn.className = 'variant-btn px-4 py-2.5 rounded-xl border text-xs font-mono font-bold transition bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border-[#3dd68c] shadow-sm';
+        } else {
+          btn.className = 'variant-btn px-4 py-2.5 rounded-xl border text-xs font-mono font-semibold transition bg-white dark:bg-[#181a1f] border-zinc-200 dark:border-white/[0.08] text-zinc-700 dark:text-zinc-300 hover:border-[#3dd68c]';
+        }
+      });
+
+      // 2. Склеенный заголовок
+      const pageTitle = document.getElementById('product-page-title');
+      if (pageTitle) {
+        pageTitle.textContent = `${productData.title} — ${v.title}`;
+      }
+
+      // 3. Цены
+      const pricesEl = document.getElementById('display-prices');
+      if (pricesEl) {
+        pricesEl.innerHTML = Object.entries(v.prices).map(([unit, price]) => `
+          <div class="font-mono">
+            <span class="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-[#f0f2f5]">${price} ₽</span>
+            <span class="text-xs text-zinc-500 uppercase ml-1">/ ${unit}</span>
+          </div>
+        `).join('');
+      }
+
+      // 4. Описание
+      const descEl = document.getElementById('display-description');
+      if (descEl) {
+        if (v.description_override) {
+          descEl.textContent = v.description_override;
+        } else if (v.description_addon) {
+          descEl.textContent = `${baseDesc} ${v.description_addon}`;
+        } else {
+          descEl.textContent = baseDesc;
+        }
+      }
+
+      // 5. Характеристики
+      const mergedAttrs = { ...baseAttrs, ...v.attributes };
+      const specsEl = document.getElementById('display-specs');
+      if (specsEl) {
+        specsEl.innerHTML = Object.entries(mergedAttrs).map(([k, val]) => `
+          <div class="flex justify-between items-center p-3 rounded-xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.04]">
+            <span class="text-zinc-500">${k}:</span>
+            <span class="text-zinc-800 dark:text-zinc-200 font-semibold text-right">${val}</span>
+          </div>
+        `).join('');
+      }
+
+      const newUrl = new URL(window.location);
+      newUrl.searchParams.set('variant', v.sku);
+      window.history.replaceState({}, '', newUrl);
+    }
+
+    document.querySelectorAll('.variant-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt(btn.getAttribute('data-index') || '0', 10);
+        renderVariant(idx);
+      });
+    });
+
+    // Добавление в смету со страницы товара
+    const addBtn = document.getElementById('add-to-sheet-detail-btn');
+    if (addBtn) {
+      addBtn.addEventListener('click', () => {
+        const firstPriceEntry = Object.entries(currentSelectedVariant.prices)[0];
+        window.addToOrderSheet({
+          id: `${productData.id}-${currentSelectedVariant.sku}`,
+          title: `${productData.title} — ${currentSelectedVariant.title}`,
+          price: firstPriceEntry ? firstPriceEntry[1] : 0,
+          unit: firstPriceEntry ? firstPriceEntry[0] : 'шт'
+        });
+      });
+    }
+
+    renderVariant(activeIndex);
+  </script>
+</Layout>

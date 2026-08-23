@@ -1,0 +1,55 @@
+# ==========================================
+# 1. Приватные ключи и конфигурации (ВАЖНО)
+# ==========================================
+# Изолируем файл с персональным токеном GitHub
+config.json
+.env
+.env.*
+!.env.example
+
+# ==========================================
+# 2. Astro & Node.js (Сайт)
+# ==========================================
+node_modules/
+dist/
+.astro/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ==========================================
+# 3. Python & PyInstaller (Desktop-приложение)
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+
+# Артефакты сборки PyInstaller
+build/
+*.spec
+*.manifest
+*.exe
+*.bin
+
+# ==========================================
+# 4. Системные файлы и IDE
+# ==========================================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Редакторы кода (по желанию можно убрать)
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/extensions.json
+*.sublime-workspace
+*.sublime-project

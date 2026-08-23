@@ -1,0 +1,135 @@
+---
+import Layout from '../layouts/Layout.astro';
+import company from '../data/company.json';
+
+const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
+---
+
+<Layout title="Контакты, склад и реквизиты — ООО БИРОНИКС">
+  <div class="space-y-12">
+    
+    <div>
+      <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Логистический хаб в Омске</span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mt-1">
+        Контакты и склад
+      </h1>
+      <p class="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base mt-2 max-w-2xl">
+        Отдел продаж, складской комплекс и пункт самовывоза строительных материалов.
+      </p>
+    </div>
+
+    <!-- Сетка Bento контактов -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <!-- Карточка 1: Телефоны и часы работы (6 колонок) -->
+      <div class="lg:col-span-6 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-8 space-y-6">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Прямая связь</span>
+          <h2 class="text-2xl font-bold text-zinc-900 dark:text-[#f0f2f5] mt-1">Отдел продаж</h2>
+        </div>
+
+        <div class="space-y-4 font-mono text-sm">
+          <div class="flex justify-between items-center py-2 border-b border-zinc-100 dark:border-white/[0.04]">
+            <span class="text-zinc-500">Телефон:</span>
+            <button data-copy={company.mainPhone} class="font-bold text-zinc-900 dark:text-white hover:text-[#3dd68c] transition">
+              {company.mainPhone}
+            </button>
+          </div>
+
+          <div class="flex justify-between items-center py-2 border-b border-zinc-100 dark:border-white/[0.04]">
+            <span class="text-zinc-500">Email:</span>
+            <button data-copy={company.emailSales} class="font-bold text-zinc-900 dark:text-white hover:text-[#3dd68c] transition">
+              {company.emailSales}
+            </button>
+          </div>
+
+          <div class="flex justify-between items-center py-2 border-b border-zinc-100 dark:border-white/[0.04]">
+            <span class="text-zinc-500">Будни:</span>
+            <span class="text-zinc-800 dark:text-zinc-200">{company.workSchedule.weekdays}</span>
+          </div>
+
+          <div class="flex justify-between items-center py-2">
+            <span class="text-zinc-500">Суббота:</span>
+            <span class="text-zinc-800 dark:text-zinc-200">{company.workSchedule.saturday}</span>
+          </div>
+        </div>
+
+        <div class="flex gap-3 pt-2">
+          <a href={`tel:${formatPhone(company.mainPhone)}`} class="flex-1 py-3 text-center rounded-2xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-zinc-900 text-xs font-bold transition">
+            Позвонить
+          </a>
+          <a href={company.yandexMapUrl} target="_blank" class="flex-1 py-3 text-center rounded-2xl bg-zinc-100 hover:bg-zinc-200 dark:bg-white/[0.04] text-zinc-800 dark:text-zinc-200 text-xs font-mono font-semibold transition border border-zinc-200 dark:border-white/[0.06]">
+            На карте Яндекса ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Карточка 2: Регламент самовывоза и транспорт (6 колонок) -->
+      <div class="lg:col-span-6 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-8 space-y-6">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Логистика</span>
+          <h2 class="text-2xl font-bold text-zinc-900 dark:text-[#f0f2f5] mt-1">Регламент склада</h2>
+        </div>
+
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          {company.pickupInfo.guidelines} Среднее время комплектации и погрузки — <strong class="text-[#0d9488] dark:text-[#3dd68c]">{company.pickupInfo.loadingTime}</strong>.
+        </p>
+
+        <div class="space-y-2">
+          <span class="text-xs font-mono font-semibold text-zinc-500 block">Допустимый транспорт:</span>
+          {company.pickupInfo.carTypes.map(car => (
+            <div class="text-xs text-zinc-600 dark:text-zinc-400 flex items-start gap-2">
+              <span class="text-[#0d9488] dark:text-[#3dd68c] font-bold">✔</span>
+              <span>{car}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Карточка 3: Полные юридические реквизиты (12 колонок) -->
+      <div class="lg:col-span-12 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-8 space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Для юридических лиц</span>
+            <h2 class="text-2xl font-bold text-zinc-900 dark:text-[#f0f2f5] mt-1">Карточка предприятия</h2>
+          </div>
+          <span class="text-xs font-mono text-zinc-400">Нажмите на любое поле, чтобы скопировать</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs">
+          <div data-copy={company.requisites.inn} class="p-4 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] cursor-pointer hover:border-[#3dd68c]/40 transition">
+            <span class="text-zinc-400 block mb-1">ИНН:</span>
+            <span class="font-bold text-zinc-900 dark:text-[#f0f2f5] text-sm">{company.requisites.inn}</span>
+          </div>
+
+          <div data-copy={company.requisites.kpp} class="p-4 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] cursor-pointer hover:border-[#3dd68c]/40 transition">
+            <span class="text-zinc-400 block mb-1">КПП:</span>
+            <span class="font-bold text-zinc-900 dark:text-[#f0f2f5] text-sm">{company.requisites.kpp}</span>
+          </div>
+
+          <div data-copy={company.requisites.ogrn} class="p-4 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] cursor-pointer hover:border-[#3dd68c]/40 transition">
+            <span class="text-zinc-400 block mb-1">ОГРН:</span>
+            <span class="font-bold text-zinc-900 dark:text-[#f0f2f5] text-sm">{company.requisites.ogrn}</span>
+          </div>
+
+          <div data-copy={company.requisites.bik} class="p-4 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] cursor-pointer hover:border-[#3dd68c]/40 transition">
+            <span class="text-zinc-400 block mb-1">БИК:</span>
+            <span class="font-bold text-zinc-900 dark:text-[#f0f2f5] text-sm">{company.requisites.bik}</span>
+          </div>
+
+          <div data-copy={company.requisites.checkingAccount} class="p-4 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] cursor-pointer hover:border-[#3dd68c]/40 transition sm:col-span-2">
+            <span class="text-zinc-400 block mb-1">Расчетный счет:</span>
+            <span class="font-bold text-zinc-900 dark:text-[#f0f2f5] text-sm">{company.requisites.checkingAccount}</span>
+          </div>
+
+          <div data-copy={company.requisites.corrAccount} class="p-4 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] cursor-pointer hover:border-[#3dd68c]/40 transition sm:col-span-2">
+            <span class="text-zinc-400 block mb-1">Корр. счет:</span>
+            <span class="font-bold text-zinc-900 dark:text-[#f0f2f5] text-sm">{company.requisites.corrAccount}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</Layout>
