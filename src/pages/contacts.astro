@@ -9,19 +9,19 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
   <div class="space-y-12">
     
     <div>
-      <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Офис и склад в одном месте</span>
+      <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Логистика и обслуживание в Омске</span>
       <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mt-1">
-        Контакты и складской комплекс
+        Контакты и база отгрузки
       </h1>
       <p class="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base mt-2 max-w-2xl">
-        Отдел продаж и пункт самовывоза строительных материалов в Омске. Выписка документов и отгрузка в одной точке.
+        Центральный склад и офис компании в Омске. Консультации, расчет сметы, выписка документов и выдача материалов в одной точке.
       </p>
     </div>
 
-    <!-- ИНТЕРАКТИВНАЯ ЯНДЕКС.КАРТА (ОТКРЫТА СРАЗУ) -->
+    <!-- ИНТЕРАКТИВНАЯ ЯНДЕКС.КАРТА -->
     <div class="rounded-3xl overflow-hidden border border-zinc-200/80 dark:border-white/[0.08] shadow-lg relative bg-zinc-100 dark:bg-[#181a1f]">
       <iframe 
-        src="https://yandex.ru/map-widget/v1/?ll=73.441811%2C54.979294&z=16&pt=73.441811,54.979294,pm2wtm" 
+        src="https://yandex.ru/map-widget/v1/?ll=73.4358%2C54.9575&z=16&pt=73.4358,54.9575,pm2wtm" 
         width="100%" 
         height="420" 
         class="w-full h-[420px] border-0"
@@ -32,74 +32,75 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
     <!-- Сетка Bento контактов -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
       
-      <!-- Карточка 1: Телефоны и часы работы -->
-      <div class="lg:col-span-6 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-8 space-y-6">
+      <!-- Карточка 1: Связь с отделом продаж -->
+      <div class="lg:col-span-6 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-8 sm:p-10 space-y-6">
         <div>
-          <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Прямая связь</span>
-          <h2 class="text-2xl font-bold text-zinc-900 dark:text-[#f0f2f5] mt-1">Отдел продаж</h2>
+          <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Прямой контакт</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-[#f0f2f5] mt-1">Отдел продаж</h2>
         </div>
 
         <div class="space-y-4 font-mono text-sm">
-          <div class="flex justify-between items-center py-2 border-b border-zinc-100 dark:border-white/[0.04]">
-            <span class="text-zinc-500">Адрес (Офис + Склад):</span>
-            <button data-copy={company.warehouseAddress} class="font-bold text-zinc-900 dark:text-white hover:text-[#3dd68c] transition text-right max-w-[240px] truncate">
+          <!-- Адрес: снято ограничение по ширине, полный перенос строк -->
+          <div class="flex items-start justify-between gap-4 py-2.5 border-b border-zinc-100 dark:border-white/[0.04]">
+            <span class="text-zinc-500 shrink-0">Адрес базы:</span>
+            <button data-copy={company.warehouseAddress} class="font-bold text-zinc-900 dark:text-white hover:text-[#3dd68c] transition text-right leading-snug">
               {company.warehouseAddress}
             </button>
           </div>
 
-          <div class="flex justify-between items-center py-2 border-b border-zinc-100 dark:border-white/[0.04]">
-            <span class="text-zinc-500">Телефон (Макс):</span>
+          <div class="flex items-center justify-between gap-4 py-2.5 border-b border-zinc-100 dark:border-white/[0.04]">
+            <span class="text-zinc-500 shrink-0">Менеджер (Максим):</span>
             <button data-copy={company.mainPhone} class="font-bold text-zinc-900 dark:text-white hover:text-[#3dd68c] transition">
               {company.mainPhone}
             </button>
           </div>
 
-          <div class="flex justify-between items-center py-2 border-b border-zinc-100 dark:border-white/[0.04]">
-            <span class="text-zinc-500">Email:</span>
+          <div class="flex items-center justify-between gap-4 py-2.5 border-b border-zinc-100 dark:border-white/[0.04]">
+            <span class="text-zinc-500 shrink-0">Email:</span>
             <button data-copy={company.emailSales} class="font-bold text-zinc-900 dark:text-white hover:text-[#3dd68c] transition">
               {company.emailSales}
             </button>
           </div>
 
-          <div class="flex justify-between items-center py-2 border-b border-zinc-100 dark:border-white/[0.04]">
-            <span class="text-zinc-500">Будни:</span>
+          <div class="flex items-center justify-between gap-4 py-2.5 border-b border-zinc-100 dark:border-white/[0.04]">
+            <span class="text-zinc-500 shrink-0">Будние дни:</span>
             <span class="text-zinc-800 dark:text-zinc-200">{company.workSchedule.weekdays}</span>
           </div>
 
-          <div class="flex justify-between items-center py-2">
-            <span class="text-zinc-500">Суббота:</span>
+          <div class="flex items-center justify-between gap-4 py-2.5">
+            <span class="text-zinc-500 shrink-0">Суббота:</span>
             <span class="text-zinc-800 dark:text-zinc-200">{company.workSchedule.saturday}</span>
           </div>
         </div>
 
         <div class="flex gap-3 pt-2">
-          <a href={`tel:${formatPhone(company.mainPhone)}`} class="flex-1 py-3 text-center rounded-2xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-zinc-900 text-xs font-bold transition">
-            Позвонить
+          <a href={`tel:${formatPhone(company.mainPhone)}`} class="flex-1 py-3.5 text-center rounded-2xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-zinc-900 text-xs font-bold transition">
+            Позвонить в офис
           </a>
-          <a href={company.yandexMapUrl} target="_blank" class="flex-1 py-3 text-center rounded-2xl bg-zinc-100 hover:bg-zinc-200 dark:bg-white/[0.04] text-zinc-800 dark:text-zinc-200 text-xs font-mono font-semibold transition border border-zinc-200 dark:border-white/[0.06]">
-            В Яндекс.Картах ↗
+          <a href={company.yandexMapUrl} target="_blank" class="flex-1 py-3.5 text-center rounded-2xl bg-zinc-100 hover:bg-zinc-200 dark:bg-white/[0.04] text-zinc-800 dark:text-zinc-200 text-xs font-mono font-semibold transition border border-zinc-200 dark:border-white/[0.06]">
+            Маршрут в картах ↗
           </a>
         </div>
       </div>
 
-      <!-- Карточка 2: Регламент самовывоза и оплата -->
-      <div class="lg:col-span-6 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-8 space-y-6">
+      <!-- Карточка 2: Условия отгрузки и оплаты (Увеличен шрифт) -->
+      <div class="lg:col-span-6 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-8 sm:p-10 space-y-6">
         <div>
-          <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Условия работы</span>
-          <h2 class="text-2xl font-bold text-zinc-900 dark:text-[#f0f2f5] mt-1">Оплата и самовывоз</h2>
+          <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Порядок работы</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-[#f0f2f5] mt-1">Отгрузка и расчет</h2>
         </div>
 
-        <div class="space-y-2 text-xs font-mono">
-          <span class="font-bold text-zinc-900 dark:text-[#f0f2f5] block text-sm">Формы расчета:</span>
-          <div class="text-zinc-600 dark:text-zinc-400">• Безналичный расчет с НДС (по счету для юр. лиц)</div>
-          <div class="text-zinc-600 dark:text-zinc-400">• Оплата по QR-коду (для физ. и юр. лиц)</div>
-          <div class="text-zinc-600 dark:text-zinc-400">• Наличный расчет при получении в офисе</div>
+        <div class="space-y-3 text-sm sm:text-base font-mono">
+          <span class="font-bold text-zinc-900 dark:text-[#f0f2f5] block">Варианты оплаты:</span>
+          <div class="text-zinc-700 dark:text-zinc-300">• Безналичный расчет с НДС (по счету для организаций)</div>
+          <div class="text-zinc-700 dark:text-zinc-300">• Оплата по QR-коду через СБП</div>
+          <div class="text-zinc-700 dark:text-zinc-300">• Наличный расчет при получении в офисе</div>
         </div>
 
-        <div class="space-y-2 pt-2 border-t border-zinc-100 dark:border-white/[0.04]">
-          <span class="text-xs font-mono font-semibold text-zinc-500 block">Транспорт под погрузку:</span>
+        <div class="space-y-2.5 pt-4 border-t border-zinc-100 dark:border-white/[0.04] text-xs sm:text-sm font-mono">
+          <span class="font-bold text-zinc-900 dark:text-[#f0f2f5] block">Подходящий автотранспорт:</span>
           {company.pickupInfo.carTypes.map(car => (
-            <div class="text-xs text-zinc-600 dark:text-zinc-400 flex items-start gap-2">
+            <div class="text-zinc-600 dark:text-zinc-400 flex items-start gap-2.5 leading-relaxed">
               <span class="text-[#0d9488] dark:text-[#3dd68c] font-bold">✔</span>
               <span>{car}</span>
             </div>
@@ -107,14 +108,14 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
         </div>
       </div>
 
-      <!-- Карточка 3: Полные юридические реквизиты -->
-      <div class="lg:col-span-12 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-8 space-y-6">
+      <!-- Карточка 3: Реквизиты предприятия -->
+      <div class="lg:col-span-12 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-8 sm:p-10 space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
-            <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Для юридических лиц</span>
-            <h2 class="text-2xl font-bold text-zinc-900 dark:text-[#f0f2f5] mt-1">Карточка предприятия</h2>
+            <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Юридические сведения</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-[#f0f2f5] mt-1">Реквизиты компании</h2>
           </div>
-          <span class="text-xs font-mono text-zinc-400">Нажмите на поле, чтобы скопировать</span>
+          <span class="text-xs font-mono text-zinc-400">Нажмите на блок для быстрого копирования</span>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs">
@@ -134,7 +135,7 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
           </div>
 
           <div data-copy={company.requisites.bik} class="p-4 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] cursor-pointer hover:border-[#3dd68c]/40 transition">
-            <span class="text-zinc-400 block mb-1">БИК:</span>
+            <span class="text-zinc-400 block mb-1">БИК банка:</span>
             <span class="font-bold text-zinc-900 dark:text-[#f0f2f5] text-sm">{company.requisites.bik}</span>
           </div>
 
@@ -144,7 +145,7 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
           </div>
 
           <div data-copy={company.requisites.corrAccount} class="p-4 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] cursor-pointer hover:border-[#3dd68c]/40 transition sm:col-span-2">
-            <span class="text-zinc-400 block mb-1">Корр. счет:</span>
+            <span class="text-zinc-400 block mb-1">Корреспондентский счет:</span>
             <span class="font-bold text-zinc-900 dark:text-[#f0f2f5] text-sm">{company.requisites.corrAccount}</span>
           </div>
         </div>

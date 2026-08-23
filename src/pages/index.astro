@@ -12,27 +12,27 @@ const featuredProducts = products.slice(0, 2);
 <Layout>
   <div class="space-y-24 lg:space-y-36">
 
-    <!-- HERO СЕКЦИЯ: РОЗНИЦА И ОПТ / ПЕРЕПРОДАЖА СО СКЛАДА В ОМСКЕ -->
+    <!-- HERO СЕКЦИЯ -->
     <section class="flex flex-col items-start pt-6 max-w-5xl">
       <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] text-zinc-600 dark:text-zinc-400 text-xs font-mono mb-8 shadow-sm">
         <span class="w-2 h-2 rounded-full bg-[#3dd68c]"></span>
-        <span>Омск • Склад-магазин и офис на одной территории</span>
+        <span>Омск • Магазин-склад и офис в одном месте</span>
       </div>
 
       <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-zinc-900 dark:text-[#f0f2f5] leading-[1.08] mb-6">
-        Строительная и теплоизоляция <br />
+        Изоляция и стройматериалы <br />
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-900 via-zinc-600 to-[#0d9488] dark:from-[#f0f2f5] dark:via-zinc-300 dark:to-[#3dd68c]">
           в розницу и оптом в Омске
         </span>
       </h1>
 
       <p class="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 font-normal leading-relaxed max-w-3xl mb-10">
-        Магазин-склад ООО «БИРОНИКС»: фольгированная изоляция для бань, армированные скотчи, монтажные пены, трубный утеплитель и мембраны. Продажа от 1 штуки до оптовых партий с оперативной отгрузкой на ул. 20 лет РККА.
+        Магазин-склад ООО «БИРОНИКС»: фольга для бань и саун, профессиональные скотчи, монтажные пены, трубный утеплитель и мембраны. Продажа от 1 штуки или рулона до сборных партий с быстрой погрузкой на ул. 20 лет РККА.
       </p>
 
       <div class="flex flex-wrap items-center gap-4">
         <a href="/catalog" class="px-8 py-4 rounded-2xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-[#e3e6ed] dark:text-[#111215] dark:hover:bg-white text-sm font-bold transition-all duration-300 shadow-xl shadow-black/5 dark:shadow-black/20 hover:-translate-y-0.5">
-          Открыть каталог товаров
+          Перейти в каталог товаров
         </a>
         <button type="button" onclick="downloadFullCatalogPdf()" class="px-8 py-4 rounded-2xl bg-white dark:bg-[#181a1f] text-zinc-800 dark:text-zinc-200 hover:text-zinc-900 dark:hover:text-white text-sm font-semibold border border-zinc-200 dark:border-white/[0.08] hover:border-zinc-300 dark:hover:border-white/[0.2] transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-2">
           <span>Скачать прайс-лист (PDF)</span>
@@ -42,31 +42,31 @@ const featuredProducts = products.slice(0, 2);
       <!-- Метрики -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 mt-12 border-t border-zinc-200/80 dark:border-white/[0.06] w-full">
         <div>
-          <div class="text-3xl font-extrabold font-mono text-zinc-900 dark:text-[#f0f2f5] tracking-tight">От 1 шт.</div>
-          <div class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1">Розница и мелкий опт</div>
+          <div class="text-3xl font-extrabold font-mono text-zinc-900 dark:text-[#f0f2f5] tracking-tight">От 1 рулона</div>
+          <div class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1">Розница и опт</div>
         </div>
         <div>
-          <div class="text-3xl font-extrabold font-mono text-[#0d9488] dark:text-[#3dd68c] tracking-tight">Офис + Склад</div>
-          <div class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1">Все в одном месте</div>
+          <div class="text-3xl font-extrabold font-mono text-[#0d9488] dark:text-[#3dd68c] tracking-tight">Склад + Офис</div>
+          <div class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1">Въезд и документы на месте</div>
         </div>
         <div>
-          <div class="text-3xl font-extrabold font-mono text-zinc-900 dark:text-[#f0f2f5] tracking-tight">10–15 мин</div>
-          <div class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1">Оформление и погрузка</div>
+          <div class="text-3xl font-extrabold font-mono text-zinc-900 dark:text-[#f0f2f5] tracking-tight">15 минут</div>
+          <div class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1">Среднее время отгрузки</div>
         </div>
         <div>
-          <div class="text-3xl font-extrabold font-mono text-zinc-900 dark:text-[#f0f2f5] tracking-tight">С НДС / Нал</div>
-          <div class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1">Любые формы оплаты</div>
+          <div class="text-3xl font-extrabold font-mono text-zinc-900 dark:text-[#f0f2f5] tracking-tight">Любой расчет</div>
+          <div class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1">Безнал с НДС, QR, наличные</div>
         </div>
       </div>
     </section>
 
-    <!-- ИНФОРМАЦИЯ ДЛЯ ПОКУПАТЕЛЕЙ (ПОДНЯТА НАВЕРХ) -->
+    <!-- ИНФОРМАЦИЯ ДЛЯ ПОКУПАТЕЛЕЙ -->
     <section class="rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-8 sm:p-12 space-y-8 shadow-sm">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-zinc-100 dark:border-white/[0.06]">
         <div>
-          <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Самовывоз и покупка</span>
+          <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Условия обслуживания</span>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-[#f0f2f5] mt-1">
-            Информация для розничных и оптовых покупателей
+            Самовывоз, отгрузка и варианты оплаты
           </h2>
         </div>
         <a href="/contacts" class="px-5 py-2.5 rounded-xl bg-zinc-900 dark:bg-white/[0.06] text-white dark:text-zinc-200 text-xs font-mono font-bold hover:bg-[#3dd68c] hover:text-[#111215] dark:hover:bg-[#3dd68c] dark:hover:text-[#111215] transition self-start sm:self-auto">
@@ -77,31 +77,31 @@ const featuredProducts = products.slice(0, 2);
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 font-mono text-xs">
         
         <div class="p-5 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] space-y-2">
-          <span class="text-zinc-400 block uppercase font-bold">Адрес (Офис и склад вместе):</span>
+          <span class="text-zinc-400 block uppercase font-bold">Локация базы (Офис + Склад):</span>
           <button data-copy={company.warehouseAddress} class="font-bold text-zinc-900 dark:text-white text-left hover:underline text-xs">
             {company.warehouseAddress}
           </button>
-          <span class="text-[11px] text-[#0d9488] dark:text-[#3dd68c] block pt-1">Удобный асфальтированный въезд</span>
+          <span class="text-[11px] text-[#0d9488] dark:text-[#3dd68c] block pt-1">Асфальтированный подъезд к воротам</span>
         </div>
 
         <div class="p-5 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] space-y-2">
-          <span class="text-zinc-400 block uppercase font-bold">Телефон отдела продаж:</span>
+          <span class="text-zinc-400 block uppercase font-bold">Прямая связь:</span>
           <button data-copy={company.mainPhone} class="font-bold text-zinc-900 dark:text-white text-left hover:underline text-sm">
-            {company.mainPhone} (Макс)
+            {company.mainPhone} (Максим)
           </button>
-          <span class="text-[11px] text-zinc-500 block pt-1">Бронирование и консультация</span>
+          <span class="text-[11px] text-zinc-500 block pt-1">Консультация и резервирование</span>
         </div>
 
         <div class="p-5 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] space-y-1.5">
-          <span class="text-zinc-400 block uppercase font-bold">Режим работы склада:</span>
+          <span class="text-zinc-400 block uppercase font-bold">Часы работы:</span>
           <div class="text-zinc-800 dark:text-zinc-300 font-semibold">{company.workSchedule.weekdays}</div>
           <div class="text-zinc-500">{company.workSchedule.saturday}</div>
           <div class="text-rose-500/80">{company.workSchedule.sunday}</div>
         </div>
 
         <div class="p-5 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] space-y-1.5">
-          <span class="text-zinc-400 block uppercase font-bold">Способы оплаты:</span>
-          <div class="text-zinc-800 dark:text-zinc-300 font-semibold">• Безналичный расчет (с НДС)</div>
+          <span class="text-zinc-400 block uppercase font-bold">Формы оплаты:</span>
+          <div class="text-zinc-800 dark:text-zinc-300 font-semibold">• Безналичный расчет с НДС</div>
           <div class="text-zinc-800 dark:text-zinc-300 font-semibold">• Оплата по QR-коду</div>
           <div class="text-zinc-800 dark:text-zinc-300 font-semibold">• Наличный расчет в офисе</div>
         </div>
@@ -109,14 +109,14 @@ const featuredProducts = products.slice(0, 2);
       </div>
     </section>
 
-    <!-- BENTO GRID: ПОДБОРКИ И КАТАЛОГ -->
+    <!-- BENTO GRID -->
     <section class="space-y-8">
       
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4">
         <div>
-          <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Каталог продукции</span>
+          <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Ассортимент продукции</span>
           <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mt-1">
-            Популярные материалы в наличии
+            Материалы в наличии на складе
           </h2>
         </div>
         <a 
@@ -127,23 +127,23 @@ const featuredProducts = products.slice(0, 2);
         </a>
       </div>
 
-      <!-- Ряд 1: Подборки + Складской хаб -->
+      <!-- Ряд 1: Готовые решения + Логистика -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
         
         <div class="lg:col-span-7 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-8 sm:p-10 flex flex-col justify-between hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:shadow-2xl hover:shadow-[#3dd68c]/5 hover:-translate-y-1.5 transition-all duration-500">
           <div>
             <div class="flex items-center justify-between mb-8">
               <span class="text-xs font-mono uppercase tracking-widest px-3 py-1 rounded-full bg-zinc-100 dark:bg-white/[0.04] text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-white/[0.06]">
-                Готовые комплекты
+                Готовые решения
               </span>
-              <span class="text-xs text-zinc-400 dark:text-zinc-600 font-mono">РЕШЕНИЯ</span>
+              <span class="text-xs text-zinc-400 dark:text-zinc-600 font-mono">НАЗНАЧЕНИЕ</span>
             </div>
 
             <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mb-4">
-              Отраслевые подборки изоляции
+              Материалы под конкретные задачи
             </h3>
             <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-xl leading-relaxed mb-8">
-              Материалы под конкретные условия: термостойкая фольга для парных, герметизирующие скотчи и теплоизоляция.
+              Специализированные комплекты: термостойкая алюминиевая фольга для парных, клейкие ленты, пенополиэтилен и утеплители.
             </p>
           </div>
 
@@ -170,13 +170,13 @@ const featuredProducts = products.slice(0, 2);
           <div>
             <div class="flex items-center justify-between mb-8">
               <span class="text-xs font-mono uppercase tracking-widest px-3 py-1 rounded-full bg-zinc-100 dark:bg-white/[0.04] text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-white/[0.06]">
-                Логистика и склад
+                Складской комплекс
               </span>
               <span class="text-xs text-zinc-400 dark:text-zinc-600 font-mono">ОМСК</span>
             </div>
 
             <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mb-3">
-              Быстрая отгрузка без очередей
+              Оперативная погрузка на складе
             </h3>
             <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed mb-8">
               {company.pickupInfo.guidelines}
@@ -186,17 +186,17 @@ const featuredProducts = products.slice(0, 2);
           <div class="space-y-4">
             <div class="p-5 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.06] space-y-3 font-mono text-xs">
               <div class="flex justify-between items-center py-1 border-b border-zinc-200 dark:border-white/[0.04]">
-                <span class="text-zinc-500">Офис и склад:</span>
+                <span class="text-zinc-500">База:</span>
                 <span class="text-zinc-800 dark:text-zinc-300 font-sans font-medium text-right max-w-[200px] truncate">{company.warehouseAddress.split(',')[2]}</span>
               </div>
               <div class="flex justify-between items-center py-1 border-b border-zinc-200 dark:border-white/[0.04]">
-                <span class="text-zinc-500">Время сборки:</span>
+                <span class="text-zinc-500">Погрузка:</span>
                 <span class="text-[#0d9488] dark:text-[#3dd68c] font-bold">{company.pickupInfo.loadingTime}</span>
               </div>
             </div>
 
             <a href="/contacts" class="block w-full py-3.5 text-center rounded-2xl bg-zinc-100 hover:bg-zinc-200 dark:bg-white/[0.04] dark:hover:bg-white/[0.08] text-zinc-800 dark:text-zinc-200 text-xs font-mono font-semibold transition">
-              Схема проезда и карта →
+              Схема проезда и контакты →
             </a>
           </div>
         </div>
@@ -208,9 +208,9 @@ const featuredProducts = products.slice(0, 2);
         
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
           <div>
-            <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Прайс-лист</span>
+            <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Складской прайс-лист</span>
             <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mt-1">
-              Ключевые позиции склада
+              Популярные позиции в наличии
             </h3>
           </div>
           <a 
