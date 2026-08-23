@@ -20,145 +20,216 @@ const allVariantCards = products.flatMap(p => {
       firstPrice: firstPriceEntry ? firstPriceEntry[1] : null,
       firstUnit: firstPriceEntry ? firstPriceEntry[0] : 'шт',
       categoryIds: p.categoryIds || [],
+      attributes: { ...p.base_attributes, ...v.attributes },
       searchableText,
       directUrl: `/catalog/${p.slug}?variant=${encodeURIComponent(v.sku)}`
     };
   });
 });
+
+// Динамический парсинг доступных характеристик из базы для сайдбара
+const dynamicFilters: Record<string, Set<string>> = {};
+allVariantCards.forEach(item => {
+  Object.entries(item.attributes).forEach(([key, val]) => {
+    if (!dynamicFilters[key]) dynamicFilters[key] = new Set();
+    dynamicFilters[key].add(String(val));
+  });
+});
 ---
 
-<Layout title="Каталог продукции — БИРОНИКС">
+<Layout title="Каталог продукции со склада в Омске — БИРОНИКС">
   <div class="space-y-10">
     
-    <!-- Заголовок и пояснение о заказе -->
+    <!-- Верхний заголовок -->
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
       <div>
-        <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Складская номенклатура</span>
+        <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Офис и склад в одном месте</span>
         <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mt-1">
-          Каталог продукции
+          Каталог номенклатуры
         </h1>
-        <p class="text-xs sm:text-sm font-mono text-zinc-500 dark:text-zinc-400 mt-2">
-          Заказ и расчет доставки осуществляются по согласованию с менеджером по телефону.
-        </p>
       </div>
       <div id="catalog-counter" class="text-xs font-mono text-zinc-500">
         Показано: {allVariantCards.length} позиций
       </div>
     </div>
 
-    <!-- Поиск и фильтры -->
-    <div class="p-6 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] space-y-5 shadow-sm">
+    <!-- МАРКЕТПЛЕЙС-СТРУКТУРА: САЙДБАР СЛЕВА + ВИТРИНА СПРАВА -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
       
-      <div class="relative">
-        <input 
-          type="text" 
-          id="catalog-search" 
-          placeholder="Поиск по названию, толщине, размерам..."
-          class="w-full pl-5 pr-10 py-3 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.06] text-sm text-zinc-900 dark:text-[#f0f2f5] placeholder-zinc-400 focus:outline-none focus:border-[#3dd68c] transition"
-        />
-        <button id="search-clear" class="absolute inset-y-0 right-0 pr-4 flex items-center text-zinc-400 hover:text-zinc-600 dark:hover:text-white hidden">
-          ✕
-        </button>
-      </div>
+      <!-- ЛЕВЫЙ САЙДБАР: ФИЛЬТРЫ -->
+      <aside class="lg:col-span-3 space-y-6">
+        
+        <div class="p-6 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] space-y-6 shadow-sm sticky top-28">
+          
+          <div class="flex items-center justify-between pb-3 border-b border-zinc-100 dark:border-white/[0.06]">
+            <span class="text-xs font-mono uppercase tracking-widest font-bold text-zinc-900 dark:text-[#f0f2f5]">Фильтры</span>
+            <button id="reset-all-filters" class="text-[11px] font-mono text-zinc-400 hover:text-rose-500 transition">
+              Сбросить все
+            </button>
+          </div>
 
-      <div class="flex flex-wrap gap-2 pt-1" id="category-filters">
-        <button 
-          type="button" 
-          data-category="all"
-          class="filter-chip active px-4 py-2 rounded-xl text-xs font-mono font-bold transition bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]"
-        >
-          Все категории ({allVariantCards.length})
-        </button>
+          <!-- Фильтр по категориям -->
+          <div class="space-y-2.5">
+            <span class="text-xs font-mono text-zinc-500 block uppercase">Категории:</span>
+            <div class="space-y-1.5 max-h-48 overflow-y-auto">
+              <label class="flex items-center gap-2 text-xs font-mono text-zinc-700 dark:text-zinc-300 cursor-pointer">
+                <input type="radio" name="category-filter" value="all" checked class="accent-[#3dd68c]" />
+                <span>Все категории</span>
+              </label>
+              {categories.map(cat => (
+                <label class="flex items-center gap-2 text-xs font-mono text-zinc-700 dark:text-zinc-300 cursor-pointer">
+                  <input type="radio" name="category-filter" value={cat.id} class="accent-[#3dd68c]" />
+                  <span>{cat.title}</span>
+                </label>
+              ))}
+            </div>
+          </div>
 
-        {categories.map(cat => {
-          const count = allVariantCards.filter(item => item.categoryIds.includes(cat.id)).length;
-          return (
+          <!-- ДИНАМИЧЕСКИЕ ХАРАКТЕРИСТИКИ ИЗ БАЗЫ ДАННЫХ -->
+          <div class="space-y-4 pt-3 border-t border-zinc-100 dark:border-white/[0.06]">
+            <span class="text-xs font-mono text-zinc-500 block uppercase">Характеристики:</span>
+            
+            {Object.entries(dynamicFilters).slice(0, 4).map(([attrKey, valuesSet]) => (
+              <div class="space-y-1.5">
+                <span class="text-[11px] font-bold text-zinc-600 dark:text-zinc-400 block">{attrKey}:</span>
+                <div class="space-y-1 max-h-32 overflow-y-auto pl-1">
+                  {Array.from(valuesSet).map(val => (
+                    <label class="flex items-center gap-2 text-[11px] font-mono text-zinc-600 dark:text-zinc-400 cursor-pointer hover:text-zinc-900 dark:hover:text-white">
+                      <input 
+                        type="checkbox" 
+                        class="attr-checkbox accent-[#3dd68c] rounded" 
+                        data-attr-key={attrKey} 
+                        data-attr-val={val} 
+                      />
+                      <span>{val}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Кнопка выгрузки прайса -->
+          <div class="pt-3 border-t border-zinc-100 dark:border-white/[0.06]">
             <button 
               type="button" 
-              data-category={cat.id}
-              class="filter-chip px-4 py-2 rounded-xl text-xs font-mono font-semibold transition bg-zinc-100 dark:bg-white/[0.04] text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-white/[0.06] hover:border-zinc-300 dark:hover:border-white/[0.2]"
+              onclick="window.print()" 
+              class="w-full py-2.5 rounded-xl bg-zinc-100 hover:bg-zinc-200 dark:bg-white/[0.04] dark:hover:bg-white/[0.08] text-zinc-700 dark:text-zinc-300 text-xs font-mono font-bold transition flex items-center justify-center gap-2 border border-zinc-200 dark:border-white/[0.06]"
             >
-              {cat.title} ({count})
+              <span>Печать / Прайс PDF</span>
             </button>
-          );
-        })}
-      </div>
-
-    </div>
-
-    <!-- Сетка карточек со склеенным заголовком и плашкой «В наличии» -->
-    <div id="catalog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {allVariantCards.map(item => {
-        return (
-          <div 
-            class="catalog-item rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-6 flex flex-col justify-between hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 group"
-            data-search={item.searchableText}
-            data-categories={item.categoryIds.join(',')}
-          >
-            <div class="space-y-4">
-              {item.parentProduct.coverImage && (
-                <a href={item.directUrl} class="block h-48 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-black/40 relative">
-                  <img src={item.parentProduct.coverImage} alt={item.fullTitle} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <span class="absolute top-3 right-3 text-[10px] font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-2.5 py-1 rounded-full bg-white/90 dark:bg-[#181a1f]/90 backdrop-blur-md border border-[#3dd68c]/30">
-                    В наличии
-                  </span>
-                </a>
-              )}
-
-              <div>
-                <h3 class="text-base font-bold text-zinc-900 dark:text-[#f0f2f5] group-hover:text-[#0d9488] dark:group-hover:text-[#3dd68c] transition-colors leading-snug">
-                  <a href={item.directUrl}>{item.fullTitle}</a>
-                </h3>
-              </div>
-
-              <!-- Характеристики варианта -->
-              <div class="flex flex-wrap gap-1.5">
-                {Object.entries(item.variant.attributes).map(([key, val]) => (
-                  <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.04] text-zinc-600 dark:text-zinc-400">
-                    {key}: {val}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <!-- Цена и добавление в заявку -->
-            <div class="pt-6 mt-4 border-t border-zinc-200 dark:border-white/[0.06] flex items-center justify-between">
-              <div class="font-mono">
-                {item.firstPrice ? (
-                  <div>
-                    <span class="text-[10px] text-zinc-500 block uppercase">за {item.firstUnit}</span>
-                    <span class="text-xl font-extrabold text-zinc-900 dark:text-[#f0f2f5]">{item.firstPrice} ₽</span>
-                  </div>
-                ) : (
-                  <span class="text-xs font-bold text-zinc-400">По согласованию</span>
-                )}
-              </div>
-
-              <div class="flex items-center gap-2">
-                <button 
-                  type="button"
-                  onclick={`addToOrderSheet({ id: '${item.id}', title: '${item.fullTitle.replace(/'/g, "\\'")}', price: ${item.firstPrice || 0}, unit: '${item.firstUnit}' })`}
-                  class="px-3.5 py-2 rounded-xl bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] hover:bg-[#3dd68c] hover:text-[#111215] text-xs font-bold border border-[#3dd68c]/30 transition"
-                  title="Добавить в лист заявки для звонка"
-                >
-                  + В заявку
-                </button>
-                <a href={item.directUrl} class="p-2 rounded-xl bg-zinc-100 hover:bg-zinc-200 dark:bg-white/[0.06] dark:hover:bg-white/[0.1] text-xs font-bold text-zinc-700 dark:text-zinc-300 transition">
-                  →
-                </a>
-              </div>
-            </div>
-
           </div>
-        );
-      })}
-    </div>
 
-    <div id="no-results" class="hidden text-center py-20 border border-dashed border-zinc-200 dark:border-white/[0.08] rounded-3xl p-8">
-      <div class="text-base font-bold text-zinc-900 dark:text-[#f0f2f5]">Ничего не найдено</div>
-      <p class="text-xs font-mono text-zinc-400 mt-1 max-w-sm mx-auto">
-        Попробуйте изменить поисковый запрос или выбрать другую категорию.
-      </p>
+        </div>
+
+      </aside>
+
+      <!-- ПРАВАЯ ЧАСТЬ: ПОИСК И СЕТКА КАРТОЧЕК (9 колонок) -->
+      <section class="lg:col-span-9 space-y-6">
+        
+        <!-- Поисковая строка -->
+        <div class="relative">
+          <input 
+            type="text" 
+            id="catalog-search" 
+            placeholder="Поиск по названию, толщине, размерам, свойствам..."
+            class="w-full pl-5 pr-10 py-3.5 rounded-2xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] text-sm text-zinc-900 dark:text-[#f0f2f5] placeholder-zinc-400 focus:outline-none focus:border-[#3dd68c] shadow-sm transition"
+          />
+          <button id="search-clear" class="absolute inset-y-0 right-0 pr-4 flex items-center text-zinc-400 hover:text-zinc-600 dark:hover:text-white hidden">
+            ✕
+          </button>
+        </div>
+
+        <!-- Сетка карточек -->
+        <div id="catalog-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {allVariantCards.map(item => {
+            return (
+              <div 
+                class="catalog-item rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-5 flex flex-col justify-between hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 group"
+                data-search={item.searchableText}
+                data-categories={item.categoryIds.join(',')}
+                data-attributes={JSON.stringify(item.attributes)}
+              >
+                <div class="space-y-3.5">
+                  {item.parentProduct.coverImage && (
+                    <a href={item.directUrl} class="block h-44 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-black/40 relative">
+                      <img src={item.parentProduct.coverImage} alt={item.fullTitle} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <span class="absolute top-3 right-3 text-[10px] font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-2.5 py-1 rounded-full bg-white/90 dark:bg-[#181a1f]/90 backdrop-blur-md border border-[#3dd68c]/30">
+                        В наличии
+                      </span>
+                    </a>
+                  )}
+
+                  <div>
+                    <h3 class="text-base font-bold text-zinc-900 dark:text-[#f0f2f5] group-hover:text-[#0d9488] dark:group-hover:text-[#3dd68c] transition-colors leading-snug">
+                      <a href={item.directUrl}>{item.fullTitle}</a>
+                    </h3>
+                  </div>
+
+                  <div class="flex flex-wrap gap-1.5">
+                    {Object.entries(item.variant.attributes).map(([key, val]) => (
+                      <span class="text-xs font-mono px-2 py-0.5 rounded-lg bg-zinc-100 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.04] text-zinc-600 dark:text-zinc-400">
+                        {key}: {val}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <!-- Блок цены и добавления с выбором количества -->
+                <div class="pt-4 mt-4 border-t border-zinc-200 dark:border-white/[0.06] flex items-center justify-between gap-2">
+                  <div class="font-mono shrink-0">
+                    {item.firstPrice ? (
+                      <div>
+                        <!-- Исправлено: без слова "за" -->
+                        <span class="text-[10px] text-zinc-500 block uppercase">/ {item.firstUnit}</span>
+                        <span class="text-lg font-extrabold text-zinc-900 dark:text-[#f0f2f5]">{item.firstPrice} ₽</span>
+                      </div>
+                    ) : (
+                      <span class="text-xs font-bold text-zinc-400">По согл.</span>
+                    )}
+                  </div>
+
+                  <!-- Изменение количества и кнопка добавления -->
+                  <div class="flex items-center gap-1.5">
+                    <div class="flex items-center bg-zinc-100 dark:bg-white/[0.06] border border-zinc-200 dark:border-white/[0.08] rounded-xl px-1.5 py-1">
+                      <button type="button" class="btn-qty-minus text-zinc-400 hover:text-zinc-900 dark:hover:text-white px-1 font-bold text-xs">−</button>
+                      <input 
+                        type="number" 
+                        value="1" 
+                        min="1" 
+                        max="999" 
+                        class="item-qty-input w-6 text-center bg-transparent font-mono text-xs font-bold text-zinc-900 dark:text-white focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" 
+                      />
+                      <button type="button" class="btn-qty-plus text-zinc-400 hover:text-zinc-900 dark:hover:text-white px-1 font-bold text-xs">+</button>
+                    </div>
+
+                    <button 
+                      type="button"
+                      class="btn-add-card px-3 py-2 rounded-xl bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] hover:bg-[#3dd68c] hover:text-[#111215] text-xs font-bold border border-[#3dd68c]/30 transition shrink-0"
+                      data-id={item.id}
+                      data-title={item.fullTitle}
+                      data-price={item.firstPrice || 0}
+                      data-unit={item.firstUnit}
+                    >
+                      + В заявку
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            );
+          })}
+        </div>
+
+        <div id="no-results" class="hidden text-center py-20 border border-dashed border-zinc-200 dark:border-white/[0.08] rounded-3xl p-8">
+          <div class="text-base font-bold text-zinc-900 dark:text-[#f0f2f5]">Ничего не найдено</div>
+          <p class="text-xs font-mono text-zinc-400 mt-1 max-w-sm mx-auto">
+            Попробуйте изменить параметры поиска или сбросить фильтры.
+          </p>
+        </div>
+
+      </section>
+
     </div>
 
   </div>
@@ -166,24 +237,55 @@ const allVariantCards = products.flatMap(p => {
   <script is:inline>
     const searchInput = document.getElementById('catalog-search');
     const clearBtn = document.getElementById('search-clear');
-    const filterChips = document.querySelectorAll('.filter-chip');
+    const categoryRadios = document.querySelectorAll('input[name="category-filter"]');
+    const attrCheckboxes = document.querySelectorAll('.attr-checkbox');
+    const resetBtn = document.getElementById('reset-all-filters');
     const items = document.querySelectorAll('.catalog-item');
     const counterEl = document.getElementById('catalog-counter');
     const noResultsEl = document.getElementById('no-results');
 
+    // Проверка GET-параметра поиска из Header
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get('search');
+    if (searchParam && searchInput) {
+      searchInput.value = searchParam;
+    }
+
     let activeCategory = 'all';
-    let searchQuery = '';
+    let searchQuery = (searchInput ? searchInput.value : '').trim().toLowerCase();
 
     function applyFilters() {
       let visibleCount = 0;
+
+      // Сбор активных чекбоксов характеристик
+      const selectedAttrs = {};
+      attrCheckboxes.forEach(cb => {
+        if (cb.checked) {
+          const k = cb.getAttribute('data-attr-key');
+          const v = cb.getAttribute('data-attr-val');
+          if (!selectedAttrs[k]) selectedAttrs[k] = [];
+          selectedAttrs[k].push(v);
+        }
+      });
+
       items.forEach(item => {
         const itemCategories = (item.getAttribute('data-categories') || '').split(',');
         const itemText = item.getAttribute('data-search') || '';
+        const itemAttrs = JSON.parse(item.getAttribute('data-attributes') || '{}');
 
         const matchesCat = activeCategory === 'all' || itemCategories.includes(activeCategory);
         const matchesSearch = !searchQuery || itemText.includes(searchQuery);
 
-        if (matchesCat && matchesSearch) {
+        // Проверка соответствия выбранным характеристикам
+        let matchesAttrs = true;
+        for (const [key, vals] of Object.entries(selectedAttrs)) {
+          if (!itemAttrs[key] || !vals.includes(String(itemAttrs[key]))) {
+            matchesAttrs = false;
+            break;
+          }
+        }
+
+        if (matchesCat && matchesSearch && matchesAttrs) {
           item.style.display = 'flex';
           visibleCount++;
         } else {
@@ -195,6 +297,7 @@ const allVariantCards = products.flatMap(p => {
       if (noResultsEl) noResultsEl.style.display = visibleCount === 0 ? 'block' : 'none';
     }
 
+    // Обработчики поиска
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
         searchQuery = e.target.value.trim().toLowerCase();
@@ -212,15 +315,63 @@ const allVariantCards = products.flatMap(p => {
       });
     }
 
-    filterChips.forEach(chip => {
-      chip.addEventListener('click', () => {
-        filterChips.forEach(c => {
-          c.className = 'filter-chip px-4 py-2 rounded-xl text-xs font-mono font-semibold transition bg-zinc-100 dark:bg-white/[0.04] text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-white/[0.06] hover:border-zinc-300 dark:hover:border-white/[0.2]';
-        });
-        chip.className = 'filter-chip active px-4 py-2 rounded-xl text-xs font-mono font-bold transition bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]';
-        activeCategory = chip.getAttribute('data-category') || 'all';
+    categoryRadios.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        activeCategory = e.target.value;
         applyFilters();
       });
     });
+
+    attrCheckboxes.forEach(cb => {
+      cb.addEventListener('change', applyFilters);
+    });
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        searchQuery = '';
+        activeCategory = 'all';
+        categoryRadios.forEach(r => r.checked = r.value === 'all');
+        attrCheckboxes.forEach(cb => cb.checked = false);
+        if (clearBtn) clearBtn.style.display = 'none';
+        applyFilters();
+      });
+    }
+
+    // Обработка кнопок количества и добавления в заявку
+    document.querySelectorAll('.catalog-item').forEach(card => {
+      const minusBtn = card.querySelector('.btn-qty-minus');
+      const plusBtn = card.querySelector('.btn-qty-plus');
+      const input = card.querySelector('.item-qty-input');
+      const addBtn = card.querySelector('.btn-add-card');
+
+      if (minusBtn && input) {
+        minusBtn.addEventListener('click', () => {
+          let v = parseInt(input.value || '1', 10);
+          if (v > 1) input.value = v - 1;
+        });
+      }
+
+      if (plusBtn && input) {
+        plusBtn.addEventListener('click', () => {
+          let v = parseInt(input.value || '1', 10);
+          input.value = v + 1;
+        });
+      }
+
+      if (addBtn && input) {
+        addBtn.addEventListener('click', () => {
+          const qty = parseInt(input.value || '1', 10);
+          window.addToOrderSheetWithQty({
+            id: addBtn.getAttribute('data-id'),
+            title: addBtn.getAttribute('data-title'),
+            price: parseFloat(addBtn.getAttribute('data-price') || '0'),
+            unit: addBtn.getAttribute('data-unit')
+          }, qty);
+        });
+      }
+    });
+
+    applyFilters();
   </script>
 </Layout>
