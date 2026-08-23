@@ -4,88 +4,88 @@ import company from '../data/company.json';
 import database from '../data/database.json';
 import { getUrl } from '../utils/paths';
 
-const { collections, products, articles } = database;
+const { collections, products } = database;
 const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
 
 const featuredProducts = products.slice(0, 2);
 ---
 
 <Layout>
-  <div class="space-y-24 lg:space-y-36">
+  <div class="space-y-16 sm:space-y-24 lg:space-y-36">
 
     <!-- HERO СЕКЦИЯ -->
-    <section class="flex flex-col items-start pt-6 max-w-5xl">
-      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] text-zinc-600 dark:text-zinc-400 text-xs font-mono mb-8 shadow-sm">
+    <section class="flex flex-col items-start pt-2 sm:pt-6 max-w-5xl">
+      <div class="inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-1.5 rounded-full bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] text-zinc-600 dark:text-zinc-400 text-xs font-mono mb-6 sm:mb-8 shadow-sm">
         <span class="w-2 h-2 rounded-full bg-[#3dd68c]"></span>
         <span>Омск • Магазин-склад и офис в одном месте</span>
       </div>
 
-      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-zinc-900 dark:text-[#f0f2f5] leading-[1.08] mb-6">
-        Изоляция и стройматериалы <br />
+      <h1 class="text-3xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-zinc-900 dark:text-[#f0f2f5] leading-[1.1] sm:leading-[1.08] mb-4 sm:mb-6">
+        Изоляция и стройматериалы <br class="hidden sm:inline" />
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-900 via-zinc-600 to-[#0d9488] dark:from-[#f0f2f5] dark:via-zinc-300 dark:to-[#3dd68c]">
           в розницу и оптом в Омске
         </span>
       </h1>
 
-      <p class="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 font-normal leading-relaxed max-w-3xl mb-10">
-        Магазин-склад ООО «БИРОНИКС»: Вспененный полиэтилен, фольга для бань и саун, профессиональные скотчи, монтажные пены, трубный утеплитель и мембраны. Продажа от 1 штуки или рулона до сборных партий с быстрой погрузкой на  ул. 20 лет РККА, д. 183Б, офис 3.
+      <p class="text-sm sm:text-xl text-zinc-600 dark:text-zinc-400 font-normal leading-relaxed max-w-3xl mb-8 sm:mb-10">
+        Магазин-склад ООО «БИРОНИКС»: Вспененный полиэтилен, фольга для бань и саун, профессиональные скотчи, монтажные пены, трубный утеплитель и мембраны. Продажа от 1 штуки или рулона до сборных партий с быстрой погрузкой на ул. 20 лет РККА, д. 183Б, офис 3.
       </p>
 
-      <div class="flex flex-wrap items-center gap-4">
-        <a href={getUrl('/catalog')} class="px-8 py-4 rounded-2xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-[#e3e6ed] dark:text-[#111215] dark:hover:bg-white text-sm font-bold transition-all duration-300 shadow-xl shadow-black/5 dark:shadow-black/20 hover:-translate-y-0.5">
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
+        <a href={getUrl('/catalog')} class="w-full sm:w-auto text-center px-8 py-4 rounded-2xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-[#e3e6ed] dark:text-[#111215] dark:hover:bg-white text-sm font-bold transition-all duration-300 shadow-xl shadow-black/5 dark:shadow-black/20 hover:-translate-y-0.5">
           Перейти в каталог товаров
         </a>
-        <button type="button" onclick="downloadFullCatalogPdf()" class="px-8 py-4 rounded-2xl bg-white dark:bg-[#181a1f] text-zinc-800 dark:text-zinc-200 hover:text-zinc-900 dark:hover:text-white text-sm font-semibold border border-zinc-200 dark:border-white/[0.08] hover:border-zinc-300 dark:hover:border-white/[0.2] transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-2">
+        <button type="button" onclick="downloadFullCatalogPdf()" class="w-full sm:w-auto justify-center px-8 py-4 rounded-2xl bg-white dark:bg-[#181a1f] text-zinc-800 dark:text-zinc-200 hover:text-zinc-900 dark:hover:text-white text-sm font-semibold border border-zinc-200 dark:border-white/[0.08] hover:border-zinc-300 dark:hover:border-white/[0.2] transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-2">
           <span>Скачать прайс-лист (PDF)</span>
         </button>
       </div>
 
       <!-- Метрики -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 mt-12 border-t border-zinc-200/80 dark:border-white/[0.06] w-full">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-8 sm:pt-12 mt-8 sm:mt-12 border-t border-zinc-200/80 dark:border-white/[0.06] w-full">
         <div>
-          <div class="text-3xl font-extrabold font-mono text-zinc-900 dark:text-[#f0f2f5] tracking-tight">От 1 рулона</div>
-          <div class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1">Розница и опт</div>
+          <div class="text-2xl sm:text-3xl font-extrabold font-mono text-zinc-900 dark:text-[#f0f2f5] tracking-tight">От 1 рулона</div>
+          <div class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-0.5 sm:mt-1">Розница и опт</div>
         </div>
         <div>
-          <div class="text-3xl font-extrabold font-mono text-[#0d9488] dark:text-[#3dd68c] tracking-tight">Склад + Офис</div>
-          <div class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1">Въезд и документы на месте</div>
+          <div class="text-2xl sm:text-3xl font-extrabold font-mono text-[#0d9488] dark:text-[#3dd68c] tracking-tight">Склад + Офис</div>
+          <div class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-0.5 sm:mt-1">Въезд и документы на месте</div>
         </div>
         <div>
-          <div class="text-3xl font-extrabold font-mono text-zinc-900 dark:text-[#f0f2f5] tracking-tight">15 минут</div>
-          <div class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1">Среднее время отгрузки</div>
+          <div class="text-2xl sm:text-3xl font-extrabold font-mono text-zinc-900 dark:text-[#f0f2f5] tracking-tight">15 минут</div>
+          <div class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-0.5 sm:mt-1">Среднее время отгрузки</div>
         </div>
         <div>
-          <div class="text-3xl font-extrabold font-mono text-zinc-900 dark:text-[#f0f2f5] tracking-tight">Любой расчет</div>
-          <div class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1">Наличный и безналичный расчёт, QR-код</div>
+          <div class="text-2xl sm:text-3xl font-extrabold font-mono text-zinc-900 dark:text-[#f0f2f5] tracking-tight">Любой расчет</div>
+          <div class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-0.5 sm:mt-1">Наличный, безнал, QR-код</div>
         </div>
       </div>
     </section>
 
     <!-- ИНФОРМАЦИЯ ДЛЯ ПОКУПАТЕЛЕЙ -->
-    <section class="rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-8 sm:p-12 space-y-8 shadow-sm">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-zinc-100 dark:border-white/[0.06]">
+    <section class="rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-6 sm:p-12 space-y-6 sm:space-y-8 shadow-sm">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-zinc-100 dark:border-white/[0.06]">
         <div>
           <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Условия обслуживания</span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-[#f0f2f5] mt-1">
+          <h2 class="text-xl sm:text-3xl font-extrabold text-zinc-900 dark:text-[#f0f2f5] mt-1">
             Самовывоз, отгрузка и варианты оплаты
           </h2>
         </div>
-        <a href={getUrl('/contacts')} class="px-5 py-2.5 rounded-xl bg-zinc-900 dark:bg-white/[0.06] text-white dark:text-zinc-200 text-xs font-mono font-bold hover:bg-[#3dd68c] hover:text-[#111215] dark:hover:bg-[#3dd68c] dark:hover:text-[#111215] transition self-start sm:self-auto">
+        <a href={getUrl('/contacts')} class="px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl bg-zinc-900 dark:bg-white/[0.06] text-white dark:text-zinc-200 text-xs font-mono font-bold hover:bg-[#3dd68c] hover:text-[#111215] dark:hover:bg-[#3dd68c] dark:hover:text-[#111215] transition self-start sm:self-auto">
           Контакты и схема проезда →
         </a>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 font-mono text-xs">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 font-mono text-xs">
         
-        <div class="p-5 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] space-y-2">
+        <div class="p-4 sm:p-5 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] space-y-2">
           <span class="text-zinc-400 block uppercase font-bold">Локация базы (Офис + Склад):</span>
           <button data-copy={company.warehouseAddress} class="font-bold text-zinc-900 dark:text-white text-left hover:underline text-xs">
             {company.warehouseAddress}
           </button>
-          <span class="text-[11px] text-[#0d9488] dark:text-[#3dd68c] block pt-1">Асфальтированный подъезд к воротам</span>
+          <span class="text-[11px] text-[#0d9488] dark:text-[#3dd68c] block pt-1">Асфальтированный подъезд</span>
         </div>
 
-        <div class="p-5 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] space-y-2">
+        <div class="p-4 sm:p-5 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] space-y-2">
           <span class="text-zinc-400 block uppercase font-bold">Прямая связь:</span>
           <button data-copy={company.mainPhone} class="font-bold text-zinc-900 dark:text-white text-left hover:underline text-sm">
             {company.mainPhone} (Максим)
@@ -93,14 +93,14 @@ const featuredProducts = products.slice(0, 2);
           <span class="text-[11px] text-zinc-500 block pt-1">Консультация и резервирование</span>
         </div>
 
-        <div class="p-5 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] space-y-1.5">
+        <div class="p-4 sm:p-5 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] space-y-1.5">
           <span class="text-zinc-400 block uppercase font-bold">Часы работы:</span>
           <div class="text-zinc-800 dark:text-zinc-300 font-semibold">{company.workSchedule.weekdays}</div>
           <div class="text-zinc-500">{company.workSchedule.saturday}</div>
           <div class="text-rose-500/80">{company.workSchedule.sunday}</div>
         </div>
 
-        <div class="p-5 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] space-y-1.5">
+        <div class="p-4 sm:p-5 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] space-y-1.5">
           <span class="text-zinc-400 block uppercase font-bold">Формы оплаты:</span>
           <div class="text-zinc-800 dark:text-zinc-300 font-semibold">• Безналичный расчет с НДС</div>
           <div class="text-zinc-800 dark:text-zinc-300 font-semibold">• Оплата по QR-коду</div>
@@ -111,55 +111,55 @@ const featuredProducts = products.slice(0, 2);
     </section>
 
     <!-- BENTO GRID -->
-    <section class="space-y-8">
+    <section class="space-y-6 sm:space-y-8">
       
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pb-2 sm:pb-4">
         <div>
           <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Ассортимент продукции</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mt-1">
+          <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mt-1">
             Материалы в наличии на складе
           </h2>
         </div>
         <a 
           href={getUrl('/catalog')}
-          class="px-5 py-2.5 rounded-xl bg-zinc-900 dark:bg-white/[0.06] text-white dark:text-zinc-200 border border-zinc-700 dark:border-white/[0.1] text-xs font-mono font-bold hover:bg-[#3dd68c] hover:text-[#111215] dark:hover:bg-[#3dd68c] dark:hover:text-[#111215] transition-all shadow-sm self-start sm:self-auto"
+          class="px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl bg-zinc-900 dark:bg-white/[0.06] text-white dark:text-zinc-200 border border-zinc-700 dark:border-white/[0.1] text-xs font-mono font-bold hover:bg-[#3dd68c] hover:text-[#111215] dark:hover:bg-[#3dd68c] dark:hover:text-[#111215] transition-all shadow-sm self-start sm:self-auto"
         >
           Весь каталог продукции →
         </a>
       </div>
 
       <!-- Ряд 1: Готовые решения + Логистика -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
         
-        <div class="lg:col-span-7 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-8 sm:p-10 flex flex-col justify-between hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:shadow-2xl hover:shadow-[#3dd68c]/5 hover:-translate-y-1.5 transition-all duration-500">
+        <div class="lg:col-span-7 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-6 sm:p-10 flex flex-col justify-between hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:shadow-2xl transition-all duration-500">
           <div>
-            <div class="flex items-center justify-between mb-8">
+            <div class="flex items-center justify-between mb-6 sm:mb-8">
               <span class="text-xs font-mono uppercase tracking-widest px-3 py-1 rounded-full bg-zinc-100 dark:bg-white/[0.04] text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-white/[0.06]">
                 Готовые решения
               </span>
               <span class="text-xs text-zinc-400 dark:text-zinc-600 font-mono">НАЗНАЧЕНИЕ</span>
             </div>
 
-            <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mb-4">
+            <h3 class="text-xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mb-3 sm:mb-4">
               Материалы под конкретные задачи
             </h3>
-            <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-xl leading-relaxed mb-8">
+            <p class="text-xs sm:text-base text-zinc-600 dark:text-zinc-400 max-w-xl leading-relaxed mb-6 sm:mb-8">
               Специализированные комплекты: термостойкая алюминиевая фольга для парных, клейкие ленты, пенополиэтилен и утеплители.
             </p>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {collections.map(col => (
-              <a href={getUrl(`/collections/${col.slug}`)} class="relative rounded-2xl overflow-hidden bg-zinc-50 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.06] p-6 flex flex-col justify-between group/card hover:border-[#3dd68c]/40 transition-all duration-300">
+              <a href={getUrl(`/collections/${col.slug}`)} class="relative rounded-2xl overflow-hidden bg-zinc-50 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.06] p-5 sm:p-6 flex flex-col justify-between group/card hover:border-[#3dd68c]/40 transition-all duration-300">
                 {col.coverImage && (
-                  <div class="h-32 -mx-6 -mt-6 mb-4 overflow-hidden relative">
+                  <div class="h-28 sm:h-32 -mx-5 -mt-5 sm:-mx-6 sm:-mt-6 mb-4 overflow-hidden relative">
                     <img src={col.coverImage} alt={col.title} class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-700" />
                     <div class="absolute inset-0 bg-gradient-to-t from-zinc-50 dark:from-[#111215] to-transparent"></div>
                   </div>
                 )}
                 <div>
-                  <div class="text-xs font-mono font-semibold text-[#0d9488] dark:text-[#3dd68c] mb-1">{col.badge || 'СТАНДАРТ'}</div>
-                  <div class="text-base font-bold text-zinc-900 dark:text-[#f0f2f5] mb-2">{col.title}</div>
+                  <div class="text-[11px] font-mono font-semibold text-[#0d9488] dark:text-[#3dd68c] mb-1">{col.badge || 'СТАНДАРТ'}</div>
+                  <div class="text-sm sm:text-base font-bold text-zinc-900 dark:text-[#f0f2f5] mb-1.5">{col.title}</div>
                   <div class="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2 leading-relaxed">{col.description}</div>
                 </div>
               </a>
@@ -167,28 +167,28 @@ const featuredProducts = products.slice(0, 2);
           </div>
         </div>
 
-        <div class="lg:col-span-5 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-8 sm:p-10 flex flex-col justify-between hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:shadow-2xl hover:shadow-[#3dd68c]/5 hover:-translate-y-1.5 transition-all duration-500">
+        <div class="lg:col-span-5 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-6 sm:p-10 flex flex-col justify-between hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:shadow-2xl transition-all duration-500">
           <div>
-            <div class="flex items-center justify-between mb-8">
+            <div class="flex items-center justify-between mb-6 sm:mb-8">
               <span class="text-xs font-mono uppercase tracking-widest px-3 py-1 rounded-full bg-zinc-100 dark:bg-white/[0.04] text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-white/[0.06]">
                 Складской комплекс
               </span>
               <span class="text-xs text-zinc-400 dark:text-zinc-600 font-mono">ОМСК</span>
             </div>
 
-            <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mb-3">
+            <h3 class="text-xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mb-2 sm:mb-3">
               Оперативная погрузка на складе
             </h3>
-            <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed mb-8">
+            <p class="text-xs sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6 sm:mb-8">
               {company.pickupInfo.guidelines}
             </p>
           </div>
 
           <div class="space-y-4">
-            <div class="p-5 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.06] space-y-3 font-mono text-xs">
+            <div class="p-4 sm:p-5 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.06] space-y-2.5 sm:space-y-3 font-mono text-xs">
               <div class="flex justify-between items-center py-1 border-b border-zinc-200 dark:border-white/[0.04]">
                 <span class="text-zinc-500">База:</span>
-                <span class="text-zinc-800 dark:text-zinc-300 font-sans font-medium text-right max-w-[200px] truncate">{company.warehouseAddress.split(',')[2]}</span>
+                <span class="text-zinc-800 dark:text-zinc-300 font-sans font-medium text-right max-w-[180px] sm:max-w-[200px] truncate">{company.warehouseAddress.split(',')[2]}</span>
               </div>
               <div class="flex justify-between items-center py-1 border-b border-zinc-200 dark:border-white/[0.04]">
                 <span class="text-zinc-500">Погрузка:</span>
@@ -196,7 +196,7 @@ const featuredProducts = products.slice(0, 2);
               </div>
             </div>
 
-            <a href={getUrl('/contacts')} class="block w-full py-3.5 text-center rounded-2xl bg-zinc-100 hover:bg-zinc-200 dark:bg-white/[0.04] dark:hover:bg-white/[0.08] text-zinc-800 dark:text-zinc-200 text-xs font-mono font-semibold transition">
+            <a href={getUrl('/contacts')} class="block w-full py-3 sm:py-3.5 text-center rounded-2xl bg-zinc-100 hover:bg-zinc-200 dark:bg-white/[0.04] dark:hover:bg-white/[0.08] text-zinc-800 dark:text-zinc-200 text-xs font-mono font-semibold transition">
               Схема проезда и контакты →
             </a>
           </div>
@@ -205,24 +205,24 @@ const featuredProducts = products.slice(0, 2);
       </div>
 
       <!-- Ряд 2: Витрина номенклатуры -->
-      <div class="rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-8 sm:p-10 lg:p-12 hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 transition-all duration-500">
+      <div class="rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-6 sm:p-10 lg:p-12 hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 transition-all duration-500">
         
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 sm:mb-10">
           <div>
             <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Складской прайс-лист</span>
-            <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mt-1">
+            <h3 class="text-xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mt-1">
               Популярные позиции в наличии
             </h3>
           </div>
           <a 
-            href="/catalog" 
+            href={getUrl('/catalog')} 
             class="px-4 py-2 rounded-xl bg-zinc-100 hover:bg-zinc-200 dark:bg-white/[0.06] dark:hover:bg-white/[0.1] text-xs font-mono font-bold text-zinc-800 dark:text-zinc-200 transition border border-zinc-200 dark:border-white/[0.08] flex items-center gap-2 self-start sm:self-auto"
           >
             <span>Смотреть весь каталог ({products.length}) →</span>
           </a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {featuredProducts.map(product => {
             const defaultVariant = product.variants[0];
             const fullTitle = `${product.title} — ${defaultVariant.title}`;
@@ -230,40 +230,40 @@ const featuredProducts = products.slice(0, 2);
             const directUrl = getUrl(`/catalog/${product.slug}?variant=${encodeURIComponent(defaultVariant.sku)}`);
             
             return (
-              <div class="rounded-3xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.06] p-6 sm:p-8 flex flex-col justify-between space-y-6 group hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:shadow-xl transition-all duration-300">
+              <div class="rounded-3xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.06] p-5 sm:p-8 flex flex-col justify-between space-y-4 sm:space-y-6 group hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:shadow-xl transition-all duration-300">
                 
                 {product.coverImage && (
-                  <a href={directUrl} class="w-full h-52 sm:h-60 rounded-2xl overflow-hidden bg-zinc-200 dark:bg-black/40 relative block">
+                  <a href={directUrl} class="w-full h-44 sm:h-60 rounded-2xl overflow-hidden bg-zinc-200 dark:bg-black/40 relative block">
                     <img src={product.coverImage} alt={fullTitle} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                    <span class="absolute top-4 right-4 text-xs font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-3 py-1 rounded-full bg-white/90 dark:bg-[#181a1f]/90 backdrop-blur-md border border-[#3dd68c]/30 shadow-sm">
+                    <span class="absolute top-3 right-3 sm:top-4 sm:right-4 text-[10px] sm:text-xs font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/90 dark:bg-[#181a1f]/90 backdrop-blur-md border border-[#3dd68c]/30 shadow-sm">
                       В наличии
                     </span>
                   </a>
                 )}
 
-                <div class="space-y-3">
-                  <h4 class="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-[#f0f2f5] tracking-tight group-hover:text-[#0d9488] dark:group-hover:text-[#3dd68c] transition-colors leading-snug">
+                <div class="space-y-2.5">
+                  <h4 class="text-lg sm:text-2xl font-bold text-zinc-900 dark:text-[#f0f2f5] tracking-tight group-hover:text-[#0d9488] dark:group-hover:text-[#3dd68c] transition-colors leading-snug">
                     <a href={directUrl}>{fullTitle}</a>
                   </h4>
-                  <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed line-clamp-2">
+                  <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed line-clamp-2">
                     {product.description}
                   </p>
 
-                  <div class="flex flex-wrap gap-2 pt-2">
+                  <div class="flex flex-wrap gap-1.5 pt-1">
                     {Object.entries(product.base_attributes || {}).slice(0, 3).map(([k, v]) => (
-                      <span class="text-xs font-mono px-3 py-1 rounded-xl bg-white dark:bg-[#181a1f] border border-zinc-200 dark:border-white/[0.06] text-zinc-600 dark:text-zinc-400">
+                      <span class="text-[11px] sm:text-xs font-mono px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-xl bg-white dark:bg-[#181a1f] border border-zinc-200 dark:border-white/[0.06] text-zinc-600 dark:text-zinc-400">
                         {k}: {v}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                <div class="pt-6 border-t border-zinc-200 dark:border-white/[0.06] flex items-center justify-between">
+                <div class="pt-4 sm:pt-6 border-t border-zinc-200 dark:border-white/[0.06] flex items-center justify-between">
                   <div class="font-mono">
                     {priceEntries.length > 0 ? (
                       <div>
-                        <span class="text-xs text-zinc-500 block uppercase">/ {priceEntries[0][0]}</span>
-                        <span class="text-2xl font-extrabold text-zinc-900 dark:text-[#f0f2f5] tracking-tight">{priceEntries[0][1]} ₽</span>
+                        <span class="text-[10px] sm:text-xs text-zinc-500 block uppercase">/ {priceEntries[0][0]}</span>
+                        <span class="text-xl sm:text-2xl font-extrabold text-zinc-900 dark:text-[#f0f2f5] tracking-tight">{priceEntries[0][1]} ₽</span>
                       </div>
                     ) : (
                       <span class="text-xs font-bold text-zinc-400">По согласованию</span>
@@ -274,11 +274,11 @@ const featuredProducts = products.slice(0, 2);
                     <button 
                       type="button"
                       onclick={`addToOrderSheetWithQty({ id: '${product.id}-${defaultVariant.sku}', title: '${fullTitle.replace(/'/g, "\\'")}', price: ${priceEntries.length > 0 ? priceEntries[0][1] : 0}, unit: '${priceEntries.length > 0 ? priceEntries[0][0] : 'шт'}' }, 1)`}
-                      class="px-5 py-3 rounded-xl bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] hover:bg-[#3dd68c] hover:text-[#111215] text-xs font-bold border border-[#3dd68c]/30 transition"
+                      class="px-3.5 py-2 sm:px-5 sm:py-3 rounded-xl bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] hover:bg-[#3dd68c] hover:text-[#111215] text-xs font-bold border border-[#3dd68c]/30 transition"
                     >
                       + В заявку
                     </button>
-                    <a href={directUrl} class="p-3 rounded-xl bg-zinc-200 hover:bg-zinc-300 dark:bg-white/[0.06] dark:hover:bg-white/[0.1] text-xs font-bold text-zinc-700 dark:text-zinc-300 transition">
+                    <a href={directUrl} class="p-2 sm:p-3 rounded-xl bg-zinc-200 hover:bg-zinc-300 dark:bg-white/[0.06] dark:hover:bg-white/[0.1] text-xs font-bold text-zinc-700 dark:text-zinc-300 transition">
                       →
                     </a>
                   </div>

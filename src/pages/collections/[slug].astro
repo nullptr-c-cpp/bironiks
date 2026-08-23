@@ -12,7 +12,6 @@ export async function getStaticPaths() {
 
 const { collection } = Astro.props;
 
-// Находим товары, относящиеся к этой подборке
 const matchingProducts = database.products.filter(p => p.collectionIds?.includes(collection.id));
 
 const variantCards = matchingProducts.flatMap(p => {
@@ -36,81 +35,81 @@ const variantCards = matchingProducts.flatMap(p => {
   title={`${collection.seo?.metaTitle || collection.title} — БИРОНИКС`} 
   description={collection.seo?.metaDescription || collection.description}
 >
-  <div class="space-y-12">
+  <div class="space-y-8 sm:space-y-12">
 
     <nav class="flex items-center gap-2 text-xs font-mono text-zinc-400">
       <a href={getUrl()} class="hover:text-zinc-900 dark:hover:text-white">Главная</a>
       <span>/</span>
       <a href={getUrl('/collections')} class="hover:text-zinc-900 dark:hover:text-white">Подборки</a>
       <span>/</span>
-      <span class="text-zinc-800 dark:text-zinc-200">{collection.title}</span>
+      <span class="text-zinc-800 dark:text-zinc-200 truncate">{collection.title}</span>
     </nav>
 
     <!-- Баннер подборки -->
-    <div class="rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-8 sm:p-12 relative overflow-hidden">
+    <div class="rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-6 sm:p-12 relative overflow-hidden">
       {collection.coverImage && (
         <div class="absolute inset-0 opacity-10 pointer-events-none">
           <img src={collection.coverImage} alt={collection.title} class="w-full h-full object-cover" />
         </div>
       )}
 
-      <div class="relative z-10 max-w-3xl space-y-4">
-        <span class="text-xs font-mono font-bold text-[#0d9488] dark:text-[#3dd68c] px-3 py-1 rounded-full bg-[#3dd68c]/10 border border-[#3dd68c]/20">
+      <div class="relative z-10 max-w-3xl space-y-3 sm:space-y-4">
+        <span class="text-xs font-mono font-bold text-[#0d9488] dark:text-[#3dd68c] px-3 py-1 rounded-full bg-[#3dd68c]/10 border border-[#3dd68c]/20 inline-block">
           {collection.badge || 'ОТРАСЛЕВОЕ РЕШЕНИЕ'}
         </span>
-        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5]">
+        <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5]">
           {collection.title}
         </h1>
-        <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        <p class="text-xs sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
           {collection.description}
         </p>
       </div>
     </div>
 
     <!-- Список материалов подборки -->
-    <div class="space-y-6">
+    <div class="space-y-4 sm:space-y-6">
       <div class="flex items-center justify-between">
-        <h2 class="text-xl font-bold text-zinc-900 dark:text-[#f0f2f5]">
+        <h2 class="text-lg sm:text-xl font-bold text-zinc-900 dark:text-[#f0f2f5]">
           Рекомендуемые материалы ({variantCards.length})
         </h2>
         <span class="text-xs font-mono text-zinc-400">В наличии на складе</span>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {variantCards.map(item => (
-          <div class="rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-6 flex flex-col justify-between hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:-translate-y-1.5 transition-all duration-300 group">
+          <div class="rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-4 sm:p-6 flex flex-col justify-between hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:-translate-y-1.5 transition-all duration-300 group">
             
-            <div class="space-y-4">
+            <div class="space-y-3 sm:space-y-4">
               {item.parentProduct.coverImage && (
-                <a href={getUrl(item.directUrl)} class="block h-44 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-black/40 relative">
+                <a href={getUrl(item.directUrl)} class="block h-40 sm:h-44 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-black/40 relative">
                   <img src={item.parentProduct.coverImage} alt={item.fullTitle} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <span class="absolute top-3 right-3 text-[10px] font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-2.5 py-1 rounded-full bg-white/90 dark:bg-[#181a1f]/90 backdrop-blur-md border border-[#3dd68c]/30">
+                  <span class="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 text-[10px] font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-2.5 py-0.5 sm:py-1 rounded-full bg-white/90 dark:bg-[#181a1f]/90 backdrop-blur-md border border-[#3dd68c]/30">
                     В наличии
                   </span>
                 </a>
               )}
 
               <div>
-                <h3 class="text-base font-bold text-zinc-900 dark:text-[#f0f2f5] group-hover:text-[#0d9488] dark:group-hover:text-[#3dd68c] transition-colors leading-snug">
+                <h3 class="text-sm sm:text-base font-bold text-zinc-900 dark:text-[#f0f2f5] group-hover:text-[#0d9488] dark:group-hover:text-[#3dd68c] transition-colors leading-snug">
                   <a href={getUrl(item.directUrl)}>{item.fullTitle}</a>
                 </h3>
               </div>
 
-              <div class="flex flex-wrap gap-1.5">
+              <div class="flex flex-wrap gap-1">
                 {Object.entries(item.variant.attributes).slice(0, 2).map(([key, val]) => (
-                  <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.04] text-zinc-600 dark:text-zinc-400">
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded-lg bg-zinc-100 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.04] text-zinc-600 dark:text-zinc-400">
                     {key}: {val}
                   </span>
                 ))}
               </div>
             </div>
 
-            <div class="pt-6 mt-4 border-t border-zinc-200 dark:border-white/[0.06] flex items-center justify-between">
+            <div class="pt-4 mt-3 sm:mt-4 border-t border-zinc-200 dark:border-white/[0.06] flex items-center justify-between">
               <div class="font-mono">
                 {item.firstPrice ? (
                   <div>
-                    <span class="text-[10px] text-zinc-500 block uppercase">за {item.firstUnit}</span>
-                    <span class="text-xl font-extrabold text-zinc-900 dark:text-[#f0f2f5]">{item.firstPrice} ₽</span>
+                    <span class="text-[9px] sm:text-[10px] text-zinc-500 block uppercase">за {item.firstUnit}</span>
+                    <span class="text-base sm:text-xl font-extrabold text-zinc-900 dark:text-[#f0f2f5]">{item.firstPrice} ₽</span>
                   </div>
                 ) : (
                   <span class="text-xs font-bold text-zinc-400">По согласованию</span>
@@ -120,7 +119,7 @@ const variantCards = matchingProducts.flatMap(p => {
               <button 
                 type="button"
                 onclick={`addToOrderSheet({ id: '${item.id}', title: '${item.fullTitle.replace(/'/g, "\\'")}', price: ${item.firstPrice || 0}, unit: '${item.firstUnit}' })`}
-                class="px-4 py-2 rounded-xl bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] hover:bg-[#3dd68c] hover:text-[#111215] text-xs font-bold border border-[#3dd68c]/30 transition"
+                class="px-3.5 py-2 sm:px-4 sm:py-2 rounded-xl bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] hover:bg-[#3dd68c] hover:text-[#111215] text-xs font-bold border border-[#3dd68c]/30 transition"
               >
                 + В заявку
               </button>

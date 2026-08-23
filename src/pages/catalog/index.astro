@@ -31,12 +31,12 @@ const allVariantCards = products.flatMap(p => {
 ---
 
 <Layout title="Каталог строительных и изоляционных материалов — БИРОНИКС">
-  <div class="space-y-10">
+  <div class="space-y-6 sm:space-y-10">
     
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-3">
       <div>
         <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Розничная и оптовая продажа в Омске</span>
-        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mt-1">
+        <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mt-1">
           Каталог номенклатуры
         </h1>
       </div>
@@ -45,13 +45,30 @@ const allVariantCards = products.flatMap(p => {
       </div>
     </div>
 
+    <!-- МОБИЛЬНАЯ КНОПКА ОТКРЫТИЯ ФИЛЬТРОВ -->
+    <div class="lg:hidden">
+      <button 
+        type="button" 
+        id="toggle-mobile-filters" 
+        class="w-full py-3 px-4 rounded-2xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] text-xs font-mono font-bold text-zinc-900 dark:text-white flex items-center justify-between shadow-sm"
+      >
+        <span class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-[#0d9488] dark:text-[#3dd68c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+          </svg>
+          <span>Фильтры и категории</span>
+        </span>
+        <span id="mobile-filter-chevron" class="text-zinc-400 transition-transform">↓</span>
+      </button>
+    </div>
+
     <!-- СТРУКТУРА: САЙДБАР СЛЕВА + ВИТРИНА СПРАВА -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
       
-      <!-- ЛЕВЫЙ САЙДБАР С ФИЛЬТРАМИ -->
-      <aside class="lg:col-span-4 space-y-6">
+      <!-- САЙДБАР С ФИЛЬТРАМИ (Скрыт по умолчанию на мобильных, раскрывается по клику) -->
+      <aside id="catalog-sidebar" class="hidden lg:block lg:col-span-4 space-y-6">
         
-        <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] space-y-6 shadow-sm sticky top-28 transition-all duration-500">
+        <div class="p-5 sm:p-8 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] space-y-5 sm:space-y-6 shadow-sm sticky top-28 transition-all duration-500">
           
           <div class="flex items-center justify-between pb-3 border-b border-zinc-100 dark:border-white/[0.06]">
             <span class="text-sm font-mono uppercase tracking-widest font-bold text-zinc-900 dark:text-[#f0f2f5]">Категории</span>
@@ -65,7 +82,7 @@ const allVariantCards = products.flatMap(p => {
             <button 
               type="button" 
               data-category="all"
-              class="cat-filter-btn active w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]"
+              class="cat-filter-btn active w-full p-3 sm:p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]"
             >
               <span>Все категории</span>
               <span class="text-xs font-mono opacity-80">{allVariantCards.length}</span>
@@ -77,7 +94,7 @@ const allVariantCards = products.flatMap(p => {
                 <button 
                   type="button" 
                   data-category={cat.id}
-                  class="cat-filter-btn w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]"
+                  class="cat-filter-btn w-full p-3 sm:p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]"
                 >
                   <span class="truncate pr-2">{cat.title}</span>
                   <span class="text-xs font-mono opacity-60">{count}</span>
@@ -86,7 +103,7 @@ const allVariantCards = products.flatMap(p => {
             })}
           </div>
 
-          <!-- ПЛАВНО РАЗВЕРТЫВАЮЩИЙСЯ И МАСШТАБИРУЮЩИЙСЯ АККОРДЕОН ХАРАКТЕРИСТИК -->
+          <!-- АККОРДЕОН ХАРАКТЕРИСТИК -->
           <div id="dynamic-attributes-wrapper" class="grid grid-rows-[0fr] opacity-0 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
             <div class="overflow-hidden">
               <div class="space-y-4 pt-4 border-t border-zinc-100 dark:border-white/[0.06]">
@@ -103,7 +120,7 @@ const allVariantCards = products.flatMap(p => {
             </div>
           </div>
 
-          <div class="pt-4 border-t border-zinc-100 dark:border-white/[0.06]">
+          <div class="pt-3 border-t border-zinc-100 dark:border-white/[0.06]">
             <button 
               type="button" 
               onclick="downloadFullCatalogPdf()" 
@@ -118,86 +135,86 @@ const allVariantCards = products.flatMap(p => {
       </aside>
 
       <!-- ПРАВАЯ ЧАСТЬ: ПОИСК И СЕТКА КАРТОЧЕК -->
-      <section class="lg:col-span-8 space-y-6">
+      <section class="w-full lg:col-span-8 space-y-6">
         
         <div class="relative">
           <input 
             type="text" 
             id="catalog-search" 
             placeholder="Поиск по названию, размерам, свойствам..."
-            class="w-full pl-5 pr-10 py-4 rounded-2xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] text-sm text-zinc-900 dark:text-[#f0f2f5] placeholder-zinc-400 focus:outline-none focus:border-[#3dd68c] shadow-sm transition"
+            class="w-full pl-4 sm:pl-5 pr-10 py-3.5 sm:py-4 rounded-2xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] text-xs sm:text-sm text-zinc-900 dark:text-[#f0f2f5] placeholder-zinc-400 focus:outline-none focus:border-[#3dd68c] shadow-sm transition"
           />
           <button id="search-clear" class="absolute inset-y-0 right-0 pr-4 flex items-center text-zinc-400 hover:text-zinc-600 dark:hover:text-white hidden">
             ✕
           </button>
         </div>
 
-        <!-- СЕТКА С ПЛАВНЫМ ПЕРЕХОДОМ -->
+        <!-- СЕТКА КАРТОЧЕК -->
         <div 
           id="catalog-grid" 
-          class="grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-300 ease-out opacity-100 scale-100"
+          class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 transition-all duration-300 ease-out opacity-100 scale-100"
         >
           {allVariantCards.map(item => {
             return (
               <div 
-                class="catalog-item rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-5 flex flex-col justify-between hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 group"
+                class="catalog-item rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-4 sm:p-5 flex flex-col justify-between hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 group"
                 data-search={item.searchableText}
                 data-categories={item.categoryIds.join(',')}
                 data-attributes={JSON.stringify(item.attributes)}
               >
-                <div class="space-y-3.5">
+                <div class="space-y-3">
                   {item.parentProduct.coverImage && (
-                    <a href={getUrl(item.directUrl)} class="block h-48 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-black/40 relative">
+                    <a href={getUrl(item.directUrl)} class="block h-44 sm:h-48 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-black/40 relative">
                       <img src={item.parentProduct.coverImage} alt={item.fullTitle} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                      <span class="absolute top-3 right-3 text-[10px] font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-2.5 py-1 rounded-full bg-white/90 dark:bg-[#181a1f]/90 backdrop-blur-md border border-[#3dd68c]/30">
+                      <span class="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 text-[10px] font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-2.5 py-0.5 sm:py-1 rounded-full bg-white/90 dark:bg-[#181a1f]/90 backdrop-blur-md border border-[#3dd68c]/30">
                         В наличии
                       </span>
                     </a>
                   )}
 
                   <div>
-                    <h3 class="text-base font-bold text-zinc-900 dark:text-[#f0f2f5] group-hover:text-[#0d9488] dark:group-hover:text-[#3dd68c] transition-colors leading-snug">
+                    <h3 class="text-sm sm:text-base font-bold text-zinc-900 dark:text-[#f0f2f5] group-hover:text-[#0d9488] dark:group-hover:text-[#3dd68c] transition-colors leading-snug">
                       <a href={getUrl(item.directUrl)}>{item.fullTitle}</a>
                     </h3>
                   </div>
 
-                  <div class="flex flex-wrap gap-1.5">
+                  <div class="flex flex-wrap gap-1">
                     {Object.entries(item.variant.attributes).map(([key, val]) => (
-                      <span class="text-xs font-mono px-2.5 py-0.5 rounded-lg bg-zinc-100 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.04] text-zinc-600 dark:text-zinc-400">
+                      <span class="text-[11px] font-mono px-2 py-0.5 rounded-lg bg-zinc-100 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.04] text-zinc-600 dark:text-zinc-400">
                         {key}: {val}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                <div class="pt-4 mt-4 border-t border-zinc-200 dark:border-white/[0.06] flex items-center justify-between gap-2">
+                <div class="pt-3 sm:pt-4 mt-3 sm:mt-4 border-t border-zinc-200 dark:border-white/[0.06] flex flex-wrap items-center justify-between gap-2">
                   <div class="font-mono shrink-0">
                     {item.firstPrice ? (
                       <div>
-                        <span class="text-[10px] text-zinc-500 block uppercase">/ {item.firstUnit}</span>
-                        <span class="text-lg font-extrabold text-zinc-900 dark:text-[#f0f2f5]">{item.firstPrice} ₽</span>
+                        <span class="text-[9px] sm:text-[10px] text-zinc-500 block uppercase">/ {item.firstUnit}</span>
+                        <span class="text-base sm:text-lg font-extrabold text-zinc-900 dark:text-[#f0f2f5]">{item.firstPrice} ₽</span>
                       </div>
                     ) : (
                       <span class="text-xs font-bold text-zinc-400">По согл.</span>
                     )}
                   </div>
 
-                  <div class="flex items-center gap-1.5">
-                    <div class="flex items-center bg-zinc-100 dark:bg-white/[0.06] border border-zinc-200 dark:border-white/[0.08] rounded-xl px-1.5 py-1">
-                      <button type="button" class="btn-qty-minus text-zinc-400 hover:text-zinc-900 dark:hover:text-white px-1 font-bold text-xs">−</button>
+                  <div class="flex items-center gap-1.5 shrink-0">
+                    <div class="flex items-center bg-zinc-100 dark:bg-white/[0.06] border border-zinc-200 dark:border-white/[0.08] rounded-xl px-1 py-0.5 sm:px-1.5 sm:py-1">
+                      <button type="button" class="btn-qty-minus text-zinc-400 hover:text-zinc-900 dark:hover:text-white px-1.5 font-bold text-xs">−</button>
                       <input 
                         type="number" 
                         value="1" 
                         min="1" 
                         max="999" 
-                        class="item-qty-input w-6 text-center bg-transparent font-mono text-xs font-bold text-zinc-900 dark:text-white focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" 
+                        class="item-qty-input w-5 sm:w-6 text-center bg-transparent font-mono text-xs font-bold text-zinc-900 dark:text-white focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" 
                       />
-                      <button type="button" class="btn-qty-plus text-zinc-400 hover:text-zinc-900 dark:hover:text-white px-1 font-bold text-xs">+</button>
+                      <button type="button" class="btn-qty-plus text-zinc-400 hover:text-zinc-900 dark:hover:text-white px-1.5 font-bold text-xs">+</button>
                     </div>
 
                     <button 
                       type="button"
-                      class="btn-add-card px-3 py-2 rounded-xl bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] hover:bg-[#3dd68c] hover:text-[#111215] text-xs font-bold border border-[#3dd68c]/30 transition shrink-0"
+                      class="btn-add-card px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] hover:bg-[#3dd68c] hover:text-[#111215] text-xs font-bold border border-[#3dd68c]/30 transition shrink-0"
                       data-id={item.id}
                       data-title={item.fullTitle}
                       data-price={item.firstPrice || 0}
@@ -213,8 +230,8 @@ const allVariantCards = products.flatMap(p => {
           })}
         </div>
 
-        <div id="no-results" class="hidden text-center py-20 border border-dashed border-zinc-200 dark:border-white/[0.08] rounded-3xl p-8 transition-opacity duration-300">
-          <div class="text-base font-bold text-zinc-900 dark:text-[#f0f2f5]">Ничего не найдено</div>
+        <div id="no-results" class="hidden text-center py-16 border border-dashed border-zinc-200 dark:border-white/[0.08] rounded-3xl p-6 transition-opacity duration-300">
+          <div class="text-sm sm:text-base font-bold text-zinc-900 dark:text-[#f0f2f5]">Ничего не найдено</div>
           <p class="text-xs font-mono text-zinc-400 mt-1 max-w-sm mx-auto">
             С такой комбинацией фильтров товаров нет. Сбросьте фильтры для отображения всех позиций.
           </p>
@@ -238,6 +255,24 @@ const allVariantCards = products.flatMap(p => {
     const counterEl = document.getElementById('catalog-counter');
     const noResultsEl = document.getElementById('no-results');
 
+    // Мобильный переключатель сайдбара
+    const toggleFiltersBtn = document.getElementById('toggle-mobile-filters');
+    const catalogSidebar = document.getElementById('catalog-sidebar');
+    const filterChevron = document.getElementById('mobile-filter-chevron');
+
+    if (toggleFiltersBtn && catalogSidebar) {
+      toggleFiltersBtn.addEventListener('click', () => {
+        const isHidden = catalogSidebar.classList.contains('hidden');
+        if (isHidden) {
+          catalogSidebar.classList.remove('hidden');
+          if (filterChevron) filterChevron.textContent = '↑';
+        } else {
+          catalogSidebar.classList.add('hidden');
+          if (filterChevron) filterChevron.textContent = '↓';
+        }
+      });
+    }
+
     const urlParams = new URLSearchParams(window.location.search);
     const searchParam = urlParams.get('search');
     if (searchParam && searchInput) {
@@ -248,15 +283,13 @@ const allVariantCards = products.flatMap(p => {
     let searchQuery = (searchInput ? searchInput.value : '').trim().toLowerCase();
     let selectedAttrs = {};
 
-    // 1. РАСЧЕТ ДОСТУПНОСТИ КОМБИНАЦИИ ФИЛЬТРОВ (FACETED COUNTS)
     function calculateFacetCount(targetKey, targetVal) {
       return rawVariantCards.filter(item => {
         if (activeCategory !== 'all' && !item.categoryIds.includes(activeCategory)) return false;
         if (searchQuery && !item.searchableText.includes(searchQuery)) return false;
 
-        // Проверяем все остальные выбранные группы характеристик
         for (const [key, vals] of Object.entries(selectedAttrs)) {
-          if (key === targetKey) continue; // текущую группу не учитываем
+          if (key === targetKey) continue;
           if (!vals || !vals.length) continue;
           if (!item.attributes[key] || !vals.includes(String(item.attributes[key]))) {
             return false;
@@ -267,7 +300,6 @@ const allVariantCards = products.flatMap(p => {
       }).length;
     }
 
-    // 2. ОБНОВЛЕНИЕ СОСТОЯНИЯ ЧИПОВ ХАРАКТЕРИСТИК
     function updateAttributesAvailability() {
       document.querySelectorAll('.dynamic-attr-chip').forEach(chip => {
         const input = chip.querySelector('.dynamic-attr-cb');
@@ -281,12 +313,10 @@ const allVariantCards = products.flatMap(p => {
         const isChecked = input.checked;
 
         if (availableCount === 0 && !isChecked) {
-          // Заблокированное состояние: предотвращает клик в 0 товаров
           chip.classList.add('opacity-30', 'pointer-events-none', 'grayscale', 'line-through', 'cursor-not-allowed');
           chip.classList.remove('hover:border-zinc-300', 'dark:hover:border-white/[0.2]');
           input.disabled = true;
         } else {
-          // Активное/доступное состояние
           chip.classList.remove('opacity-30', 'pointer-events-none', 'grayscale', 'line-through', 'cursor-not-allowed');
           chip.classList.add('hover:border-zinc-300', 'dark:hover:border-white/[0.2]');
           input.disabled = false;
@@ -294,7 +324,6 @@ const allVariantCards = products.flatMap(p => {
       });
     }
 
-    // 3. ПЛАВНЫЙ РЕНДЕР ДИНАМИЧЕСКИХ ХАРАКТЕРИСТИК
     function renderDynamicFilters(categoryId) {
       if (!dynamicWrapper || !dynamicList) return;
 
@@ -307,7 +336,6 @@ const allVariantCards = products.flatMap(p => {
         return;
       }
 
-      // Плавное затухание перед обновлением
       dynamicList.style.opacity = '0';
 
       setTimeout(() => {
@@ -356,7 +384,6 @@ const allVariantCards = products.flatMap(p => {
           </div>
         `).join('');
 
-        // Плавное раскрытие аккордеона по высоте
         dynamicWrapper.classList.remove('grid-rows-[0fr]', 'opacity-0');
         dynamicWrapper.classList.add('grid-rows-[1fr]', 'opacity-100');
         dynamicList.style.opacity = '1';
@@ -384,7 +411,6 @@ const allVariantCards = products.flatMap(p => {
       applyFiltersWithFade();
     }
 
-    // 4. ПЛАВНОЕ ОБНОВЛЕНИЕ ВИТРИНЫ ТОВАРОВ
     function applyFiltersWithFade() {
       if (!catalogGrid) {
         applyFiltersDirect();
@@ -435,7 +461,6 @@ const allVariantCards = products.flatMap(p => {
       if (noResultsEl) noResultsEl.style.display = visibleCount === 0 ? 'block' : 'none';
     }
 
-    // 5. ОБРАБОТЧИКИ
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
         searchQuery = e.target.value.trim().toLowerCase();
@@ -458,9 +483,9 @@ const allVariantCards = products.flatMap(p => {
     catButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         catButtons.forEach(b => {
-          b.className = 'cat-filter-btn w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]';
+          b.className = 'cat-filter-btn w-full p-3 sm:p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]';
         });
-        btn.className = 'cat-filter-btn active w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]';
+        btn.className = 'cat-filter-btn active w-full p-3 sm:p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]';
         
         activeCategory = btn.getAttribute('data-category') || 'all';
         renderDynamicFilters(activeCategory);
@@ -475,8 +500,8 @@ const allVariantCards = products.flatMap(p => {
         activeCategory = 'all';
         catButtons.forEach(b => {
           b.className = b.getAttribute('data-category') === 'all'
-            ? 'cat-filter-btn active w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]'
-            : 'cat-filter-btn w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]';
+            ? 'cat-filter-btn active w-full p-3 sm:p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]'
+            : 'cat-filter-btn w-full p-3 sm:p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]';
         });
         renderDynamicFilters('all');
         if (clearBtn) clearBtn.style.display = 'none';
@@ -484,7 +509,6 @@ const allVariantCards = products.flatMap(p => {
       });
     }
 
-    // Обработка кнопок количества и добавления в заявку
     document.querySelectorAll('.catalog-item').forEach(card => {
       const minusBtn = card.querySelector('.btn-qty-minus');
       const plusBtn = card.querySelector('.btn-qty-plus');
