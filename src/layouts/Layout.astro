@@ -7,13 +7,69 @@ import database from '../data/database.json';
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  type?: 'website' | 'article' | 'product';
+  canonical?: string;
+  schema?: Record<string, any>;
 }
 
 const { 
-  title = "БИРОНИКС — Изоляционные и строительные материалы со склада в Омске", 
-  description = "Продажа гидро-, тепло- и пароизоляции в розницу и оптом со склада в Омске." 
+  title = `${company.brand} — Изоляция и стройматериалы со склада в Омске`, 
+  description = company.description,
+  image = "/image/og-banner.jpg",
+  type = "website",
+  canonical,
+  schema
 } = Astro.props;
 
+const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site || 'https://bironiks.ru').href;
+const ogImageURL = new URL(image, Astro.site || 'https://bironiks.ru').href;
+
+// Базовая микроразметка Schema.org для локального бизнеса в Омске
+const baseLocalBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "WholesaleStore",
+  "name": company.name,
+  "alternateName": company.brand,
+  "description": company.description,
+  "url": "https://bironiks.ru",
+  "logo": "https://bironiks.ru/image/logo.svg",
+  "image": ogImageURL,
+  "telephone": company.mainPhone,
+  "email": company.emailSales,
+  "priceRange": "₽₽",
+  "paymentAccepted": "Cash, Credit Card, Bank Transfer, QR Code",
+  "currenciesAccepted": "RUB",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ул. 20 лет РККА, д. 183Б, офис 3",
+    "addressLocality": "Омск",
+    "addressRegion": "Омская область",
+    "postalCode": "644009",
+    "addressCountry": "RU"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": company.yandexMapCoords[0],
+    "longitude": company.yandexMapCoords[1]
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "10:00",
+      "closes": "14:00"
+    }
+  ]
+};
+
+const finalSchema = schema || baseLocalBusinessSchema;
 const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
 const managerPhone = company.managerPhone || company.mainPhone;
 ---
@@ -23,9 +79,37 @@ const managerPhone = company.managerPhone || company.mainPhone;
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Основные SEO мета-теги -->
   <title>{title}</title>
   <meta name="description" content={description} />
-  
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Гео-привязка для регионального ранжирования (Омск) -->
+  <meta name="geo.region" content="RU-OMS" />
+  <meta name="geo.placename" content="Омск" />
+  <meta name="geo.position" content={`${company.yandexMapCoords[0]};${company.yandexMapCoords[1]}`} />
+  <meta name="ICBM" content={`${company.yandexMapCoords[0]}, ${company.yandexMapCoords[1]}`} />
+
+  <!-- Open Graph / VK / Telegram -->
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:site_name" content={company.brand} />
+  <meta property="og:type" content={type} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:image" content={ogImageURL} />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL} />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify(finalSchema)} />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -181,6 +265,7 @@ const managerPhone = company.managerPhone || company.mainPhone;
 
           <a 
             href={`tel:${formatPhone(managerPhone)}`} 
+            data-copy={managerPhone}
             class="w-full py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-zinc-900 text-xs font-bold text-center transition flex items-center justify-center gap-2"
           >
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -239,7 +324,7 @@ const managerPhone = company.managerPhone || company.mainPhone;
       }
     });
 
-    // 2. ЛИСТ ЗАЯВКИ
+    // 2. КОРЗИНА И ЛИСТ ЗАЯВКИ
     window.orderSheet = JSON.parse(localStorage.getItem('bironiks_sheet') || '[]');
 
     function saveSheet() {
@@ -356,7 +441,7 @@ const managerPhone = company.managerPhone || company.mainPhone;
       if (totalEl) totalEl.textContent = totalSum > 0 ? `${totalSum} ₽` : 'По согласованию';
     }
 
-    // 3. ПЕЧАТЬ В PDF (ЕДИНИЦА ПЕРЕНЕСЕНА В ЦЕНУ)
+    // 3. ПЕЧАТЬ В PDF
     function printHtmlDocument(titleDoc, rowsHtml, totalSumStr = '') {
       const container = document.getElementById('print-content');
       if (!container) return;
@@ -404,7 +489,6 @@ const managerPhone = company.managerPhone || company.mainPhone;
       window.print();
     }
 
-    // Печать Сметы: item.unit выведен в колонку "Цена за единицу"
     document.addEventListener('click', (e) => {
       if (e.target.closest('#download-order-pdf-btn')) {
         if (!window.orderSheet.length) {
@@ -454,7 +538,7 @@ const managerPhone = company.managerPhone || company.mainPhone;
       printHtmlDocument('ПРАЙС-ЛИСТ СКЛАДСКОЙ ПРОДУКЦИИ', rows);
     };
 
-    // 4. ОБРАБОТЧИКИ МОДАЛКИ
+    // 4. МОДАЛЬНОЕ ОКНО
     document.addEventListener('click', (e) => {
       if (e.target.closest('#order-sheet-trigger')) {
         renderModalList();
@@ -495,13 +579,35 @@ const managerPhone = company.managerPhone || company.mainPhone;
       }
     }
 
-    document.addEventListener('click', (e) => {
-      const target = e.target.closest('[data-copy]');
-      if (!target) return;
-      const text = target.getAttribute('data-copy');
-      if (text) {
-        navigator.clipboard.writeText(text);
-        showToast(`Скопировано: ${text}`);
+    // 6. УНИВЕРСАЛЬНЫЙ АВТОМАТИЧЕСКИЙ ПЕРЕХВАТ ЗВОНКОВ + КОПИРОВАНИЕ
+    document.addEventListener('click', async (e) => {
+      // Перехват любого клика по tel: ссылке (в контактах, товарах, шапке, модалке и т.д.)
+      const telLink = e.target.closest('a[href^="tel:"]');
+      if (telLink) {
+        const rawHref = telLink.getAttribute('href') || '';
+        const phone = telLink.getAttribute('data-copy') || rawHref.replace('tel:', '');
+        if (phone) {
+          try {
+            await navigator.clipboard.writeText(phone);
+            showToast(`Номер скопирован: ${phone}`);
+          } catch (err) {
+            console.error('Clipboard copy error:', err);
+          }
+        }
+      }
+
+      // Обычное копирование [data-copy]
+      const copyTarget = e.target.closest('[data-copy]');
+      if (copyTarget && !telLink) {
+        const text = copyTarget.getAttribute('data-copy');
+        if (text) {
+          try {
+            await navigator.clipboard.writeText(text);
+            showToast(`Скопировано: ${text}`);
+          } catch (err) {
+            console.error('Clipboard copy error:', err);
+          }
+        }
       }
     });
 

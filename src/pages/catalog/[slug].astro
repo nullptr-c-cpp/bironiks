@@ -12,21 +12,50 @@ export async function getStaticPaths() {
 
 const { product } = Astro.props;
 
-// Находим подборки, в которых состоит текущий товар
 const productCollections = database.collections.filter(c => product.collectionIds?.includes(c.id));
 const primaryCategory = database.categories.find(c => product.categoryIds?.includes(c.id));
 
-// Находим другие товары из этих же подборок (исключая текущий товар)
 const relatedProducts = database.products
   .filter(p => p.id !== product.id && p.collectionIds?.some(cid => product.collectionIds?.includes(cid)))
   .slice(0, 3);
 
 const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
+const defaultVariant = product.variants[0];
+const firstPrice = defaultVariant ? Object.values(defaultVariant.prices)[0] : null;
+
+// Product Schema.org для карточки товара
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": `${product.title} — ${defaultVariant.title}`,
+  "image": product.coverImage ? [new URL(product.coverImage, 'https://bironiks.ru').href] : [],
+  "description": product.description,
+  "sku": defaultVariant.sku,
+  "brand": {
+    "@type": "Brand",
+    "name": company.brand
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": `https://bironiks.ru/catalog/${product.slug}`,
+    "priceCurrency": "RUB",
+    "price": firstPrice || "0",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "seller": {
+      "@type": "Organization",
+      "name": company.name
+    }
+  }
+};
 ---
 
 <Layout 
-  title={`${product.title} — Характеристики и варианты | БИРОНИКС Омск`} 
-  description={product.description}
+  title={`${product.title} — ${defaultVariant.title} купить в Омске | БИРОНИКС`} 
+  description={`${product.description} Купить в розницу и оптом со склада на ул. 20 лет РККА в Омске. Цены от ${firstPrice || 'по согласованию'} ₽.`}
+  image={product.coverImage}
+  type="product"
+  schema={productSchema}
 >
   <div class="space-y-16 lg:space-y-24">
 
@@ -52,10 +81,9 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
     <!-- ОСНОВНОЙ BENTO-БЛОК ТОВАРА -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
-      <!-- ЛЕВАЯ КОЛОНКА: МЕДИА, СЕРТИФИКАТЫ И СКЛАД (5 колонок) -->
+      <!-- ЛЕВАЯ КОЛОНКА (5 колонок) -->
       <div class="lg:col-span-5 space-y-6">
         
-        <!-- Главное фото товара с плашкой наличия -->
         <div class="rounded-3xl overflow-hidden bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] aspect-square relative shadow-sm group">
           {product.coverImage ? (
             <img 
@@ -80,7 +108,6 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
           </div>
         </div>
 
-        <!-- Сертификаты качества и паспорта -->
         {product.certificates && product.certificates.length > 0 && (
           <div class="p-6 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] space-y-3.5 shadow-sm">
             <div class="flex items-center justify-between">
@@ -110,7 +137,6 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
           </div>
         )}
 
-        <!-- Карточка быстрой логистики -->
         <div class="p-6 rounded-3xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.06] space-y-2 font-mono text-xs text-zinc-600 dark:text-zinc-400">
           <div class="text-zinc-900 dark:text-white font-bold">Самовывоз и отгрузка в Омске:</div>
           <div>• Офис и склад на ул. 20 лет РККА, 183Б</div>
@@ -120,10 +146,9 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
 
       </div>
 
-      <!-- ПРАВАЯ КОЛОНКА: ВАРИАНТЫ, ЦЕНЫ, ДОБАВЛЕНИЕ И СПЕЦИФИКАЦИЯ (7 колонок) -->
+      <!-- ПРАВАЯ КОЛОНКА (7 колонок) -->
       <div class="lg:col-span-7 space-y-8">
         
-        <!-- Заголовок и подборки -->
         <div class="space-y-3">
           {productCollections.length > 0 && (
             <div class="flex flex-wrap gap-2">
@@ -147,7 +172,7 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
           </p>
         </div>
 
-        <!-- ТАБЫ ВЫБОРА ВАРИАНТА -->
+        <!-- ТАБЫ ВАРИАНТОВ -->
         <div class="space-y-3">
           <label class="text-xs font-mono uppercase tracking-widest text-zinc-500 font-bold block">
             Выберите типоразмер / модификацию:
@@ -166,14 +191,14 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
           </div>
         </div>
 
-        <!-- БЛОК СТОИМОСТИ, СЧЕТЧИКА И ДОБАВЛЕНИЯ В ЗАЯВКУ -->
+        <!-- СТОИМОСТЬ И ЗАКАЗ -->
         <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] space-y-6 shadow-sm">
           
           <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 pb-6 border-b border-zinc-100 dark:border-white/[0.06]">
             <div>
               <span class="text-xs font-mono uppercase tracking-widest text-zinc-500 block">Стоимость:</span>
               <div id="display-prices" class="flex flex-wrap items-baseline gap-4 mt-1">
-                <!-- Заполняется реактивно -->
+                <!-- Заполняется JS -->
               </div>
             </div>
 
@@ -182,10 +207,8 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
             </span>
           </div>
 
-          <!-- Кнопка добавления со счетчиком количества -->
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             
-            <!-- Счетчик количества -->
             <div class="flex items-center justify-between sm:justify-center bg-zinc-100 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.08] rounded-2xl px-3 py-2 shrink-0">
               <button 
                 type="button" 
@@ -209,7 +232,6 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
               >+</button>
             </div>
 
-            <!-- Основная кнопка добавления в смету -->
             <button 
               id="add-to-sheet-detail-btn" 
               type="button" 
@@ -221,10 +243,12 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
               <span>Добавить в лист заявки</span>
             </button>
 
-            <!-- Быстрый звонок -->
+            <!-- Кнопка звонка: автоматически копирует номер и открывает окно набора -->
             <a 
               href={`tel:${formatPhone(company.mainPhone)}`}
+              data-copy={company.mainPhone}
               class="py-4 px-5 rounded-2xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white/[0.06] dark:hover:bg-white dark:text-zinc-200 dark:hover:text-zinc-950 text-xs font-mono font-bold transition text-center shrink-0 border border-zinc-700 dark:border-white/[0.08]"
+              title="Нажмите для звонка и автокопирования номера"
             >
               Заказать по телефону
             </a>
@@ -233,19 +257,17 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
 
         </div>
 
-        <!-- ОПИСАНИЕ МАТЕРИАЛА -->
         <div class="space-y-3">
           <h2 class="text-lg font-bold text-zinc-900 dark:text-[#f0f2f5]">Описание и назначение</h2>
           <p id="display-description" class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            <!-- Заполняется реактивно -->
+            <!-- Заполняется JS -->
           </p>
         </div>
 
-        <!-- ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ -->
         <div class="space-y-4">
           <h2 class="text-lg font-bold text-zinc-900 dark:text-[#f0f2f5]">Технические характеристики</h2>
           <div id="display-specs" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs font-mono">
-            <!-- Заполняется реактивно -->
+            <!-- Заполняется JS -->
           </div>
         </div>
 
@@ -253,7 +275,7 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
 
     </div>
 
-    <!-- БЛОК: СОПУТСТВУЮЩИЕ ТОВАРЫ ИЗ ЭТИХ ЖЕ ПОДБОРОК -->
+    <!-- СОПУТСТВУЮЩИЕ ТОВАРЫ -->
     {relatedProducts.length > 0 && (
       <section class="pt-12 border-t border-zinc-200 dark:border-white/[0.06] space-y-8">
         
@@ -337,7 +359,6 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
 
   </div>
 
-  <!-- КЛИЕНТСКИЙ СКРИПТ: СМЕНА ВАРИАНТОВ И ДОБАВЛЕНИЕ В ЗАЯВКУ -->
   <script is:inline define:vars={{ productData: product }}>
     const variants = productData.variants;
     const baseAttrs = productData.base_attributes || {};
@@ -357,7 +378,6 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
       currentSelectedVariant = v;
       activeIndex = index;
 
-      // 1. Активные стили табов вариантов
       document.querySelectorAll('.variant-btn').forEach((btn, i) => {
         if (i === index) {
           btn.className = 'variant-btn px-4 py-3 rounded-2xl border text-xs font-mono font-bold transition bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border-[#3dd68c] shadow-sm';
@@ -366,13 +386,11 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
         }
       });
 
-      // 2. Склеенный заголовок
       const pageTitle = document.getElementById('product-page-title');
       if (pageTitle) {
         pageTitle.textContent = `${productData.title} — ${v.title}`;
       }
 
-      // 3. Стоимость (без слова "за")
       const pricesEl = document.getElementById('display-prices');
       if (pricesEl) {
         pricesEl.innerHTML = Object.entries(v.prices).map(([unit, price]) => `
@@ -383,7 +401,6 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
         `).join('');
       }
 
-      // 4. Описание
       const descEl = document.getElementById('display-description');
       if (descEl) {
         if (v.description_override) {
@@ -395,7 +412,6 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
         }
       }
 
-      // 5. Характеристики
       const mergedAttrs = { ...baseAttrs, ...v.attributes };
       const specsEl = document.getElementById('display-specs');
       if (specsEl) {
@@ -407,13 +423,11 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
         `).join('');
       }
 
-      // Обновление URL параметра ?variant=SKU
       const newUrl = new URL(window.location);
       newUrl.searchParams.set('variant', v.sku);
       window.history.replaceState({}, '', newUrl);
     }
 
-    // Слушатели клика по табам вариантов
     document.querySelectorAll('.variant-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const idx = parseInt(btn.getAttribute('data-index') || '0', 10);
@@ -421,7 +435,6 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
       });
     });
 
-    // Обработка счетчика количества
     const qtyMinus = document.getElementById('product-qty-minus');
     const qtyPlus = document.getElementById('product-qty-plus');
     const qtyInput = document.getElementById('product-qty-input');
@@ -453,7 +466,6 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
       });
     }
 
-    // Добавление в лист заявки
     const addBtn = document.getElementById('add-to-sheet-detail-btn');
     if (addBtn) {
       addBtn.addEventListener('click', () => {
@@ -473,7 +485,6 @@ const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
       });
     }
 
-    // Первичная инициализация
     renderVariant(activeIndex);
   </script>
 </Layout>
