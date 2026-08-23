@@ -43,10 +43,10 @@ const allVariantCards = products.flatMap(p => {
       </div>
     </div>
 
-    <!-- СТРУКТУРА: САЙДБАР СЛЕВА + ВИТРИНА СПРАВА -->
+    <!-- САЙДБАР СЛЕВА + ВИТРИНА СПРАВА -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
       
-      <!-- ЛЕВЫЙ САЙДБАР С ФИЛЬТРАМИ -->
+      <!-- ЛЕВЫЙ САЙДБАР -->
       <aside class="lg:col-span-4 space-y-6">
         
         <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] space-y-6 shadow-sm sticky top-28">
@@ -58,7 +58,7 @@ const allVariantCards = products.flatMap(p => {
             </button>
           </div>
 
-          <!-- КРУПНЫЕ ПРЕМИАЛЬНЫЕ КНОПКИ КАТЕГОРИЙ -->
+          <!-- КНОПКИ КАТЕГОРИЙ -->
           <div class="space-y-2">
             <button 
               type="button" 
@@ -84,13 +84,17 @@ const allVariantCards = products.flatMap(p => {
             })}
           </div>
 
-          <!-- ДИНАМИЧЕСКИЙ БЛОК ХАРАКТЕРИСТИК (ПОЯВЛЯЕТСЯ ТОЛЬКО ПРИ ВЫБОРЕ КАТЕГОРИИ) -->
-          <div id="dynamic-attributes-container" class="hidden space-y-4 pt-4 border-t border-zinc-100 dark:border-white/[0.06]">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-mono uppercase tracking-widest text-zinc-500 font-bold">Характеристики:</span>
-            </div>
-            <div id="dynamic-attributes-list" class="space-y-3">
-              <!-- Заполняется JS -->
+          <!-- ПЛАВНО РАЗВЕРТЫВАЮЩИЙСЯ АККОРДЕОН ХАРАКТЕРИСТИК -->
+          <div id="dynamic-attributes-wrapper" class="grid grid-rows-[0fr] opacity-0 transition-all duration-500 ease-in-out">
+            <div class="overflow-hidden">
+              <div class="space-y-4 pt-4 border-t border-zinc-100 dark:border-white/[0.06]">
+                <span class="text-xs font-mono uppercase tracking-widest text-zinc-500 font-bold block">
+                  Характеристики категории:
+                </span>
+                <div id="dynamic-attributes-list" class="space-y-4">
+                  <!-- Заполняется JS -->
+                </div>
+              </div>
             </div>
           </div>
 
@@ -108,14 +112,14 @@ const allVariantCards = products.flatMap(p => {
 
       </aside>
 
-      <!-- ПРАВАЯ ЧАСТЬ: ПОИСК И ВИТРИНА (8 колонок) -->
+      <!-- ПРАВАЯ ЧАСТЬ: ПОИСК И ВИТРИНА -->
       <section class="lg:col-span-8 space-y-6">
         
         <div class="relative">
           <input 
             type="text" 
             id="catalog-search" 
-            placeholder="Поиск по названию, размерам, характеристикам..."
+            placeholder="Поиск по названию, размерам, свойствам..."
             class="w-full pl-5 pr-10 py-4 rounded-2xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] text-sm text-zinc-900 dark:text-[#f0f2f5] placeholder-zinc-400 focus:outline-none focus:border-[#3dd68c] shadow-sm transition"
           />
           <button id="search-clear" class="absolute inset-y-0 right-0 pr-4 flex items-center text-zinc-400 hover:text-zinc-600 dark:hover:text-white hidden">
@@ -217,7 +221,7 @@ const allVariantCards = products.flatMap(p => {
     const searchInput = document.getElementById('catalog-search');
     const clearBtn = document.getElementById('search-clear');
     const catButtons = document.querySelectorAll('.cat-filter-btn');
-    const dynamicContainer = document.getElementById('dynamic-attributes-container');
+    const dynamicWrapper = document.getElementById('dynamic-attributes-wrapper');
     const dynamicList = document.getElementById('dynamic-attributes-list');
     const resetBtn = document.getElementById('reset-all-filters');
     const items = document.querySelectorAll('.catalog-item');
@@ -234,15 +238,15 @@ const allVariantCards = products.flatMap(p => {
     let searchQuery = (searchInput ? searchInput.value : '').trim().toLowerCase();
 
     function renderDynamicFilters(categoryId) {
-      if (!dynamicContainer || !dynamicList) return;
+      if (!dynamicWrapper || !dynamicList) return;
 
       if (categoryId === 'all') {
-        dynamicContainer.classList.add('hidden');
-        dynamicList.innerHTML = '';
+        dynamicWrapper.classList.remove('grid-rows-[1fr]', 'opacity-100');
+        dynamicWrapper.classList.add('grid-rows-[0fr]', 'opacity-0');
+        setTimeout(() => { dynamicList.innerHTML = ''; }, 400);
         return;
       }
 
-      // Находим только товары выбранной категории
       const catItems = rawVariantCards.filter(item => item.categoryIds.includes(categoryId));
       const attrMap = {};
 
@@ -254,25 +258,35 @@ const allVariantCards = products.flatMap(p => {
       });
 
       if (Object.keys(attrMap).length === 0) {
-        dynamicContainer.classList.add('hidden');
-        dynamicList.innerHTML = '';
+        dynamicWrapper.classList.remove('grid-rows-[1fr]', 'opacity-100');
+        dynamicWrapper.classList.add('grid-rows-[0fr]', 'opacity-0');
+        setTimeout(() => { dynamicList.innerHTML = ''; }, 400);
         return;
       }
 
-      dynamicContainer.classList.remove('hidden');
+      // Генерация стилизованных Bento-чипов с интерактивным выбором
       dynamicList.innerHTML = Object.entries(attrMap).map(([attrKey, valSet]) => `
-        <div class="space-y-1.5">
-          <span class="text-[11px] font-bold text-zinc-700 dark:text-zinc-300 block">${attrKey}:</span>
-          <div class="space-y-1 pl-1">
+        <div class="space-y-2">
+          <span class="text-xs font-mono font-bold text-zinc-700 dark:text-zinc-300 block">${attrKey}:</span>
+          <div class="flex flex-col gap-1.5">
             ${Array.from(valSet).map(val => `
-              <label class="flex items-center gap-2 text-xs font-mono text-zinc-600 dark:text-zinc-400 cursor-pointer hover:text-zinc-900 dark:hover:text-white">
-                <input type="checkbox" class="dynamic-attr-cb accent-[#3dd68c] rounded" data-key="${attrKey}" data-val="${val}" />
-                <span>${val}</span>
+              <label class="group relative flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-mono cursor-pointer transition-all duration-200 bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2] has-[:checked]:bg-[#3dd68c]/15 has-[:checked]:border-[#3dd68c] has-[:checked]:text-[#0b633b] dark:has-[:checked]:text-[#3dd68c] has-[:checked]:font-bold text-zinc-700 dark:text-zinc-300">
+                <input type="checkbox" class="dynamic-attr-cb sr-only" data-key="${attrKey}" data-val="${val}" />
+                <span class="truncate pr-2">${val}</span>
+                <span class="w-4 h-4 rounded-md border border-zinc-300 dark:border-zinc-700 group-has-[:checked]:border-[#3dd68c] group-has-[:checked]:bg-[#3dd68c] flex items-center justify-center transition-colors shrink-0">
+                  <svg class="w-2.5 h-2.5 text-zinc-950 opacity-0 group-has-[:checked]:opacity-100 transition-opacity" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </span>
               </label>
             `).join('')}
           </div>
         </div>
       `).join('');
+
+      // Плавное раскрытие аккордеона
+      dynamicWrapper.classList.remove('grid-rows-[0fr]', 'opacity-0');
+      dynamicWrapper.classList.add('grid-rows-[1fr]', 'opacity-100');
 
       document.querySelectorAll('.dynamic-attr-cb').forEach(cb => {
         cb.addEventListener('change', applyFilters);
