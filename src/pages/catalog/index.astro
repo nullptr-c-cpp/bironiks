@@ -4,7 +4,7 @@ import database from '../../data/database.json';
 
 const { products, categories } = database;
 
-// Склейка названий и генерация данных для поиска
+// Склейка названий
 const allVariantCards = products.flatMap(p => {
   return p.variants.map(v => {
     const fullTitle = `${p.title} — ${v.title}`;
@@ -26,24 +26,14 @@ const allVariantCards = products.flatMap(p => {
     };
   });
 });
-
-// Динамический парсинг доступных характеристик из базы для сайдбара
-const dynamicFilters: Record<string, Set<string>> = {};
-allVariantCards.forEach(item => {
-  Object.entries(item.attributes).forEach(([key, val]) => {
-    if (!dynamicFilters[key]) dynamicFilters[key] = new Set();
-    dynamicFilters[key].add(String(val));
-  });
-});
 ---
 
-<Layout title="Каталог продукции со склада в Омске — БИРОНИКС">
+<Layout title="Каталог строительных и изоляционных материалов — БИРОНИКС">
   <div class="space-y-10">
     
-    <!-- Верхний заголовок -->
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
       <div>
-        <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Офис и склад в одном месте</span>
+        <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Розничная и оптовая продажа в Омске</span>
         <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mt-1">
           Каталог номенклатуры
         </h1>
@@ -53,70 +43,64 @@ allVariantCards.forEach(item => {
       </div>
     </div>
 
-    <!-- МАРКЕТПЛЕЙС-СТРУКТУРА: САЙДБАР СЛЕВА + ВИТРИНА СПРАВА -->
+    <!-- СТРУКТУРА: САЙДБАР СЛЕВА + ВИТРИНА СПРАВА -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
       
-      <!-- ЛЕВЫЙ САЙДБАР: ФИЛЬТРЫ -->
-      <aside class="lg:col-span-3 space-y-6">
+      <!-- ЛЕВЫЙ САЙДБАР С ФИЛЬТРАМИ -->
+      <aside class="lg:col-span-4 space-y-6">
         
-        <div class="p-6 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] space-y-6 shadow-sm sticky top-28">
+        <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] space-y-6 shadow-sm sticky top-28">
           
           <div class="flex items-center justify-between pb-3 border-b border-zinc-100 dark:border-white/[0.06]">
-            <span class="text-xs font-mono uppercase tracking-widest font-bold text-zinc-900 dark:text-[#f0f2f5]">Фильтры</span>
-            <button id="reset-all-filters" class="text-[11px] font-mono text-zinc-400 hover:text-rose-500 transition">
-              Сбросить все
+            <span class="text-sm font-mono uppercase tracking-widest font-bold text-zinc-900 dark:text-[#f0f2f5]">Категории</span>
+            <button id="reset-all-filters" class="text-xs font-mono text-zinc-400 hover:text-rose-500 transition">
+              Сбросить
             </button>
           </div>
 
-          <!-- Фильтр по категориям -->
-          <div class="space-y-2.5">
-            <span class="text-xs font-mono text-zinc-500 block uppercase">Категории:</span>
-            <div class="space-y-1.5 max-h-48 overflow-y-auto">
-              <label class="flex items-center gap-2 text-xs font-mono text-zinc-700 dark:text-zinc-300 cursor-pointer">
-                <input type="radio" name="category-filter" value="all" checked class="accent-[#3dd68c]" />
-                <span>Все категории</span>
-              </label>
-              {categories.map(cat => (
-                <label class="flex items-center gap-2 text-xs font-mono text-zinc-700 dark:text-zinc-300 cursor-pointer">
-                  <input type="radio" name="category-filter" value={cat.id} class="accent-[#3dd68c]" />
-                  <span>{cat.title}</span>
-                </label>
-              ))}
+          <!-- КРУПНЫЕ ПРЕМИАЛЬНЫЕ КНОПКИ КАТЕГОРИЙ -->
+          <div class="space-y-2">
+            <button 
+              type="button" 
+              data-category="all"
+              class="cat-filter-btn active w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]"
+            >
+              <span>Все категории</span>
+              <span class="text-xs font-mono opacity-80">{allVariantCards.length}</span>
+            </button>
+
+            {categories.map(cat => {
+              const count = allVariantCards.filter(item => item.categoryIds.includes(cat.id)).length;
+              return (
+                <button 
+                  type="button" 
+                  data-category={cat.id}
+                  class="cat-filter-btn w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]"
+                >
+                  <span class="truncate pr-2">{cat.title}</span>
+                  <span class="text-xs font-mono opacity-60">{count}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          <!-- ДИНАМИЧЕСКИЙ БЛОК ХАРАКТЕРИСТИК (ПОЯВЛЯЕТСЯ ТОЛЬКО ПРИ ВЫБОРЕ КАТЕГОРИИ) -->
+          <div id="dynamic-attributes-container" class="hidden space-y-4 pt-4 border-t border-zinc-100 dark:border-white/[0.06]">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono uppercase tracking-widest text-zinc-500 font-bold">Характеристики:</span>
+            </div>
+            <div id="dynamic-attributes-list" class="space-y-3">
+              <!-- Заполняется JS -->
             </div>
           </div>
 
-          <!-- ДИНАМИЧЕСКИЕ ХАРАКТЕРИСТИКИ ИЗ БАЗЫ ДАННЫХ -->
-          <div class="space-y-4 pt-3 border-t border-zinc-100 dark:border-white/[0.06]">
-            <span class="text-xs font-mono text-zinc-500 block uppercase">Характеристики:</span>
-            
-            {Object.entries(dynamicFilters).slice(0, 4).map(([attrKey, valuesSet]) => (
-              <div class="space-y-1.5">
-                <span class="text-[11px] font-bold text-zinc-600 dark:text-zinc-400 block">{attrKey}:</span>
-                <div class="space-y-1 max-h-32 overflow-y-auto pl-1">
-                  {Array.from(valuesSet).map(val => (
-                    <label class="flex items-center gap-2 text-[11px] font-mono text-zinc-600 dark:text-zinc-400 cursor-pointer hover:text-zinc-900 dark:hover:text-white">
-                      <input 
-                        type="checkbox" 
-                        class="attr-checkbox accent-[#3dd68c] rounded" 
-                        data-attr-key={attrKey} 
-                        data-attr-val={val} 
-                      />
-                      <span>{val}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <!-- Кнопка выгрузки прайса -->
-          <div class="pt-3 border-t border-zinc-100 dark:border-white/[0.06]">
+          <div class="pt-4 border-t border-zinc-100 dark:border-white/[0.06]">
             <button 
               type="button" 
-              onclick="window.print()" 
-              class="w-full py-2.5 rounded-xl bg-zinc-100 hover:bg-zinc-200 dark:bg-white/[0.04] dark:hover:bg-white/[0.08] text-zinc-700 dark:text-zinc-300 text-xs font-mono font-bold transition flex items-center justify-center gap-2 border border-zinc-200 dark:border-white/[0.06]"
+              onclick="downloadFullCatalogPdf()" 
+              class="w-full py-3 rounded-2xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 text-xs font-mono font-bold transition flex items-center justify-center gap-2 shadow-sm"
             >
-              <span>Печать / Прайс PDF</span>
+              <span>Скачать прайс-лист (PDF)</span>
             </button>
           </div>
 
@@ -124,24 +108,22 @@ allVariantCards.forEach(item => {
 
       </aside>
 
-      <!-- ПРАВАЯ ЧАСТЬ: ПОИСК И СЕТКА КАРТОЧЕК (9 колонок) -->
-      <section class="lg:col-span-9 space-y-6">
+      <!-- ПРАВАЯ ЧАСТЬ: ПОИСК И ВИТРИНА (8 колонок) -->
+      <section class="lg:col-span-8 space-y-6">
         
-        <!-- Поисковая строка -->
         <div class="relative">
           <input 
             type="text" 
             id="catalog-search" 
-            placeholder="Поиск по названию, толщине, размерам, свойствам..."
-            class="w-full pl-5 pr-10 py-3.5 rounded-2xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] text-sm text-zinc-900 dark:text-[#f0f2f5] placeholder-zinc-400 focus:outline-none focus:border-[#3dd68c] shadow-sm transition"
+            placeholder="Поиск по названию, размерам, характеристикам..."
+            class="w-full pl-5 pr-10 py-4 rounded-2xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] text-sm text-zinc-900 dark:text-[#f0f2f5] placeholder-zinc-400 focus:outline-none focus:border-[#3dd68c] shadow-sm transition"
           />
           <button id="search-clear" class="absolute inset-y-0 right-0 pr-4 flex items-center text-zinc-400 hover:text-zinc-600 dark:hover:text-white hidden">
             ✕
           </button>
         </div>
 
-        <!-- Сетка карточек -->
-        <div id="catalog-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div id="catalog-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
           {allVariantCards.map(item => {
             return (
               <div 
@@ -152,7 +134,7 @@ allVariantCards.forEach(item => {
               >
                 <div class="space-y-3.5">
                   {item.parentProduct.coverImage && (
-                    <a href={item.directUrl} class="block h-44 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-black/40 relative">
+                    <a href={item.directUrl} class="block h-48 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-black/40 relative">
                       <img src={item.parentProduct.coverImage} alt={item.fullTitle} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       <span class="absolute top-3 right-3 text-[10px] font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-2.5 py-1 rounded-full bg-white/90 dark:bg-[#181a1f]/90 backdrop-blur-md border border-[#3dd68c]/30">
                         В наличии
@@ -168,19 +150,17 @@ allVariantCards.forEach(item => {
 
                   <div class="flex flex-wrap gap-1.5">
                     {Object.entries(item.variant.attributes).map(([key, val]) => (
-                      <span class="text-xs font-mono px-2 py-0.5 rounded-lg bg-zinc-100 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.04] text-zinc-600 dark:text-zinc-400">
+                      <span class="text-xs font-mono px-2.5 py-0.5 rounded-lg bg-zinc-100 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.04] text-zinc-600 dark:text-zinc-400">
                         {key}: {val}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                <!-- Блок цены и добавления с выбором количества -->
                 <div class="pt-4 mt-4 border-t border-zinc-200 dark:border-white/[0.06] flex items-center justify-between gap-2">
                   <div class="font-mono shrink-0">
                     {item.firstPrice ? (
                       <div>
-                        <!-- Исправлено: без слова "за" -->
                         <span class="text-[10px] text-zinc-500 block uppercase">/ {item.firstUnit}</span>
                         <span class="text-lg font-extrabold text-zinc-900 dark:text-[#f0f2f5]">{item.firstPrice} ₽</span>
                       </div>
@@ -189,7 +169,6 @@ allVariantCards.forEach(item => {
                     )}
                   </div>
 
-                  <!-- Изменение количества и кнопка добавления -->
                   <div class="flex items-center gap-1.5">
                     <div class="flex items-center bg-zinc-100 dark:bg-white/[0.06] border border-zinc-200 dark:border-white/[0.08] rounded-xl px-1.5 py-1">
                       <button type="button" class="btn-qty-minus text-zinc-400 hover:text-zinc-900 dark:hover:text-white px-1 font-bold text-xs">−</button>
@@ -224,7 +203,7 @@ allVariantCards.forEach(item => {
         <div id="no-results" class="hidden text-center py-20 border border-dashed border-zinc-200 dark:border-white/[0.08] rounded-3xl p-8">
           <div class="text-base font-bold text-zinc-900 dark:text-[#f0f2f5]">Ничего не найдено</div>
           <p class="text-xs font-mono text-zinc-400 mt-1 max-w-sm mx-auto">
-            Попробуйте изменить параметры поиска или сбросить фильтры.
+            Попробуйте сбросить фильтры или изменить запрос.
           </p>
         </div>
 
@@ -234,17 +213,17 @@ allVariantCards.forEach(item => {
 
   </div>
 
-  <script is:inline>
+  <script is:inline define:vars={{ rawVariantCards: allVariantCards }}>
     const searchInput = document.getElementById('catalog-search');
     const clearBtn = document.getElementById('search-clear');
-    const categoryRadios = document.querySelectorAll('input[name="category-filter"]');
-    const attrCheckboxes = document.querySelectorAll('.attr-checkbox');
+    const catButtons = document.querySelectorAll('.cat-filter-btn');
+    const dynamicContainer = document.getElementById('dynamic-attributes-container');
+    const dynamicList = document.getElementById('dynamic-attributes-list');
     const resetBtn = document.getElementById('reset-all-filters');
     const items = document.querySelectorAll('.catalog-item');
     const counterEl = document.getElementById('catalog-counter');
     const noResultsEl = document.getElementById('no-results');
 
-    // Проверка GET-параметра поиска из Header
     const urlParams = new URLSearchParams(window.location.search);
     const searchParam = urlParams.get('search');
     if (searchParam && searchInput) {
@@ -254,18 +233,61 @@ allVariantCards.forEach(item => {
     let activeCategory = 'all';
     let searchQuery = (searchInput ? searchInput.value : '').trim().toLowerCase();
 
+    function renderDynamicFilters(categoryId) {
+      if (!dynamicContainer || !dynamicList) return;
+
+      if (categoryId === 'all') {
+        dynamicContainer.classList.add('hidden');
+        dynamicList.innerHTML = '';
+        return;
+      }
+
+      // Находим только товары выбранной категории
+      const catItems = rawVariantCards.filter(item => item.categoryIds.includes(categoryId));
+      const attrMap = {};
+
+      catItems.forEach(item => {
+        Object.entries(item.attributes).forEach(([k, v]) => {
+          if (!attrMap[k]) attrMap[k] = new Set();
+          attrMap[k].add(String(v));
+        });
+      });
+
+      if (Object.keys(attrMap).length === 0) {
+        dynamicContainer.classList.add('hidden');
+        dynamicList.innerHTML = '';
+        return;
+      }
+
+      dynamicContainer.classList.remove('hidden');
+      dynamicList.innerHTML = Object.entries(attrMap).map(([attrKey, valSet]) => `
+        <div class="space-y-1.5">
+          <span class="text-[11px] font-bold text-zinc-700 dark:text-zinc-300 block">${attrKey}:</span>
+          <div class="space-y-1 pl-1">
+            ${Array.from(valSet).map(val => `
+              <label class="flex items-center gap-2 text-xs font-mono text-zinc-600 dark:text-zinc-400 cursor-pointer hover:text-zinc-900 dark:hover:text-white">
+                <input type="checkbox" class="dynamic-attr-cb accent-[#3dd68c] rounded" data-key="${attrKey}" data-val="${val}" />
+                <span>${val}</span>
+              </label>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+
+      document.querySelectorAll('.dynamic-attr-cb').forEach(cb => {
+        cb.addEventListener('change', applyFilters);
+      });
+    }
+
     function applyFilters() {
       let visibleCount = 0;
 
-      // Сбор активных чекбоксов характеристик
       const selectedAttrs = {};
-      attrCheckboxes.forEach(cb => {
-        if (cb.checked) {
-          const k = cb.getAttribute('data-attr-key');
-          const v = cb.getAttribute('data-attr-val');
-          if (!selectedAttrs[k]) selectedAttrs[k] = [];
-          selectedAttrs[k].push(v);
-        }
+      document.querySelectorAll('.dynamic-attr-cb:checked').forEach(cb => {
+        const k = cb.getAttribute('data-key');
+        const v = cb.getAttribute('data-val');
+        if (!selectedAttrs[k]) selectedAttrs[k] = [];
+        selectedAttrs[k].push(v);
       });
 
       items.forEach(item => {
@@ -276,7 +298,6 @@ allVariantCards.forEach(item => {
         const matchesCat = activeCategory === 'all' || itemCategories.includes(activeCategory);
         const matchesSearch = !searchQuery || itemText.includes(searchQuery);
 
-        // Проверка соответствия выбранным характеристикам
         let matchesAttrs = true;
         for (const [key, vals] of Object.entries(selectedAttrs)) {
           if (!itemAttrs[key] || !vals.includes(String(itemAttrs[key]))) {
@@ -297,7 +318,6 @@ allVariantCards.forEach(item => {
       if (noResultsEl) noResultsEl.style.display = visibleCount === 0 ? 'block' : 'none';
     }
 
-    // Обработчики поиска
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
         searchQuery = e.target.value.trim().toLowerCase();
@@ -315,15 +335,17 @@ allVariantCards.forEach(item => {
       });
     }
 
-    categoryRadios.forEach(radio => {
-      radio.addEventListener('change', (e) => {
-        activeCategory = e.target.value;
+    catButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        catButtons.forEach(b => {
+          b.className = 'cat-filter-btn w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]';
+        });
+        btn.className = 'cat-filter-btn active w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]';
+        
+        activeCategory = btn.getAttribute('data-category') || 'all';
+        renderDynamicFilters(activeCategory);
         applyFilters();
       });
-    });
-
-    attrCheckboxes.forEach(cb => {
-      cb.addEventListener('change', applyFilters);
     });
 
     if (resetBtn) {
@@ -331,14 +353,17 @@ allVariantCards.forEach(item => {
         if (searchInput) searchInput.value = '';
         searchQuery = '';
         activeCategory = 'all';
-        categoryRadios.forEach(r => r.checked = r.value === 'all');
-        attrCheckboxes.forEach(cb => cb.checked = false);
+        catButtons.forEach(b => {
+          b.className = b.getAttribute('data-category') === 'all'
+            ? 'cat-filter-btn active w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]'
+            : 'cat-filter-btn w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]';
+        });
+        renderDynamicFilters('all');
         if (clearBtn) clearBtn.style.display = 'none';
         applyFilters();
       });
     }
 
-    // Обработка кнопок количества и добавления в заявку
     document.querySelectorAll('.catalog-item').forEach(card => {
       const minusBtn = card.querySelector('.btn-qty-minus');
       const plusBtn = card.querySelector('.btn-qty-plus');
