@@ -4,7 +4,7 @@ import database from '../../data/database.json';
 
 const { products, categories } = database;
 
-// Склейка названий
+// Склейка названий и генерация поисковых метаданных
 const allVariantCards = products.flatMap(p => {
   return p.variants.map(v => {
     const fullTitle = `${p.title} — ${v.title}`;
@@ -38,18 +38,18 @@ const allVariantCards = products.flatMap(p => {
           Каталог номенклатуры
         </h1>
       </div>
-      <div id="catalog-counter" class="text-xs font-mono text-zinc-500">
+      <div id="catalog-counter" class="text-xs font-mono text-zinc-500 transition-opacity duration-300">
         Показано: {allVariantCards.length} позиций
       </div>
     </div>
 
-    <!-- САЙДБАР СЛЕВА + ВИТРИНА СПРАВА -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <!-- СТРУКТУРА: САЙДБАР СЛЕВА + ВИТРИНА СПРАВА -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
       
-      <!-- ЛЕВЫЙ САЙДБАР -->
+      <!-- ЛЕВЫЙ САЙДБАР С ФИЛЬТРАМИ -->
       <aside class="lg:col-span-4 space-y-6">
         
-        <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] space-y-6 shadow-sm sticky top-28">
+        <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] space-y-6 shadow-sm sticky top-28 transition-all duration-500">
           
           <div class="flex items-center justify-between pb-3 border-b border-zinc-100 dark:border-white/[0.06]">
             <span class="text-sm font-mono uppercase tracking-widest font-bold text-zinc-900 dark:text-[#f0f2f5]">Категории</span>
@@ -58,12 +58,12 @@ const allVariantCards = products.flatMap(p => {
             </button>
           </div>
 
-          <!-- КНОПКИ КАТЕГОРИЙ -->
+          <!-- КАТЕГОРИИ -->
           <div class="space-y-2">
             <button 
               type="button" 
               data-category="all"
-              class="cat-filter-btn active w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]"
+              class="cat-filter-btn active w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]"
             >
               <span>Все категории</span>
               <span class="text-xs font-mono opacity-80">{allVariantCards.length}</span>
@@ -75,7 +75,7 @@ const allVariantCards = products.flatMap(p => {
                 <button 
                   type="button" 
                   data-category={cat.id}
-                  class="cat-filter-btn w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]"
+                  class="cat-filter-btn w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]"
                 >
                   <span class="truncate pr-2">{cat.title}</span>
                   <span class="text-xs font-mono opacity-60">{count}</span>
@@ -84,15 +84,18 @@ const allVariantCards = products.flatMap(p => {
             })}
           </div>
 
-          <!-- ПЛАВНО РАЗВЕРТЫВАЮЩИЙСЯ АККОРДЕОН ХАРАКТЕРИСТИК -->
-          <div id="dynamic-attributes-wrapper" class="grid grid-rows-[0fr] opacity-0 transition-all duration-500 ease-in-out">
+          <!-- ПЛАВНО РАЗВЕРТЫВАЮЩИЙСЯ И МАСШТАБИРУЮЩИЙСЯ АККОРДЕОН ХАРАКТЕРИСТИК -->
+          <div id="dynamic-attributes-wrapper" class="grid grid-rows-[0fr] opacity-0 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
             <div class="overflow-hidden">
               <div class="space-y-4 pt-4 border-t border-zinc-100 dark:border-white/[0.06]">
-                <span class="text-xs font-mono uppercase tracking-widest text-zinc-500 font-bold block">
-                  Характеристики категории:
-                </span>
-                <div id="dynamic-attributes-list" class="space-y-4">
-                  <!-- Заполняется JS -->
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-mono uppercase tracking-widest text-zinc-500 font-bold block">
+                    Характеристики:
+                  </span>
+                  <span class="text-[10px] font-mono text-zinc-400">Авторасчет</span>
+                </div>
+                <div id="dynamic-attributes-list" class="space-y-4 transition-opacity duration-300 opacity-100">
+                  <!-- Генерируется реактивно через JS -->
                 </div>
               </div>
             </div>
@@ -112,7 +115,7 @@ const allVariantCards = products.flatMap(p => {
 
       </aside>
 
-      <!-- ПРАВАЯ ЧАСТЬ: ПОИСК И ВИТРИНА -->
+      <!-- ПРАВАЯ ЧАСТЬ: ПОИСК И СЕТКА КАРТОЧЕК -->
       <section class="lg:col-span-8 space-y-6">
         
         <div class="relative">
@@ -127,7 +130,11 @@ const allVariantCards = products.flatMap(p => {
           </button>
         </div>
 
-        <div id="catalog-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- СЕТКА С ПЛАВНЫМ ПЕРЕХОДОМ -->
+        <div 
+          id="catalog-grid" 
+          class="grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-300 ease-out opacity-100 scale-100"
+        >
           {allVariantCards.map(item => {
             return (
               <div 
@@ -204,10 +211,10 @@ const allVariantCards = products.flatMap(p => {
           })}
         </div>
 
-        <div id="no-results" class="hidden text-center py-20 border border-dashed border-zinc-200 dark:border-white/[0.08] rounded-3xl p-8">
+        <div id="no-results" class="hidden text-center py-20 border border-dashed border-zinc-200 dark:border-white/[0.08] rounded-3xl p-8 transition-opacity duration-300">
           <div class="text-base font-bold text-zinc-900 dark:text-[#f0f2f5]">Ничего не найдено</div>
           <p class="text-xs font-mono text-zinc-400 mt-1 max-w-sm mx-auto">
-            Попробуйте сбросить фильтры или изменить запрос.
+            С такой комбинацией фильтров товаров нет. Сбросьте фильтры для отображения всех позиций.
           </p>
         </div>
 
@@ -224,6 +231,7 @@ const allVariantCards = products.flatMap(p => {
     const dynamicWrapper = document.getElementById('dynamic-attributes-wrapper');
     const dynamicList = document.getElementById('dynamic-attributes-list');
     const resetBtn = document.getElementById('reset-all-filters');
+    const catalogGrid = document.getElementById('catalog-grid');
     const items = document.querySelectorAll('.catalog-item');
     const counterEl = document.getElementById('catalog-counter');
     const noResultsEl = document.getElementById('no-results');
@@ -236,73 +244,165 @@ const allVariantCards = products.flatMap(p => {
 
     let activeCategory = 'all';
     let searchQuery = (searchInput ? searchInput.value : '').trim().toLowerCase();
+    let selectedAttrs = {};
 
+    // 1. РАСЧЕТ ДОСТУПНОСТИ КОМБИНАЦИИ ФИЛЬТРОВ (FACETED COUNTS)
+    function calculateFacetCount(targetKey, targetVal) {
+      return rawVariantCards.filter(item => {
+        if (activeCategory !== 'all' && !item.categoryIds.includes(activeCategory)) return false;
+        if (searchQuery && !item.searchableText.includes(searchQuery)) return false;
+
+        // Проверяем все остальные выбранные группы характеристик
+        for (const [key, vals] of Object.entries(selectedAttrs)) {
+          if (key === targetKey) continue; // текущую группу не учитываем
+          if (!vals || !vals.length) continue;
+          if (!item.attributes[key] || !vals.includes(String(item.attributes[key]))) {
+            return false;
+          }
+        }
+
+        return String(item.attributes[targetKey]) === String(targetVal);
+      }).length;
+    }
+
+    // 2. ОБНОВЛЕНИЕ СОСТОЯНИЯ ЧИПОВ ХАРАКТЕРИСТИК
+    function updateAttributesAvailability() {
+      document.querySelectorAll('.dynamic-attr-chip').forEach(chip => {
+        const input = chip.querySelector('.dynamic-attr-cb');
+        const countSpan = chip.querySelector('.attr-count');
+        const k = input.getAttribute('data-key');
+        const v = input.getAttribute('data-val');
+
+        const availableCount = calculateFacetCount(k, v);
+        if (countSpan) countSpan.textContent = `(${availableCount})`;
+
+        const isChecked = input.checked;
+
+        if (availableCount === 0 && !isChecked) {
+          // Заблокированное состояние: предотвращает клик в 0 товаров
+          chip.classList.add('opacity-30', 'pointer-events-none', 'grayscale', 'line-through', 'cursor-not-allowed');
+          chip.classList.remove('hover:border-zinc-300', 'dark:hover:border-white/[0.2]');
+          input.disabled = true;
+        } else {
+          // Активное/доступное состояние
+          chip.classList.remove('opacity-30', 'pointer-events-none', 'grayscale', 'line-through', 'cursor-not-allowed');
+          chip.classList.add('hover:border-zinc-300', 'dark:hover:border-white/[0.2]');
+          input.disabled = false;
+        }
+      });
+    }
+
+    // 3. ПЛАВНЫЙ РЕНДЕР ДИНАМИЧЕСКИХ ХАРАКТЕРИСТИК
     function renderDynamicFilters(categoryId) {
       if (!dynamicWrapper || !dynamicList) return;
 
       if (categoryId === 'all') {
+        dynamicList.style.opacity = '0';
         dynamicWrapper.classList.remove('grid-rows-[1fr]', 'opacity-100');
         dynamicWrapper.classList.add('grid-rows-[0fr]', 'opacity-0');
-        setTimeout(() => { dynamicList.innerHTML = ''; }, 400);
+        selectedAttrs = {};
+        setTimeout(() => { dynamicList.innerHTML = ''; }, 300);
         return;
       }
 
-      const catItems = rawVariantCards.filter(item => item.categoryIds.includes(categoryId));
-      const attrMap = {};
+      // Плавное затухание перед обновлением
+      dynamicList.style.opacity = '0';
 
-      catItems.forEach(item => {
-        Object.entries(item.attributes).forEach(([k, v]) => {
-          if (!attrMap[k]) attrMap[k] = new Set();
-          attrMap[k].add(String(v));
+      setTimeout(() => {
+        const catItems = rawVariantCards.filter(item => item.categoryIds.includes(categoryId));
+        const attrMap = {};
+
+        catItems.forEach(item => {
+          Object.entries(item.attributes).forEach(([k, v]) => {
+            if (!attrMap[k]) attrMap[k] = new Set();
+            attrMap[k].add(String(v));
+          });
         });
-      });
 
-      if (Object.keys(attrMap).length === 0) {
-        dynamicWrapper.classList.remove('grid-rows-[1fr]', 'opacity-100');
-        dynamicWrapper.classList.add('grid-rows-[0fr]', 'opacity-0');
-        setTimeout(() => { dynamicList.innerHTML = ''; }, 400);
-        return;
-      }
+        if (Object.keys(attrMap).length === 0) {
+          dynamicWrapper.classList.remove('grid-rows-[1fr]', 'opacity-100');
+          dynamicWrapper.classList.add('grid-rows-[0fr]', 'opacity-0');
+          dynamicList.innerHTML = '';
+          selectedAttrs = {};
+          return;
+        }
 
-      // Генерация стилизованных Bento-чипов с интерактивным выбором
-      dynamicList.innerHTML = Object.entries(attrMap).map(([attrKey, valSet]) => `
-        <div class="space-y-2">
-          <span class="text-xs font-mono font-bold text-zinc-700 dark:text-zinc-300 block">${attrKey}:</span>
-          <div class="flex flex-col gap-1.5">
-            ${Array.from(valSet).map(val => `
-              <label class="group relative flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-mono cursor-pointer transition-all duration-200 bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2] has-[:checked]:bg-[#3dd68c]/15 has-[:checked]:border-[#3dd68c] has-[:checked]:text-[#0b633b] dark:has-[:checked]:text-[#3dd68c] has-[:checked]:font-bold text-zinc-700 dark:text-zinc-300">
-                <input type="checkbox" class="dynamic-attr-cb sr-only" data-key="${attrKey}" data-val="${val}" />
-                <span class="truncate pr-2">${val}</span>
-                <span class="w-4 h-4 rounded-md border border-zinc-300 dark:border-zinc-700 group-has-[:checked]:border-[#3dd68c] group-has-[:checked]:bg-[#3dd68c] flex items-center justify-center transition-colors shrink-0">
-                  <svg class="w-2.5 h-2.5 text-zinc-950 opacity-0 group-has-[:checked]:opacity-100 transition-opacity" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                </span>
-              </label>
-            `).join('')}
+        selectedAttrs = {};
+
+        dynamicList.innerHTML = Object.entries(attrMap).map(([attrKey, valSet]) => `
+          <div class="space-y-2">
+            <span class="text-xs font-mono font-bold text-zinc-700 dark:text-zinc-300 block">${attrKey}:</span>
+            <div class="flex flex-col gap-1.5">
+              ${Array.from(valSet).map(val => {
+                const count = calculateFacetCount(attrKey, val);
+                return `
+                  <label class="dynamic-attr-chip group relative flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-mono cursor-pointer transition-all duration-300 bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] has-[:checked]:bg-[#3dd68c]/15 has-[:checked]:border-[#3dd68c] has-[:checked]:text-[#0b633b] dark:has-[:checked]:text-[#3dd68c] has-[:checked]:font-bold text-zinc-700 dark:text-zinc-300">
+                    <input type="checkbox" class="dynamic-attr-cb sr-only" data-key="${attrKey}" data-val="${val}" />
+                    <div class="flex items-center gap-1.5 truncate pr-2">
+                      <span class="truncate">${val}</span>
+                      <span class="attr-count text-[10px] opacity-60">(${count})</span>
+                    </div>
+                    <span class="w-4 h-4 rounded-md border border-zinc-300 dark:border-zinc-700 group-has-[:checked]:border-[#3dd68c] group-has-[:checked]:bg-[#3dd68c] flex items-center justify-center transition-colors shrink-0">
+                      <svg class="w-2.5 h-2.5 text-zinc-950 opacity-0 group-has-[:checked]:opacity-100 transition-opacity" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                  </label>
+                `;
+              }).join('')}
+            </div>
           </div>
-        </div>
-      `).join('');
+        `).join('');
 
-      // Плавное раскрытие аккордеона
-      dynamicWrapper.classList.remove('grid-rows-[0fr]', 'opacity-0');
-      dynamicWrapper.classList.add('grid-rows-[1fr]', 'opacity-100');
+        // Плавное раскрытие аккордеона по высоте
+        dynamicWrapper.classList.remove('grid-rows-[0fr]', 'opacity-0');
+        dynamicWrapper.classList.add('grid-rows-[1fr]', 'opacity-100');
+        dynamicList.style.opacity = '1';
 
-      document.querySelectorAll('.dynamic-attr-cb').forEach(cb => {
-        cb.addEventListener('change', applyFilters);
-      });
+        document.querySelectorAll('.dynamic-attr-cb').forEach(cb => {
+          cb.addEventListener('change', () => {
+            handleAttributeChange();
+          });
+        });
+
+        updateAttributesAvailability();
+      }, 150);
     }
 
-    function applyFilters() {
-      let visibleCount = 0;
-
-      const selectedAttrs = {};
+    function handleAttributeChange() {
+      selectedAttrs = {};
       document.querySelectorAll('.dynamic-attr-cb:checked').forEach(cb => {
         const k = cb.getAttribute('data-key');
         const v = cb.getAttribute('data-val');
         if (!selectedAttrs[k]) selectedAttrs[k] = [];
         selectedAttrs[k].push(v);
       });
+
+      updateAttributesAvailability();
+      applyFiltersWithFade();
+    }
+
+    // 4. ПЛАВНОЕ ОБНОВЛЕНИЕ ВИТРИНЫ ТОВАРОВ
+    function applyFiltersWithFade() {
+      if (!catalogGrid) {
+        applyFiltersDirect();
+        return;
+      }
+
+      catalogGrid.classList.remove('opacity-100', 'scale-100');
+      catalogGrid.classList.add('opacity-0', 'scale-[0.985]');
+
+      setTimeout(() => {
+        applyFiltersDirect();
+        requestAnimationFrame(() => {
+          catalogGrid.classList.remove('opacity-0', 'scale-[0.985]');
+          catalogGrid.classList.add('opacity-100', 'scale-100');
+        });
+      }, 160);
+    }
+
+    function applyFiltersDirect() {
+      let visibleCount = 0;
 
       items.forEach(item => {
         const itemCategories = (item.getAttribute('data-categories') || '').split(',');
@@ -314,6 +414,7 @@ const allVariantCards = products.flatMap(p => {
 
         let matchesAttrs = true;
         for (const [key, vals] of Object.entries(selectedAttrs)) {
+          if (!vals || !vals.length) continue;
           if (!itemAttrs[key] || !vals.includes(String(itemAttrs[key]))) {
             matchesAttrs = false;
             break;
@@ -332,11 +433,13 @@ const allVariantCards = products.flatMap(p => {
       if (noResultsEl) noResultsEl.style.display = visibleCount === 0 ? 'block' : 'none';
     }
 
+    // 5. ОБРАБОТЧИКИ
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
         searchQuery = e.target.value.trim().toLowerCase();
         if (clearBtn) clearBtn.style.display = searchQuery ? 'flex' : 'none';
-        applyFilters();
+        updateAttributesAvailability();
+        applyFiltersWithFade();
       });
     }
 
@@ -345,20 +448,21 @@ const allVariantCards = products.flatMap(p => {
         searchInput.value = '';
         searchQuery = '';
         clearBtn.style.display = 'none';
-        applyFilters();
+        updateAttributesAvailability();
+        applyFiltersWithFade();
       });
     }
 
     catButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         catButtons.forEach(b => {
-          b.className = 'cat-filter-btn w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]';
+          b.className = 'cat-filter-btn w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]';
         });
-        btn.className = 'cat-filter-btn active w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]';
+        btn.className = 'cat-filter-btn active w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]';
         
         activeCategory = btn.getAttribute('data-category') || 'all';
         renderDynamicFilters(activeCategory);
-        applyFilters();
+        applyFiltersWithFade();
       });
     });
 
@@ -369,15 +473,16 @@ const allVariantCards = products.flatMap(p => {
         activeCategory = 'all';
         catButtons.forEach(b => {
           b.className = b.getAttribute('data-category') === 'all'
-            ? 'cat-filter-btn active w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]'
-            : 'cat-filter-btn w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]';
+            ? 'cat-filter-btn active w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]'
+            : 'cat-filter-btn w-full p-3.5 rounded-2xl text-left text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]';
         });
         renderDynamicFilters('all');
         if (clearBtn) clearBtn.style.display = 'none';
-        applyFilters();
+        applyFiltersWithFade();
       });
     }
 
+    // Обработка кнопок количества и добавления в заявку
     document.querySelectorAll('.catalog-item').forEach(card => {
       const minusBtn = card.querySelector('.btn-qty-minus');
       const plusBtn = card.querySelector('.btn-qty-plus');
@@ -411,6 +516,6 @@ const allVariantCards = products.flatMap(p => {
       }
     });
 
-    applyFilters();
+    applyFiltersDirect();
   </script>
 </Layout>
