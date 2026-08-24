@@ -2,19 +2,8 @@
 import company from '../data/company.json';
 import { getUrl } from '../utils/paths';
 
-const formatPhone = (phone: string) => phone.replace(/[^\d+]/g, '');
-const managerPhone = company.managerPhone || company.mainPhone;
-
-// Формирование прямой ссылки в мессенджер менеджера Максима
-const tgRaw = company.telegramContact || company.whatsappPhone || company.managerPhone || company.mainPhone;
-const tgClean = tgRaw.replace(/[^\d+]/g, '');
-const messengerUrl = tgRaw.startsWith('http') 
-  ? tgRaw 
-  : (tgRaw.startsWith('@') 
-      ? `https://t.me/${tgRaw.slice(1)}` 
-      : `https://t.me/${tgClean.startsWith('+') ? tgClean : `+${tgClean}`}`);
-
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const maxMessengerUrl = "https://max.ru/u/f9LHodD0cOLqWAv08vl54X48ExH3_ph-pRUrr5S2LtxxhKkps0mOilWYCTY";
 ---
 
 <header class="fixed top-3 sm:top-6 inset-x-0 z-50 max-w-7xl mx-auto px-3 sm:px-6">
@@ -24,7 +13,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <a href={`${base}/`} class="flex items-center gap-2.5 sm:gap-3.5 group shrink-0">
       <div class="relative w-8 h-8 rounded-xl overflow-hidden bg-zinc-100 dark:bg-white/[0.06] border border-zinc-200 dark:border-white/[0.1] flex items-center justify-center p-1.5 transition-transform duration-300 group-hover:scale-105">
         <img 
-          src={`${base}/image/logo.png`} 
+          src={`${base}/image/logo.svg`} 
           alt={company.brand} 
           class="w-full h-full object-contain"
           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" 
@@ -68,16 +57,21 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <!-- Кнопки справа -->
     <div class="flex items-center gap-2 sm:gap-3 shrink-0">
       
-      <!-- Ссылка в мессенджер: Макс -->
+      <!-- Ссылка MAX с иконкой MAX.svg -->
       <a 
-        href={messengerUrl}
+        href={maxMessengerUrl}
         target="_blank"
         rel="noopener noreferrer"
-        title="Написать менеджеру Максу в мессенджер" 
-        class="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] hover:bg-[#3dd68c] hover:text-[#111215] text-xs font-mono font-bold border border-[#3dd68c]/30 transition-all duration-300 shadow-sm"
+        title="MAX Мессенджер" 
+        class="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] hover:bg-[#3dd68c] hover:text-[#111215] text-xs font-mono font-bold border border-[#3dd68c]/30 transition-all duration-300 shadow-sm group"
       >
-        <span class="w-1.5 h-1.5 rounded-full bg-[#3dd68c] animate-pulse"></span>
-        <span>Макс</span>
+        <img 
+          src={`${base}/image/MAX.svg`} 
+          alt="MAX" 
+          class="w-3.5 h-3.5 sm:w-4 sm:h-4 object-contain shrink-0 group-hover:scale-105 transition-transform"
+          onerror="this.style.display='none';" 
+        />
+        <span>MAX</span>
       </a>
 
       <!-- Переключатель темы -->
@@ -142,20 +136,25 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       </a>
     </div>
 
-    <!-- Связь с менеджером в мобильном меню -->
+    <!-- Связь MAX в мобильном меню -->
     <div class="pt-3 border-t border-zinc-100 dark:border-white/[0.06] flex items-center justify-between gap-3">
       <div class="space-y-0.5">
-        <span class="text-[10px] font-mono text-zinc-400 block">Менеджер отдела продаж:</span>
-        <span class="text-xs font-mono font-bold text-zinc-900 dark:text-white">Максим ({managerPhone})</span>
+        <span class="text-[10px] font-mono text-zinc-400 block">Прямой диалог:</span>
+        <span class="text-xs font-mono font-bold text-zinc-900 dark:text-white">MAX Мессенджер</span>
       </div>
       <a 
-        href={messengerUrl}
+        href={maxMessengerUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="px-3.5 py-2 rounded-xl bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] hover:bg-[#3dd68c] hover:text-[#111215] text-xs font-mono font-bold border border-[#3dd68c]/30 transition shadow-sm flex items-center gap-1.5 shrink-0"
+        class="px-4 py-2 rounded-xl bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] hover:bg-[#3dd68c] hover:text-[#111215] text-xs font-mono font-bold border border-[#3dd68c]/30 transition shadow-sm flex items-center gap-2 shrink-0"
       >
-        <span class="w-1.5 h-1.5 rounded-full bg-[#3dd68c] animate-pulse"></span>
-        <span>Мессенджер</span>
+        <img 
+          src={`${base}/image/MAX.svg`} 
+          alt="MAX" 
+          class="w-3.5 h-3.5 object-contain"
+          onerror="this.style.display='none';" 
+        />
+        <span>MAX</span>
       </a>
     </div>
   </div>
