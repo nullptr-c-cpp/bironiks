@@ -28,7 +28,7 @@ const { articles } = database;
           {art.media && (
             <div class="h-60 w-full overflow-hidden relative bg-zinc-100 dark:bg-black/40">
               <img 
-                src={art.media.posterImage || art.media.url} 
+                src={getUrl(art.media.posterImage) || art.media.url} 
                 alt={art.title} 
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
               />
