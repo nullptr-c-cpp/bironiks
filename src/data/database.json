@@ -51,9 +51,9 @@
   ],
   "products": [
     {
-      "id": "izolyatsiya-iz-vspenennenlshl-polietilena",
-      "slug": "izolyatsiya-iz-vspenennenlshl-polietilena",
-      "title": "Изоляция из вспененненлшл полиэтилена",
+      "id": "izolyatsiya-iz-vspenennenogo-polietilena",
+      "slug": "izolyatsiya-iz-vspenennenogo-polietilena",
+      "title": "Изоляция из вспененненого полиэтилена",
       "categoryIds": [
         "vspenennyy-polietilen"
       ],
@@ -178,9 +178,9 @@
       ]
     },
     {
-      "id": "otrozhayushchaya-izolyatsiya-iz-vspenennenlshl-polietilena",
-      "slug": "otrozhayushchaya-izolyatsiya-iz-vspenennenlshl-polietilena",
-      "title": "Отрожающая изоляция из вспененненлшл полиэтилена",
+      "id": "otrazhayushchaya-izolyatsiya-iz-vspenennenogo-polietilena",
+      "slug": "otrazhayushchaya-izolyatsiya-iz-vspenennenogo-polietilena",
+      "title": "Отражающая изоляция из вспененненого полиэтилена",
       "categoryIds": [
         "vspenennyy-polietilen"
       ],
@@ -315,9 +315,9 @@
       ]
     },
     {
-      "id": "otrozhayushchaya-izolyatsiya-dlya-ban-i-saun",
-      "slug": "otrozhayushchaya-izolyatsiya-dlya-ban-i-saun",
-      "title": "Отрожающая изоляция для бань и саун",
+      "id": "otrazhayushchaya-izolyatsiya-dlya-ban-i-saun",
+      "slug": "otrazhayushchaya-izolyatsiya-dlya-ban-i-saun",
+      "title": "Отражающая изоляция для бань и саун",
       "categoryIds": [
         "vspenennyy-polietilen"
       ],
@@ -392,9 +392,9 @@
       ]
     },
     {
-      "id": "shumoizolyatsiya-iz-vspenennenlshl-polietilena",
-      "slug": "shumoizolyatsiya-iz-vspenennenlshl-polietilena",
-      "title": "Шумоизоляция из вспененненлшл полиэтилена",
+      "id": "shumoizolyatsiya-iz-vspenennenogo-polietilena",
+      "slug": "shumoizolyatsiya-iz-vspenennenogo-polietilena",
+      "title": "Шумоизоляция из вспененненого полиэтилена",
       "categoryIds": [
         "vspenennyy-polietilen"
       ],
@@ -458,9 +458,9 @@
       ]
     },
     {
-      "id": "samokleyashchayasya-izolyatsiya-iz-vspenennenogo-polietilena-s-otrozhayushchim-pokrytiem",
-      "slug": "samokleyashchayasya-izolyatsiya-iz-vspenennenogo-polietilena-s-otrozhayushchim-pokrytiem",
-      "title": "Самоклеящаяся изоляция из вспененненого полиэтилена с отрожающим покрытием",
+      "id": "samokleyashchayasya-izolyatsiya-iz-vspenennenogo-polietilena-s-otrazhayushchim-pokrytiem",
+      "slug": "samokleyashchayasya-izolyatsiya-iz-vspenennenogo-polietilena-s-otrazhayushchim-pokrytiem",
+      "title": "Самоклеящаяся изоляция из вспененненого полиэтилена с отражающим покрытием",
       "categoryIds": [
         "vspenennyy-polietilen"
       ],
@@ -576,6 +576,81 @@
             "Длина": "25м",
             "Ширина": "100см",
             "Толщина": "10мм"
+          }
+        }
+      ]
+    },
+    {
+      "id": "maty-iz-vspenennenlshl-polietilena",
+      "slug": "maty-iz-vspenennenlshl-polietilena",
+      "title": "Маты из вспененненого полиэтилена",
+      "categoryIds": [
+        "vspenennyy-polietilen"
+      ],
+      "collectionIds": [],
+      "description": "Универсальные строительные маты предназначены для тепло, и звукоизоляции строительных конструкций. Материал выпускается методом дублирования из полимерных пористых композитов различной плотности с закрытой структурой ячеек.\n\nКомпозитный состав мата позволяет получить индекс звукоизоляции в конструкции межкомнатной перегородки",
+      "coverImage": "/image/products/isorulon-ppe-4010.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {
+        "Диапазон рабочих температур, C": "от -60 до 90",
+        "Коэффициент теплопроводности, Вт/м*С": "0,04",
+        "Коэффициент паропроницаемости, мг/м2*ч*Па": "0,001",
+        "Водопоглощение за 24 ч при 22 оС, % по объему": "0,9",
+        "Индекс снижения ударного шума в конструкции, Дб": "до 25",
+        "Пожарные характеристики": "ГЗ"
+      },
+      "variants": [
+        {
+          "sku": "MAT-20MM",
+          "title": "Толщина М-20 мм (Рулон 2 м2)",
+          "prices": {
+            "м²": 220,
+            "рулон": 440
+          },
+          "attributes": {
+            "Длина": "2м",
+            "Ширина": "100см",
+            "Толщина": "20мм"
+          }
+        },
+        {
+          "sku": "MAT-30MM",
+          "title": "Толщина М-30 мм (Рулон 2 м2)",
+          "prices": {
+            "м²": 316,
+            "рулон": 632
+          },
+          "attributes": {
+            "Длина": "2м",
+            "Ширина": "100см",
+            "Толщина": "30мм"
+          }
+        },
+        {
+          "sku": "MAT-40MM",
+          "title": "Толщина М-40 мм (Рулон 2 м2)",
+          "prices": {
+            "м²": 420,
+            "рулон": 840
+          },
+          "attributes": {
+            "Длина": "2м",
+            "Ширина": "100см",
+            "Толщина": "40мм"
+          }
+        },
+        {
+          "sku": "MAT-50MM",
+          "title": "Толщина М-50 мм (Рулон 2 м2)",
+          "prices": {
+            "м²": 520,
+            "рулон": 1040
+          },
+          "attributes": {
+            "Длина": "2м",
+            "Ширина": "100см",
+            "Толщина": "50мм"
           }
         }
       ]
