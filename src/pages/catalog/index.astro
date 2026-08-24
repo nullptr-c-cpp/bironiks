@@ -4,7 +4,7 @@ import database from '../../data/database.json';
 import { getUrl } from '../../utils/paths';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const { products, categories } = database;
+const { products, categories, collections } = database;
 
 // Склейка названий и генерация поисковых метаданных
 const allVariantCards = products.flatMap(p => {
@@ -22,6 +22,7 @@ const allVariantCards = products.flatMap(p => {
       firstPrice: firstPriceEntry ? firstPriceEntry[1] : null,
       firstUnit: firstPriceEntry ? firstPriceEntry[0] : 'шт',
       categoryIds: p.categoryIds || [],
+      collectionIds: p.collectionIds || [],
       attributes: { ...p.base_attributes, ...v.attributes },
       searchableText,
       directUrl: `${base}/catalog/${p.slug}?variant=${encodeURIComponent(v.sku)}`
@@ -35,12 +36,12 @@ const allVariantCards = products.flatMap(p => {
     
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-3">
       <div>
-        <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">Розничная и оптовая продажа в Омске</span>
-        <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mt-1">
+        <span class="text-xs sm:text-sm font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c] font-bold">Склад в Омске</span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mt-1">
           Каталог номенклатуры
         </h1>
       </div>
-      <div id="catalog-counter" class="text-xs font-mono text-zinc-500 transition-opacity duration-300">
+      <div id="catalog-counter" class="text-xs sm:text-sm font-mono text-zinc-500 transition-opacity duration-300">
         Показано: {allVariantCards.length} позиций
       </div>
     </div>
@@ -50,13 +51,13 @@ const allVariantCards = products.flatMap(p => {
       <button 
         type="button" 
         id="toggle-mobile-filters" 
-        class="w-full py-3 px-4 rounded-2xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] text-xs font-mono font-bold text-zinc-900 dark:text-white flex items-center justify-between shadow-sm"
+        class="w-full py-3.5 px-4 rounded-2xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] text-xs sm:text-sm font-mono font-bold text-zinc-900 dark:text-white flex items-center justify-between shadow-sm"
       >
         <span class="flex items-center gap-2">
           <svg class="w-4 h-4 text-[#0d9488] dark:text-[#3dd68c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
           </svg>
-          <span>Фильтры и категории</span>
+          <span>Фильтры, категории и подборки</span>
         </span>
         <span id="mobile-filter-chevron" class="text-zinc-400 transition-transform">↓</span>
       </button>
@@ -65,20 +66,22 @@ const allVariantCards = products.flatMap(p => {
     <!-- СТРУКТУРА: САЙДБАР СЛЕВА + ВИТРИНА СПРАВА -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
       
-      <!-- САЙДБАР С ФИЛЬТРАМИ (Скрыт по умолчанию на мобильных, раскрывается по клику) -->
+      <!-- САЙДБАР С ФИЛЬТРАМИ -->
       <aside id="catalog-sidebar" class="hidden lg:block lg:col-span-4 space-y-6">
         
-        <div class="p-5 sm:p-8 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] space-y-5 sm:space-y-6 shadow-sm sticky top-28 transition-all duration-500">
+        <div class="p-5 sm:p-7 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] space-y-6 shadow-sm sticky top-24 transition-all duration-500">
           
           <div class="flex items-center justify-between pb-3 border-b border-zinc-100 dark:border-white/[0.06]">
-            <span class="text-sm font-mono uppercase tracking-widest font-bold text-zinc-900 dark:text-[#f0f2f5]">Категории</span>
-            <button id="reset-all-filters" class="text-xs font-mono text-zinc-400 hover:text-rose-500 transition">
+            <span class="text-sm font-mono uppercase tracking-widest font-bold text-zinc-900 dark:text-[#f0f2f5]">Фильтры</span>
+            <button id="reset-all-filters" class="text-xs sm:text-sm font-mono text-zinc-400 hover:text-rose-500 transition">
               Сбросить
             </button>
           </div>
 
           <!-- КАТЕГОРИИ -->
           <div class="space-y-2">
+            <span class="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold block">Категория:</span>
+            
             <button 
               type="button" 
               data-category="all"
@@ -103,7 +106,32 @@ const allVariantCards = products.flatMap(p => {
             })}
           </div>
 
-          <!-- АККОРДЕОН ХАРАКТЕРИСТИК -->
+          <!-- ФИЛЬТР: ПОДБОРКИ ПО НАЗНАЧЕНИЮ -->
+          <div class="space-y-2 pt-4 border-t border-zinc-100 dark:border-white/[0.06]">
+            <span class="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold block">Подборка по назначению:</span>
+            
+            <div class="flex flex-col gap-1.5">
+              <button 
+                type="button" 
+                data-collection="all"
+                class="col-filter-btn active w-full p-2.5 sm:p-3 rounded-xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]"
+              >
+                <span>Любое назначение</span>
+              </button>
+
+              {collections.map(col => (
+                <button 
+                  type="button" 
+                  data-collection={col.id}
+                  class="col-filter-btn w-full p-2.5 sm:p-3 rounded-xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]"
+                >
+                  <span class="truncate pr-2">{col.title}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <!-- ДИНАМИЧЕСКИЕ ХАРАКТЕРИСТИКИ -->
           <div id="dynamic-attributes-wrapper" class="grid grid-rows-[0fr] opacity-0 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
             <div class="overflow-hidden">
               <div class="space-y-4 pt-4 border-t border-zinc-100 dark:border-white/[0.06]">
@@ -111,7 +139,7 @@ const allVariantCards = products.flatMap(p => {
                   <span class="text-xs font-mono uppercase tracking-widest text-zinc-500 font-bold block">
                     Характеристики:
                   </span>
-                  <span class="text-[10px] font-mono text-zinc-400">Авторасчет</span>
+                  <span class="text-xs font-mono text-zinc-400">Авторасчет</span>
                 </div>
                 <div id="dynamic-attributes-list" class="space-y-4 transition-opacity duration-300 opacity-100">
                   <!-- Генерируется реактивно через JS -->
@@ -124,9 +152,9 @@ const allVariantCards = products.flatMap(p => {
             <button 
               type="button" 
               onclick="downloadFullCatalogPdf()" 
-              class="w-full py-3 rounded-2xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 text-xs font-mono font-bold transition flex items-center justify-center gap-2 shadow-sm"
+              class="w-full py-3 rounded-2xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 text-xs sm:text-sm font-mono font-bold transition flex items-center justify-center gap-2 shadow-sm"
             >
-              <span>Скачать прайс-лист (PDF)</span>
+              <span>Скачать прайс (PDF)</span>
             </button>
           </div>
 
@@ -142,9 +170,9 @@ const allVariantCards = products.flatMap(p => {
             type="text" 
             id="catalog-search" 
             placeholder="Поиск по названию, размерам, свойствам..."
-            class="w-full pl-4 sm:pl-5 pr-10 py-3.5 sm:py-4 rounded-2xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] text-xs sm:text-sm text-zinc-900 dark:text-[#f0f2f5] placeholder-zinc-400 focus:outline-none focus:border-[#3dd68c] shadow-sm transition"
+            class="w-full pl-5 pr-10 py-3.5 sm:py-4 rounded-2xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] text-sm sm:text-base text-zinc-900 dark:text-[#f0f2f5] placeholder-zinc-400 focus:outline-none focus:border-[#3dd68c] shadow-sm transition"
           />
-          <button id="search-clear" class="absolute inset-y-0 right-0 pr-4 flex items-center text-zinc-400 hover:text-zinc-600 dark:hover:text-white hidden">
+          <button id="search-clear" class="absolute inset-y-0 right-0 pr-4 flex items-center text-zinc-400 hover:text-zinc-600 dark:hover:text-white hidden text-base">
             ✕
           </button>
         </div>
@@ -157,64 +185,66 @@ const allVariantCards = products.flatMap(p => {
           {allVariantCards.map(item => {
             return (
               <div 
-                class="catalog-item rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-4 sm:p-5 flex flex-col justify-between hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 group"
+                class="catalog-item rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-5 flex flex-col justify-between hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 group"
                 data-search={item.searchableText}
                 data-categories={item.categoryIds.join(',')}
+                data-collections={item.collectionIds.join(',')}
                 data-attributes={JSON.stringify(item.attributes)}
               >
                 <div class="space-y-3">
                   {item.parentProduct.coverImage && (
-                    <a href={item.directUrl} class="block h-44 sm:h-48 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-black/40 relative">
+                    <a href={getUrl(item.directUrl)} class="block h-48 sm:h-52 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-black/40 relative">
                       <img src={getUrl(item.parentProduct.coverImage)} alt={item.fullTitle} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                      <span class="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 text-[10px] font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-2.5 py-0.5 sm:py-1 rounded-full bg-white/90 dark:bg-[#181a1f]/90 backdrop-blur-md border border-[#3dd68c]/30">
+                      <span class="absolute top-3 right-3 text-xs font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-3 py-1 rounded-full bg-white/90 dark:bg-[#181a1f]/90 backdrop-blur-md border border-[#3dd68c]/30">
                         В наличии
                       </span>
                     </a>
                   )}
 
                   <div>
-                    <h3 class="text-sm sm:text-base font-bold text-zinc-900 dark:text-[#f0f2f5] group-hover:text-[#0d9488] dark:group-hover:text-[#3dd68c] transition-colors leading-snug">
-                      <a href={item.directUrl}>{item.fullTitle}</a>
+                    <h3 class="text-base sm:text-lg font-bold text-zinc-900 dark:text-[#f0f2f5] group-hover:text-[#0d9488] dark:group-hover:text-[#3dd68c] transition-colors leading-snug">
+                      <a href={getUrl(item.directUrl)}>{item.fullTitle}</a>
                     </h3>
                   </div>
 
-                  <div class="flex flex-wrap gap-1">
+                  <div class="flex flex-wrap gap-1.5">
                     {Object.entries(item.variant.attributes).map(([key, val]) => (
-                      <span class="text-[11px] font-mono px-2 py-0.5 rounded-lg bg-zinc-100 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.04] text-zinc-600 dark:text-zinc-400">
+                      <span class="text-xs font-mono px-2.5 py-0.5 rounded-lg bg-zinc-100 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.04] text-zinc-600 dark:text-zinc-400">
                         {key}: {val}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                <div class="pt-3 sm:pt-4 mt-3 sm:mt-4 border-t border-zinc-200 dark:border-white/[0.06] flex flex-wrap items-center justify-between gap-2">
+                <div class="pt-4 mt-4 border-t border-zinc-200 dark:border-white/[0.06] flex flex-wrap items-center justify-between gap-3">
                   <div class="font-mono shrink-0">
                     {item.firstPrice ? (
                       <div>
-                        <span class="text-[9px] sm:text-[10px] text-zinc-500 block uppercase">/ {item.firstUnit}</span>
-                        <span class="text-base sm:text-lg font-extrabold text-zinc-900 dark:text-[#f0f2f5]">{item.firstPrice} ₽</span>
+                        <span class="text-xs text-zinc-500 block uppercase">/ {item.firstUnit}</span>
+                        <span class="text-lg sm:text-xl font-extrabold text-zinc-900 dark:text-[#f0f2f5]">{item.firstPrice} ₽</span>
                       </div>
                     ) : (
-                      <span class="text-xs font-bold text-zinc-400">По согл.</span>
+                      <span class="text-sm font-bold text-zinc-400">По согл.</span>
                     )}
                   </div>
 
-                  <div class="flex items-center gap-1.5 shrink-0">
-                    <div class="flex items-center bg-zinc-100 dark:bg-white/[0.06] border border-zinc-200 dark:border-white/[0.08] rounded-xl px-1 py-0.5 sm:px-1.5 sm:py-1">
-                      <button type="button" class="btn-qty-minus text-zinc-400 hover:text-zinc-900 dark:hover:text-white px-1.5 font-bold text-xs">−</button>
+                  <!-- УВЕЛИЧЕННЫЙ И УДОБНЫЙ БЛОК ВВОДА КОЛИЧЕСТВА -->
+                  <div class="flex items-center gap-2 shrink-0">
+                    <div class="flex items-center bg-zinc-100 dark:bg-white/[0.06] border border-zinc-200 dark:border-white/[0.08] rounded-xl px-1 py-1">
+                      <button type="button" class="btn-qty-minus w-8 h-8 flex items-center justify-center text-zinc-500 hover:text-zinc-900 dark:hover:text-white font-bold text-sm">−</button>
                       <input 
                         type="number" 
                         value="1" 
                         min="1" 
                         max="999" 
-                        class="item-qty-input w-5 sm:w-6 text-center bg-transparent font-mono text-xs font-bold text-zinc-900 dark:text-white focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" 
+                        class="item-qty-input w-10 sm:w-12 text-center bg-transparent font-mono text-sm sm:text-base font-bold text-zinc-900 dark:text-white focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" 
                       />
-                      <button type="button" class="btn-qty-plus text-zinc-400 hover:text-zinc-900 dark:hover:text-white px-1.5 font-bold text-xs">+</button>
+                      <button type="button" class="btn-qty-plus w-8 h-8 flex items-center justify-center text-zinc-500 hover:text-zinc-900 dark:hover:text-white font-bold text-sm">+</button>
                     </div>
 
                     <button 
                       type="button"
-                      class="btn-add-card px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] hover:bg-[#3dd68c] hover:text-[#111215] text-xs font-bold border border-[#3dd68c]/30 transition shrink-0"
+                      class="btn-add-card px-3.5 py-2.5 rounded-xl bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] hover:bg-[#3dd68c] hover:text-[#111215] text-xs sm:text-sm font-bold border border-[#3dd68c]/30 transition shrink-0"
                       data-id={item.id}
                       data-title={item.fullTitle}
                       data-price={item.firstPrice || 0}
@@ -231,8 +261,8 @@ const allVariantCards = products.flatMap(p => {
         </div>
 
         <div id="no-results" class="hidden text-center py-16 border border-dashed border-zinc-200 dark:border-white/[0.08] rounded-3xl p-6 transition-opacity duration-300">
-          <div class="text-sm sm:text-base font-bold text-zinc-900 dark:text-[#f0f2f5]">Ничего не найдено</div>
-          <p class="text-xs font-mono text-zinc-400 mt-1 max-w-sm mx-auto">
+          <div class="text-base sm:text-lg font-bold text-zinc-900 dark:text-[#f0f2f5]">Ничего не найдено</div>
+          <p class="text-xs sm:text-sm font-mono text-zinc-400 mt-1 max-w-sm mx-auto">
             С такой комбинацией фильтров товаров нет. Сбросьте фильтры для отображения всех позиций.
           </p>
         </div>
@@ -247,6 +277,7 @@ const allVariantCards = products.flatMap(p => {
     const searchInput = document.getElementById('catalog-search');
     const clearBtn = document.getElementById('search-clear');
     const catButtons = document.querySelectorAll('.cat-filter-btn');
+    const colButtons = document.querySelectorAll('.col-filter-btn');
     const dynamicWrapper = document.getElementById('dynamic-attributes-wrapper');
     const dynamicList = document.getElementById('dynamic-attributes-list');
     const resetBtn = document.getElementById('reset-all-filters');
@@ -280,12 +311,14 @@ const allVariantCards = products.flatMap(p => {
     }
 
     let activeCategory = 'all';
+    let activeCollection = 'all';
     let searchQuery = (searchInput ? searchInput.value : '').trim().toLowerCase();
     let selectedAttrs = {};
 
     function calculateFacetCount(targetKey, targetVal) {
       return rawVariantCards.filter(item => {
         if (activeCategory !== 'all' && !item.categoryIds.includes(activeCategory)) return false;
+        if (activeCollection !== 'all' && !item.collectionIds.includes(activeCollection)) return false;
         if (searchQuery && !item.searchableText.includes(searchQuery)) return false;
 
         for (const [key, vals] of Object.entries(selectedAttrs)) {
@@ -361,16 +394,16 @@ const allVariantCards = products.flatMap(p => {
 
         dynamicList.innerHTML = Object.entries(attrMap).map(([attrKey, valSet]) => `
           <div class="space-y-2">
-            <span class="text-xs font-mono font-bold text-zinc-700 dark:text-zinc-300 block">${attrKey}:</span>
+            <span class="text-xs sm:text-sm font-mono font-bold text-zinc-700 dark:text-zinc-300 block">${attrKey}:</span>
             <div class="flex flex-col gap-1.5">
               ${Array.from(valSet).map(val => {
                 const count = calculateFacetCount(attrKey, val);
                 return `
-                  <label class="dynamic-attr-chip group relative flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-mono cursor-pointer transition-all duration-300 bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] has-[:checked]:bg-[#3dd68c]/15 has-[:checked]:border-[#3dd68c] has-[:checked]:text-[#0b633b] dark:has-[:checked]:text-[#3dd68c] has-[:checked]:font-bold text-zinc-700 dark:text-zinc-300">
+                  <label class="dynamic-attr-chip group relative flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-mono cursor-pointer transition-all duration-300 bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] has-[:checked]:bg-[#3dd68c]/15 has-[:checked]:border-[#3dd68c] has-[:checked]:text-[#0b633b] dark:has-[:checked]:text-[#3dd68c] has-[:checked]:font-bold text-zinc-700 dark:text-zinc-300">
                     <input type="checkbox" class="dynamic-attr-cb sr-only" data-key="${attrKey}" data-val="${val}" />
                     <div class="flex items-center gap-1.5 truncate pr-2">
                       <span class="truncate">${val}</span>
-                      <span class="attr-count text-[10px] opacity-60">(${count})</span>
+                      <span class="attr-count text-xs opacity-60">(${count})</span>
                     </div>
                     <span class="w-4 h-4 rounded-md border border-zinc-300 dark:border-zinc-700 group-has-[:checked]:border-[#3dd68c] group-has-[:checked]:bg-[#3dd68c] flex items-center justify-center transition-colors shrink-0">
                       <svg class="w-2.5 h-2.5 text-zinc-950 opacity-0 group-has-[:checked]:opacity-100 transition-opacity" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
@@ -434,10 +467,12 @@ const allVariantCards = products.flatMap(p => {
 
       items.forEach(item => {
         const itemCategories = (item.getAttribute('data-categories') || '').split(',');
+        const itemCollections = (item.getAttribute('data-collections') || '').split(',');
         const itemText = item.getAttribute('data-search') || '';
         const itemAttrs = JSON.parse(item.getAttribute('data-attributes') || '{}');
 
         const matchesCat = activeCategory === 'all' || itemCategories.includes(activeCategory);
+        const matchesCol = activeCollection === 'all' || itemCollections.includes(activeCollection);
         const matchesSearch = !searchQuery || itemText.includes(searchQuery);
 
         let matchesAttrs = true;
@@ -449,7 +484,7 @@ const allVariantCards = products.flatMap(p => {
           }
         }
 
-        if (matchesCat && matchesSearch && matchesAttrs) {
+        if (matchesCat && matchesCol && matchesSearch && matchesAttrs) {
           item.style.display = 'flex';
           visibleCount++;
         } else {
@@ -493,16 +528,38 @@ const allVariantCards = products.flatMap(p => {
       });
     });
 
+    colButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        colButtons.forEach(b => {
+          b.className = 'col-filter-btn w-full p-2.5 sm:p-3 rounded-xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]';
+        });
+        btn.className = 'col-filter-btn active w-full p-2.5 sm:p-3 rounded-xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]';
+        
+        activeCollection = btn.getAttribute('data-collection') || 'all';
+        updateAttributesAvailability();
+        applyFiltersWithFade();
+      });
+    });
+
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {
         if (searchInput) searchInput.value = '';
         searchQuery = '';
         activeCategory = 'all';
+        activeCollection = 'all';
+        
         catButtons.forEach(b => {
           b.className = b.getAttribute('data-category') === 'all'
             ? 'cat-filter-btn active w-full p-3 sm:p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]'
             : 'cat-filter-btn w-full p-3 sm:p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]';
         });
+
+        colButtons.forEach(b => {
+          b.className = b.getAttribute('data-collection') === 'all'
+            ? 'col-filter-btn active w-full p-2.5 sm:p-3 rounded-xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]'
+            : 'col-filter-btn w-full p-2.5 sm:p-3 rounded-xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]';
+        });
+
         renderDynamicFilters('all');
         if (clearBtn) clearBtn.style.display = 'none';
         applyFiltersWithFade();

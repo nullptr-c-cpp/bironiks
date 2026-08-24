@@ -502,15 +502,16 @@ const managerPhone = company.managerPhone || company.mainPhone;
           const sum = item.price ? item.price * item.qty : 0;
           total += sum;
           const unitFormatted = item.unit ? ` / ${item.unit}` : '';
+          const qtyFormatted = `${item.qty} ${item.unit || 'шт.'}`;
           const priceDisplay = item.price ? `${item.price} ₽${unitFormatted}` : 'по согл.';
 
           return `
             <tr>
-              <td style="border:1px solid #ccc; padding:6px; text-align:center;">${idx + 1}</td>
-              <td style="border:1px solid #ccc; padding:6px;">${item.title}</td>
-              <td style="border:1px solid #ccc; padding:6px; text-align:center; font-weight:bold;">${item.qty}</td>
-              <td style="border:1px solid #ccc; padding:6px; text-align:right;">${priceDisplay}</td>
-              <td style="border:1px solid #ccc; padding:6px; text-align:right; font-weight:bold;">${sum > 0 ? `${sum} ₽` : '—'}</td>
+              <td style="border:1px solid #ccc; padding:8px; text-align:center;">${idx + 1}</td>
+              <td style="border:1px solid #ccc; padding:8px;">${item.title}</td>
+              <td style="border:1px solid #ccc; padding:8px; text-align:center; font-weight:bold;">${qtyFormatted}</td>
+              <td style="border:1px solid #ccc; padding:8px; text-align:right;">${priceDisplay}</td>
+              <td style="border:1px solid #ccc; padding:8px; text-align:right; font-weight:bold;">${sum > 0 ? `${sum} ₽` : '—'}</td>
             </tr>
           `;
         }).join('');

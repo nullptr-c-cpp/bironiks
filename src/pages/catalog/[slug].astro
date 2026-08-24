@@ -93,7 +93,7 @@ const breadcrumbsSchema = {
   <div class="space-y-12 sm:space-y-16 lg:space-y-24">
 
     <!-- ХЛЕБНЫЕ КРОШКИ -->
-    <nav class="flex flex-wrap items-center gap-2 text-xs font-mono text-zinc-400">
+    <nav class="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-mono text-zinc-400">
       <a href={getUrl()} class="hover:text-zinc-900 dark:hover:text-white transition">Главная</a>
       <span>/</span>
       <a href={getUrl("/catalog")} class="hover:text-zinc-900 dark:hover:text-white transition">Каталог</a>
@@ -121,21 +121,21 @@ const breadcrumbsSchema = {
           {product.coverImage ? (
             <img 
               id="main-product-image" 
-              src={getUrl(product.coverImage)} 
+              src={product.coverImage} 
               alt={product.title} 
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
             />
           ) : (
-            <div class="w-full h-full flex items-center justify-center font-mono text-xs text-zinc-400">
+            <div class="w-full h-full flex items-center justify-center font-mono text-sm text-zinc-400">
               Нет изображения
             </div>
           )}
 
           <div class="absolute top-3 left-3 right-3 sm:top-4 sm:left-4 sm:right-4 flex items-center justify-between pointer-events-none">
-            <span class="text-[10px] sm:text-[11px] font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/95 dark:bg-[#181a1f]/95 backdrop-blur-md border border-[#3dd68c]/30 shadow-sm">
+            <span class="text-xs sm:text-sm font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-3 py-1 rounded-full bg-white/95 dark:bg-[#181a1f]/95 backdrop-blur-md border border-[#3dd68c]/30 shadow-sm">
               В наличии
             </span>
-            <span class="text-[9px] sm:text-[10px] font-mono text-zinc-600 dark:text-zinc-400 px-2.5 py-0.5 sm:py-1 rounded-full bg-white/90 dark:bg-black/60 backdrop-blur-md">
+            <span class="text-xs font-mono text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full bg-white/90 dark:bg-black/60 backdrop-blur-md">
               Склад в Омске
             </span>
           </div>
@@ -144,10 +144,10 @@ const breadcrumbsSchema = {
         {product.certificates && product.certificates.length > 0 && (
           <div class="p-5 sm:p-6 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] space-y-3.5 shadow-sm">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c] font-bold">
+              <span class="text-xs sm:text-sm font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c] font-bold">
                 Документация
               </span>
-              <span class="text-[10px] font-mono text-zinc-400">ГОСТ / Паспорта</span>
+              <span class="text-xs font-mono text-zinc-400">ГОСТ / Паспорта</span>
             </div>
 
             <div class="space-y-2">
@@ -155,7 +155,7 @@ const breadcrumbsSchema = {
                 <a 
                   href={getUrl(cert.url)}
                   target="_blank" 
-                  class="flex items-center justify-between p-3 sm:p-3.5 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] text-xs font-mono text-zinc-700 dark:text-zinc-300 hover:border-[#3dd68c]/40 hover:text-zinc-900 dark:hover:text-white transition group"
+                  class="flex items-center justify-between p-3.5 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04] text-xs sm:text-sm font-mono text-zinc-700 dark:text-zinc-300 hover:border-[#3dd68c]/40 hover:text-zinc-900 dark:hover:text-white transition group"
                 >
                   <div class="flex items-center gap-2.5 truncate pr-2">
                     <svg class="w-4 h-4 text-[#0d9488] dark:text-[#3dd68c] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -163,14 +163,14 @@ const breadcrumbsSchema = {
                     </svg>
                     <span class="truncate">{cert.name}</span>
                   </div>
-                  <span class="text-[11px] text-zinc-400 group-hover:text-[#3dd68c] font-bold shrink-0">PDF ↗</span>
+                  <span class="text-xs text-zinc-400 group-hover:text-[#3dd68c] font-bold shrink-0">PDF ↗</span>
                 </a>
               ))}
             </div>
           </div>
         )}
 
-        <div class="p-5 sm:p-6 rounded-3xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.06] space-y-2 font-mono text-xs text-zinc-600 dark:text-zinc-400">
+        <div class="p-5 sm:p-6 rounded-3xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.06] space-y-2 font-mono text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
           <div class="text-zinc-900 dark:text-white font-bold">Самовывоз и отгрузка в Омске:</div>
           <div>• Офис и склад на ул. 20 лет РККА, 183Б</div>
           <div>• Погрузка за 10–15 минут прямо в ваш транспорт</div>
@@ -182,13 +182,13 @@ const breadcrumbsSchema = {
       <!-- ПРАВАЯ КОЛОНКА -->
       <div class="lg:col-span-7 space-y-6 sm:space-y-8">
         
-        <div class="space-y-2.5">
+        <div class="space-y-3">
           {productCollections.length > 0 && (
-            <div class="flex flex-wrap gap-1.5 sm:gap-2">
+            <div class="flex flex-wrap gap-2">
               {productCollections.map(c => (
                 <a 
                   href={getUrl(`/collections/${c.slug}`)} 
-                  class="text-[10px] sm:text-[11px] font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-3 py-1 rounded-full bg-[#3dd68c]/15 border border-[#3dd68c]/30 hover:bg-[#3dd68c] hover:text-[#111215] transition"
+                  class="text-xs font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-3.5 py-1 rounded-full bg-[#3dd68c]/15 border border-[#3dd68c]/30 hover:bg-[#3dd68c] hover:text-[#111215] transition"
                 >
                   Подборка: {c.title}
                 </a>
@@ -196,27 +196,27 @@ const breadcrumbsSchema = {
             </div>
           )}
 
-          <h1 id="product-page-title" class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] leading-tight">
+          <h1 id="product-page-title" class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] leading-tight">
             {product.title} — {product.variants[0]?.title}
           </h1>
           
-          <p class="text-xs font-mono text-zinc-500 dark:text-zinc-400">
-            Оптовая и розничная продажа от 1 штуки со склада в Омске.
+          <p class="text-xs sm:text-sm font-mono text-zinc-500 dark:text-zinc-400">
+            Прямая продажа со склада в Омске.
           </p>
         </div>
 
         <!-- ТАБЫ ВАРИАНТОВ -->
         <div class="space-y-2.5">
-          <label class="text-xs font-mono uppercase tracking-widest text-zinc-500 font-bold block">
+          <label class="text-xs sm:text-sm font-mono uppercase tracking-widest text-zinc-500 font-bold block">
             Выберите типоразмер / модификацию:
           </label>
-          <div id="variant-selector" class="flex flex-wrap gap-2">
+          <div id="variant-selector" class="flex flex-wrap gap-2.5">
             {product.variants.map((v, i) => (
               <button 
                 type="button"
                 data-index={i}
                 data-sku={v.sku}
-                class="variant-btn px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-2xl border text-xs font-mono font-semibold transition-all duration-200 bg-white dark:bg-[#181a1f] border-zinc-200 dark:border-white/[0.08] text-zinc-700 dark:text-zinc-300 hover:border-[#3dd68c]"
+                class="variant-btn px-4 py-3 rounded-2xl border text-xs sm:text-sm font-mono font-semibold transition-all duration-200 bg-white dark:bg-[#181a1f] border-zinc-200 dark:border-white/[0.08] text-zinc-700 dark:text-zinc-300 hover:border-[#3dd68c]"
               >
                 {v.title}
               </button>
@@ -225,28 +225,29 @@ const breadcrumbsSchema = {
         </div>
 
         <!-- СТОИМОСТЬ И КНОПКИ ЗАКАЗА -->
-        <div class="p-5 sm:p-8 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] space-y-5 sm:space-y-6 shadow-sm">
+        <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] space-y-6 shadow-sm">
           
-          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-4 sm:pb-6 border-b border-zinc-100 dark:border-white/[0.06]">
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-5 border-b border-zinc-100 dark:border-white/[0.06]">
             <div>
-              <span class="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-zinc-500 block">Стоимость:</span>
-              <div id="display-prices" class="flex flex-wrap items-baseline gap-3 sm:gap-4 mt-1">
+              <span class="text-xs font-mono uppercase tracking-widest text-zinc-500 block">Стоимость:</span>
+              <div id="display-prices" class="flex flex-wrap items-baseline gap-4 mt-1">
                 <!-- Заполняется JS -->
               </div>
             </div>
 
-            <span class="text-xs font-mono text-zinc-400">
-              В наличии на складе в Омске
+            <span class="text-xs sm:text-sm font-mono text-zinc-400">
+              В наличии на складе
             </span>
           </div>
 
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             
-            <div class="flex items-center justify-between sm:justify-center bg-zinc-100 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.08] rounded-2xl px-3 py-2 shrink-0">
+            <!-- УВЕЛИЧЕННЫЙ ВВОД КОЛИЧЕСТВА С ЕДИНИЦЕЙ ИЗМЕРЕНИЯ -->
+            <div class="flex items-center justify-between sm:justify-center bg-zinc-100 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.08] rounded-2xl px-3 py-2 shrink-0 gap-1.5">
               <button 
                 type="button" 
                 id="product-qty-minus" 
-                class="w-8 h-8 rounded-xl flex items-center justify-center text-base font-bold text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition"
+                class="w-9 h-9 rounded-xl flex items-center justify-center text-lg font-bold text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition"
               >−</button>
               
               <input 
@@ -255,25 +256,25 @@ const breadcrumbsSchema = {
                 value="1" 
                 min="1" 
                 max="999" 
-                class="w-12 text-center bg-transparent font-mono text-sm font-bold text-zinc-900 dark:text-white focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" 
+                class="w-14 text-center bg-transparent font-mono text-base font-bold text-zinc-900 dark:text-white focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" 
               />
               
               <button 
                 type="button" 
                 id="product-qty-plus" 
-                class="w-8 h-8 rounded-xl flex items-center justify-center text-base font-bold text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition"
+                class="w-9 h-9 rounded-xl flex items-center justify-center text-lg font-bold text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition"
               >+</button>
             </div>
 
             <button 
               id="add-to-sheet-detail-btn" 
               type="button" 
-              class="w-full sm:flex-1 py-3.5 sm:py-4 px-5 rounded-2xl bg-[#3dd68c] hover:bg-[#34d399] text-zinc-950 text-xs sm:text-sm font-mono font-bold transition shadow-lg shadow-[#3dd68c]/20 hover:scale-[1.01] flex items-center justify-center gap-2"
+              class="w-full sm:flex-1 py-4 px-5 rounded-2xl bg-[#3dd68c] hover:bg-[#34d399] text-zinc-950 text-sm font-mono font-bold transition shadow-lg shadow-[#3dd68c]/20 hover:scale-[1.01] flex items-center justify-center gap-2"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
               </svg>
-              <span>Добавить в лист заявки</span>
+              <span>В заявку</span>
             </button>
 
             <!-- ИНЛАЙН-РАСКРЫТИЕ ТЕЛЕФОНА -->
@@ -281,9 +282,9 @@ const breadcrumbsSchema = {
               <button 
                 type="button"
                 id="reveal-phone-btn"
-                class="w-full sm:w-auto py-3.5 sm:py-4 px-4 sm:px-5 rounded-2xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white/[0.06] dark:hover:bg-white dark:text-zinc-200 dark:hover:text-zinc-950 text-xs font-mono font-bold transition text-center border border-zinc-700 dark:border-white/[0.08]"
+                class="w-full sm:w-auto py-4 px-5 rounded-2xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white/[0.06] dark:hover:bg-white dark:text-zinc-200 dark:hover:text-zinc-950 text-xs sm:text-sm font-mono font-bold transition text-center border border-zinc-700 dark:border-white/[0.08]"
               >
-                Заказать по телефону
+                Позвонить
               </button>
 
               <div 
@@ -293,9 +294,9 @@ const breadcrumbsSchema = {
                 <a 
                   href={`tel:${formatPhone(company.mainPhone)}`}
                   data-no-toast="true"
-                  class="text-xs font-mono font-bold hover:underline px-2 py-1 flex items-center justify-center gap-1.5"
+                  class="text-xs sm:text-sm font-mono font-bold hover:underline px-2 py-1 flex items-center justify-center gap-1.5"
                 >
-                  <svg class="w-3.5 h-3.5 text-[#3dd68c] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-4 h-4 text-[#3dd68c] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                   <span>{company.mainPhone}</span>
@@ -307,16 +308,16 @@ const breadcrumbsSchema = {
 
         </div>
 
-        <div class="space-y-2.5">
-          <h2 class="text-base sm:text-lg font-bold text-zinc-900 dark:text-[#f0f2f5]">Описание и назначение</h2>
+        <div class="space-y-3">
+          <h2 class="text-lg sm:text-xl font-bold text-zinc-900 dark:text-[#f0f2f5]">Описание и назначение</h2>
           <p id="display-description" class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
             <!-- Заполняется JS -->
           </p>
         </div>
 
         <div class="space-y-3">
-          <h2 class="text-base sm:text-lg font-bold text-zinc-900 dark:text-[#f0f2f5]">Технические характеристики</h2>
-          <div id="display-specs" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
+          <h2 class="text-lg sm:text-xl font-bold text-zinc-900 dark:text-[#f0f2f5]">Технические характеристики</h2>
+          <div id="display-specs" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm font-mono">
             <!-- Заполняется JS -->
           </div>
         </div>
@@ -331,15 +332,15 @@ const breadcrumbsSchema = {
         
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
           <div>
-            <span class="text-xs font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c]">
+            <span class="text-xs sm:text-sm font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c] font-bold">
               Комплексный монтаж
             </span>
-            <h2 class="text-xl sm:text-3xl font-extrabold text-zinc-900 dark:text-[#f0f2f5] mt-1">
-              Другие материалы из этой подборки
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-[#f0f2f5] mt-1">
+              Другие материалы из подборки
             </h2>
           </div>
-          <a href={getUrl("/catalog")} class="text-xs font-mono font-bold text-[#0d9488] dark:text-[#3dd68c] hover:underline">
-            Весь каталог →
+          <a href={getUrl("/catalog")} class="text-xs sm:text-sm font-mono font-bold text-[#0d9488] dark:text-[#3dd68c] hover:underline">
+            Каталог →
           </a>
         </div>
 
@@ -351,49 +352,49 @@ const breadcrumbsSchema = {
             const directUrl = getUrl(`/catalog/${relProd.slug}?variant=${encodeURIComponent(defaultVar.sku)}`);
 
             return (
-              <div class="rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-4 sm:p-5 flex flex-col justify-between hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 group">
+              <div class="rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-5 flex flex-col justify-between hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 group">
                 
                 <div class="space-y-3">
                   {relProd.coverImage && (
-                    <a href={directUrl} class="block h-40 sm:h-44 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-black/40 relative">
-                      <img src={getUrl(relProd.coverImage)} alt={fullTitle} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                      <span class="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 text-[10px] font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-2.5 py-0.5 sm:py-1 rounded-full bg-white/90 dark:bg-[#181a1f]/90 backdrop-blur-md border border-[#3dd68c]/30">
+                    <a href={directUrl} class="block h-44 sm:h-48 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-black/40 relative">
+                      <img src={relProd.coverImage} alt={fullTitle} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <span class="absolute top-3 right-3 text-xs font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-3 py-1 rounded-full bg-white/90 dark:bg-[#181a1f]/90 backdrop-blur-md border border-[#3dd68c]/30">
                         В наличии
                       </span>
                     </a>
                   )}
 
                   <div>
-                    <h3 class="text-sm sm:text-base font-bold text-zinc-900 dark:text-[#f0f2f5] group-hover:text-[#0d9488] dark:group-hover:text-[#3dd68c] transition-colors leading-snug">
+                    <h3 class="text-base sm:text-lg font-bold text-zinc-900 dark:text-[#f0f2f5] group-hover:text-[#0d9488] dark:group-hover:text-[#3dd68c] transition-colors leading-snug">
                       <a href={directUrl}>{fullTitle}</a>
                     </h3>
                   </div>
 
-                  <div class="flex flex-wrap gap-1">
+                  <div class="flex flex-wrap gap-1.5">
                     {Object.entries(defaultVar.attributes).slice(0, 2).map(([k, val]) => (
-                      <span class="text-[11px] font-mono px-2 py-0.5 rounded-lg bg-zinc-100 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.04] text-zinc-600 dark:text-zinc-400">
+                      <span class="text-xs font-mono px-2.5 py-0.5 rounded-lg bg-zinc-100 dark:bg-[#111215] border border-zinc-200 dark:border-white/[0.04] text-zinc-600 dark:text-zinc-400">
                         {k}: {val}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                <div class="pt-3 sm:pt-4 mt-3 sm:mt-4 border-t border-zinc-200 dark:border-white/[0.06] flex items-center justify-between gap-2">
+                <div class="pt-4 mt-4 border-t border-zinc-200 dark:border-white/[0.06] flex items-center justify-between gap-2">
                   <div class="font-mono shrink-0">
                     {priceEntries.length > 0 ? (
                       <div>
-                        <span class="text-[9px] sm:text-[10px] text-zinc-500 block uppercase">/ {priceEntries[0][0]}</span>
-                        <span class="text-base sm:text-lg font-extrabold text-zinc-900 dark:text-[#f0f2f5]">{priceEntries[0][1]} ₽</span>
+                        <span class="text-xs text-zinc-500 block uppercase">/ {priceEntries[0][0]}</span>
+                        <span class="text-lg sm:text-xl font-extrabold text-zinc-900 dark:text-[#f0f2f5]">{priceEntries[0][1]} ₽</span>
                       </div>
                     ) : (
-                      <span class="text-xs font-bold text-zinc-400">По согл.</span>
+                      <span class="text-sm font-bold text-zinc-400">По согл.</span>
                     )}
                   </div>
 
                   <button 
                     type="button"
                     onclick={`addToOrderSheetWithQty({ id: '${relProd.id}-${defaultVar.sku}', title: '${fullTitle.replace(/'/g, "\\'")}', price: ${priceEntries.length > 0 ? priceEntries[0][1] : 0}, unit: '${priceEntries.length > 0 ? priceEntries[0][0] : 'шт'}' }, 1)`}
-                    class="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] hover:bg-[#3dd68c] hover:text-[#111215] text-xs font-bold border border-[#3dd68c]/30 transition shrink-0"
+                    class="px-3.5 py-2 rounded-xl bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] hover:bg-[#3dd68c] hover:text-[#111215] text-xs sm:text-sm font-bold border border-[#3dd68c]/30 transition shrink-0"
                   >
                     + В заявку
                   </button>
@@ -430,9 +431,9 @@ const breadcrumbsSchema = {
 
       document.querySelectorAll('.variant-btn').forEach((btn, i) => {
         if (i === index) {
-          btn.className = 'variant-btn px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-2xl border text-xs font-mono font-bold transition bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border-[#3dd68c] shadow-sm';
+          btn.className = 'variant-btn px-4 py-3 rounded-2xl border text-xs sm:text-sm font-mono font-bold transition bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border-[#3dd68c] shadow-sm';
         } else {
-          btn.className = 'variant-btn px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-2xl border text-xs font-mono font-semibold transition bg-white dark:bg-[#181a1f] border-zinc-200 dark:border-white/[0.08] text-zinc-700 dark:text-zinc-300 hover:border-[#3dd68c]';
+          btn.className = 'variant-btn px-4 py-3 rounded-2xl border text-xs sm:text-sm font-mono font-semibold transition bg-white dark:bg-[#181a1f] border-zinc-200 dark:border-white/[0.08] text-zinc-700 dark:text-zinc-300 hover:border-[#3dd68c]';
         }
       });
 
@@ -445,8 +446,8 @@ const breadcrumbsSchema = {
       if (pricesEl) {
         pricesEl.innerHTML = Object.entries(v.prices).map(([unit, price]) => `
           <div class="font-mono">
-            <span class="text-2xl sm:text-4xl font-extrabold text-zinc-900 dark:text-[#f0f2f5]">${price} ₽</span>
-            <span class="text-xs text-zinc-500 uppercase ml-1.5 font-bold">/ ${unit}</span>
+            <span class="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-[#f0f2f5]">${price} ₽</span>
+            <span class="text-xs sm:text-sm text-zinc-500 uppercase ml-1.5 font-bold">/ ${unit}</span>
           </div>
         `).join('');
       }
@@ -466,7 +467,7 @@ const breadcrumbsSchema = {
       const specsEl = document.getElementById('display-specs');
       if (specsEl) {
         specsEl.innerHTML = Object.entries(mergedAttrs).map(([k, val]) => `
-          <div class="flex justify-between items-center p-3 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04]">
+          <div class="flex justify-between items-center p-3.5 rounded-2xl bg-zinc-50 dark:bg-[#111215] border border-zinc-200/80 dark:border-white/[0.04]">
             <span class="text-zinc-500">${k}:</span>
             <span class="text-zinc-900 dark:text-zinc-200 font-semibold text-right">${val}</span>
           </div>
