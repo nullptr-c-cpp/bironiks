@@ -6,7 +6,7 @@ export default defineConfig({
   site: 'https://nullptr-c-cpp.github.io',
 
   // 2. Имя вашего репозитория со слэшем (например: '/my-bironiks-site'):
-  base: '/bironiks',
+  base: '/',
 
   integrations: [tailwind()]
 });
