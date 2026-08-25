@@ -1184,6 +1184,32 @@
           }
         }
       ]
+    },
+    {
+      "id": "trubnaya-obolochka",
+      "slug": "trubnaya-obolochka",
+      "title": "Трубная оболочка",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/trub-0.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "TRUB-15",
+          "title": "Диаметр 15 мм (Труба 2 м.п.)",
+          "prices": {
+            "м.п.": 12,
+            "труба": 24
+          },
+          "attributes": {
+            "Диаметр": "15мм",
+            "Длина": "2м.п."
+          }
+        }
+      ]
     }
   ],
   "articles": [
