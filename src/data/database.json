@@ -1855,6 +1855,28 @@
           }
         }
       ]
+    },
+    {
+      "id": "paklya-tyukovaya-20kg",
+      "slug": "paklya-tyukovaya-20kg",
+      "title": "Пакля тюковая",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/paklya-tyukovaya-20-kg.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "PAK-20",
+          "title": "20 кг",
+          "prices": {
+            "шт": 1300
+          },
+          "attributes": {}
+        }
+      ]
     }
   ],
   "articles": []
