@@ -1,2 +1,5 @@
 User-agent: *
+Allow: /
 Disallow:
+
+Sitemap: https://nullptr-c-cpp.github.io/bironiks/sitemap-index.xml

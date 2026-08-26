@@ -1,12 +1,14 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  // 1. Ссылка на ваш GitHub Pages (замените на ваш логин):
-  site: 'https://bironiks.ru',
+  // Ваш полный адрес на GitHub Pages:
+  site: 'https://nullptr-c-cpp.github.io',
+  base: '/bironiks',
 
-  // 2. Имя вашего репозитория со слэшем (например: '/my-bironiks-site'):
-  base: '/',
-
-  integrations: [tailwind()]
+  integrations: [
+    tailwind(),
+    sitemap()
+  ]
 });
