@@ -2,20 +2,6 @@
   "$schema": "./schema.json",
   "categories": [
     {
-      "id": "foil-insulation",
-      "slug": "foil-insulation",
-      "title": "Фольгированная изоляция",
-      "description": "Отражающая тепло- и пароизоляция на основе алюминиевой фольги для высокотемпературных помещений.",
-      "coverImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      "id": "tapes-sealants",
-      "slug": "tapes-sealants",
-      "title": "Монтажные ленты и скотчи",
-      "description": "Термостойкие герметизирующие ленты для проклейки стыков пароизоляционных полотен.",
-      "coverImage": "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80"
-    },
-    {
       "id": "vspenennyy-polietilen",
       "slug": "vspenennyy-polietilen",
       "title": "Вспененный полиэтилен",
@@ -23,32 +9,7 @@
       "description": ""
     }
   ],
-  "collections": [
-    {
-      "id": "sauna-and-bath",
-      "slug": "sauna-and-bath",
-      "title": "Всё для утепления бани и сауны",
-      "description": "Готовый комплект материалов для создания эффекта термоса в парных с рабочей температурой до +130°C.",
-      "coverImage": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80",
-      "badge": "Термостойкость до +140°C",
-      "seo": {
-        "metaTitle": "Материалы для утепления бани и сауны — Каталог",
-        "metaDescription": "Купить термостойкую алюминиевую фольгу и армированный скотч для парилок с доставкой."
-      }
-    },
-    {
-      "id": "energy-saving",
-      "slug": "energy-saving",
-      "title": "Энергоэффективный дом",
-      "description": "Материалы, сокращающие теплопотери здания до 35% за счет отражения лучистой энергии.",
-      "coverImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
-      "badge": "Экономия на отоплении",
-      "seo": {
-        "metaTitle": "Отражающая изоляция для энергоэффективного дома",
-        "metaDescription": "Энергосберегающая изоляция перекрытий, стен и кровли."
-      }
-    }
-  ],
+  "collections": [],
   "products": [
     {
       "id": "izolyatsiya-iz-vspenennenogo-polietilena",
@@ -1748,33 +1709,175 @@
           }
         }
       ]
-    }
-  ],
-  "articles": [
+    },
     {
-      "id": "sauna-insulation-guide",
-      "slug": "sauna-insulation-guide",
-      "title": "Как правильно утеплить парную: 5 критических ошибок и выбор изоляции",
-      "date": "2026-07-28",
-      "category": "Инженерные решения",
-      "readTimeMin": 6,
-      "media": {
-        "type": "video",
-        "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        "posterImage": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80"
-      },
-      "summary": "Разбираем технологию создания термоса в парилке: почему лавсановая пленка выделяет токсины при нагреве и как армированный скотч предотвращает гниение бруса.",
-      "contentHtml": "<p>Утепление бани и сауны принципиально отличается от утепления жилого дома. Температура под потолком парной может достигать <strong>+110…+130°C</strong> при относительной влажности до 90%. В таких условиях стандартные пароизоляционные пленки деформируются.</p><h3>1. Почему нельзя использовать металлизированный лавсан</h3><p>Лавсановое напыление разрушается при температурах выше +85°C. Для парилки требуется <strong>100% алюминиевая фольга</strong>, такая как БИРОТЕРМ САУНА.</p><h3>2. Герметизация стыков</h3><p>Любой негерметичный стык — это канал для пара. Проклейку полотен необходимо выполнять армированной алюминиевой лентой БИРОТЕЙП Т-50.</p>",
-      "linkedProductIds": [
-        "biroterm-sauna-foil",
-        "birotape-t50"
+      "id": "trubnaya-obolochka-13-copy",
+      "slug": "trubnaya-obolochka-13-copy",
+      "title": "Тилит толщина стенки 6 мм (Трубная оболочка)",
+      "categoryIds": [
+        "vspenennyy-polietilen"
       ],
-      "tags": [
-        "Бани и сауны",
-        "Фольга",
-        "Инструкция",
-        "Теплотехника"
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/tilit-1.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {
+        "Толщина стенки": "6мм"
+      },
+      "variants": [
+        {
+          "sku": "TRUB-18",
+          "title": "Диаметр 18 мм (Труба 2 м.п.) Красный / Синий",
+          "prices": {
+            "м.п.": 22,
+            "труба": 44
+          },
+          "attributes": {
+            "Диаметр": "18мм",
+            "Длина": "2м.п."
+          }
+        },
+        {
+          "sku": "TRUB-22",
+          "title": "Диаметр 22 мм (Труба 2 м.п.) Красный / Синий",
+          "prices": {
+            "м.п.": 24,
+            "труба": 48
+          },
+          "attributes": {
+            "Диаметр": "22 мм",
+            "Длина": "2м.п."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dzhut-eco-tolshchina-5-6-mm",
+      "slug": "dzhut-eco-tolshchina-5-6-mm",
+      "title": "Джут ECO Толщина 5-6 мм",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/dzhut-2.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {
+        "Толщина": "5-6мм"
+      },
+      "variants": [
+        {
+          "sku": "JUT-10",
+          "title": "Ширина 10см (Мешок 10 шт)",
+          "prices": {
+            "шт": 180,
+            "мешок": 1800
+          },
+          "attributes": {
+            "Ширина": "10см",
+            "Длина": "10м"
+          }
+        },
+        {
+          "sku": "JUT-15",
+          "title": "Ширина 15см (Мешок 7 шт)",
+          "prices": {
+            "шт": 280,
+            "мешок": 1960
+          },
+          "attributes": {
+            "Ширина": "15см",
+            "Длина": "10м"
+          }
+        },
+        {
+          "sku": "JUT-20",
+          "title": "Ширина 20см (Мешок 5 шт)",
+          "prices": {
+            "шт": 350,
+            "мешок": 1750
+          },
+          "attributes": {
+            "Ширина": "20см",
+            "Длина": "10м"
+          }
+        }
+      ]
+    },
+    {
+      "id": "dzhut-tolshchina-8-mm",
+      "slug": "dzhut-tolshchina-8-mm",
+      "title": "Джут Толщина 8 мм",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/dzhut.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {
+        "Толщина": "8мм"
+      },
+      "variants": [
+        {
+          "sku": "JUT-10",
+          "title": "Ширина 10см (Мешок 10 шт)",
+          "prices": {
+            "шт": 220,
+            "мешок": 2200
+          },
+          "attributes": {
+            "Ширина": "10см",
+            "Длина": "10м"
+          }
+        },
+        {
+          "sku": "JUT-15",
+          "title": "Ширина 15см (Мешок 7 шт)",
+          "prices": {
+            "шт": 380,
+            "мешок": 2660
+          },
+          "attributes": {
+            "Ширина": "15см",
+            "Длина": "10м"
+          }
+        },
+        {
+          "sku": "JUT-20",
+          "title": "Ширина 20см (Мешок 5 шт)",
+          "prices": {
+            "шт": 550,
+            "мешок": 2750
+          },
+          "attributes": {
+            "Ширина": "20см",
+            "Длина": "10м"
+          }
+        }
+      ]
+    },
+    {
+      "id": "paklya-tyukovaya-20kg",
+      "slug": "paklya-tyukovaya-20kg",
+      "title": "Пакля тюковая",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/paklya-tyukovaya-20-kg.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "PAK-20",
+          "title": "20 кг",
+          "prices": {
+            "шт": 1300
+          },
+          "attributes": {}
+        }
       ]
     }
-  ]
+  ],
+  "articles": []
 }
