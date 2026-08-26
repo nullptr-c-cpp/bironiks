@@ -2159,6 +2159,84 @@
           }
         }
       ]
+    },
+    {
+      "id": "montazhnaya-pena-unika-diy-bytovaya",
+      "slug": "montazhnaya-pena-unika-diy-bytovaya",
+      "title": "Монтажная пена UNIKA DIY БЫТОВАЯ",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/unika_diy_50.webp",
+      "gallery": [
+        "/image/products/unika_diy_65.webp"
+      ],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "BALLON-700",
+          "title": "50 Всесезонная (700 мл)",
+          "prices": {
+            "баллон": 300
+          },
+          "attributes": {
+            "Заполнение баллона": "700мл",
+            "Диапазон рабочих температур": "от -10 до +30",
+            "Коэффициент теплопроводности": "0,031вт/м*К"
+          }
+        },
+        {
+          "sku": "BALLON-850",
+          "title": "65 Всесезонная (850 мл)",
+          "prices": {
+            "баллон": 400
+          },
+          "attributes": {
+            "Заполнение баллона": "850мл",
+            "Диапазон рабочих температур": "от -10 до +30",
+            "Коэффициент теплопроводности": "0,031вт/м*К"
+          }
+        }
+      ]
+    },
+    {
+      "id": "montazhnaya-pena-unika-diy",
+      "slug": "montazhnaya-pena-unika-diy",
+      "title": "Монтажная пена UNIKA DIY",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/4_balona_unika_diy.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "BALLON-850",
+          "title": "65 Всесезонная (850 мл)",
+          "prices": {
+            "баллон": 350
+          },
+          "attributes": {
+            "Заполнение баллона": "850мл",
+            "Диапазон рабочих температур": "от -10 до +35",
+            "Коэффициент теплопроводности": "0,031вт/м*К"
+          }
+        },
+        {
+          "sku": "BALLON-900",
+          "title": "70 Всесезонная (900 мл)",
+          "prices": {
+            "баллон": 370
+          },
+          "attributes": {
+            "Заполнение баллона": "850мл",
+            "Диапазон рабочих температур": "от -10 до +35",
+            "Коэффициент теплопроводности": "0,031вт/м*К"
+          }
+        }
+      ]
     }
   ],
   "articles": []
