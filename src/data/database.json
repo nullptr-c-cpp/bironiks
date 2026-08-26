@@ -1877,6 +1877,215 @@
           "attributes": {}
         }
       ]
+    },
+    {
+      "id": "folga-dlya-bani",
+      "slug": "folga-dlya-bani",
+      "title": "Фольга для бани",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/folga-dlya-bani-i-sauny.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "RUL-40",
+          "title": "Толщина 40 мкр. (Рулон 10 м²)",
+          "prices": {
+            "м²": 90,
+            "рулон": 900
+          },
+          "attributes": {
+            "Ширина": "100см",
+            "Длина": "10м",
+            "Толщина": "40мкр"
+          }
+        },
+        {
+          "sku": "RUL-80",
+          "title": "Толщина 80 мкр. (Рулон 10 м²)",
+          "prices": {
+            "м²": 170,
+            "рулон": 1700
+          },
+          "attributes": {
+            "Ширина": "100см",
+            "Длина": "10м",
+            "Толщина": "80мкр"
+          }
+        }
+      ]
+    },
+    {
+      "id": "na-kraftovoy-bumage",
+      "slug": "na-kraftovoy-bumage",
+      "title": "На крафтовой бумаге",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/folga-na-kraft-bumage.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "RUL-40",
+          "title": "Покрытие из Лавсана (Рулон 10 м²)",
+          "prices": {
+            "м²": 40,
+            "рулон": 400
+          },
+          "attributes": {
+            "Ширина": "100см",
+            "Длина": "10м"
+          }
+        },
+        {
+          "sku": "RUL-80",
+          "title": "Покрытие из Фольги (Рулон 10 м²)",
+          "prices": {
+            "м²": 60,
+            "рулон": 600
+          },
+          "attributes": {
+            "Ширина": "100см",
+            "Длина": "10м"
+          }
+        },
+        {
+          "sku": "RUL-120",
+          "title": "Покрытие из Фольги (Рулон 10 м²)",
+          "prices": {
+            "м²": 60,
+            "рулон": 600
+          },
+          "attributes": {
+            "Ширина": "130см",
+            "Длина": "8,3м"
+          }
+        }
+      ]
+    },
+    {
+      "id": "otrazhayushchaya-izolyatsiya-dlya-bani-i-sauny",
+      "slug": "otrazhayushchaya-izolyatsiya-dlya-bani-i-sauny",
+      "title": "Отражающая изоляция для бани и сауны",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/veberton-termo-a-pet.webp",
+      "gallery": [
+        "/image/products/tehlist-veberton-termo-a-pet-2-1_page-0001.webp"
+      ],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "TERMO-A-PET",
+          "title": "Termo A-Pet (Рулон 70 м²)",
+          "prices": {
+            "м²": 40,
+            "рулон": 2700
+          },
+          "attributes": {
+            "Ширина": "100см",
+            "Длина": "70м"
+          }
+        }
+      ]
+    },
+    {
+      "id": "izopleks-35",
+      "slug": "izopleks-35",
+      "title": "ИЗОПЛЕКС-35",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/izoplex-0.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "IZOPLEX-20",
+          "title": "Толщина 20мм (Упаковка 20 листов)",
+          "prices": {
+            "лист": 100,
+            "упаковка": 2000
+          },
+          "attributes": {
+            "Ширина": "600мм",
+            "Длина": "1200мм",
+            "Толщина": "20мм"
+          }
+        },
+        {
+          "sku": "IZOPLEX-30",
+          "title": "Толщина 30мм (Упаковка 13 листов)",
+          "prices": {
+            "лист": 140,
+            "упаковка": 1820
+          },
+          "attributes": {
+            "Ширина": "580мм",
+            "Длина": "1180мм",
+            "Толщина": "30мм"
+          }
+        },
+        {
+          "sku": "IZOPLEX-40",
+          "title": "Толщина 40мм (Упаковка 10 листов)",
+          "prices": {
+            "лист": 175,
+            "упаковка": 1750
+          },
+          "attributes": {
+            "Ширина": "580мм",
+            "Длина": "1180мм",
+            "Толщина": "40мм"
+          }
+        },
+        {
+          "sku": "IZOPLEX-45",
+          "title": "Толщина 45мм (Упаковка 9 листов)",
+          "prices": {
+            "лист": 230,
+            "упаковка": 2070
+          },
+          "attributes": {
+            "Ширина": "580мм",
+            "Длина": "1180мм",
+            "Толщина": "45мм"
+          }
+        },
+        {
+          "sku": "IZOPLEX-50",
+          "title": "Толщина 50мм (Упаковка 8 листов)",
+          "prices": {
+            "лист": 240,
+            "упаковка": 1920
+          },
+          "attributes": {
+            "Ширина": "580мм",
+            "Длина": "1180мм",
+            "Толщина": "50мм"
+          }
+        },
+        {
+          "sku": "IZOPLEX-50-3M",
+          "title": "Толщина 50мм (Длина 3 м)",
+          "prices": {
+            "лист": 600
+          },
+          "attributes": {
+            "Ширина": "580мм",
+            "Длина": "3000мм",
+            "Толщина": "50мм"
+          }
+        }
+      ]
     }
   ],
   "articles": []
