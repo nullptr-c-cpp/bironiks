@@ -328,8 +328,8 @@
           "sku": "RUL-8MM",
           "title": "Толщина К-ЛФ8 мм (Рулон 15м2)",
           "prices": {
-            "м²": 140,
-            "рулон": 2100
+            "м²": 145,
+            "рулон": 2175
           },
           "attributes": {
             "Длина": "15м",
@@ -341,8 +341,8 @@
           "sku": "RUL-10MM",
           "title": "Толщина К-ЛФ10 мм (Рулон 15м2)",
           "prices": {
-            "м²": 150,
-            "рулон": 2250
+            "м²": 170,
+            "рулон": 2550
           },
           "attributes": {
             "Длина": "15м",
@@ -2083,6 +2083,79 @@
             "Ширина": "580мм",
             "Длина": "3000мм",
             "Толщина": "50мм"
+          }
+        }
+      ]
+    },
+    {
+      "id": "napylyaemyy-uteplitel-marcon-spray",
+      "slug": "napylyaemyy-uteplitel-marcon-spray",
+      "title": "Напыляемый утеплитель Marcon Spray",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/napylyaemyy-uteplitel2.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "800ML",
+          "title": "800 мл",
+          "prices": {
+            "баллон": 550
+          },
+          "attributes": {
+            "Заполнение баллона": "800мл",
+            "Диапазон рабочих температур": "от -10 до +30",
+            "Коэффициент теплопроводности": "0,031вт/м*К"
+          }
+        }
+      ]
+    },
+    {
+      "id": "montazhnaya-pena-bytovaya",
+      "slug": "montazhnaya-pena-bytovaya",
+      "title": "Монтажная пена бытовая",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/nasha-penaqwadrat.webp",
+      "gallery": [
+        "/image/products/996udarnik-135x591_72ppiqwadrat.webp"
+      ],
+      "certificates": [
+        {
+          "name": "Лист технической информации MARCON Наша Пена",
+          "url": "/certs/list-tekhnicheskoy-informatsii_-marcon-nasha-pena.pdf"
+        },
+        {
+          "name": "Лист технической информации MARCON Ударник",
+          "url": "/certs/list-tekhnicheskoy-informatsii_-marcon-udarnik.pdf"
+        }
+      ],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "PENA-500",
+          "title": "\"Наша пена\" 500мл",
+          "prices": {
+            "баллон": 300
+          },
+          "attributes": {
+            "Заполнение баллона": "500мл",
+            "Диапазон рабочих температур": "от -10 до +35"
+          }
+        },
+        {
+          "sku": "PENA-750",
+          "title": "\"Ударник\" 750мл",
+          "prices": {
+            "баллон": 360
+          },
+          "attributes": {
+            "Заполнение баллона": "750мл",
+            "Диапазон рабочих температур": "от -10 до +35"
           }
         }
       ]
