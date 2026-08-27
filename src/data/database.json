@@ -2812,6 +2812,273 @@
           }
         }
       ]
+    },
+    {
+      "id": "skotch-dvustoronniy-na-vspenennoy-osnove",
+      "slug": "skotch-dvustoronniy-na-vspenennoy-osnove",
+      "title": "Скотч двусторонний на вспененной основе",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/dv-kleykaya-lenta-na-vspenennoy-osnove.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "VSPEN-5M",
+          "title": "Ширина 20мм * 5м",
+          "prices": {
+            "шт": 50
+          },
+          "attributes": {
+            "Ширина": "20мм",
+            "Длина": "5м"
+          }
+        },
+        {
+          "sku": "VSPEN-385M",
+          "title": "Ширина 38мм * 5м",
+          "prices": {
+            "шт": 75
+          },
+          "attributes": {
+            "Ширина": "38мм",
+            "Длина": "5м"
+          }
+        },
+        {
+          "sku": "VSPEN-10M",
+          "title": "Ширина 48мм * 10м",
+          "prices": {
+            "шт": 175
+          },
+          "attributes": {
+            "Ширина": "20мм",
+            "Длина": "10м"
+          }
+        }
+      ]
+    },
+    {
+      "id": "skotch-dvustoronniy-na-pp-osnove",
+      "slug": "skotch-dvustoronniy-na-pp-osnove",
+      "title": "Скотч двусторонний на ПП основе",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/1793ee0c120e1f441a26d54b7dd6b8c8.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "PP-2025M",
+          "title": "Ширина 20мм *25м",
+          "prices": {
+            "шт": 80
+          },
+          "attributes": {
+            "Ширина": "20мм",
+            "Длина": "25м"
+          }
+        },
+        {
+          "sku": "PP-3825M",
+          "title": "Ширина 38мм *25м",
+          "prices": {
+            "шт": 135
+          },
+          "attributes": {
+            "Ширина": "38мм",
+            "Длина": "25м"
+          }
+        },
+        {
+          "sku": "PP-4825M",
+          "title": "Ширина 48мм *25м",
+          "prices": {
+            "шт": 170
+          },
+          "attributes": {
+            "Ширина": "48мм",
+            "Длина": "25м"
+          }
+        },
+        {
+          "sku": "PP-4850M",
+          "title": "Ширина 48мм *50м",
+          "prices": {
+            "шт": 360
+          },
+          "attributes": {
+            "Ширина": "48мм",
+            "Длина": "50м"
+          }
+        }
+      ]
+    },
+    {
+      "id": "lenta-preduprezhdayushchaya",
+      "slug": "lenta-preduprezhdayushchaya",
+      "title": "Лента предупреждающая",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/lenta-predupr.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "PREDUPR-200M",
+          "title": "Ширина 50мм * 200м, чёрно-желтая",
+          "prices": {
+            "шт": 150
+          },
+          "attributes": {
+            "Ширина": "50мм",
+            "Длина": "200м"
+          }
+        },
+        {
+          "sku": "PREDUPR-150M",
+          "title": "Ширина 50мм * 150м, красно-белая",
+          "prices": {
+            "шт": 150
+          },
+          "attributes": {
+            "Ширина": "50мм",
+            "Длина": "150м"
+          }
+        }
+      ]
+    },
+    {
+      "id": "lenta-upakovochnaya",
+      "slug": "lenta-upakovochnaya",
+      "title": "Лента упаковочная",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/lenta-prozrachnaya.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "UPAC-30M",
+          "title": "Ширина 48мм * 30м (Упаковка - шт)",
+          "prices": {
+            "шт": 30,
+            "упаковка": 0
+          },
+          "attributes": {
+            "Ширина": "48мм",
+            "Длина": "30м"
+          }
+        },
+        {
+          "sku": "UPAC-50M",
+          "title": "Ширина 48мм * 50м (Упаковка 72 шт)",
+          "prices": {
+            "шт": 40,
+            "упаковка": 2880
+          },
+          "attributes": {
+            "Ширина": "48мм",
+            "Длина": "50м"
+          }
+        },
+        {
+          "sku": "UPAC-100M",
+          "title": "Ширина 48мм * 100м (Упаковка 36 шт)",
+          "prices": {
+            "шт": 70,
+            "упаковка": 2520
+          },
+          "attributes": {
+            "Ширина": "48мм",
+            "Длина": "100м"
+          }
+        },
+        {
+          "sku": "UPAC-150M",
+          "title": "Ширина 48мм * 150м (Упаковка 24 шт)",
+          "prices": {
+            "шт": 110,
+            "упаковка": 2640
+          },
+          "attributes": {
+            "Ширина": "48мм",
+            "Длина": "150м"
+          }
+        },
+        {
+          "sku": "UPAC-180M",
+          "title": "Ширина 48мм * 180м (Упаковка 36 шт)",
+          "prices": {
+            "шт": 155,
+            "упаковка": 5580
+          },
+          "attributes": {
+            "Ширина": "48мм",
+            "Длина": "180м"
+          }
+        }
+      ]
+    },
+    {
+      "id": "podlozhka-pod-oboi",
+      "slug": "podlozhka-pod-oboi",
+      "title": "Подложка под обои",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/ekokhit-rulon.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "EH-5MM",
+          "title": "EcoHeat 5 мм (Рулон 7 м²)",
+          "prices": {
+            "м²": 158,
+            "рулон": 1100
+          },
+          "attributes": {
+            "Толщина": "5мм",
+            "Длина": "14м",
+            "Ширина": "50см"
+          }
+        }
+      ]
+    },
+    {
+      "id": "meshok-p-p",
+      "slug": "meshok-p-p",
+      "title": "Мешок п/п",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/meshok-krupno.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "MESH-ZEL",
+          "title": "55см * 95см, Зелёный",
+          "prices": {
+            "шт": 8
+          },
+          "attributes": {
+            "Ширина": "55см",
+            "Длина": "95см"
+          }
+        }
+      ]
     }
   ],
   "articles": []
