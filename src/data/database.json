@@ -2479,6 +2479,132 @@
           }
         }
       ]
+    },
+    {
+      "id": "gaz",
+      "slug": "gaz",
+      "title": "Газ",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/445048gaz-1-_bez-marcon-i-logo_.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "BALLON-220",
+          "title": "Универсальный (520 см3)",
+          "prices": {
+            "баллон": 85
+          },
+          "attributes": {
+            "Масса": "220г"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pistolet-dlya-montazhnoy-peny",
+      "slug": "pistolet-dlya-montazhnoy-peny",
+      "title": "Пистолет для монтажной пены",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/mfl-308.webp",
+      "gallery": [
+        "/image/products/pistolet-302.webp",
+        "/image/products/pistolet-303.webp",
+        "/image/products/pistolet-304.webp",
+        "/image/products/pistolet-305.webp",
+        "/image/products/pistolet-306.webp",
+        "/image/products/pistolet-307.webp",
+        "/image/products/pistolet-309.webp"
+      ],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "pistol-300",
+          "title": "Пластиковый МФЛ 300",
+          "prices": {
+            "шт": 170
+          },
+          "attributes": {}
+        },
+        {
+          "sku": "pistol-301",
+          "title": "МФЛ 301",
+          "prices": {
+            "шт": 200
+          },
+          "attributes": {}
+        },
+        {
+          "sku": "pistol-302",
+          "title": "МФЛ 302",
+          "prices": {
+            "шт": 300
+          },
+          "attributes": {}
+        },
+        {
+          "sku": "pistol-303",
+          "title": "МФЛ 303",
+          "prices": {
+            "шт": 420
+          },
+          "attributes": {}
+        },
+        {
+          "sku": "pistol-304",
+          "title": "Усиленный МФЛ 304",
+          "prices": {
+            "шт": 520
+          },
+          "attributes": {}
+        },
+        {
+          "sku": "pistol-305",
+          "title": "Цельнометалический МФЛ 305",
+          "prices": {
+            "шт": 610
+          },
+          "attributes": {}
+        },
+        {
+          "sku": "pistol-306",
+          "title": "Тефлоновый МФЛ 306",
+          "prices": {
+            "шт": 870
+          },
+          "attributes": {}
+        },
+        {
+          "sku": "pistol-307",
+          "title": "МФЛ 307",
+          "prices": {
+            "шт": 550
+          },
+          "attributes": {}
+        },
+        {
+          "sku": "pistol-308",
+          "title": "Монтажник МФЛ 308",
+          "prices": {
+            "шт": 630
+          },
+          "attributes": {}
+        },
+        {
+          "sku": "pistol-309",
+          "title": "МФЛ 309",
+          "prices": {
+            "шт": 210
+          },
+          "attributes": {}
+        }
+      ]
     }
   ],
   "articles": []
