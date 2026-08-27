@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   // Ваш полный адрес на GitHub Pages:
   site: 'https://nullptr-c-cpp.github.io',
-  base: '/bironiks',
+  base: '/',
 
   integrations: [
     tailwind(),
