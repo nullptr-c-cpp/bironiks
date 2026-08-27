@@ -3165,6 +3165,108 @@
           }
         }
       ]
+    },
+    {
+      "id": "perchatki-kh-b",
+      "slug": "perchatki-kh-b",
+      "title": "Перчатки х/б",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/perchatkmkhb.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "PERCHAT-NOPVKH",
+          "title": "4 Нити (10 класс)",
+          "prices": {
+            "пара": 11
+          },
+          "attributes": {
+            "Нити": "4",
+            "Класс": "10",
+            "ПВХ": "Нет"
+          }
+        }
+      ]
+    },
+    {
+      "id": "perchatki-kh-b-pvh",
+      "slug": "perchatki-kh-b-pvh",
+      "title": "Перчатки х/б",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/perchatki-10-klass-4-niti-pvkh.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "PERCHAT-PVKH-1",
+          "title": "4 Нити (10 класс) c ПВХ",
+          "prices": {
+            "пара": 12
+          },
+          "attributes": {
+            "Нити": "4",
+            "Класс": "10",
+            "ПВХ": "Есть"
+          }
+        },
+        {
+          "sku": "PERCHAT-PVKH-2",
+          "title": "5 Нитей (10 класс) c ПВХ",
+          "prices": {
+            "пара": 13
+          },
+          "attributes": {
+            "Нити": "5",
+            "Класс": "10",
+            "ПВХ": "Есть"
+          }
+        },
+        {
+          "sku": "PERCHAT-PVKH-3",
+          "title": "6 Нитей (10 класс) c ПВХ",
+          "prices": {
+            "пара": 15
+          },
+          "attributes": {
+            "Нити": "6",
+            "Класс": "10",
+            "ПВХ": "Есть"
+          }
+        }
+      ]
+    },
+    {
+      "id": "perchatki-kh-b-pvh-sher",
+      "slug": "perchatki-kh-b-pvh-sher",
+      "title": "Перчатки х/б",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/perchatki-75-klass-6-nitey-p-sh.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "PERCHAT-PVKH-SHER",
+          "title": "Полушерстяные 6 Нитей (7,5 класс) c ПВХ",
+          "prices": {
+            "пара": 12
+          },
+          "attributes": {
+            "Нити": "6",
+            "Класс": "7,5",
+            "ПВХ": "Есть"
+          }
+        }
+      ]
     }
   ],
   "articles": []
