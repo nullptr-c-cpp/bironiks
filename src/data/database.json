@@ -3258,12 +3258,130 @@
           "sku": "PERCHAT-PVKH-SHER",
           "title": "Полушерстяные 6 Нитей (7,5 класс) c ПВХ",
           "prices": {
-            "пара": 12
+            "пара": 35
           },
           "attributes": {
             "Нити": "6",
             "Класс": "7,5",
             "ПВХ": "Есть"
+          }
+        }
+      ]
+    },
+    {
+      "id": "perchatki-neylonovye",
+      "slug": "perchatki-neylonovye",
+      "title": "Перчатки нейлоновые",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/neylonovye-belye.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "PERCHAT-NEYLON",
+          "title": "Белые",
+          "prices": {
+            "пара": 15
+          },
+          "attributes": {
+            "Нити": "-",
+            "Класс": "-",
+            "ПВХ": "Нет"
+          }
+        }
+      ]
+    },
+    {
+      "id": "perchatki-obliv",
+      "slug": "perchatki-obliv",
+      "title": "Перчатки",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/perchatki-trikotazhnye-s-2-ym-lateksnym-oblivom.webp",
+      "gallery": [
+        "/image/products/perchatki-trikotazhnye-s-1-ym-lateksnym-oblivom.webp"
+      ],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "PERCHAT-OBLIV-1",
+          "title": "С 1-м латексным обливом",
+          "prices": {
+            "пара": 20
+          },
+          "attributes": {
+            "Нити": "-",
+            "Класс": "-",
+            "ПВХ": "Нет"
+          }
+        },
+        {
+          "sku": "PERCHAT-OBLIV-2",
+          "title": "С 2-м латексным обливом",
+          "prices": {
+            "пара": 22
+          },
+          "attributes": {
+            "Нити": "-",
+            "Класс": "-",
+            "ПВХ": "Нет"
+          }
+        }
+      ]
+    },
+    {
+      "id": "perchatki-obliv-atl",
+      "slug": "perchatki-obliv-atl",
+      "title": "Перчатки",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/6d82f0499917ffa90cc578eb21670da3.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "PERCHAT-OBLIV-2-atl",
+          "title": "С 2-м латексным обливом Атлант",
+          "prices": {
+            "пара": 30
+          },
+          "attributes": {
+            "Нити": "-",
+            "Класс": "-",
+            "ПВХ": "Нет"
+          }
+        }
+      ]
+    },
+    {
+      "id": "perchatki-obliv-atl-copy",
+      "slug": "perchatki-obliv-atl-copy",
+      "title": "Перчатки (Копия)",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/6d82f0499917ffa90cc578eb21670da3.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "PERCHAT-OBLIV-2-atl",
+          "title": "С 2-м латексным обливом Атлант",
+          "prices": {
+            "пара": 30
+          },
+          "attributes": {
+            "Нити": "-",
+            "Класс": "-",
+            "ПВХ": "Нет"
           }
         }
       ]
