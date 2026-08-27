@@ -3361,27 +3361,129 @@
       ]
     },
     {
-      "id": "perchatki-obliv-atl-copy",
-      "slug": "perchatki-obliv-atl-copy",
-      "title": "Перчатки (Копия)",
+      "id": "rukavitsy",
+      "slug": "rukavitsy",
+      "title": "Рукавицы",
       "categoryIds": [],
       "collectionIds": [],
       "description": "",
-      "coverImage": "/image/products/6d82f0499917ffa90cc578eb21670da3.webp",
+      "coverImage": "/image/products/u-01-rukavitsy-diag-pl200gr-pn-byaz-pl105gr-utepl-vatin-psh-pl280gr.webp",
       "gallery": [],
       "certificates": [],
       "base_attributes": {},
       "variants": [
         {
-          "sku": "PERCHAT-OBLIV-2-atl",
-          "title": "С 2-м латексным обливом Атлант",
+          "sku": "RUK-1",
+          "title": "Утеплитель ватин, с брез. накладкой",
           "prices": {
-            "пара": 30
+            "пара": 65
           },
           "attributes": {
             "Нити": "-",
             "Класс": "-",
             "ПВХ": "Нет"
+          }
+        },
+        {
+          "sku": "RUK-2",
+          "title": "БН-05",
+          "prices": {
+            "пара": 40
+          },
+          "attributes": {
+            "Нити": "-",
+            "Класс": "-",
+            "ПВХ": "Нет"
+          }
+        },
+        {
+          "sku": "RUK-3",
+          "title": "Б-01",
+          "prices": {
+            "пара": 45
+          },
+          "attributes": {
+            "Нити": "-",
+            "Класс": "-",
+            "ПВХ": "Нет"
+          }
+        }
+      ]
+    },
+    {
+      "id": "folma-kholst",
+      "slug": "folma-kholst",
+      "title": "Фольма-холст",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/folma-kholst.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "FOLMA-1",
+          "title": "(Рулон 20 м²)",
+          "prices": {
+            "м²": 195,
+            "рулон": 3900
+          },
+          "attributes": {
+            "Ширина": "100см",
+            "Длина": "20м"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ognezashchitnyy-bazaltovyy-material",
+      "slug": "ognezashchitnyy-bazaltovyy-material",
+      "title": "Огнезащитный базальтовый материал",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/obm-5f.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "OBM-1",
+          "title": "ОБМ-5Ф (Рулон 24 м²)",
+          "prices": {
+            "м²": 195,
+            "рулон": 4680
+          },
+          "attributes": {
+            "Ширина": "120см",
+            "Длина": "20м"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ognezashchitnyy-bazaltovyy-material-copy",
+      "slug": "ognezashchitnyy-bazaltovyy-material-copy",
+      "title": "Огнезащитный базальтовый материал (Копия)",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/obm-5f.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "OBM-1",
+          "title": "ОБМ-5Ф (Рулон 24 м²)",
+          "prices": {
+            "м²": 195,
+            "рулон": 4680
+          },
+          "attributes": {
+            "Ширина": "120см",
+            "Длина": "20м"
           }
         }
       ]
