@@ -2605,6 +2605,213 @@
           "attributes": {}
         }
       ]
+    },
+    {
+      "id": "skotch-alyuminievyy-globex",
+      "slug": "skotch-alyuminievyy-globex",
+      "title": "Скотч алюминиевый GLOBEX",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/klejkaya-alyuminievaya-lenta-25m.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "ALUM-10M",
+          "title": "Ширина 48мм * 10м (Упаковка 12 шт)",
+          "prices": {
+            "шт": 50,
+            "упаковка": 600
+          },
+          "attributes": {
+            "Ширина": "48мм",
+            "Длина": "10м"
+          }
+        },
+        {
+          "sku": "ALUM-25M",
+          "title": "Ширина 48мм * 25м (Упаковка 18 шт)",
+          "prices": {
+            "шт": 140,
+            "упаковка": 2520
+          },
+          "attributes": {
+            "Ширина": "48мм",
+            "Длина": "25м"
+          }
+        },
+        {
+          "sku": "ALUM-50M",
+          "title": "Ширина 48мм * 50м (Упаковка 12 шт)",
+          "prices": {
+            "шт": 290,
+            "упаковка": 3480
+          },
+          "attributes": {
+            "Ширина": "48мм",
+            "Длина": "50м"
+          }
+        }
+      ]
+    },
+    {
+      "id": "skotch-armirovannyy-globex",
+      "slug": "skotch-armirovannyy-globex",
+      "title": "Скотч армированный GLOBEX",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/armirovannyy-skotch.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "ARM-10M",
+          "title": "Ширина 48мм * 10м (Упаковка 12 шт)",
+          "prices": {
+            "шт": 50,
+            "упаковка": 600
+          },
+          "attributes": {
+            "Ширина": "48мм",
+            "Длина": "10м"
+          }
+        },
+        {
+          "sku": "ARM-25M",
+          "title": "Ширина 48мм * 25м (Упаковка 18 шт)",
+          "prices": {
+            "шт": 135,
+            "упаковка": 2430
+          },
+          "attributes": {
+            "Ширина": "48мм",
+            "Длина": "25м"
+          }
+        },
+        {
+          "sku": "ARM-50M",
+          "title": "Ширина 48мм * 50м (Упаковка 12 шт)",
+          "prices": {
+            "шт": 225,
+            "упаковка": 2700
+          },
+          "attributes": {
+            "Ширина": "48мм",
+            "Длина": "50м"
+          }
+        }
+      ]
+    },
+    {
+      "id": "skotch-malyarnyy",
+      "slug": "skotch-malyarnyy",
+      "title": "Скотч малярный",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/malyarnyy-skotch.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "MAL-2525M",
+          "title": "Ширина 25мм * 25м",
+          "prices": {
+            "шт": 33
+          },
+          "attributes": {
+            "Ширина": "25мм",
+            "Длина": "25м"
+          }
+        },
+        {
+          "sku": "MAL-3825M",
+          "title": "Ширина 38мм * 25м",
+          "prices": {
+            "шт": 55
+          },
+          "attributes": {
+            "Ширина": "38мм",
+            "Длина": "25м"
+          }
+        },
+        {
+          "sku": "MAL-3850M",
+          "title": "Ширина 38мм * 50м",
+          "prices": {
+            "шт": 95
+          },
+          "attributes": {
+            "Ширина": "38мм",
+            "Длина": "50м"
+          }
+        },
+        {
+          "sku": "MAL-4825M",
+          "title": "Ширина 48мм * 25м",
+          "prices": {
+            "шт": 65
+          },
+          "attributes": {
+            "Ширина": "48мм",
+            "Длина": "25м"
+          }
+        },
+        {
+          "sku": "MAL-4850M",
+          "title": "Ширина 48мм * 50м",
+          "prices": {
+            "шт": 125
+          },
+          "attributes": {
+            "Ширина": "48мм",
+            "Длина": "50м"
+          }
+        }
+      ]
+    },
+    {
+      "id": "skotch-metallizirovannyy-globex",
+      "slug": "skotch-metallizirovannyy-globex",
+      "title": "Скотч металлизированный GLOBEX",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/metallizirovannaya-lenta1.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "METAL-25M",
+          "title": "Ширина 48мм * 25м (Упаковка 12 шт)",
+          "prices": {
+            "шт": 70,
+            "упаковка": 840
+          },
+          "attributes": {
+            "Ширина": "48мм",
+            "Длина": "25м"
+          }
+        },
+        {
+          "sku": "METAL-50M",
+          "title": "Ширина 48мм * 50м (Упаковка 12 шт)",
+          "prices": {
+            "шт": 135,
+            "упаковка": 1620
+          },
+          "attributes": {
+            "Ширина": "48мм",
+            "Длина": "50м"
+          }
+        }
+      ]
     }
   ],
   "articles": []
