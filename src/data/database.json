@@ -217,6 +217,13 @@
       "title": "Вкладыш в бочку",
       "coverImage": "",
       "description": ""
+    },
+    {
+      "id": "gaz",
+      "slug": "gaz",
+      "title": "Газ",
+      "coverImage": "",
+      "description": ""
     }
   ],
   "collections": [
@@ -2882,8 +2889,12 @@
       "id": "gaz",
       "slug": "gaz",
       "title": "Газ",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "gaz"
+      ],
+      "collectionIds": [
+        "dlya-dachi-i-sada"
+      ],
       "description": "",
       "coverImage": "/image/products/445048gaz-1-_bez-marcon-i-logo_.webp",
       "gallery": [],
@@ -2906,8 +2917,14 @@
       "id": "pistolet-dlya-montazhnoy-peny",
       "slug": "pistolet-dlya-montazhnoy-peny",
       "title": "Пистолет для монтажной пены",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "pistolety-dlya-montazhnoy-peny"
+      ],
+      "collectionIds": [
+        "dlya-zashchity-i-utepleniya-krovli",
+        "dlya-dachi-i-sada",
+        "dlya-zimnego-montazha-i-germetizatsii-okon"
+      ],
       "description": "",
       "coverImage": "/image/products/mfl-308.webp",
       "gallery": [
@@ -3008,8 +3025,12 @@
       "id": "skotch-alyuminievyy-globex",
       "slug": "skotch-alyuminievyy-globex",
       "title": "Скотч алюминиевый GLOBEX",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "skotchi"
+      ],
+      "collectionIds": [
+        "dlya-ban-i-saun"
+      ],
       "description": "",
       "coverImage": "/image/products/klejkaya-alyuminievaya-lenta-25m.webp",
       "gallery": [],
@@ -3058,8 +3079,13 @@
       "id": "skotch-armirovannyy-globex",
       "slug": "skotch-armirovannyy-globex",
       "title": "Скотч армированный GLOBEX",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "skotchi"
+      ],
+      "collectionIds": [
+        "dlya-utepleniya-i-zvukoizolyatsii-pola",
+        "dlya-dachi-i-sada"
+      ],
       "description": "",
       "coverImage": "/image/products/armirovannyy-skotch.webp",
       "gallery": [],
@@ -3108,8 +3134,14 @@
       "id": "skotch-malyarnyy",
       "slug": "skotch-malyarnyy",
       "title": "Скотч малярный",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "skotchi"
+      ],
+      "collectionIds": [
+        "dlya-utepleniya-i-zvukoizolyatsii-pola",
+        "dlya-dachi-i-sada",
+        "dlya-zimnego-montazha-i-germetizatsii-okon"
+      ],
       "description": "",
       "coverImage": "/image/products/malyarnyy-skotch.webp",
       "gallery": [],
@@ -3177,8 +3209,16 @@
       "id": "skotch-metallizirovannyy-globex",
       "slug": "skotch-metallizirovannyy-globex",
       "title": "Скотч металлизированный GLOBEX",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "skotchi"
+      ],
+      "collectionIds": [
+        "dlya-ban-i-saun",
+        "dlya-utepleniya-i-zvukoizolyatsii-pola",
+        "dlya-zashchity-i-utepleniya-krovli",
+        "dlya-dachi-i-sada",
+        "dlya-zimnego-montazha-i-germetizatsii-okon"
+      ],
       "description": "",
       "coverImage": "/image/products/metallizirovannaya-lenta1.webp",
       "gallery": [],
@@ -3215,8 +3255,12 @@
       "id": "skotch-dvustoronniy-na-vspenennoy-osnove",
       "slug": "skotch-dvustoronniy-na-vspenennoy-osnove",
       "title": "Скотч двусторонний на вспененной основе",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "skotchi"
+      ],
+      "collectionIds": [
+        "dlya-dachi-i-sada"
+      ],
       "description": "",
       "coverImage": "/image/products/dv-kleykaya-lenta-na-vspenennoy-osnove.webp",
       "gallery": [],
@@ -3320,7 +3364,9 @@
       "id": "lenta-preduprezhdayushchaya",
       "slug": "lenta-preduprezhdayushchaya",
       "title": "Лента предупреждающая",
-      "categoryIds": [],
+      "categoryIds": [
+        "skotchi"
+      ],
       "collectionIds": [],
       "description": "",
       "coverImage": "/image/products/lenta-predupr.webp",
@@ -3356,7 +3402,9 @@
       "id": "lenta-upakovochnaya",
       "slug": "lenta-upakovochnaya",
       "title": "Лента упаковочная",
-      "categoryIds": [],
+      "categoryIds": [
+        "skotchi"
+      ],
       "collectionIds": [],
       "description": "",
       "coverImage": "/image/products/lenta-prozrachnaya.webp",
@@ -3430,7 +3478,9 @@
       "id": "podlozhka-pod-oboi",
       "slug": "podlozhka-pod-oboi",
       "title": "Подложка под обои",
-      "categoryIds": [],
+      "categoryIds": [
+        "podlozhka-pod-oboi"
+      ],
       "collectionIds": [],
       "description": "",
       "coverImage": "/image/products/ekokhit-rulon.webp",
@@ -3457,7 +3507,9 @@
       "id": "meshok-p-p",
       "slug": "meshok-p-p",
       "title": "Мешок п/п",
-      "categoryIds": [],
+      "categoryIds": [
+        "meshki"
+      ],
       "collectionIds": [],
       "description": "",
       "coverImage": "/image/products/meshok-krupno.webp",
@@ -3482,7 +3534,9 @@
       "id": "stretch-plyonka",
       "slug": "stretch-plyonka",
       "title": "Стретч плёнка",
-      "categoryIds": [],
+      "categoryIds": [
+        "stretch-plenka"
+      ],
       "collectionIds": [],
       "description": "",
       "coverImage": "/image/products/plenka-stretch.webp",
@@ -3568,8 +3622,15 @@
       "id": "perchatki-kh-b",
       "slug": "perchatki-kh-b",
       "title": "Перчатки х/б",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "perchatki"
+      ],
+      "collectionIds": [
+        "dlya-utepleniya-i-zvukoizolyatsii-pola",
+        "dlya-zashchity-i-utepleniya-krovli",
+        "dlya-dachi-i-sada",
+        "dlya-zimnego-montazha-i-germetizatsii-okon"
+      ],
       "description": "",
       "coverImage": "/image/products/perchatkmkhb.webp",
       "gallery": [],
@@ -3594,8 +3655,16 @@
       "id": "perchatki-kh-b-pvh",
       "slug": "perchatki-kh-b-pvh",
       "title": "Перчатки х/б",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "perchatki"
+      ],
+      "collectionIds": [
+        "dlya-ban-i-saun",
+        "dlya-utepleniya-i-zvukoizolyatsii-pola",
+        "dlya-zashchity-i-utepleniya-krovli",
+        "dlya-dachi-i-sada",
+        "dlya-zimnego-montazha-i-germetizatsii-okon"
+      ],
       "description": "",
       "coverImage": "/image/products/perchatki-10-klass-4-niti-pvkh.webp",
       "gallery": [],
@@ -3644,8 +3713,13 @@
       "id": "perchatki-kh-b-pvh-sher",
       "slug": "perchatki-kh-b-pvh-sher",
       "title": "Перчатки х/б",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "perchatki"
+      ],
+      "collectionIds": [
+        "dlya-dachi-i-sada",
+        "dlya-zimnego-montazha-i-germetizatsii-okon"
+      ],
       "description": "",
       "coverImage": "/image/products/perchatki-75-klass-6-nitey-p-sh.webp",
       "gallery": [],
@@ -3670,8 +3744,16 @@
       "id": "perchatki-neylonovye",
       "slug": "perchatki-neylonovye",
       "title": "Перчатки нейлоновые",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "perchatki"
+      ],
+      "collectionIds": [
+        "dlya-ban-i-saun",
+        "dlya-utepleniya-i-zvukoizolyatsii-pola",
+        "dlya-zashchity-i-utepleniya-krovli",
+        "dlya-dachi-i-sada",
+        "dlya-zimnego-montazha-i-germetizatsii-okon"
+      ],
       "description": "",
       "coverImage": "/image/products/neylonovye-belye.webp",
       "gallery": [],
@@ -3696,8 +3778,15 @@
       "id": "perchatki-obliv",
       "slug": "perchatki-obliv",
       "title": "Перчатки",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "perchatki"
+      ],
+      "collectionIds": [
+        "dlya-utepleniya-i-zvukoizolyatsii-pola",
+        "dlya-zashchity-i-utepleniya-krovli",
+        "dlya-dachi-i-sada",
+        "dlya-zimnego-montazha-i-germetizatsii-okon"
+      ],
       "description": "",
       "coverImage": "/image/products/perchatki-trikotazhnye-s-2-ym-lateksnym-oblivom.webp",
       "gallery": [
@@ -3736,8 +3825,16 @@
       "id": "perchatki-obliv-atl",
       "slug": "perchatki-obliv-atl",
       "title": "Перчатки",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "perchatki"
+      ],
+      "collectionIds": [
+        "dlya-ban-i-saun",
+        "dlya-utepleniya-i-zvukoizolyatsii-pola",
+        "dlya-zashchity-i-utepleniya-krovli",
+        "dlya-dachi-i-sada",
+        "dlya-zimnego-montazha-i-germetizatsii-okon"
+      ],
       "description": "",
       "coverImage": "/image/products/6d82f0499917ffa90cc578eb21670da3.webp",
       "gallery": [],
@@ -3762,8 +3859,12 @@
       "id": "rukavitsy",
       "slug": "rukavitsy",
       "title": "Рукавицы",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "perchatki"
+      ],
+      "collectionIds": [
+        "dlya-ban-i-saun"
+      ],
       "description": "",
       "coverImage": "/image/products/u-01-rukavitsy-diag-pl200gr-pn-byaz-pl105gr-utepl-vatin-psh-pl280gr.webp",
       "gallery": [],
@@ -3812,8 +3913,13 @@
       "id": "folma-kholst",
       "slug": "folma-kholst",
       "title": "Фольма-холст",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "ognezashchitnye-materialy",
+        "folma-kholst"
+      ],
+      "collectionIds": [
+        "dlya-ban-i-saun"
+      ],
       "description": "",
       "coverImage": "/image/products/folma-kholst.webp",
       "gallery": [],
@@ -3838,8 +3944,12 @@
       "id": "ognezashchitnyy-bazaltovyy-material",
       "slug": "ognezashchitnyy-bazaltovyy-material",
       "title": "Огнезащитный базальтовый материал",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "ognezashchitnye-materialy"
+      ],
+      "collectionIds": [
+        "dlya-ban-i-saun"
+      ],
       "description": "",
       "coverImage": "/image/products/obm-5f.webp",
       "gallery": [],
@@ -3864,8 +3974,12 @@
       "id": "karton-khrizotilovyy",
       "slug": "karton-khrizotilovyy",
       "title": "Картон хризотиловый",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "ognezashchitnye-materialy"
+      ],
+      "collectionIds": [
+        "dlya-ban-i-saun"
+      ],
       "description": "",
       "coverImage": "/image/products/hor-0.webp",
       "gallery": [],
@@ -3914,8 +4028,12 @@
       "id": "salt",
       "slug": "salt",
       "title": "Соль",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "sol"
+      ],
+      "collectionIds": [
+        "dlya-dachi-i-sada"
+      ],
       "description": "",
       "coverImage": "/image/products/sol-meshok.webp",
       "gallery": [],
@@ -3950,7 +4068,9 @@
       "id": "vkladysh-v-bochku",
       "slug": "vkladysh-v-bochku",
       "title": "Вкладыш в бочку",
-      "categoryIds": [],
+      "categoryIds": [
+        "vkladysh-v-bochku"
+      ],
       "collectionIds": [],
       "description": "",
       "coverImage": "/image/products/vkladysh-v-bochku-250-litrov.webp",
