@@ -219,7 +219,68 @@
       "description": ""
     }
   ],
-  "collections": [],
+  "collections": [
+    {
+      "id": "dlya-ban-i-saun",
+      "slug": "dlya-ban-i-saun",
+      "title": "Для бань и саун",
+      "badge": "",
+      "coverImage": "",
+      "description": "",
+      "seo": {
+        "metaTitle": "Товары для бани и сауны в Омске купить — Бироникс",
+        "metaDescription": "Всё для обустройства бань и саун в Омске от компании Бироникс. Большой каталог материалов."
+      }
+    },
+    {
+      "id": "dlya-utepleniya-i-zvukoizolyatsii-pola",
+      "slug": "dlya-utepleniya-i-zvukoizolyatsii-pola",
+      "title": "Для утепления и звукоизоляции пола",
+      "badge": "",
+      "coverImage": "",
+      "description": "",
+      "seo": {
+        "metaTitle": "Материалы для утепления и звукоизоляции пола в Омске — Бироникс",
+        "metaDescription": "Всё для тепло- и шумоизоляции пола в квартирах и домах. В наличии ИЗОПЛЕКС, вспененный полиэтилен и монтажные ленты в Омске — Бироникс. Выгодные цены."
+      }
+    },
+    {
+      "id": "dlya-zashchity-i-utepleniya-krovli",
+      "slug": "dlya-zashchity-i-utepleniya-krovli",
+      "title": "Для защиты и утепления кровли",
+      "badge": "",
+      "coverImage": "",
+      "description": "",
+      "seo": {
+        "metaTitle": "Всё для гидро- и пароизоляции кровли в Омске Купить — Бироникс",
+        "metaDescription": "Подборка материалов для защиты крыши от влаги и ветра. Кровельные мембраны, соединительные строительные скотчи и монтажная пена в Омске на сайте Бироникс."
+      }
+    },
+    {
+      "id": "dlya-dachi-i-sada",
+      "slug": "dlya-dachi-i-sada",
+      "title": "Для дачи и сада",
+      "badge": "",
+      "coverImage": "",
+      "description": "",
+      "seo": {
+        "metaTitle": "Геотекстиль для дренажа, грядок и садовых дорожек купить в Омске — Бироникс",
+        "metaDescription": "Подборка геотекстиля для обустройства садовых участков, отвода воды, укладки тротуарной плитки и парковок. Продажа в Омске компания Бироникс."
+      }
+    },
+    {
+      "id": "dlya-zimnego-montazha-i-germetizatsii-okon",
+      "slug": "dlya-zimnego-montazha-i-germetizatsii-okon",
+      "title": "Для зимнего монтажа и герметизации окон",
+      "badge": "",
+      "coverImage": "",
+      "description": "",
+      "seo": {
+        "metaTitle": "Материалы для монтажа и герметизации окон в Омске | Бироникс",
+        "metaDescription": "Всё для профессиональной установки и изоляции оконных и дверных проемов. Монтажные пены, защитные ленты и перчатки в магазине Бироникс в Омске."
+      }
+    }
+  ],
   "products": [
     {
       "id": "izolyatsiya-iz-vspenennenogo-polietilena",
