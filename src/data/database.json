@@ -3463,28 +3463,110 @@
       ]
     },
     {
-      "id": "ognezashchitnyy-bazaltovyy-material-copy",
-      "slug": "ognezashchitnyy-bazaltovyy-material-copy",
-      "title": "Огнезащитный базальтовый материал (Копия)",
+      "id": "karton-khrizotilovyy",
+      "slug": "karton-khrizotilovyy",
+      "title": "Картон хризотиловый",
       "categoryIds": [],
       "collectionIds": [],
       "description": "",
-      "coverImage": "/image/products/obm-5f.webp",
+      "coverImage": "/image/products/hor-0.webp",
       "gallery": [],
       "certificates": [],
       "base_attributes": {},
       "variants": [
         {
-          "sku": "OBM-1",
-          "title": "ОБМ-5Ф (Рулон 24 м²)",
+          "sku": "KAON-3",
+          "title": "КАОН 3мм (800мм * 1000мм)",
           "prices": {
-            "м²": 195,
-            "рулон": 4680
+            "шт": 285
           },
           "attributes": {
-            "Ширина": "120см",
-            "Длина": "20м"
+            "Ширина": "80см",
+            "Длина": "1м",
+            "Толщина": "3мм"
           }
+        },
+        {
+          "sku": "KAON-5",
+          "title": "КАОН 5мм (800мм * 1000мм)",
+          "prices": {
+            "шт": 385
+          },
+          "attributes": {
+            "Ширина": "80см",
+            "Длина": "1м",
+            "Толщина": "5мм"
+          }
+        },
+        {
+          "sku": "KAON-10",
+          "title": "КАОН 10мм (800мм * 1000мм)",
+          "prices": {
+            "шт": 785
+          },
+          "attributes": {
+            "Ширина": "80см",
+            "Длина": "1м",
+            "Толщина": "10мм"
+          }
+        }
+      ]
+    },
+    {
+      "id": "salt",
+      "slug": "salt",
+      "title": "Соль",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/sol-meshok.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "SALT-UNIVERSAL",
+          "title": "Таблетированная экстра \"Универсальная\" (Мешок 25 кг)",
+          "prices": {
+            "кг": 30,
+            "мешок": 750
+          },
+          "attributes": {
+            "Масса": "25кг"
+          }
+        },
+        {
+          "sku": "SALT-GALIT",
+          "title": "Галит (Мешок 50 кг)",
+          "prices": {
+            "кг": 11,
+            "мешок": 550
+          },
+          "attributes": {
+            "Масса": "50кг"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vkladysh-v-bochku",
+      "slug": "vkladysh-v-bochku",
+      "title": "Вкладыш в бочку",
+      "categoryIds": [],
+      "collectionIds": [],
+      "description": "",
+      "coverImage": "/image/products/vkladysh-v-bochku-250-litrov.webp",
+      "gallery": [],
+      "certificates": [],
+      "base_attributes": {},
+      "variants": [
+        {
+          "sku": "BLUE",
+          "title": "Синий (Упаковка 10 шт)",
+          "prices": {
+            "упаковка": 100
+          },
+          "attributes": {}
         }
       ]
     }
