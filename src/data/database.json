@@ -287,7 +287,8 @@
       "slug": "izolyatsiya-iz-vspenennenogo-polietilena",
       "title": "Изоляция из вспененненого полиэтилена",
       "categoryIds": [
-        "vspenennyy-polietilen"
+        "vspenennyy-polietilen",
+        "podlozhka-iz-vspenennogo-polietilena"
       ],
       "collectionIds": [],
       "description": "Универсальная изоляция ППИ–П из вспененного полиэтилена обладает уникальным сочетанием свойств тепло-, паро-, вибро-, гидроизоляции и долговечности, практически не изменяя своих физико-механических характеристик на весь срок эксплуатации материала в строительных конструкциях. Материал выпускается методом непрерывной экструзии из полиэтилена высокого давления и имеет эластичную закрытую ячеистую структуру.",
@@ -414,7 +415,8 @@
       "slug": "otrazhayushchaya-izolyatsiya-iz-vspenennenogo-polietilena",
       "title": "Отражающая изоляция из вспененненого полиэтилена",
       "categoryIds": [
-        "vspenennyy-polietilen"
+        "vspenennyy-polietilen",
+        "podlozhka-iz-vspenennogo-polietilena-s-otrazhayushchim-sloem-iz-lavsana"
       ],
       "collectionIds": [],
       "description": "Универсальная отражающая изоляция марки ППИ-ПЛ применяется для влаго- и теплоизоляции строительных конструкций.\nПодложка состоит из вспененного полиэтилена, ламинированного металлизированной лавсановой пленкой.",
@@ -514,9 +516,13 @@
       "slug": "podlozhka-dlya-sistemy-teplyy-pol",
       "title": "Подложка для системы \"Теплый пол\"",
       "categoryIds": [
-        "vspenennyy-polietilen"
+        "vspenennyy-polietilen",
+        "podlozhka-iz-vspenennogo-polietilena-s-otrazhayushchim-sloem-iz-lavsana",
+        "podlozhka-dlya-sistemy-teplyy-pol"
       ],
-      "collectionIds": [],
+      "collectionIds": [
+        "dlya-utepleniya-i-zvukoizolyatsii-pola"
+      ],
       "description": "Отражающая подложка марки ППИ-ПЛ с печатью для изоляции систем «теплый пол». \n\nПодложка состоит из вспененного полиэтилена, ламинированного металлизированной лавсановой пленкой.  \n\nПодложка выпускается с разметкой для правильного и удобного монтажа нагревательных элементов системы.",
       "coverImage": "/image/products/otrazhayushchaya-podlozhka-sistem-teplyy-pol.webp",
       "gallery": [],
@@ -551,9 +557,12 @@
       "slug": "otrazhayushchaya-izolyatsiya-dlya-ban-i-saun",
       "title": "Отражающая изоляция для бань и саун",
       "categoryIds": [
-        "vspenennyy-polietilen"
+        "vspenennyy-polietilen",
+        "otrazhayushchaya-teploizolyatsiya-povyshennoy-plotnosti"
       ],
-      "collectionIds": [],
+      "collectionIds": [
+        "dlya-ban-i-saun"
+      ],
       "description": "Отражающая теплоизоляция марки НПП-К-ЛФ специально разработана для быстрого прогрева и максимального сохранения тепла в банях и саунах. \nАлюминиевая фольга выступает эффективным отражателем тепловых потоков в сторону обогреваемого помещения, а высокоплотный пористый полимер создает сильное теплосопротивление и не дает теплу уходить из нагретого помещения.",
       "coverImage": "/image/products/folga-globeks-ekspert.webp",
       "gallery": [],
@@ -628,7 +637,8 @@
       "slug": "shumoizolyatsiya-iz-vspenennenogo-polietilena",
       "title": "Шумоизоляция из вспененненого полиэтилена",
       "categoryIds": [
-        "vspenennyy-polietilen"
+        "vspenennyy-polietilen",
+        "shumoizolyatsiya"
       ],
       "collectionIds": [],
       "description": "Один из самых эффективных способов звукоизоляции в многоквартирных домах – метод создания композитных многослойных конструкций с включением в них пористых, воздушных, вибродемпфирующих прокладок.\n\n\nВибродемпфирующая прокладка НПП-К специально разработана для уменьшения ударного и воздушного шума в конструкциях \"плавающих\" стяжек для межэтажных перекрытий.",
@@ -694,7 +704,8 @@
       "slug": "samokleyashchayasya-izolyatsiya-iz-vspenennenogo-polietilena-s-otrazhayushchim-pokrytiem",
       "title": "Самоклеящаяся изоляция из вспененненого полиэтилена с отражающим покрытием",
       "categoryIds": [
-        "vspenennyy-polietilen"
+        "vspenennyy-polietilen",
+        "podlozhka-iz-vspenennogo-polietilena-s-otrazhayushchim-sloem-iz-lavsana-s-samokleyushchimsya-sloem"
       ],
       "collectionIds": [],
       "description": "Отражающая, самоклеящаяся изоляция для систем кондиционирования с металлизированной пленкой марки ППИ-ПЛСК. \n\nМатериал изготовлен из вспененного полиэтилена и ламинирован теплоотражающим слоем из металлизированной пленки с одной стороны и самоклеящимся слоем - с другой.",
@@ -755,7 +766,8 @@
       "slug": "samokleyashchayasya-izolyatsiya-iz-vspenennenogo-polietilena-s-folgoy",
       "title": "Самоклеящаяся изоляция из вспененненого полиэтилена с фольгой",
       "categoryIds": [
-        "vspenennyy-polietilen"
+        "vspenennyy-polietilen",
+        "podlozhka-iz-vspenennogo-polietilena-s-otrazhayushchim-sloem-iz-folgi-s-samokleyushchimsya-sloem"
       ],
       "collectionIds": [],
       "description": "Отражающая, самоклеящаяся изоляция для систем кондиционирования с фольгой марки ППИ-ПФСК. \n\nМатериал изготовлен из вспененного полиэтилена, с одной стороны ламинирован теплоотражающим слоем из алюминиевой фольги, с другой стороны -самоклеящимся слоем.",
@@ -817,7 +829,9 @@
       "slug": "maty-iz-vspenennenlshl-polietilena",
       "title": "Маты из вспененненого полиэтилена",
       "categoryIds": [
-        "vspenennyy-polietilen"
+        "vspenennyy-polietilen",
+        "podlozhka-iz-vspenennogo-polietilena",
+        "maty-iz-vspenennogo-polietilena"
       ],
       "collectionIds": [],
       "description": "Универсальные строительные маты предназначены для тепло, и звукоизоляции строительных конструкций. Материал выпускается методом дублирования из полимерных пористых композитов различной плотности с закрытой структурой ячеек.\n\nКомпозитный состав мата позволяет получить индекс звукоизоляции в конструкции межкомнатной перегородки",
@@ -891,8 +905,12 @@
       "id": "podlozhka-pod-laminat",
       "slug": "podlozhka-pod-laminat",
       "title": "Подложка под ламинат",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "podlozhka-pod-laminat-xps"
+      ],
+      "collectionIds": [
+        "dlya-utepleniya-i-zvukoizolyatsii-pola"
+      ],
       "description": "Подложка под ламинат из вспененного пенополистирола. \n\nИспользуется как шумо- и теплоизолирующая подложка под любое напольное покрытие. \n\nПомогает избежать деформации ламината при неровностях пола.",
       "coverImage": "/image/products/img_20200729_102421_hdr.webp",
       "gallery": [],
@@ -923,7 +941,8 @@
       "slug": "lenta-dempfernaya",
       "title": "Лента демпферная",
       "categoryIds": [
-        "vspenennyy-polietilen"
+        "vspenennyy-polietilen",
+        "lenta-dempfernaya"
       ],
       "collectionIds": [],
       "description": "Применяются для изолирования «плавающей» стяжки от стены и демпфирования любых строительных конструкций. \n\nЧаще всего демпферные ленты используются в системах «плавающих» стяжек вдоль стены по периметру всего помещения, где заливается стяжка.",
@@ -985,7 +1004,8 @@
       "slug": "zhgut",
       "title": "Жгут",
       "categoryIds": [
-        "vspenennyy-polietilen"
+        "vspenennyy-polietilen",
+        "zhguty-stykovaya-izolyatsiya"
       ],
       "collectionIds": [],
       "description": "Стыковая изоляция из вспененного полиэтилена применяется для герметизации стыков при панельном строительстве, установке окон, дверей и других работах, в которых традиционно используются монтажные пены. \n\nИспользование жгутов дает существенное уменьшение расхода дорогостоящих материалов и снижение трудоемкости работ, при сохранении необходимых показателей тепло-, гидро, звукоизоляции.",
@@ -1091,8 +1111,12 @@
       "id": "izopar-eko",
       "slug": "izopar-eko",
       "title": "ИЗОПАР ЭКО",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "stroitelnye-membrany"
+      ],
+      "collectionIds": [
+        "dlya-zashchity-i-utepleniya-krovli"
+      ],
       "description": "",
       "coverImage": "/image/products/izopar-eko-v.webp",
       "gallery": [
@@ -1156,8 +1180,12 @@
       "id": "izopar",
       "slug": "izopar",
       "title": "ИЗОПАР",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "stroitelnye-membrany"
+      ],
+      "collectionIds": [
+        "dlya-zashchity-i-utepleniya-krovli"
+      ],
       "description": "",
       "coverImage": "/image/products/izopar-abcd.webp",
       "gallery": [],
@@ -1290,8 +1318,12 @@
       "id": "izopar-globex",
       "slug": "izopar-globex",
       "title": "ИЗОПАР Globex",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "stroitelnye-membrany"
+      ],
+      "collectionIds": [
+        "dlya-zashchity-i-utepleniya-krovli"
+      ],
       "description": "",
       "coverImage": "/image/products/izopar-eko-v.webp",
       "gallery": [],
@@ -1352,8 +1384,12 @@
       "id": "geotekstil",
       "slug": "geotekstil",
       "title": "Геотекстиль",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "g"
+      ],
+      "collectionIds": [
+        "dlya-dachi-i-sada"
+      ],
       "description": "",
       "coverImage": "/image/products/geotekstil.webp",
       "gallery": [],
@@ -1421,7 +1457,10 @@
       "id": "trubnaya-obolochka",
       "slug": "trubnaya-obolochka",
       "title": "Трубная оболочка толщина стенки 9 мм",
-      "categoryIds": [],
+      "categoryIds": [
+        "vspenennyy-polietilen",
+        "teploizolyatsiya-dlya-trub"
+      ],
       "collectionIds": [],
       "description": "",
       "coverImage": "/image/products/trub-0.webp",
@@ -1617,7 +1656,10 @@
       "id": "trubnaya-obolochka-13",
       "slug": "trubnaya-obolochka-13",
       "title": "Трубная оболочка толщина стенки 13 мм",
-      "categoryIds": [],
+      "categoryIds": [
+        "vspenennyy-polietilen",
+        "teploizolyatsiya-dlya-trub"
+      ],
       "collectionIds": [],
       "description": "",
       "coverImage": "/image/products/trub-0.webp",
@@ -1789,7 +1831,10 @@
       "id": "trubnaya-obolochka-20",
       "slug": "trubnaya-obolochka-20",
       "title": "Трубная оболочка толщина стенки 20 мм",
-      "categoryIds": [],
+      "categoryIds": [
+        "vspenennyy-polietilen",
+        "teploizolyatsiya-dlya-trub"
+      ],
       "collectionIds": [],
       "description": "",
       "coverImage": "/image/products/trub-0.webp",
@@ -1986,7 +2031,9 @@
       "slug": "trubnaya-obolochka-13-copy",
       "title": "Тилит толщина стенки 6 мм (Трубная оболочка)",
       "categoryIds": [
-        "vspenennyy-polietilen"
+        "vspenennyy-polietilen",
+        "teploizolyatsiya-dlya-trub",
+        "teploizolyatsiya-dlya-trub-krasnaya-sinyaya"
       ],
       "collectionIds": [],
       "description": "",
@@ -2027,7 +2074,9 @@
       "id": "dzhut-eco-tolshchina-5-6-mm",
       "slug": "dzhut-eco-tolshchina-5-6-mm",
       "title": "Джут ECO Толщина 5-6 мм",
-      "categoryIds": [],
+      "categoryIds": [
+        "dzhut"
+      ],
       "collectionIds": [],
       "description": "",
       "coverImage": "/image/products/dzhut-2.webp",
@@ -2079,7 +2128,9 @@
       "id": "dzhut-tolshchina-8-mm",
       "slug": "dzhut-tolshchina-8-mm",
       "title": "Джут Толщина 8 мм",
-      "categoryIds": [],
+      "categoryIds": [
+        "dzhut"
+      ],
       "collectionIds": [],
       "description": "",
       "coverImage": "/image/products/dzhut.webp",
@@ -2131,7 +2182,9 @@
       "id": "paklya-tyukovaya-20kg",
       "slug": "paklya-tyukovaya-20kg",
       "title": "Пакля тюковая",
-      "categoryIds": [],
+      "categoryIds": [
+        "dzhut"
+      ],
       "collectionIds": [],
       "description": "",
       "coverImage": "/image/products/paklya-tyukovaya-20-kg.webp",
@@ -2153,8 +2206,12 @@
       "id": "folga-dlya-bani",
       "slug": "folga-dlya-bani",
       "title": "Фольга для бани",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "folga"
+      ],
+      "collectionIds": [
+        "dlya-ban-i-saun"
+      ],
       "description": "",
       "coverImage": "/image/products/folga-dlya-bani-i-sauny.webp",
       "gallery": [],
@@ -2193,8 +2250,12 @@
       "id": "na-kraftovoy-bumage",
       "slug": "na-kraftovoy-bumage",
       "title": "На крафтовой бумаге",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "folga"
+      ],
+      "collectionIds": [
+        "dlya-ban-i-saun"
+      ],
       "description": "",
       "coverImage": "/image/products/folga-na-kraft-bumage.webp",
       "gallery": [],
@@ -2243,8 +2304,12 @@
       "id": "otrazhayushchaya-izolyatsiya-dlya-bani-i-sauny",
       "slug": "otrazhayushchaya-izolyatsiya-dlya-bani-i-sauny",
       "title": "Отражающая изоляция для бани и сауны",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "folga"
+      ],
+      "collectionIds": [
+        "dlya-ban-i-saun"
+      ],
       "description": "",
       "coverImage": "/image/products/veberton-termo-a-pet.webp",
       "gallery": [
@@ -2271,8 +2336,12 @@
       "id": "izopleks-35",
       "slug": "izopleks-35",
       "title": "ИЗОПЛЕКС-35",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "ekstrudirovannyy-penopolistirol"
+      ],
+      "collectionIds": [
+        "dlya-utepleniya-i-zvukoizolyatsii-pola"
+      ],
       "description": "",
       "coverImage": "/image/products/izoplex-0.webp",
       "gallery": [],
@@ -2362,8 +2431,14 @@
       "id": "napylyaemyy-uteplitel-marcon-spray",
       "slug": "napylyaemyy-uteplitel-marcon-spray",
       "title": "Напыляемый утеплитель Marcon Spray",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "montazhnaya-pena"
+      ],
+      "collectionIds": [
+        "dlya-zashchity-i-utepleniya-krovli",
+        "dlya-dachi-i-sada",
+        "dlya-zimnego-montazha-i-germetizatsii-okon"
+      ],
       "description": "",
       "coverImage": "/image/products/napylyaemyy-uteplitel2.webp",
       "gallery": [],
@@ -2388,8 +2463,13 @@
       "id": "montazhnaya-pena-bytovaya",
       "slug": "montazhnaya-pena-bytovaya",
       "title": "Монтажная пена бытовая",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "montazhnaya-pena"
+      ],
+      "collectionIds": [
+        "dlya-dachi-i-sada",
+        "dlya-zimnego-montazha-i-germetizatsii-okon"
+      ],
       "description": "",
       "coverImage": "/image/products/nasha-penaqwadrat.webp",
       "gallery": [
@@ -2435,8 +2515,14 @@
       "id": "montazhnaya-pena-unika-diy-bytovaya",
       "slug": "montazhnaya-pena-unika-diy-bytovaya",
       "title": "Монтажная пена UNIKA DIY БЫТОВАЯ",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "montazhnaya-pena"
+      ],
+      "collectionIds": [
+        "dlya-zashchity-i-utepleniya-krovli",
+        "dlya-dachi-i-sada",
+        "dlya-zimnego-montazha-i-germetizatsii-okon"
+      ],
       "description": "",
       "coverImage": "/image/products/unika_diy_50.webp",
       "gallery": [
@@ -2475,8 +2561,14 @@
       "id": "montazhnaya-pena-unika-diy",
       "slug": "montazhnaya-pena-unika-diy",
       "title": "Монтажная пена UNIKA DIY",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "montazhnaya-pena"
+      ],
+      "collectionIds": [
+        "dlya-zashchity-i-utepleniya-krovli",
+        "dlya-dachi-i-sada",
+        "dlya-zimnego-montazha-i-germetizatsii-okon"
+      ],
       "description": "",
       "coverImage": "/image/products/4_balona_unika_diy.webp",
       "gallery": [],
@@ -2541,8 +2633,14 @@
       "id": "montazhnaya-pena-marcon-pro",
       "slug": "montazhnaya-pena-marcon-pro",
       "title": "Монтажная пена Marcon PRO+",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "montazhnaya-pena"
+      ],
+      "collectionIds": [
+        "dlya-zashchity-i-utepleniya-krovli",
+        "dlya-dachi-i-sada",
+        "dlya-zimnego-montazha-i-germetizatsii-okon"
+      ],
       "description": "",
       "coverImage": "/image/products/marcon-pro-belyyfon-kopiya.webp",
       "gallery": [],
@@ -2567,8 +2665,14 @@
       "id": "montazhnaya-pena-marcon-prof",
       "slug": "montazhnaya-pena-marcon-prof",
       "title": "Монтажная пена Marcon PRO",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "montazhnaya-pena"
+      ],
+      "collectionIds": [
+        "dlya-zashchity-i-utepleniya-krovli",
+        "dlya-dachi-i-sada",
+        "dlya-zimnego-montazha-i-germetizatsii-okon"
+      ],
       "description": "",
       "coverImage": "/image/products/marcon-pro-65qwadrat.webp",
       "gallery": [],
@@ -2605,8 +2709,14 @@
       "id": "montazhnaya-pena-marcon-profi",
       "slug": "montazhnaya-pena-marcon-profi",
       "title": "Монтажная пена Marcon PRO",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "montazhnaya-pena"
+      ],
+      "collectionIds": [
+        "dlya-zashchity-i-utepleniya-krovli",
+        "dlya-dachi-i-sada",
+        "dlya-zimnego-montazha-i-germetizatsii-okon"
+      ],
       "description": "",
       "coverImage": "/image/products/marcon-pro-65zimnyaya-850ml.webp",
       "gallery": [],
@@ -2679,8 +2789,14 @@
       "id": "kley-pena-marcon",
       "slug": "kley-pena-marcon",
       "title": "Клей-пена Marcon",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "montazhnaya-pena"
+      ],
+      "collectionIds": [
+        "dlya-zashchity-i-utepleniya-krovli",
+        "dlya-dachi-i-sada",
+        "dlya-zimnego-montazha-i-germetizatsii-okon"
+      ],
       "description": "",
       "coverImage": "/image/products/kley-montazhnyy-masterblokqwadrat.webp",
       "gallery": [],
@@ -2705,8 +2821,14 @@
       "id": "kley-pena-marcon-two",
       "slug": "kley-pena-marcon-two",
       "title": "Клей-пена Marcon",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "montazhnaya-pena"
+      ],
+      "collectionIds": [
+        "dlya-zashchity-i-utepleniya-krovli",
+        "dlya-dachi-i-sada",
+        "dlya-zimnego-montazha-i-germetizatsii-okon"
+      ],
       "description": "",
       "coverImage": "/image/products/kley-montazhnyy-masterplitqwadrat.webp",
       "gallery": [],
@@ -2731,8 +2853,13 @@
       "id": "germetik-silikonovyy-sanitarnyy-marcon",
       "slug": "germetik-silikonovyy-sanitarnyy-marcon",
       "title": "Герметик силиконовый санитарный Marcon",
-      "categoryIds": [],
-      "collectionIds": [],
+      "categoryIds": [
+        "montazhnaya-pena"
+      ],
+      "collectionIds": [
+        "dlya-dachi-i-sada",
+        "dlya-zimnego-montazha-i-germetizatsii-okon"
+      ],
       "description": "",
       "coverImage": "/image/products/germetik-silikonovyy-belyy-260mlupdate.webp",
       "gallery": [],
