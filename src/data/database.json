@@ -7,6 +7,216 @@
       "title": "Вспененный полиэтилен",
       "coverImage": "/image/categories/izolayn-npe-uteplitel-folgirovannyy-680x630.webp",
       "description": ""
+    },
+    {
+      "id": "podlozhka-iz-vspenennogo-polietilena",
+      "slug": "podlozhka-iz-vspenennogo-polietilena",
+      "title": "Подложка из вспененного полиэтилена",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "maty-iz-vspenennogo-polietilena",
+      "slug": "maty-iz-vspenennogo-polietilena",
+      "title": "Маты из вспененного полиэтилена",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "podlozhka-iz-vspenennogo-polietilena-s-otrazhayushchim-sloem-iz-lavsana",
+      "slug": "podlozhka-iz-vspenennogo-polietilena-s-otrazhayushchim-sloem-iz-lavsana",
+      "title": "Подложка из вспененного полиэтилена с отражающим слоем из лавсана",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "otrazhayushchaya-teploizolyatsiya-povyshennoy-plotnosti",
+      "slug": "otrazhayushchaya-teploizolyatsiya-povyshennoy-plotnosti",
+      "title": "Отражающая теплоизоляция повышенной плотности",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "shumoizolyatsiya",
+      "slug": "shumoizolyatsiya",
+      "title": "Шумоизоляция",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "podlozhka-iz-vspenennogo-polietilena-s-otrazhayushchim-sloem-iz-lavsana-s-samokleyushchimsya-sloem",
+      "slug": "podlozhka-iz-vspenennogo-polietilena-s-otrazhayushchim-sloem-iz-lavsana-s-samokleyushchimsya-sloem",
+      "title": "Подложка из вспененного полиэтилена с отражающим слоем из лавсана с самоклеющимся слоем",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "podlozhka-iz-vspenennogo-polietilena-s-otrazhayushchim-sloem-iz-folgi-s-samokleyushchimsya-sloem",
+      "slug": "podlozhka-iz-vspenennogo-polietilena-s-otrazhayushchim-sloem-iz-folgi-s-samokleyushchimsya-sloem",
+      "title": "Подложка из вспененного полиэтилена с отражающим слоем из фольги с самоклеющимся слоем",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "podlozhka-dlya-sistemy-teplyy-pol",
+      "slug": "podlozhka-dlya-sistemy-teplyy-pol",
+      "title": "Подложка для системы \"Теплый пол\"",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "podlozhka-pod-laminat-xps",
+      "slug": "podlozhka-pod-laminat-xps",
+      "title": "Подложка под ламинат XPS",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "lenta-dempfernaya",
+      "slug": "lenta-dempfernaya",
+      "title": "Лента демпферная",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "zhguty-stykovaya-izolyatsiya",
+      "slug": "zhguty-stykovaya-izolyatsiya",
+      "title": "Жгуты (стыковая изоляция)",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "stroitelnye-membrany",
+      "slug": "stroitelnye-membrany",
+      "title": "Строительные мембраны",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "g",
+      "slug": "g",
+      "title": "Геотекстиль",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "teploizolyatsiya-dlya-trub",
+      "slug": "teploizolyatsiya-dlya-trub",
+      "title": "Теплоизоляция для труб",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "teploizolyatsiya-dlya-trub-krasnaya-sinyaya",
+      "slug": "teploizolyatsiya-dlya-trub-krasnaya-sinyaya",
+      "title": "Теплоизоляция для труб (Красная / Синяя)",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "teploizolyatsiya-dlya-trub-skorlupa-iz-penoplasta",
+      "slug": "teploizolyatsiya-dlya-trub-skorlupa-iz-penoplasta",
+      "title": "Теплоизоляция для труб (скорлупа) из пенопласта",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "dzhut",
+      "slug": "dzhut",
+      "title": "Джут",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "folga",
+      "slug": "folga",
+      "title": "Фольга",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "ekstrudirovannyy-penopolistirol",
+      "slug": "ekstrudirovannyy-penopolistirol",
+      "title": "Экструдированный пенополистирол",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "montazhnaya-pena",
+      "slug": "montazhnaya-pena",
+      "title": "Монтажная пена",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "pistolety-dlya-montazhnoy-peny",
+      "slug": "pistolety-dlya-montazhnoy-peny",
+      "title": "Пистолеты для монтажной пены",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "skotchi",
+      "slug": "skotchi",
+      "title": "Скотчи",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "podlozhka-pod-oboi",
+      "slug": "podlozhka-pod-oboi",
+      "title": "Подложка под обои",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "meshki",
+      "slug": "meshki",
+      "title": "Мешки",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "stretch-plenka",
+      "slug": "stretch-plenka",
+      "title": "Стретч пленка",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "perchatki",
+      "slug": "perchatki",
+      "title": "Перчатки",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "ognezashchitnye-materialy",
+      "slug": "ognezashchitnye-materialy",
+      "title": "Огнезащитные материалы",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "folma-kholst",
+      "slug": "folma-kholst",
+      "title": "Фольма-холст",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "sol",
+      "slug": "sol",
+      "title": "Соль",
+      "coverImage": "",
+      "description": ""
+    },
+    {
+      "id": "vkladysh-v-bochku",
+      "slug": "vkladysh-v-bochku",
+      "title": "Вкладыш в бочку",
+      "coverImage": "",
+      "description": ""
     }
   ],
   "collections": [],
