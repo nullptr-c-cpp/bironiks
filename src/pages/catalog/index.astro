@@ -6,7 +6,7 @@ import { getUrl } from '../../utils/paths';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const { products, categories, collections } = database;
 
-// Склейка названий и генерация поисковых метаданных
+// Склейка названий и генерация поисковых метаданных с учетом подкатегорий
 const allVariantCards = products.flatMap(p => {
   return p.variants.map(v => {
     const fullTitle = `${p.title} — ${v.title}`;
@@ -22,6 +22,7 @@ const allVariantCards = products.flatMap(p => {
       firstPrice: firstPriceEntry ? firstPriceEntry[1] : null,
       firstUnit: firstPriceEntry ? firstPriceEntry[0] : 'шт',
       categoryIds: p.categoryIds || [],
+      subcategoryIds: p.subcategoryIds || (p.subcategoryId ? [p.subcategoryId] : []),
       collectionIds: p.collectionIds || [],
       attributes: { ...p.base_attributes, ...v.attributes },
       searchableText,
@@ -36,7 +37,7 @@ const allVariantCards = products.flatMap(p => {
     
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-3">
       <div>
-        <span class="text-xs sm:text-sm font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c] font-bold">Стройматериалы в Омске</span>
+        <span class="text-xs sm:text-sm font-mono uppercase tracking-widest text-[#0d9488] dark:text-[#3dd68c] font-bold">Склад в Омске</span>
         <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-[#f0f2f5] mt-1">
           Каталог номенклатуры
         </h1>
@@ -57,7 +58,7 @@ const allVariantCards = products.flatMap(p => {
           <svg class="w-4 h-4 text-[#0d9488] dark:text-[#3dd68c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
           </svg>
-          <span>Фильтры, категории и подборки</span>
+          <span>Фильтры и категории</span>
         </span>
         <span id="mobile-filter-chevron" class="text-zinc-400 transition-transform">↓</span>
       </button>
@@ -66,22 +67,20 @@ const allVariantCards = products.flatMap(p => {
     <!-- СТРУКТУРА: САЙДБАР СЛЕВА + ВИТРИНА СПРАВА -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
       
-      <!-- САЙДБАР С ФИЛЬТРАМИ -->
+      <!-- САЙДБАР С ФИЛЬТРАМИ И ПОДАТЕГОРИЯМИ -->
       <aside id="catalog-sidebar" class="hidden lg:block lg:col-span-4 space-y-6">
         
         <div class="p-5 sm:p-7 rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] space-y-6 shadow-sm sticky top-24 transition-all duration-500">
           
           <div class="flex items-center justify-between pb-3 border-b border-zinc-100 dark:border-white/[0.06]">
-            <span class="text-sm font-mono uppercase tracking-widest font-bold text-zinc-900 dark:text-[#f0f2f5]">Фильтры</span>
+            <span class="text-sm font-mono uppercase tracking-widest font-bold text-zinc-900 dark:text-[#f0f2f5]">Категории</span>
             <button id="reset-all-filters" class="text-xs sm:text-sm font-mono text-zinc-400 hover:text-rose-500 transition">
               Сбросить
             </button>
           </div>
 
-          <!-- КАТЕГОРИИ -->
+          <!-- СПИСОК КАТЕГОРИЙ С РАСКРЫВАЮЩИМИСЯ ПОДАТЕГОРИЯМИ -->
           <div class="space-y-2">
-            <span class="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold block">Категория:</span>
-            
             <button 
               type="button" 
               data-category="all"
@@ -93,22 +92,73 @@ const allVariantCards = products.flatMap(p => {
 
             {categories.map(cat => {
               const count = allVariantCards.filter(item => item.categoryIds.includes(cat.id)).length;
+              const hasSubcategories = cat.subcategories && cat.subcategories.length > 0;
+
               return (
-                <button 
-                  type="button" 
-                  data-category={cat.id}
-                  class="cat-filter-btn w-full p-3 sm:p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]"
-                >
-                  <span class="truncate pr-2">{cat.title}</span>
-                  <span class="text-xs font-mono opacity-60">{count}</span>
-                </button>
+                <div class="category-item-group space-y-1.5" data-group-category={cat.id}>
+                  
+                  <!-- Кнопка категории -->
+                  <button 
+                    type="button" 
+                    data-category={cat.id}
+                    data-has-subcats={hasSubcategories ? "true" : "false"}
+                    class="cat-filter-btn w-full p-3 sm:p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]"
+                  >
+                    <span class="truncate pr-2">{cat.title}</span>
+                    <div class="flex items-center gap-1.5 shrink-0">
+                      <span class="text-xs font-mono opacity-60">{count}</span>
+                      {hasSubcategories && (
+                        <svg class="w-3.5 h-3.5 text-zinc-400 transition-transform duration-300 cat-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                        </svg>
+                      )}
+                    </div>
+                  </button>
+
+                  <!-- ПЛАВНО ВЫПЛЫВАЮЩИЙ БЛОК ПОДАТЕГОРИЙ -->
+                  {hasSubcategories && (
+                    <div class="subcat-accordion grid grid-rows-[0fr] opacity-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] pl-2">
+                      <div class="overflow-hidden space-y-1 pt-1 pb-1">
+                        
+                        <!-- Кнопка: Вся категория целиком -->
+                        <button
+                          type="button"
+                          data-parent-category={cat.id}
+                          data-subcategory="all"
+                          class="subcat-filter-btn active w-full py-2 px-3 rounded-xl text-left text-xs font-mono font-bold transition-all duration-200 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c]"
+                        >
+                          <span class="truncate">• Все {cat.title}</span>
+                          <span class="text-[10px] opacity-60 font-normal">({count})</span>
+                        </button>
+
+                        <!-- Список отдельных подкатегорий -->
+                        {cat.subcategories.map(sub => {
+                          const subCount = allVariantCards.filter(item => item.subcategoryIds.includes(sub.id)).length;
+                          return (
+                            <button
+                              type="button"
+                              data-parent-category={cat.id}
+                              data-subcategory={sub.id}
+                              class="subcat-filter-btn w-full py-2 px-3 rounded-xl text-left text-xs font-mono font-medium transition-all duration-200 flex items-center justify-between text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/[0.04]"
+                            >
+                              <span class="truncate pr-1">↳ {sub.title}</span>
+                              <span class="text-[10px] opacity-60">({subCount})</span>
+                            </button>
+                          );
+                        })}
+
+                      </div>
+                    </div>
+                  )}
+
+                </div>
               );
             })}
           </div>
 
           <!-- ФИЛЬТР: ПОДБОРКИ ПО НАЗНАЧЕНИЮ -->
           <div class="space-y-2 pt-4 border-t border-zinc-100 dark:border-white/[0.06]">
-            <span class="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold block">Подборка по назначению:</span>
+            <span class="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold block">Подборки по назначению:</span>
             
             <div class="flex flex-col gap-1.5">
               <button 
@@ -188,13 +238,14 @@ const allVariantCards = products.flatMap(p => {
                 class="catalog-item rounded-3xl bg-white dark:bg-[#181a1f] border border-zinc-200/80 dark:border-white/[0.08] p-5 flex flex-col justify-between hover:border-[#0d9488]/40 dark:hover:border-[#3dd68c]/40 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 group"
                 data-search={item.searchableText}
                 data-categories={item.categoryIds.join(',')}
+                data-subcategories={item.subcategoryIds.join(',')}
                 data-collections={item.collectionIds.join(',')}
                 data-attributes={JSON.stringify(item.attributes)}
               >
                 <div class="space-y-3">
                   {item.parentProduct.coverImage && (
                     <a href={getUrl(item.directUrl)} class="block h-48 sm:h-52 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-black/40 relative">
-                      <img src={getUrl(item.parentProduct.coverImage)} alt={item.fullTitle} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <img src={item.parentProduct.coverImage} alt={item.fullTitle} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       <span class="absolute top-3 right-3 text-xs font-mono font-bold text-[#0b633b] dark:text-[#3dd68c] px-3 py-1 rounded-full bg-white/90 dark:bg-[#181a1f]/90 backdrop-blur-md border border-[#3dd68c]/30">
                         В наличии
                       </span>
@@ -228,7 +279,7 @@ const allVariantCards = products.flatMap(p => {
                     )}
                   </div>
 
-                  <!-- УВЕЛИЧЕННЫЙ И УДОБНЫЙ БЛОК ВВОДА КОЛИЧЕСТВА -->
+                  <!-- ВВОД КОЛИЧЕСТВА -->
                   <div class="flex items-center gap-2 shrink-0">
                     <div class="flex items-center bg-zinc-100 dark:bg-white/[0.06] border border-zinc-200 dark:border-white/[0.08] rounded-xl px-1 py-1">
                       <button type="button" class="btn-qty-minus w-8 h-8 flex items-center justify-center text-zinc-500 hover:text-zinc-900 dark:hover:text-white font-bold text-sm">−</button>
@@ -278,6 +329,7 @@ const allVariantCards = products.flatMap(p => {
     const clearBtn = document.getElementById('search-clear');
     const catButtons = document.querySelectorAll('.cat-filter-btn');
     const colButtons = document.querySelectorAll('.col-filter-btn');
+    const subcatButtons = document.querySelectorAll('.subcat-filter-btn');
     const dynamicWrapper = document.getElementById('dynamic-attributes-wrapper');
     const dynamicList = document.getElementById('dynamic-attributes-list');
     const resetBtn = document.getElementById('reset-all-filters');
@@ -290,6 +342,19 @@ const allVariantCards = products.flatMap(p => {
     const toggleFiltersBtn = document.getElementById('toggle-mobile-filters');
     const catalogSidebar = document.getElementById('catalog-sidebar');
     const filterChevron = document.getElementById('mobile-filter-chevron');
+
+    // Функция автоматического закрытия фильтра на мобильных устройствах
+    function autoCloseMobileFilters() {
+      if (window.innerWidth < 1024 && catalogSidebar && !catalogSidebar.classList.contains('hidden')) {
+        catalogSidebar.classList.add('hidden');
+        if (filterChevron) filterChevron.textContent = '↓';
+        
+        // Плавная прокрутка к результатам выдачи
+        if (catalogGrid) {
+          catalogGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    }
 
     if (toggleFiltersBtn && catalogSidebar) {
       toggleFiltersBtn.addEventListener('click', () => {
@@ -311,6 +376,7 @@ const allVariantCards = products.flatMap(p => {
     }
 
     let activeCategory = 'all';
+    let activeSubcategory = 'all';
     let activeCollection = 'all';
     let searchQuery = (searchInput ? searchInput.value : '').trim().toLowerCase();
     let selectedAttrs = {};
@@ -318,6 +384,7 @@ const allVariantCards = products.flatMap(p => {
     function calculateFacetCount(targetKey, targetVal) {
       return rawVariantCards.filter(item => {
         if (activeCategory !== 'all' && !item.categoryIds.includes(activeCategory)) return false;
+        if (activeSubcategory !== 'all' && !item.subcategoryIds.includes(activeSubcategory)) return false;
         if (activeCollection !== 'all' && !item.collectionIds.includes(activeCollection)) return false;
         if (searchQuery && !item.searchableText.includes(searchQuery)) return false;
 
@@ -372,7 +439,12 @@ const allVariantCards = products.flatMap(p => {
       dynamicList.style.opacity = '0';
 
       setTimeout(() => {
-        const catItems = rawVariantCards.filter(item => item.categoryIds.includes(categoryId));
+        const catItems = rawVariantCards.filter(item => {
+          const matchCat = item.categoryIds.includes(categoryId);
+          const matchSub = activeSubcategory === 'all' || item.subcategoryIds.includes(activeSubcategory);
+          return matchCat && matchSub;
+        });
+
         const attrMap = {};
 
         catItems.forEach(item => {
@@ -467,11 +539,13 @@ const allVariantCards = products.flatMap(p => {
 
       items.forEach(item => {
         const itemCategories = (item.getAttribute('data-categories') || '').split(',');
+        const itemSubcategories = (item.getAttribute('data-subcategories') || '').split(',');
         const itemCollections = (item.getAttribute('data-collections') || '').split(',');
         const itemText = item.getAttribute('data-search') || '';
         const itemAttrs = JSON.parse(item.getAttribute('data-attributes') || '{}');
 
         const matchesCat = activeCategory === 'all' || itemCategories.includes(activeCategory);
+        const matchesSub = activeSubcategory === 'all' || itemSubcategories.includes(activeSubcategory);
         const matchesCol = activeCollection === 'all' || itemCollections.includes(activeCollection);
         const matchesSearch = !searchQuery || itemText.includes(searchQuery);
 
@@ -484,7 +558,7 @@ const allVariantCards = products.flatMap(p => {
           }
         }
 
-        if (matchesCat && matchesCol && matchesSearch && matchesAttrs) {
+        if (matchesCat && matchesSub && matchesCol && matchesSearch && matchesAttrs) {
           item.style.display = 'flex';
           visibleCount++;
         } else {
@@ -494,6 +568,139 @@ const allVariantCards = products.flatMap(p => {
 
       if (counterEl) counterEl.textContent = `Показано: ${visibleCount} позиций`;
       if (noResultsEl) noResultsEl.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+
+    // Сворачивание всех аккордеонов подкатегорий
+    function closeAllSubcatAccordions() {
+      document.querySelectorAll('.subcat-accordion').forEach(acc => {
+        acc.classList.remove('grid-rows-[1fr]', 'opacity-100');
+        acc.classList.add('grid-rows-[0fr]', 'opacity-0');
+      });
+      document.querySelectorAll('.cat-chevron').forEach(chevron => {
+        chevron.style.transform = 'rotate(0deg)';
+      });
+    }
+
+    // Обработка клика по категориям
+    catButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const categoryId = btn.getAttribute('data-category') || 'all';
+        const hasSubcats = btn.getAttribute('data-has-subcats') === 'true';
+
+        catButtons.forEach(b => {
+          b.className = 'cat-filter-btn w-full p-3 sm:p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]';
+        });
+        btn.className = 'cat-filter-btn active w-full p-3 sm:p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]';
+
+        closeAllSubcatAccordions();
+
+        activeCategory = categoryId;
+        activeSubcategory = 'all';
+
+        if (categoryId === 'all') {
+          renderDynamicFilters('all');
+          applyFiltersWithFade();
+          autoCloseMobileFilters();
+          return;
+        }
+
+        // Если есть подкатегории — плавно открываем аккордеон подкатегорий
+        if (hasSubcats) {
+          const group = btn.closest('.category-item-group');
+          const accordion = group?.querySelector('.subcat-accordion');
+          const chevron = group?.querySelector('.cat-chevron');
+
+          if (accordion) {
+            accordion.classList.remove('grid-rows-[0fr]', 'opacity-0');
+            accordion.classList.add('grid-rows-[1fr]', 'opacity-100');
+          }
+          if (chevron) {
+            chevron.style.transform = 'rotate(180deg)';
+          }
+
+          // Сбрасываем выделение кнопок внутри подкатегорий на "Все"
+          group?.querySelectorAll('.subcat-filter-btn').forEach(sb => {
+            const isAll = sb.getAttribute('data-subcategory') === 'all';
+            sb.className = isAll
+              ? 'subcat-filter-btn active w-full py-2 px-3 rounded-xl text-left text-xs font-mono font-bold transition-all duration-200 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c]'
+              : 'subcat-filter-btn w-full py-2 px-3 rounded-xl text-left text-xs font-mono font-medium transition-all duration-200 flex items-center justify-between text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/[0.04]';
+          });
+
+          renderDynamicFilters(activeCategory);
+          applyFiltersWithFade();
+        } else {
+          // Если подкатегорий нет — сразу применяем и закрываем фильтр на мобилке
+          renderDynamicFilters(activeCategory);
+          applyFiltersWithFade();
+          autoCloseMobileFilters();
+        }
+      });
+    });
+
+    // Обработка клика по подкатегориям
+    subcatButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const parentCategory = btn.getAttribute('data-parent-category');
+        const subcatId = btn.getAttribute('data-subcategory') || 'all';
+
+        const group = btn.closest('.category-item-group');
+        group?.querySelectorAll('.subcat-filter-btn').forEach(sb => {
+          sb.className = 'subcat-filter-btn w-full py-2 px-3 rounded-xl text-left text-xs font-mono font-medium transition-all duration-200 flex items-center justify-between text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/[0.04]';
+        });
+        btn.className = 'subcat-filter-btn active w-full py-2 px-3 rounded-xl text-left text-xs font-mono font-bold transition-all duration-200 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c]';
+
+        activeCategory = parentCategory;
+        activeSubcategory = subcatId;
+
+        renderDynamicFilters(activeCategory);
+        applyFiltersWithFade();
+        autoCloseMobileFilters();
+      });
+    });
+
+    // Обработка коллекций
+    colButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        colButtons.forEach(b => {
+          b.className = 'col-filter-btn w-full p-2.5 sm:p-3 rounded-xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]';
+        });
+        btn.className = 'col-filter-btn active w-full p-2.5 sm:p-3 rounded-xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]';
+        
+        activeCollection = btn.getAttribute('data-collection') || 'all';
+        updateAttributesAvailability();
+        applyFiltersWithFade();
+        autoCloseMobileFilters();
+      });
+    });
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        searchQuery = '';
+        activeCategory = 'all';
+        activeSubcategory = 'all';
+        activeCollection = 'all';
+
+        closeAllSubcatAccordions();
+        
+        catButtons.forEach(b => {
+          b.className = b.getAttribute('data-category') === 'all'
+            ? 'cat-filter-btn active w-full p-3 sm:p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]'
+            : 'cat-filter-btn w-full p-3 sm:p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]';
+        });
+
+        colButtons.forEach(b => {
+          b.className = b.getAttribute('data-collection') === 'all'
+            ? 'col-filter-btn active w-full p-2.5 sm:p-3 rounded-xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]'
+            : 'col-filter-btn w-full p-2.5 sm:p-3 rounded-xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]';
+        });
+
+        renderDynamicFilters('all');
+        if (clearBtn) clearBtn.style.display = 'none';
+        applyFiltersWithFade();
+        autoCloseMobileFilters();
+      });
     }
 
     if (searchInput) {
@@ -515,57 +722,7 @@ const allVariantCards = products.flatMap(p => {
       });
     }
 
-    catButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        catButtons.forEach(b => {
-          b.className = 'cat-filter-btn w-full p-3 sm:p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]';
-        });
-        btn.className = 'cat-filter-btn active w-full p-3 sm:p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]';
-        
-        activeCategory = btn.getAttribute('data-category') || 'all';
-        renderDynamicFilters(activeCategory);
-        applyFiltersWithFade();
-      });
-    });
-
-    colButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        colButtons.forEach(b => {
-          b.className = 'col-filter-btn w-full p-2.5 sm:p-3 rounded-xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]';
-        });
-        btn.className = 'col-filter-btn active w-full p-2.5 sm:p-3 rounded-xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]';
-        
-        activeCollection = btn.getAttribute('data-collection') || 'all';
-        updateAttributesAvailability();
-        applyFiltersWithFade();
-      });
-    });
-
-    if (resetBtn) {
-      resetBtn.addEventListener('click', () => {
-        if (searchInput) searchInput.value = '';
-        searchQuery = '';
-        activeCategory = 'all';
-        activeCollection = 'all';
-        
-        catButtons.forEach(b => {
-          b.className = b.getAttribute('data-category') === 'all'
-            ? 'cat-filter-btn active w-full p-3 sm:p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]'
-            : 'cat-filter-btn w-full p-3 sm:p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]';
-        });
-
-        colButtons.forEach(b => {
-          b.className = b.getAttribute('data-collection') === 'all'
-            ? 'col-filter-btn active w-full p-2.5 sm:p-3 rounded-xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-[#3dd68c]/15 text-[#0b633b] dark:text-[#3dd68c] border border-[#3dd68c]'
-            : 'col-filter-btn w-full p-2.5 sm:p-3 rounded-xl text-left text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-between bg-zinc-50 dark:bg-[#111215] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-white/[0.04] hover:border-zinc-300 dark:hover:border-white/[0.2]';
-        });
-
-        renderDynamicFilters('all');
-        if (clearBtn) clearBtn.style.display = 'none';
-        applyFiltersWithFade();
-      });
-    }
-
+    // Обработка кнопок количества карточки товара
     document.querySelectorAll('.catalog-item').forEach(card => {
       const minusBtn = card.querySelector('.btn-qty-minus');
       const plusBtn = card.querySelector('.btn-qty-plus');
