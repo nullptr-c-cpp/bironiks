@@ -104,7 +104,21 @@
       "slug": "teploizolyatsiya-dlya-trub",
       "title": "Теплоизоляция для труб",
       "coverImage": "",
-      "description": ""
+      "description": "",
+      "subcategories": [
+        {
+          "id": "tolshchina-stenki-9-mm",
+          "title": "Толщина стенки 9 мм"
+        },
+        {
+          "id": "tolshchina-stenki-13-mm",
+          "title": "Толщина стенки 13 мм"
+        },
+        {
+          "id": "tolshchina-stenki-20-mm",
+          "title": "Толщина стенки 20 мм"
+        }
+      ]
     },
     {
       "id": "teploizolyatsiya-dlya-trub-krasnaya-sinyaya",
@@ -1468,6 +1482,9 @@
         "vspenennyy-polietilen",
         "teploizolyatsiya-dlya-trub"
       ],
+      "subcategoryIds": [
+        "tolshchina-stenki-9-mm"
+      ],
       "collectionIds": [],
       "description": "",
       "coverImage": "/image/products/trub-0.webp",
@@ -1667,6 +1684,9 @@
         "vspenennyy-polietilen",
         "teploizolyatsiya-dlya-trub"
       ],
+      "subcategoryIds": [
+        "tolshchina-stenki-13-mm"
+      ],
       "collectionIds": [],
       "description": "",
       "coverImage": "/image/products/trub-0.webp",
@@ -1841,6 +1861,9 @@
       "categoryIds": [
         "vspenennyy-polietilen",
         "teploizolyatsiya-dlya-trub"
+      ],
+      "subcategoryIds": [
+        "tolshchina-stenki-20-mm"
       ],
       "collectionIds": [],
       "description": "",
