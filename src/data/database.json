@@ -3533,6 +3533,7 @@
       "categoryIds": [
         "meshki"
       ],
+      "subcategoryIds": [],
       "collectionIds": [],
       "description": "",
       "coverImage": "/image/products/meshok-krupno.webp",
@@ -4054,6 +4055,7 @@
       "categoryIds": [
         "sol"
       ],
+      "subcategoryIds": [],
       "collectionIds": [
         "dlya-dachi-i-sada"
       ],
@@ -4068,7 +4070,7 @@
           "title": "Таблетированная экстра \"Универсальная\" (Мешок 25 кг)",
           "prices": {
             "кг": 30,
-            "мешок": 750
+            "мешок": 900
           },
           "attributes": {
             "Масса": "25кг"
