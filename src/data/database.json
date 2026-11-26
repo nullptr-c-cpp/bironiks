@@ -2884,7 +2884,7 @@
     {
       "id": "germetik-silikonovyy-sanitarnyy-marcon",
       "slug": "germetik-silikonovyy-sanitarnyy-marcon",
-      "title": "Герметик силиконовый санитарный UNIKA DIY 260мл",
+      "title": "Герметик силиконовый санитарный UNIKA DIY",
       "categoryIds": [
         "montazhnaya-pena"
       ],
@@ -2913,7 +2913,7 @@
         },
         {
           "sku": "BALLON-260",
-          "title": "Бесцветный",
+          "title": "Бесцветный (260 мл)",
           "prices": {
             "баллон": 200
           },
