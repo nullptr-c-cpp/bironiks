@@ -2895,19 +2895,29 @@
       ],
       "description": "",
       "coverImage": "/image/products/549430unika-diy-260-akril.webp",
-      "gallery": [],
+      "gallery": [
+        "/image/products/151295unika-diy-260-bbn.webp"
+      ],
       "certificates": [],
       "base_attributes": {},
       "variants": [
         {
-          "sku": "BALLON-280",
-          "title": "Белый (280 мл)",
+          "sku": "BALLON-260",
+          "title": "Белый (260 мл)",
           "prices": {
             "баллон": 200
           },
           "attributes": {
             "Заполнение баллона": "280мл"
           }
+        },
+        {
+          "sku": "BALLON-260",
+          "title": "Бесцветный",
+          "prices": {
+            "баллон": 200
+          },
+          "attributes": {}
         }
       ]
     },
