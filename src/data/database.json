@@ -2107,6 +2107,7 @@
       "categoryIds": [
         "dzhut"
       ],
+      "subcategoryIds": [],
       "collectionIds": [],
       "description": "",
       "coverImage": "/image/products/dzhut-2.webp",
@@ -2120,8 +2121,8 @@
           "sku": "JUT-10",
           "title": "Ширина 10см (Мешок 10 шт)",
           "prices": {
-            "шт": 180,
-            "мешок": 1800
+            "шт": 195,
+            "мешок": 1950
           },
           "attributes": {
             "Ширина": "10см",
@@ -2132,8 +2133,8 @@
           "sku": "JUT-15",
           "title": "Ширина 15см (Мешок 7 шт)",
           "prices": {
-            "шт": 280,
-            "мешок": 1960
+            "шт": 295,
+            "мешок": 2065
           },
           "attributes": {
             "Ширина": "15см",
@@ -2144,8 +2145,8 @@
           "sku": "JUT-20",
           "title": "Ширина 20см (Мешок 5 шт)",
           "prices": {
-            "шт": 350,
-            "мешок": 1750
+            "шт": 395,
+            "мешок": 1975
           },
           "attributes": {
             "Ширина": "20см",
@@ -2883,16 +2884,17 @@
     {
       "id": "germetik-silikonovyy-sanitarnyy-marcon",
       "slug": "germetik-silikonovyy-sanitarnyy-marcon",
-      "title": "Герметик силиконовый санитарный Marcon",
+      "title": "Герметик силиконовый санитарный UNIKA DIY 260мл",
       "categoryIds": [
         "montazhnaya-pena"
       ],
+      "subcategoryIds": [],
       "collectionIds": [
         "dlya-dachi-i-sada",
         "dlya-zimnego-montazha-i-germetizatsii-okon"
       ],
       "description": "",
-      "coverImage": "/image/products/germetik-silikonovyy-belyy-260mlupdate.webp",
+      "coverImage": "/image/products/549430unika-diy-260-akril.webp",
       "gallery": [],
       "certificates": [],
       "base_attributes": {},
